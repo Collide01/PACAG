@@ -38,12 +38,13 @@ public class MannequinPart : MonoBehaviour
         RightHand
     }
     public BodyPart bodyPart;
+    public Color partColor;
 
     // Start is called before the first frame update
     void Start()
     {
         Vector3Int cellPosition = pixelGrid.WorldToCell(transform.position);
-        pixelation.SetTileColor(Color.blue, cellPosition, pixelTilemap);
+        pixelation.SetTileColor(partColor, cellPosition, pixelTilemap);
     }
 
     // Update is called once per frame

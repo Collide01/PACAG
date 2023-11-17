@@ -927,7 +927,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5, z: -20}
+  m_LocalPosition: {x: 0, y: 2.5, z: -22.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1644,7 +1644,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148563907631}
-  m_LocalRotation: {x: 0, y: 0.92387956, z: 0, w: 0.38268343}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
@@ -1654,7 +1654,7 @@ Transform:
   - {fileID: 5465940246996004353}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 135, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &608321761932775170
 Transform:
   m_ObjectHideFlags: 0
@@ -2308,6 +2308,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!1 &2853286957644786547
 GameObject:
   m_ObjectHideFlags: 0
@@ -2341,6 +2342,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &2898355159044775098
 GameObject:
   m_ObjectHideFlags: 0
@@ -2471,6 +2473,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &3166830705592305210
 GameObject:
   m_ObjectHideFlags: 0
@@ -2616,6 +2619,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!4 &3667946887086946965
 Transform:
   m_ObjectHideFlags: 0
@@ -3022,6 +3026,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &5477181764522747812
 Transform:
   m_ObjectHideFlags: 0
@@ -3054,6 +3059,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &5680486696687294371
 GameObject:
   m_ObjectHideFlags: 0
@@ -3087,6 +3093,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &5742672708311670162
 Transform:
   m_ObjectHideFlags: 0
@@ -3119,6 +3126,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &5745358291001839356
 GameObject:
   m_ObjectHideFlags: 0
@@ -3304,6 +3312,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &6009105003311206281
 GameObject:
   m_ObjectHideFlags: 0
@@ -3449,6 +3458,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!4 &6502182839027809469
 Transform:
   m_ObjectHideFlags: 0
@@ -3485,6 +3495,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!1 &6514210125090892594
 GameObject:
   m_ObjectHideFlags: 0
@@ -3533,6 +3544,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 0.99636734, g: 1, b: 0, a: 1}
 --- !u!4 &6629111072940194081
 Transform:
   m_ObjectHideFlags: 0
@@ -3613,6 +3625,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &7138560357099515338
 GameObject:
   m_ObjectHideFlags: 0
@@ -3646,6 +3659,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!4 &7151331951172292515
 Transform:
   m_ObjectHideFlags: 0
@@ -3678,6 +3692,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!4 &7358631407799269189
 Transform:
   m_ObjectHideFlags: 0
@@ -3742,6 +3757,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!1 &7442015435845364250
 GameObject:
   m_ObjectHideFlags: 0
@@ -3775,6 +3791,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!1 &7519898546156282175
 GameObject:
   m_ObjectHideFlags: 0
@@ -3808,6 +3825,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &7542137906520538775
 GameObject:
   m_ObjectHideFlags: 0
@@ -3982,6 +4000,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!4 &8153021305488666584
 Transform:
   m_ObjectHideFlags: 0
@@ -4030,6 +4049,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!4 &8251234211559454588
 Transform:
   m_ObjectHideFlags: 0
@@ -4126,6 +4146,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &8670540289420411985
 GameObject:
   m_ObjectHideFlags: 0
@@ -4173,6 +4194,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!1 &8817898888850496765
 GameObject:
   m_ObjectHideFlags: 0
@@ -4206,6 +4228,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &8932621590892664449
 GameObject:
   m_ObjectHideFlags: 0
@@ -4239,6 +4262,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!1 &8953972740571215866
 GameObject:
   m_ObjectHideFlags: 0
@@ -4288,6 +4312,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   bodyPart: 0
+  partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &9037727976146412352
 GameObject:
   m_ObjectHideFlags: 0
