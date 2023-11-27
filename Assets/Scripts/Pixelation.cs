@@ -7,10 +7,29 @@ public class Pixelation : MonoBehaviour
 {
     [SerializeField] private Tilemap pixelGrid;
     [SerializeField] private Tile pixelTile;
+    public int frameRate;
+    [HideInInspector] public int frame;
 
     private void Start()
     {
         
+    }
+
+    private void FixedUpdate()
+    {
+        frame++;
+        if (frame >= 1 / frameRate)
+        {
+            pixelGrid.ClearAllTiles();
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (frame >= 1 / frameRate)
+        {
+            frame = 0;
+        }
     }
 
     /// <summary>
