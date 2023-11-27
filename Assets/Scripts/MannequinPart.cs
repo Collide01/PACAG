@@ -50,7 +50,7 @@ public class MannequinPart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pixelation.frame >= 1 / pixelation.frameRate)
+        if (pixelation.frame >= 60 / pixelation.frameRate)
         {
             Vector3Int cellPosition = pixelGrid.WorldToCell(transform.position);
             pixelation.SetTileColor(partColor, cellPosition, pixelTilemap);

@@ -18,7 +18,7 @@ public class Pixelation : MonoBehaviour
     private void FixedUpdate()
     {
         frame++;
-        if (frame >= 1 / frameRate)
+        if (frame >= 60 / frameRate)
         {
             pixelGrid.ClearAllTiles();
         }
@@ -26,7 +26,7 @@ public class Pixelation : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (frame >= 1 / frameRate)
+        if (frame >= 60 / frameRate)
         {
             frame = 0;
         }
