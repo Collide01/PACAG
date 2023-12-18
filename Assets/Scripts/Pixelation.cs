@@ -7,12 +7,12 @@ public class Pixelation : MonoBehaviour
 {
     [SerializeField] private Tilemap pixelGrid;
     [SerializeField] private Tile pixelTile;
-    public int frameRate;
+    [HideInInspector] public int frameRate;
     [HideInInspector] public int frame;
 
     private void Start()
     {
-        
+        frameRate = GameObject.FindGameObjectWithTag("CharacterSettings").GetComponent<CharacterSettings>().frameRate;
     }
 
     private void FixedUpdate()

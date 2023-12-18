@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class MannequinPart : MonoBehaviour
 {
+    private CharacterSettings characterSettings;
     public GridLayout pixelGrid;
     public Tilemap pixelTilemap;
     public Pixelation pixelation;
@@ -43,8 +44,12 @@ public class MannequinPart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Vector3Int cellPosition = pixelGrid.WorldToCell(transform.position);
-        pixelation.SetTileColor(partColor, cellPosition, pixelTilemap);
+        characterSettings = GameObject.FindGameObjectWithTag("CharacterSettings").GetComponent<CharacterSettings>();
+
+        // Create the PixelGrid objects and set them as children of the object
+
+        /*Vector3Int cellPosition = pixelGrid.WorldToCell(transform.position);
+        pixelation.SetTileColor(partColor, cellPosition, pixelTilemap);*/
     }
 
     // Update is called once per frame

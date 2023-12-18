@@ -1080,9 +1080,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1337571352}
+  - component: {fileID: 1337571353}
   m_Layer: 0
-  m_Name: UserSettings
-  m_TagString: Untagged
+  m_Name: CharacterSettings
+  m_TagString: CharacterSettings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1102,6 +1103,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1337571353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337571351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c59b2a07009ed83478693837d24c9388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torsoJoint1: 0
+  torsoJoint2: 0
+  leftElbow: 0
+  rightElbow: 0
+  leftKnee: 0
+  rightKnee: 0
+  torsoSize: {x: 0, y: 0, z: 0}
+  leftArmSize: {x: 0, y: 0, z: 0}
+  rightArmSize: {x: 0, y: 0, z: 0}
+  leftSize: {x: 0, y: 0, z: 0}
+  rightSize: {x: 0, y: 0, z: 0}
+  headSize: {x: 0, y: 0, z: 0}
+  frameRate: 60
 --- !u!1 &1445788311
 GameObject:
   m_ObjectHideFlags: 0
@@ -1835,8 +1861,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148563907631}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 84.2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 74.44}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1845,7 +1871,7 @@ Transform:
   - {fileID: 5465940246996004353}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &593083702863985317
 GameObject:
   m_ObjectHideFlags: 0
@@ -3110,7 +3136,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  bodyPart: 0
+  bodyPart: 24
   partColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!4 &2724827809320116901
 Transform:
@@ -3177,7 +3203,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  bodyPart: 0
+  bodyPart: 17
   partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &2898355159044775098
 GameObject:
@@ -3419,7 +3445,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  bodyPart: 0
+  bodyPart: 1
   partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &3166830705592305210
 GameObject:
@@ -4694,7 +4720,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  bodyPart: 0
+  bodyPart: 7
   partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!4 &5586686483294463057
 Transform:
@@ -4776,7 +4802,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  bodyPart: 0
+  bodyPart: 13
   partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &5742672708311670162
 Transform:
@@ -4809,7 +4835,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  bodyPart: 0
+  bodyPart: 11
   partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &5745358291001839356
 GameObject:
@@ -5011,7 +5037,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  bodyPart: 0
+  bodyPart: 22
   partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &6005344629093951683
 GameObject:
@@ -5480,7 +5506,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  bodyPart: 0
+  bodyPart: 20
   partColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!1 &6514210125090892594
 GameObject:
@@ -5529,7 +5555,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  bodyPart: 0
+  bodyPart: 14
   partColor: {r: 0.99636734, g: 1, b: 0, a: 1}
 --- !u!1 &6564018389062106444
 GameObject:
@@ -5711,7 +5737,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  bodyPart: 0
+  bodyPart: 21
   partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &7130383054169166497
 GameObject:
@@ -5761,7 +5787,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  bodyPart: 0
+  bodyPart: 3
   partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!4 &7151331951172292515
 Transform:
@@ -5794,7 +5820,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  bodyPart: 0
+  bodyPart: 2
   partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &7152151273227626873
 GameObject:
@@ -6053,7 +6079,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  bodyPart: 0
+  bodyPart: 19
   partColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!1 &7442015435845364250
 GameObject:
@@ -6087,7 +6113,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  bodyPart: 0
+  bodyPart: 15
   partColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!4 &7455818748844868748
 Transform:
@@ -6675,7 +6701,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  bodyPart: 0
+  bodyPart: 6
   partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &8198981142247636836
 GameObject:
@@ -6886,7 +6912,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  bodyPart: 0
+  bodyPart: 8
   partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &8583875564097615456
 GameObject:
@@ -7017,7 +7043,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  bodyPart: 0
+  bodyPart: 16
   partColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!1 &8777405542484335525
 GameObject:
@@ -7067,7 +7093,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  bodyPart: 0
+  bodyPart: 18
   partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &8884114913815344853
 GameObject:
@@ -7117,7 +7143,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  bodyPart: 0
+  bodyPart: 23
   partColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!1 &8945266353720510161
 GameObject:
@@ -7199,7 +7225,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  bodyPart: 0
+  bodyPart: 12
   partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &9037727976146412352
 GameObject:
