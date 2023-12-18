@@ -5,10 +5,12 @@ using UnityEngine.Tilemaps;
 
 public class MannequinPart : MonoBehaviour
 {
+    const float PIXEL_SIZE = 0.2f; // In world size units
     private CharacterSettings characterSettings;
     public GridLayout pixelGrid;
     public Tilemap pixelTilemap;
     public Pixelation pixelation;
+    public GameObject pixel;
 
     public enum BodyPart
     {
@@ -47,6 +49,74 @@ public class MannequinPart : MonoBehaviour
         characterSettings = GameObject.FindGameObjectWithTag("CharacterSettings").GetComponent<CharacterSettings>();
 
         // Create the PixelGrid objects and set them as children of the object
+        // Create Torso objects (From Hips to Neck)
+        if (bodyPart == BodyPart.Hips)
+        {
+            for (int y = 0; y < characterSettings.torsoJoint1; y++)
+            {
+                for (int x = 0; x < characterSettings.torsoSize.x; x++)
+                {
+                    for (int z = 0; z < characterSettings.torsoSize.z; z++)
+                    {
+                        GameObject pixelInstance = Instantiate(pixel, transform.position, transform.rotation);
+                        pixelInstance.transform.parent = transform;
+                        float pixelSize = pixelInstance.transform.localScale.x;
+
+                        float currentXPosition = 0;
+                        float currentZPosition = 0;
+                        
+                        if (characterSettings.torsoSize.x % 2 == 0) // If the length is even
+                        {
+                            if (x % 2 == 1) // odd numbers
+                            {
+                                currentXPosition = pixelInstance.transform.localPosition.x + pixelSize * (x / 2) + pixelSize / 2;
+                            }
+                            else
+                            {
+                                currentXPosition = pixelInstance.transform.localPosition.x - pixelSize * (x / 2) - pixelSize / 2;
+                            }
+                        }
+                        else
+                        {
+                            if (x % 2 == 1) // odd numbers
+                            {
+                                currentXPosition = pixelInstance.transform.localPosition.x + pixelSize * Mathf.Ceil(x / 2.0f);
+                            }
+                            else
+                            {
+                                currentXPosition = pixelInstance.transform.localPosition.x - pixelSize * (x / 2);
+                            }
+                        }
+
+                        if (characterSettings.torsoSize.z % 2 == 0) // If the width is even
+                        {
+                            if (z % 2 == 1) // odd numbers
+                            {
+                                currentZPosition = pixelInstance.transform.localPosition.z + pixelSize * (z / 2) + pixelSize / 2;
+                            }
+                            else
+                            {
+                                currentZPosition = pixelInstance.transform.localPosition.z - pixelSize * (z / 2) - pixelSize / 2;
+                            }
+                        }
+                        else
+                        {
+                            if (z % 2 == 1) // odd numbers
+                            {
+                                currentZPosition = pixelInstance.transform.localPosition.z + pixelSize * Mathf.Ceil(z / 2.0f);
+                            }
+                            else
+                            {
+                                currentZPosition = pixelInstance.transform.localPosition.z - pixelSize * (z / 2);
+                            }
+                        }
+
+                        pixelInstance.transform.localPosition = new Vector3(currentXPosition, y * pixelSize, currentZPosition);
+
+                    }
+                }
+            }
+        }
 
         /*Vector3Int cellPosition = pixelGrid.WorldToCell(transform.position);
         pixelation.SetTileColor(partColor, cellPosition, pixelTilemap);*/

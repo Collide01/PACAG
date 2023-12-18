@@ -22,8 +22,8 @@ public class CharacterSettings : MonoBehaviour
     public Vector3Int torsoSize = new Vector3Int(); // Size in pixels
     public Vector3Int leftArmSize = new Vector3Int(); // Size in pixels
     public Vector3Int rightArmSize = new Vector3Int(); // Size in pixels
-    public Vector3Int leftSize = new Vector3Int(); // Size in pixels
-    public Vector3Int rightSize = new Vector3Int(); // Size in pixels
+    public Vector3Int leftLegSize = new Vector3Int(); // Size in pixels
+    public Vector3Int rightLegSize = new Vector3Int(); // Size in pixels
     public Vector3Int headSize = new Vector3Int(); // Size in pixels
 
     public int frameRate;
