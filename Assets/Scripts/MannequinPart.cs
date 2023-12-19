@@ -19,7 +19,7 @@ public class MannequinPart : MonoBehaviour
     {
         characterSettings = GameObject.FindGameObjectWithTag("CharacterSettings").GetComponent<CharacterSettings>();
 
-        // Create the PixelGrid objects and set them as children of the object
+        // Create the PixelGrid objects and joints and set them as children of the object
         switch (bodyPart)
         {
             case BodyPart.Hips:
@@ -30,25 +30,10 @@ public class MannequinPart : MonoBehaviour
                 
                 if (jointPoint != null)
                 {
-                    GameObject jointInstance = Instantiate(jointPoint, transform.position, transform.rotation);
-
-                    JointData jointData = jointInstance.GetComponent<JointData>();
-                    jointData.modelJoint = BodyPart.Spine;
-
-                    MannequinPart jointMannequinPart = jointInstance.GetComponent<MannequinPart>();
-                    jointMannequinPart.pixelGrid = pixelGrid;
-                    jointMannequinPart.pixelTilemap = pixelTilemap;
-                    jointMannequinPart.pixelation = pixelation;
-                    jointMannequinPart.pixel = pixel;
-                    jointMannequinPart.jointPoint = jointPoint;
-                    jointMannequinPart.bodyPart = BodyPart.Spine;
-                    jointMannequinPart.partColor = partColor;
-
-                    jointInstance.transform.parent = transform;
-                    float pixelSize = jointInstance.transform.localScale.x;
-                    jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x, jointInstance.transform.localPosition.y + characterSettings.torsoJoint1 * pixelSize, jointInstance.transform.localPosition.z);
+                    CreateJoint(BodyPart.Spine, Color.red, characterSettings.torsoJoint1, true);
                 }
                 break;
+
             case BodyPart.Spine:
                 if (pixel != null)
                 {
@@ -57,23 +42,38 @@ public class MannequinPart : MonoBehaviour
 
                 if (jointPoint != null)
                 {
-                    GameObject jointInstance = Instantiate(jointPoint, transform.position, transform.rotation);
+                    CreateJoint(BodyPart.Spine1, Color.red, characterSettings.torsoJoint2 - characterSettings.torsoJoint1, true);
+                }
+                break;
 
-                    JointData jointData = jointInstance.GetComponent<JointData>();
-                    jointData.modelJoint = BodyPart.Spine;
+            case BodyPart.Spine1:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.torsoSize.x, characterSettings.torsoJoint3 - characterSettings.torsoJoint2, characterSettings.torsoSize.z);
+                }
 
-                    MannequinPart jointMannequinPart = jointInstance.GetComponent<MannequinPart>();
-                    jointMannequinPart.pixelGrid = pixelGrid;
-                    jointMannequinPart.pixelTilemap = pixelTilemap;
-                    jointMannequinPart.pixelation = pixelation;
-                    jointMannequinPart.pixel = pixel;
-                    jointMannequinPart.jointPoint = jointPoint;
-                    jointMannequinPart.bodyPart = BodyPart.Spine1;
-                    jointMannequinPart.partColor = partColor;
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.Spine2, Color.red, characterSettings.torsoJoint3 - characterSettings.torsoJoint2, true);
+                }
+                break;
 
-                    jointInstance.transform.parent = transform;
-                    float pixelSize = jointInstance.transform.localScale.x;
-                    jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x, jointInstance.transform.localPosition.y + (characterSettings.torsoJoint2 - characterSettings.torsoJoint1) * pixelSize, jointInstance.transform.localPosition.z);
+            case BodyPart.Spine2:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.torsoSize.x, characterSettings.torsoSize.y - characterSettings.torsoJoint3, characterSettings.torsoSize.z);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.Neck, Color.yellow, characterSettings.torsoSize.y - characterSettings.torsoJoint3, true);
+                }
+                break;
+
+            case BodyPart.Neck:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.headSize.x, characterSettings.headSize.y, characterSettings.headSize.z);
                 }
                 break;
         }
@@ -157,5 +157,29 @@ public class MannequinPart : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void CreateJoint(BodyPart joint, Color jointColor, int height, bool createNewJoint)
+    {
+        GameObject jointInstance = Instantiate(jointPoint, transform.position, transform.rotation);
+
+        JointData jointData = jointInstance.GetComponent<JointData>();
+        jointData.modelJoint = joint;
+
+        MannequinPart jointMannequinPart = jointInstance.GetComponent<MannequinPart>();
+        jointMannequinPart.pixelGrid = pixelGrid;
+        jointMannequinPart.pixelTilemap = pixelTilemap;
+        jointMannequinPart.pixelation = pixelation;
+        if (createNewJoint)
+        {
+            jointMannequinPart.pixel = pixel;
+            jointMannequinPart.jointPoint = jointPoint;
+        }
+        jointMannequinPart.bodyPart = joint;
+        jointMannequinPart.partColor = jointColor;
+
+        jointInstance.transform.parent = transform;
+        float pixelSize = jointInstance.transform.localScale.x;
+        jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x, jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
     }
 }

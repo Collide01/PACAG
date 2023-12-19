@@ -1126,7 +1126,7 @@ MonoBehaviour:
   rightArmSize: {x: 0, y: 0, z: 0}
   leftLegSize: {x: 0, y: 0, z: 0}
   rightLegSize: {x: 0, y: 0, z: 0}
-  headSize: {x: 0, y: 0, z: 0}
+  headSize: {x: 2, y: 4, z: 2}
   frameRate: 60
 --- !u!1 &1445788311
 GameObject:
@@ -1968,7 +1968,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 7
   partColor: {r: 0, g: 0, b: 1, a: 1}
@@ -2993,7 +2993,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 15
   partColor: {r: 1, g: 1, b: 0, a: 1}
@@ -3370,7 +3370,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 10
   partColor: {r: 0, g: 0, b: 1, a: 1}
@@ -3880,7 +3880,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 6
   partColor: {r: 0, g: 0, b: 1, a: 1}
@@ -4093,7 +4093,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 18
   partColor: {r: 1, g: 0, b: 0, a: 1}
@@ -4342,7 +4342,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 13
   partColor: {r: 1, g: 0, b: 0, a: 1}
@@ -4394,7 +4394,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 22
   partColor: {r: 1, g: 0, b: 0, a: 1}
@@ -4492,7 +4492,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 21
   partColor: {r: 1, g: 0, b: 0, a: 1}
@@ -4593,7 +4593,7 @@ MonoBehaviour:
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
-  jointPoint: {fileID: 0}
+  jointPoint: {fileID: 6793576486800379558, guid: 92276b3c7221f4844838d3f9b4e92eec, type: 3}
   bodyPart: 0
   partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &5345565088989067561
@@ -4798,7 +4798,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 8
   partColor: {r: 0, g: 0, b: 1, a: 1}
@@ -5109,7 +5109,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 11
   partColor: {r: 1, g: 0, b: 0, a: 1}
@@ -5192,7 +5192,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 4
   partColor: {r: 0, g: 0, b: 1, a: 1}
@@ -5398,7 +5398,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 12
   partColor: {r: 1, g: 0, b: 0, a: 1}
@@ -5910,7 +5910,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 24
   partColor: {r: 1, g: 1, b: 0, a: 1}
@@ -6008,7 +6008,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 23
   partColor: {r: 1, g: 1, b: 0, a: 1}
@@ -6091,7 +6091,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 3
   partColor: {r: 0, g: 0, b: 1, a: 1}
@@ -6212,7 +6212,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 17
   partColor: {r: 1, g: 0, b: 0, a: 1}
@@ -6428,7 +6428,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 2
   partColor: {r: 0, g: 0, b: 1, a: 1}
@@ -6480,7 +6480,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 1
   partColor: {r: 0, g: 0, b: 1, a: 1}
@@ -6593,7 +6593,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 16
   partColor: {r: 1, g: 1, b: 0, a: 1}
@@ -6696,7 +6696,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 19
   partColor: {r: 1, g: 1, b: 0, a: 1}
@@ -6732,7 +6732,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 14
   partColor: {r: 1, g: 1, b: 0, a: 1}
@@ -6914,7 +6914,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 9
   partColor: {r: 0, g: 0, b: 1, a: 1}
@@ -7099,7 +7099,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 20
   partColor: {r: 1, g: 1, b: 0, a: 1}
@@ -7403,7 +7403,7 @@ MonoBehaviour:
   pixelGrid: {fileID: 517680563}
   pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
-  pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
+  pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 5
   partColor: {r: 0, g: 0, b: 1, a: 1}

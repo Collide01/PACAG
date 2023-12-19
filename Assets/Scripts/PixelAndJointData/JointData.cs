@@ -15,15 +15,13 @@ public class JointData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Find the same joint on the mannequin and copy its rotation
         foreach (MannequinPart jointObject in jointObjects)
         {
-            if (jointObject.gameObject != this)
+            if (jointObject.gameObject != this && jointObject.bodyPart == modelJoint)
             {
-                if (jointObject.bodyPart == modelJoint)
-                {
-                    transform.rotation = jointObject.gameObject.transform.rotation;
-                    break;
-                }
+                transform.rotation = jointObject.gameObject.transform.rotation;
+                break;
             }
         }
     }

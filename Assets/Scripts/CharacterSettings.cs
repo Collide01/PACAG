@@ -13,6 +13,7 @@ public class CharacterSettings : MonoBehaviour
     public Dictionary<Vector3Int, Color> headGrid = new Dictionary<Vector3Int, Color>(); // HeadTop to Neck
     public int torsoJoint1; // Spine in model (y-value in torso grid)
     public int torsoJoint2; // Spine1 in model (y-value in torso grid)
+    public int torsoJoint3; // Spine2 in model (y-value in torso grid)
     public int leftElbow; // LeftForeArm in model (y-value in leftArm grid)
     public int rightElbow; // RightForeArm in model (y-value in rightArm grid)
     public int leftKnee; // LeftLeg in model (y-value in leftLeg grid)
