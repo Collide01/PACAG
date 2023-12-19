@@ -165,6 +165,7 @@ public class MannequinPart : MonoBehaviour
 
         JointData jointData = jointInstance.GetComponent<JointData>();
         jointData.modelJoint = joint;
+        jointData.jointSet = true;
 
         MannequinPart jointMannequinPart = jointInstance.GetComponent<MannequinPart>();
         jointMannequinPart.pixelGrid = pixelGrid;
@@ -181,5 +182,6 @@ public class MannequinPart : MonoBehaviour
         jointInstance.transform.parent = transform;
         float pixelSize = jointInstance.transform.localScale.x;
         jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x, jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+        jointInstance.transform.localScale = new Vector3(1, 1, 1);
     }
 }

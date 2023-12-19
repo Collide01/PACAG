@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 338075325014258900}
   - component: {fileID: 696797923728462178}
   - component: {fileID: 835197876490991056}
+  - component: {fileID: -6695171549027705979}
   m_Layer: 0
   m_Name: NewJoint
   m_TagString: Untagged
@@ -45,7 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ce55952b6dbcb4b831c226c3aa8d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modelJoint: {fileID: 0}
+  modelJoint: 0
+  rotationConstraint: {fileID: -6695171549027705979}
 --- !u!114 &835197876490991056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,3 +67,21 @@ MonoBehaviour:
   jointPoint: {fileID: 0}
   bodyPart: 0
   partColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!1818360609 &-6695171549027705979
+RotationConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6793576486800379558}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_RotationOffset: {x: 0, y: 0, z: 0}
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_Active: 1
+  m_IsLocked: 1
+  m_Sources: []
