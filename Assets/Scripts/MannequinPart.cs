@@ -5,41 +5,12 @@ using UnityEngine.Tilemaps;
 
 public class MannequinPart : MonoBehaviour
 {
-    const float PIXEL_SIZE = 0.2f; // In world size units
     private CharacterSettings characterSettings;
     public GridLayout pixelGrid;
     public Tilemap pixelTilemap;
     public Pixelation pixelation;
     public GameObject pixel;
-
-    public enum BodyPart
-    {
-        Hips,
-        LeftUpLeg,
-        LeftLeg,
-        LeftFoot,
-        LeftToeBase,
-        LeftToeEnd,
-        RightUpLeg,
-        RightLeg,
-        RightFoot,
-        RightToeBase,
-        RightToeEnd,
-        Spine,
-        Spine1,
-        Spine2,
-        Neck,
-        Head,
-        HeadTop,
-        LeftShoulder,
-        LeftArm,
-        LeftForearm,
-        LeftHand,
-        RightShoulder,
-        RightArm,
-        RightForearm,
-        RightHand
-    }
+    public GameObject jointPoint;
     public BodyPart bodyPart;
     public Color partColor;
 
@@ -53,6 +24,27 @@ public class MannequinPart : MonoBehaviour
         {
             case BodyPart.Hips:
                 CreatePixelBlocks(characterSettings.torsoSize.x, characterSettings.torsoJoint1, characterSettings.torsoSize.z);
+                if (jointPoint != null)
+                {
+                    GameObject jointInstance = Instantiate(jointPoint, transform.position, transform.rotation);
+
+                    JointData jointData = jointInstance.GetComponent<JointData>();
+                    //jointData.modelJoint = BodyPart.Spine;
+
+                    MannequinPart jointMannequinPart = jointInstance.GetComponent<MannequinPart>();
+                    jointMannequinPart.pixelGrid = pixelGrid;
+                    jointMannequinPart.pixelTilemap = pixelTilemap;
+                    jointMannequinPart.pixelation = pixelation;
+                    jointMannequinPart.pixel = pixel;
+                    jointMannequinPart.jointPoint = jointPoint;
+                    jointMannequinPart.bodyPart = BodyPart.Spine;
+                    jointMannequinPart.partColor = partColor;
+
+                    jointInstance.transform.parent = transform;
+                    float pixelSize = jointInstance.transform.localScale.x;
+                    jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x, jointInstance.transform.localPosition.y + characterSettings.torsoJoint1 * pixelSize, jointInstance.transform.localPosition.z);
+                }
+                
                 break;
         }
 
