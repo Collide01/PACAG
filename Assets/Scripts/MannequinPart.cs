@@ -23,13 +23,17 @@ public class MannequinPart : MonoBehaviour
         switch (bodyPart)
         {
             case BodyPart.Hips:
-                CreatePixelBlocks(characterSettings.torsoSize.x, characterSettings.torsoJoint1, characterSettings.torsoSize.z);
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.torsoSize.x, characterSettings.torsoJoint1, characterSettings.torsoSize.z);
+                }
+                
                 if (jointPoint != null)
                 {
                     GameObject jointInstance = Instantiate(jointPoint, transform.position, transform.rotation);
 
                     JointData jointData = jointInstance.GetComponent<JointData>();
-                    //jointData.modelJoint = BodyPart.Spine;
+                    jointData.modelJoint = BodyPart.Spine;
 
                     MannequinPart jointMannequinPart = jointInstance.GetComponent<MannequinPart>();
                     jointMannequinPart.pixelGrid = pixelGrid;
@@ -44,7 +48,33 @@ public class MannequinPart : MonoBehaviour
                     float pixelSize = jointInstance.transform.localScale.x;
                     jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x, jointInstance.transform.localPosition.y + characterSettings.torsoJoint1 * pixelSize, jointInstance.transform.localPosition.z);
                 }
-                
+                break;
+            case BodyPart.Spine:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.torsoSize.x, characterSettings.torsoJoint2 - characterSettings.torsoJoint1, characterSettings.torsoSize.z);
+                }
+
+                if (jointPoint != null)
+                {
+                    GameObject jointInstance = Instantiate(jointPoint, transform.position, transform.rotation);
+
+                    JointData jointData = jointInstance.GetComponent<JointData>();
+                    jointData.modelJoint = BodyPart.Spine;
+
+                    MannequinPart jointMannequinPart = jointInstance.GetComponent<MannequinPart>();
+                    jointMannequinPart.pixelGrid = pixelGrid;
+                    jointMannequinPart.pixelTilemap = pixelTilemap;
+                    jointMannequinPart.pixelation = pixelation;
+                    jointMannequinPart.pixel = pixel;
+                    jointMannequinPart.jointPoint = jointPoint;
+                    jointMannequinPart.bodyPart = BodyPart.Spine1;
+                    jointMannequinPart.partColor = partColor;
+
+                    jointInstance.transform.parent = transform;
+                    float pixelSize = jointInstance.transform.localScale.x;
+                    jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x, jointInstance.transform.localPosition.y + (characterSettings.torsoJoint2 - characterSettings.torsoJoint1) * pixelSize, jointInstance.transform.localPosition.z);
+                }
                 break;
         }
 
