@@ -1123,11 +1123,15 @@ MonoBehaviour:
   rightElbow: 4
   leftKnee: 6
   rightKnee: 6
+  leftToe: 4
+  rightToe: 4
   torsoSize: {x: 5, y: 8, z: 2}
   leftArmSize: {x: 2, y: 9, z: 2}
   rightArmSize: {x: 2, y: 9, z: 2}
   leftLegSize: {x: 2, y: 12, z: 2}
   rightLegSize: {x: 2, y: 12, z: 2}
+  leftFootSize: {x: 2, y: 5, z: 1}
+  rightFootSize: {x: 2, y: 5, z: 1}
   headSize: {x: 2, y: 4, z: 3}
   frameRate: 60
 --- !u!1 &1445788311
@@ -1826,7 +1830,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 7
-  partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!4 &892640312235260708
 Transform:
   m_ObjectHideFlags: 0
@@ -2342,7 +2345,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 15
-  partColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!4 &2653330668510133733
 Transform:
   m_ObjectHideFlags: 0
@@ -2488,7 +2490,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 10
-  partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &3087420838043053042
 GameObject:
   m_ObjectHideFlags: 0
@@ -2700,7 +2701,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 6
-  partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!4 &4020433947907375838
 Transform:
   m_ObjectHideFlags: 0
@@ -2833,7 +2833,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 18
-  partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &4402592936286714759
 GameObject:
   m_ObjectHideFlags: 0
@@ -2905,7 +2904,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5345565088989067561}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 82.1}
+  m_LocalPosition: {x: 0, y: 0, z: 82.7}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2967,7 +2966,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 13
-  partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &4967761253175412286
 GameObject:
   m_ObjectHideFlags: 0
@@ -3003,7 +3001,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 22
-  partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &4996314725145746045
 Transform:
   m_ObjectHideFlags: 0
@@ -3069,7 +3066,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 21
-  partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &5224250369212230925
 GameObject:
   m_ObjectHideFlags: 0
@@ -3153,7 +3149,6 @@ MonoBehaviour:
   pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
   jointPoint: {fileID: 6793576486800379558, guid: 92276b3c7221f4844838d3f9b4e92eec, type: 3}
   bodyPart: 0
-  partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &5345565088989067561
 GameObject:
   m_ObjectHideFlags: 0
@@ -3255,7 +3250,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 8
-  partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &5849707638503830771
 GameObject:
   m_ObjectHideFlags: 0
@@ -3307,7 +3301,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 11
-  partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &6006019452963510859
 Transform:
   m_ObjectHideFlags: 0
@@ -3359,7 +3352,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 4
-  partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!4 &6096151831073607572
 Transform:
   m_ObjectHideFlags: 0
@@ -3531,7 +3523,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 12
-  partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &6227394067021138960
 Transform:
   m_ObjectHideFlags: 0
@@ -3716,7 +3707,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 24
-  partColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!4 &7248349326561992892
 Transform:
   m_ObjectHideFlags: 0
@@ -3814,7 +3804,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 23
-  partColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!4 &7366225465993749922
 Transform:
   m_ObjectHideFlags: 0
@@ -3865,7 +3854,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 3
-  partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!4 &7397184399950570186
 Transform:
   m_ObjectHideFlags: 0
@@ -3915,7 +3903,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 17
-  partColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &7519724187718017534
 GameObject:
   m_ObjectHideFlags: 0
@@ -4015,7 +4002,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 2
-  partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &7862437561376320316
 GameObject:
   m_ObjectHideFlags: 0
@@ -4067,7 +4053,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 1
-  partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!4 &7960020694432199779
 Transform:
   m_ObjectHideFlags: 0
@@ -4134,7 +4119,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 16
-  partColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!1 &8040159872609095329
 GameObject:
   m_ObjectHideFlags: 0
@@ -4186,7 +4170,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 19
-  partColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!1 &8145129779750056192
 GameObject:
   m_ObjectHideFlags: 0
@@ -4222,7 +4205,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 14
-  partColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!1 &8198981142247636836
 GameObject:
   m_ObjectHideFlags: 0
@@ -4306,7 +4288,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 9
-  partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &8414968340207482481
 GameObject:
   m_ObjectHideFlags: 0
@@ -4423,7 +4404,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 20
-  partColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!1 &8777405542484335525
 GameObject:
   m_ObjectHideFlags: 0
@@ -4521,7 +4501,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 5
-  partColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &9221634797885548873
 GameObject:
   m_ObjectHideFlags: 0

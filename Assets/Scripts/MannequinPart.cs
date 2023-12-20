@@ -12,7 +12,6 @@ public class MannequinPart : MonoBehaviour
     public GameObject pixel;
     public GameObject jointPoint;
     public BodyPart bodyPart;
-    public Color partColor;
 
     // Start is called before the first frame update
     void Start()
@@ -30,9 +29,9 @@ public class MannequinPart : MonoBehaviour
                 
                 if (jointPoint != null)
                 {
-                    CreateJoint(BodyPart.Spine, Color.red, characterSettings.torsoJoint1, true);
-                    CreateJoint(BodyPart.LeftUpLeg, Color.blue, -1, true);
-                    CreateJoint(BodyPart.RightUpLeg, Color.blue, -1, true);
+                    CreateJoint(BodyPart.Spine, characterSettings.torsoJoint1, true);
+                    CreateJoint(BodyPart.LeftUpLeg, -1, true);
+                    CreateJoint(BodyPart.RightUpLeg, -1, true);
                 }
                 break;
 
@@ -44,7 +43,7 @@ public class MannequinPart : MonoBehaviour
 
                 if (jointPoint != null)
                 {
-                    CreateJoint(BodyPart.Spine1, Color.red, characterSettings.torsoJoint2 - characterSettings.torsoJoint1, true);
+                    CreateJoint(BodyPart.Spine1, characterSettings.torsoJoint2 - characterSettings.torsoJoint1, true);
                 }
                 break;
 
@@ -56,7 +55,7 @@ public class MannequinPart : MonoBehaviour
 
                 if (jointPoint != null)
                 {
-                    CreateJoint(BodyPart.Spine2, Color.red, characterSettings.torsoJoint3 - characterSettings.torsoJoint2, true);
+                    CreateJoint(BodyPart.Spine2, characterSettings.torsoJoint3 - characterSettings.torsoJoint2, true);
                 }
                 break;
 
@@ -68,9 +67,9 @@ public class MannequinPart : MonoBehaviour
 
                 if (jointPoint != null)
                 {
-                    CreateJoint(BodyPart.Neck, Color.yellow, characterSettings.torsoSize.y - characterSettings.torsoJoint3, true);
-                    CreateJoint(BodyPart.LeftArm, Color.yellow, characterSettings.torsoSize.y - characterSettings.torsoJoint3 - 0.5f - (characterSettings.leftArmSize.z / 2.0f), true);
-                    CreateJoint(BodyPart.RightArm, Color.yellow, characterSettings.torsoSize.y - characterSettings.torsoJoint3 - 0.5f - (characterSettings.leftArmSize.z / 2.0f), true);
+                    CreateJoint(BodyPart.Neck, characterSettings.torsoSize.y - characterSettings.torsoJoint3, true);
+                    CreateJoint(BodyPart.LeftArm, characterSettings.torsoSize.y - characterSettings.torsoJoint3 - 0.5f - (characterSettings.leftArmSize.z / 2.0f), true);
+                    CreateJoint(BodyPart.RightArm, characterSettings.torsoSize.y - characterSettings.torsoJoint3 - 0.5f - (characterSettings.leftArmSize.z / 2.0f), true);
                 }
                 break;
 
@@ -89,7 +88,7 @@ public class MannequinPart : MonoBehaviour
 
                 if (jointPoint != null)
                 {
-                    CreateJoint(BodyPart.LeftForearm, Color.yellow, characterSettings.leftElbow, true);
+                    CreateJoint(BodyPart.LeftForearm, characterSettings.leftElbow, true);
                 }
                 break;
 
@@ -101,7 +100,7 @@ public class MannequinPart : MonoBehaviour
 
                 if (jointPoint != null)
                 {
-                    CreateJoint(BodyPart.LeftHand, Color.yellow, characterSettings.leftArmSize.y - characterSettings.leftElbow, false);
+                    CreateJoint(BodyPart.LeftHand, characterSettings.leftArmSize.y - characterSettings.leftElbow, false);
                 }
                 break;
 
@@ -113,7 +112,7 @@ public class MannequinPart : MonoBehaviour
 
                 if (jointPoint != null)
                 {
-                    CreateJoint(BodyPart.RightForearm, Color.yellow, characterSettings.rightElbow, true);
+                    CreateJoint(BodyPart.RightForearm, characterSettings.rightElbow, true);
                 }
                 break;
 
@@ -125,7 +124,7 @@ public class MannequinPart : MonoBehaviour
 
                 if (jointPoint != null)
                 {
-                    CreateJoint(BodyPart.RightHand, Color.yellow, characterSettings.rightArmSize.y - characterSettings.rightElbow, false);
+                    CreateJoint(BodyPart.RightHand, characterSettings.rightArmSize.y - characterSettings.rightElbow, false);
                 }
                 break;
 
@@ -137,7 +136,7 @@ public class MannequinPart : MonoBehaviour
 
                 if (jointPoint != null)
                 {
-                    CreateJoint(BodyPart.LeftLeg, Color.blue, characterSettings.leftKnee, true);
+                    CreateJoint(BodyPart.LeftLeg, characterSettings.leftKnee, true);
                 }
                 break;
 
@@ -145,6 +144,30 @@ public class MannequinPart : MonoBehaviour
                 if (pixel != null)
                 {
                     CreatePixelBlocks(characterSettings.leftLegSize.x, characterSettings.leftLegSize.y - characterSettings.leftKnee, characterSettings.leftLegSize.z, Color.blue);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.LeftFoot, characterSettings.leftLegSize.y - characterSettings.leftKnee, true);
+                }
+                break;
+
+            case BodyPart.LeftFoot:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.leftFootSize.x, characterSettings.leftToe, characterSettings.leftFootSize.z, Color.gray);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.LeftToeBase, characterSettings.leftToe, true);
+                }
+                break;
+
+            case BodyPart.LeftToeBase:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.leftFootSize.x, characterSettings.leftFootSize.y - characterSettings.leftToe, characterSettings.leftFootSize.z, Color.gray);
                 }
                 break;
 
@@ -156,7 +179,7 @@ public class MannequinPart : MonoBehaviour
 
                 if (jointPoint != null)
                 {
-                    CreateJoint(BodyPart.RightLeg, Color.blue, characterSettings.rightKnee, true);
+                    CreateJoint(BodyPart.RightLeg, characterSettings.rightKnee, true);
                 }
                 break;
 
@@ -164,6 +187,30 @@ public class MannequinPart : MonoBehaviour
                 if (pixel != null)
                 {
                     CreatePixelBlocks(characterSettings.rightLegSize.x, characterSettings.rightLegSize.y - characterSettings.rightKnee, characterSettings.rightLegSize.z, Color.blue);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.RightFoot, characterSettings.rightKnee, true);
+                }
+                break;
+
+            case BodyPart.RightFoot:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.rightFootSize.x, characterSettings.rightToe, characterSettings.rightFootSize.z, Color.gray);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.RightToeBase, characterSettings.rightToe, true);
+                }
+                break;
+
+            case BodyPart.RightToeBase:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.rightFootSize.x, characterSettings.rightFootSize.y - characterSettings.rightToe, characterSettings.rightFootSize.z, Color.gray);
                 }
                 break;
         }
@@ -245,7 +292,7 @@ public class MannequinPart : MonoBehaviour
     }
 
     // Creates a joint for the pixel body
-    private void CreateJoint(BodyPart joint, Color jointColor, float height, bool createNewJoint)
+    private void CreateJoint(BodyPart joint, float height, bool createNewJoint)
     {
         GameObject jointInstance = Instantiate(jointPoint, transform.position, transform.rotation);
 
@@ -263,7 +310,6 @@ public class MannequinPart : MonoBehaviour
             jointMannequinPart.jointPoint = jointPoint;
         }
         jointMannequinPart.bodyPart = joint;
-        jointMannequinPart.partColor = jointColor;
 
         // Create the joints at different locations
         jointInstance.transform.parent = transform;
