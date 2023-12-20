@@ -1118,13 +1118,13 @@ MonoBehaviour:
   torsoJoint1: 2
   torsoJoint2: 4
   torsoJoint3: 6
-  leftElbow: 0
-  rightElbow: 0
+  leftElbow: 4
+  rightElbow: 4
   leftKnee: 0
   rightKnee: 0
   torsoSize: {x: 5, y: 8, z: 2}
-  leftArmSize: {x: 0, y: 0, z: 0}
-  rightArmSize: {x: 0, y: 0, z: 0}
+  leftArmSize: {x: 2, y: 9, z: 2}
+  rightArmSize: {x: 2, y: 9, z: 2}
   leftLegSize: {x: 0, y: 0, z: 0}
   rightLegSize: {x: 0, y: 0, z: 0}
   headSize: {x: 2, y: 4, z: 2}
@@ -2034,7 +2034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &951597904010806023
 Transform:
   m_ObjectHideFlags: 0
@@ -4613,7 +4613,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &5345565088989067562
 Animator:
   serializedVersion: 4

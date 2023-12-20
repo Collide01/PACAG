@@ -31,6 +31,7 @@ public class MannequinPart : MonoBehaviour
                 if (jointPoint != null)
                 {
                     CreateJoint(BodyPart.Spine, Color.red, characterSettings.torsoJoint1, true);
+                    
                 }
                 break;
 
@@ -67,6 +68,8 @@ public class MannequinPart : MonoBehaviour
                 if (jointPoint != null)
                 {
                     CreateJoint(BodyPart.Neck, Color.yellow, characterSettings.torsoSize.y - characterSettings.torsoJoint3, true);
+                    CreateJoint(BodyPart.LeftArm, Color.yellow, characterSettings.torsoSize.y - characterSettings.torsoJoint3 - characterSettings.leftArmSize.z, true);
+                    CreateJoint(BodyPart.RightArm, Color.yellow, characterSettings.torsoSize.y - characterSettings.torsoJoint3 - characterSettings.rightArmSize.z, true);
                 }
                 break;
 
@@ -74,6 +77,54 @@ public class MannequinPart : MonoBehaviour
                 if (pixel != null)
                 {
                     CreatePixelBlocks(characterSettings.headSize.x, characterSettings.headSize.y, characterSettings.headSize.z);
+                }
+                break;
+
+            case BodyPart.LeftArm:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.leftArmSize.x, characterSettings.leftElbow, characterSettings.leftArmSize.z);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.LeftForearm, Color.yellow, characterSettings.leftElbow, true);
+                }
+                break;
+
+            case BodyPart.LeftForearm:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.leftArmSize.x, characterSettings.leftArmSize.y - characterSettings.leftElbow, characterSettings.leftArmSize.z);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.LeftHand, Color.yellow, characterSettings.leftArmSize.y - characterSettings.leftElbow, false);
+                }
+                break;
+
+            case BodyPart.RightArm:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.rightArmSize.x, characterSettings.rightElbow, characterSettings.rightArmSize.z);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.RightForearm, Color.yellow, characterSettings.rightElbow, true);
+                }
+                break;
+
+            case BodyPart.RightForearm:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.rightArmSize.x, characterSettings.rightArmSize.y - characterSettings.rightElbow, characterSettings.rightArmSize.z);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.RightHand, Color.yellow, characterSettings.rightArmSize.y - characterSettings.rightElbow, false);
                 }
                 break;
         }
@@ -92,6 +143,7 @@ public class MannequinPart : MonoBehaviour
         }
     }
 
+    // Creates the pixels for the pixelation
     private void CreatePixelBlocks(int partSizeX, int partSizeY, int partSizeZ)
     {
         for (int y = 0; y < partSizeY; y++)
@@ -159,6 +211,7 @@ public class MannequinPart : MonoBehaviour
         }
     }
 
+    // Creates a joint for the pixel body
     private void CreateJoint(BodyPart joint, Color jointColor, int height, bool createNewJoint)
     {
         GameObject jointInstance = Instantiate(jointPoint, transform.position, transform.rotation);
@@ -179,9 +232,40 @@ public class MannequinPart : MonoBehaviour
         jointMannequinPart.bodyPart = joint;
         jointMannequinPart.partColor = jointColor;
 
+        // Create the joints at different locations
         jointInstance.transform.parent = transform;
         float pixelSize = jointInstance.transform.localScale.x;
-        jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x, jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
-        jointInstance.transform.localScale = new Vector3(1, 1, 1);
+        switch (joint)
+        {
+            case BodyPart.LeftArm:
+                if (characterSettings.torsoSize.x % 2 == 1) // Odd
+                {
+                    jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x - pixelSize * Mathf.Ceil(characterSettings.torsoSize.x / 2.0f), jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                }
+                else
+                {
+                    jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x - pixelSize * Mathf.Ceil(characterSettings.torsoSize.x / 2.0f) - (pixelSize / 2.0f), jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                }
+                break;
+            case BodyPart.RightArm:
+                if (characterSettings.torsoSize.x % 2 == 1) // Odd
+                {
+                    jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x + pixelSize * Mathf.Ceil(characterSettings.torsoSize.x / 2.0f), jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                }
+                else
+                {
+                    jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x + pixelSize * Mathf.Ceil(characterSettings.torsoSize.x / 2.0f) + (pixelSize / 2.0f), jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                }
+                break;
+            case BodyPart.LeftLeg:
+
+                break;
+            case BodyPart.RightLeg:
+
+                break;
+            default:
+                jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x, jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                break;
+        }
     }
 }
