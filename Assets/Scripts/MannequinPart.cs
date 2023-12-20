@@ -167,19 +167,12 @@ public class MannequinPart : MonoBehaviour
                 }
                 break;
         }
-
-        /*Vector3Int cellPosition = pixelGrid.WorldToCell(transform.position);
-        pixelation.SetTileColor(partColor, cellPosition, pixelTilemap);*/
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (pixelation.frame >= 60 / pixelation.frameRate)
-        {
-            Vector3Int cellPosition = pixelGrid.WorldToCell(transform.position);
-            pixelation.SetTileColor(partColor, cellPosition, pixelTilemap);
-        }
+        
     }
 
     // Creates the pixels for the pixelation

@@ -425,6 +425,7 @@ MonoBehaviour:
   pixelTile: {fileID: 11400000, guid: ba88f54ff42af654195452dce4c61a52, type: 2}
   frameRate: 60
   frame: 0
+  pixelLocations: []
 --- !u!1 &576473754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,7 +1128,7 @@ MonoBehaviour:
   rightArmSize: {x: 2, y: 9, z: 2}
   leftLegSize: {x: 2, y: 12, z: 2}
   rightLegSize: {x: 2, y: 12, z: 2}
-  headSize: {x: 2, y: 4, z: 2}
+  headSize: {x: 2, y: 4, z: 3}
   frameRate: 60
 --- !u!1 &1445788311
 GameObject:
@@ -2034,7 +2035,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &951597904010806023
 Transform:
   m_ObjectHideFlags: 0
@@ -4235,7 +4236,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5345565088989067561}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 73.24}
+  m_LocalPosition: {x: 0, y: 0, z: 82.1}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -4613,7 +4614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &5345565088989067562
 Animator:
   serializedVersion: 4
