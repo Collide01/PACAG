@@ -1120,13 +1120,13 @@ MonoBehaviour:
   torsoJoint3: 6
   leftElbow: 4
   rightElbow: 4
-  leftKnee: 0
-  rightKnee: 0
+  leftKnee: 6
+  rightKnee: 6
   torsoSize: {x: 5, y: 8, z: 2}
   leftArmSize: {x: 2, y: 9, z: 2}
   rightArmSize: {x: 2, y: 9, z: 2}
-  leftLegSize: {x: 0, y: 0, z: 0}
-  rightLegSize: {x: 0, y: 0, z: 0}
+  leftLegSize: {x: 2, y: 12, z: 2}
+  rightLegSize: {x: 2, y: 12, z: 2}
   headSize: {x: 2, y: 4, z: 2}
   frameRate: 60
 --- !u!1 &1445788311
