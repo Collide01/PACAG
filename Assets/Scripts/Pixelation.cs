@@ -21,17 +21,18 @@ public class Pixelation : MonoBehaviour
         frame++;
         if (frame >= 60 / frameRate)
         {
-            pixelGrid.ClearAllTiles();
-
+            /*pixelGrid.ClearAllTiles();
             // Gets the pixel objects and draws sprites in them in order based on their z-positions
-            // This makes it so pixels in the back are drawn first so pixels in the front draw over it.
-            pixelLocations = GameObject.FindGameObjectsWithTag("GridTransform");
+            // This makes it so pixels that already have a color can't be drawn over.
             System.Array.Sort(pixelLocations, ZPositionComparison);
             foreach (GameObject pixel in pixelLocations)
             {
                 Vector3Int cellPosition = pixelGrid.WorldToCell(pixel.transform.position);
-                SetTileColor(pixel.GetComponent<PixelData>().pixelColor, cellPosition, pixelGrid);
-            }
+                if (!pixelGrid.HasTile(cellPosition))
+                {
+                    SetTileColor(pixel.GetComponent<PixelData>().pixelColor, cellPosition, pixelGrid);
+                }
+            }*/
         }
     }
 
@@ -62,6 +63,11 @@ public class Pixelation : MonoBehaviour
         tilemap.SetColor(position, color);
     }
 
+    public void UpdatePixelList()
+    {
+        pixelLocations = GameObject.FindGameObjectsWithTag("GridTransform");
+    }
+
     private int ZPositionComparison(GameObject a, GameObject b)
     {
         //null check, I consider nulls to be less than non-null
@@ -70,6 +76,6 @@ public class Pixelation : MonoBehaviour
 
         var za = a.transform.position.z;
         var zb = b.transform.position.z;
-        return zb.CompareTo(za); //here I use the default comparison of floats
+        return za.CompareTo(zb); //here I use the default comparison of floats
     }
 }
