@@ -100,7 +100,20 @@ public class MannequinPart : MonoBehaviour
 
                 if (jointPoint != null)
                 {
-                    CreateJoint(BodyPart.LeftHand, characterSettings.leftArmSize.y - characterSettings.leftElbow, false);
+                    CreateJoint(BodyPart.LeftHand, characterSettings.leftArmSize.y - characterSettings.leftElbow, true);
+                }
+                break;
+
+            case BodyPart.LeftHand:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.leftHandSize.x, characterSettings.leftHandSize.y, characterSettings.leftHandSize.z, Color.yellow);
+                }
+
+                // Only create fingers if the hand size is big enough to show all of them
+                if (jointPoint != null && characterSettings.leftHandSize.x >= 4)
+                {
+                    
                 }
                 break;
 
@@ -124,7 +137,20 @@ public class MannequinPart : MonoBehaviour
 
                 if (jointPoint != null)
                 {
-                    CreateJoint(BodyPart.RightHand, characterSettings.rightArmSize.y - characterSettings.rightElbow, false);
+                    CreateJoint(BodyPart.RightHand, characterSettings.rightArmSize.y - characterSettings.rightElbow, true);
+                }
+                break;
+
+            case BodyPart.RightHand:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.rightHandSize.x, characterSettings.rightHandSize.y, characterSettings.rightHandSize.z, Color.yellow);
+                }
+
+                // Only create fingers if the hand size is big enough to show all of them
+                if (jointPoint != null && characterSettings.rightHandSize.x >= 4)
+                {
+
                 }
                 break;
 
