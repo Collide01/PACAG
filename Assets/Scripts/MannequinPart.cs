@@ -91,7 +91,6 @@ public class MannequinPart : MonoBehaviour
                     CreateJoint(BodyPart.LeftForearm, characterSettings.leftElbow, true);
                 }
                 break;
-
             case BodyPart.LeftForearm:
                 if (pixel != null)
                 {
@@ -103,7 +102,6 @@ public class MannequinPart : MonoBehaviour
                     CreateJoint(BodyPart.LeftHand, characterSettings.leftArmSize.y - characterSettings.leftElbow, true);
                 }
                 break;
-
             case BodyPart.LeftHand:
                 if (pixel != null)
                 {
@@ -113,7 +111,69 @@ public class MannequinPart : MonoBehaviour
                 // Only create fingers if the hand size is big enough to show all of them
                 if (jointPoint != null && characterSettings.leftHandSize.x >= 4)
                 {
-                    
+                    CreateJoint(BodyPart.LeftThumb1, 0, true);
+                    CreateJoint(BodyPart.LeftIndex1, characterSettings.leftHandSize.y, true);
+                    CreateJoint(BodyPart.LeftMiddle1, characterSettings.leftHandSize.y, false);
+                    CreateJoint(BodyPart.LeftRing1, characterSettings.leftHandSize.y, false);
+                    CreateJoint(BodyPart.LeftPinky1, characterSettings.leftHandSize.y, false);
+                }
+                break;
+            case BodyPart.LeftThumb1:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.leftThumbSize.x, (int)Mathf.Ceil(characterSettings.leftThumbSize.y / 3.0f), characterSettings.leftThumbSize.z, Color.yellow);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.LeftThumb2, (int)Mathf.Ceil(characterSettings.leftThumbSize.y / 3.0f), true);
+                }
+                break;
+            case BodyPart.LeftThumb2:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.leftThumbSize.x, (int)Mathf.Ceil(characterSettings.leftThumbSize.y / 3.0f), characterSettings.leftThumbSize.z, Color.yellow);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.LeftThumb3, (int)Mathf.Ceil(characterSettings.leftThumbSize.y / 3.0f), true);
+                }
+                break;
+            case BodyPart.LeftThumb3:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.leftThumbSize.x, characterSettings.leftThumbSize.y - ((int)Mathf.Ceil(characterSettings.leftThumbSize.y / 3.0f) * 2), characterSettings.leftThumbSize.z, Color.yellow);
+                }
+                break;
+
+            // LEFT INDEX FINGER ---------------------------------------------
+            case BodyPart.LeftIndex1:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.leftIndexSize.x, (int)Mathf.Ceil(characterSettings.leftIndexSize.y / 3.0f), characterSettings.leftIndexSize.z, Color.yellow);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.LeftIndex2, (int)Mathf.Ceil(characterSettings.leftIndexSize.y / 3.0f), true);
+                }
+                break;
+            case BodyPart.LeftIndex2:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.leftIndexSize.x, (int)Mathf.Ceil(characterSettings.leftIndexSize.y / 3.0f), characterSettings.leftIndexSize.z, Color.yellow);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.LeftIndex3, (int)Mathf.Ceil(characterSettings.leftIndexSize.y / 3.0f), true);
+                }
+                break;
+            case BodyPart.LeftIndex3:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.leftIndexSize.x, characterSettings.leftIndexSize.y - ((int)Mathf.Ceil(characterSettings.leftIndexSize.y / 3.0f) * 2), characterSettings.leftIndexSize.z, Color.yellow);
                 }
                 break;
 
@@ -128,7 +188,6 @@ public class MannequinPart : MonoBehaviour
                     CreateJoint(BodyPart.RightForearm, characterSettings.rightElbow, true);
                 }
                 break;
-
             case BodyPart.RightForearm:
                 if (pixel != null)
                 {
@@ -140,7 +199,6 @@ public class MannequinPart : MonoBehaviour
                     CreateJoint(BodyPart.RightHand, characterSettings.rightArmSize.y - characterSettings.rightElbow, true);
                 }
                 break;
-
             case BodyPart.RightHand:
                 if (pixel != null)
                 {
@@ -150,7 +208,69 @@ public class MannequinPart : MonoBehaviour
                 // Only create fingers if the hand size is big enough to show all of them
                 if (jointPoint != null && characterSettings.rightHandSize.x >= 4)
                 {
+                    CreateJoint(BodyPart.RightThumb1, 0, true);
+                    CreateJoint(BodyPart.RightIndex1, characterSettings.rightHandSize.y, true);
+                    CreateJoint(BodyPart.RightMiddle1, characterSettings.rightHandSize.y, false);
+                    CreateJoint(BodyPart.RightRing1, characterSettings.rightHandSize.y, false);
+                    CreateJoint(BodyPart.RightPinky1, characterSettings.rightHandSize.y, false);
+                }
+                break;
+            case BodyPart.RightThumb1:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.rightThumbSize.x, (int)Mathf.Ceil(characterSettings.rightThumbSize.y / 3.0f), characterSettings.rightThumbSize.z, Color.yellow);
+                }
 
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.RightThumb2, (int)Mathf.Ceil(characterSettings.rightThumbSize.y / 3.0f), true);
+                }
+                break;
+            case BodyPart.RightThumb2:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.rightThumbSize.x, (int)Mathf.Ceil(characterSettings.rightThumbSize.y / 3.0f) * 2, characterSettings.rightThumbSize.z, Color.yellow);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.RightThumb3, (int)Mathf.Ceil(characterSettings.rightThumbSize.y / 3.0f) * 2, true);
+                }
+                break;
+            case BodyPart.RightThumb3:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.rightThumbSize.x, characterSettings.rightThumbSize.y - ((int)Mathf.Ceil(characterSettings.rightThumbSize.y / 3.0f) * 2), characterSettings.rightThumbSize.z, Color.yellow);
+                }
+                break;
+
+            // LEFT INDEX FINGER ---------------------------------------------
+            case BodyPart.RightIndex1:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.rightIndexSize.x, (int)Mathf.Ceil(characterSettings.rightIndexSize.y / 3.0f), characterSettings.rightIndexSize.z, Color.yellow);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.RightIndex2, (int)Mathf.Ceil(characterSettings.rightIndexSize.y / 3.0f), true);
+                }
+                break;
+            case BodyPart.RightIndex2:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.rightIndexSize.x, (int)Mathf.Ceil(characterSettings.rightIndexSize.y / 3.0f), characterSettings.rightIndexSize.z, Color.yellow);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.RightIndex3, (int)Mathf.Ceil(characterSettings.rightIndexSize.y / 3.0f), true);
+                }
+                break;
+            case BodyPart.RightIndex3:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.rightIndexSize.x, characterSettings.rightIndexSize.y - ((int)Mathf.Ceil(characterSettings.rightIndexSize.y / 3.0f) * 2), characterSettings.rightIndexSize.z, Color.yellow);
                 }
                 break;
 
@@ -354,6 +474,26 @@ public class MannequinPart : MonoBehaviour
                     jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x - pixelSize * Mathf.Ceil(characterSettings.torsoSize.x / 2.0f) - (pixelSize / 2.0f), jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
                 }
                 break;
+            case BodyPart.LeftThumb1:
+                if (characterSettings.leftHandSize.x % 2 == 1) // Odd
+                {
+                    jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x + pixelSize * Mathf.Ceil(characterSettings.leftHandSize.x / 2.0f), jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                }
+                else
+                {
+                    jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x + pixelSize * Mathf.Ceil(characterSettings.leftHandSize.x / 2.0f) + (pixelSize / 2.0f), jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                }
+                break;
+            case BodyPart.LeftIndex1:
+                if (characterSettings.leftHandSize.x % 2 == 1) // Odd
+                {
+                    jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x + pixelSize * Mathf.Ceil(characterSettings.leftHandSize.x / 2.0f) - (pixelSize / 2) - (pixelSize * characterSettings.leftIndexSize.x / 2.0f), jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                }
+                else
+                {
+                    jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x + pixelSize * Mathf.Ceil(characterSettings.leftHandSize.x / 2.0f) - (pixelSize * characterSettings.leftIndexSize.x / 2.0f), jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                }
+                break;
             case BodyPart.RightArm:
                 if (characterSettings.torsoSize.x % 2 == 1) // Odd
                 {
@@ -362,6 +502,26 @@ public class MannequinPart : MonoBehaviour
                 else
                 {
                     jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x + pixelSize * Mathf.Ceil(characterSettings.torsoSize.x / 2.0f) + (pixelSize / 2.0f), jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                }
+                break;
+            case BodyPart.RightThumb1:
+                if (characterSettings.rightHandSize.x % 2 == 1) // Odd
+                {
+                    jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x - pixelSize * Mathf.Ceil(characterSettings.rightHandSize.x / 2.0f), jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                }
+                else
+                {
+                    jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x - pixelSize * Mathf.Ceil(characterSettings.rightHandSize.x / 2.0f) - (pixelSize / 2.0f), jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                }
+                break;
+            case BodyPart.RightIndex1:
+                if (characterSettings.rightHandSize.x % 2 == 1) // Odd
+                {
+                    jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x - pixelSize * Mathf.Ceil(characterSettings.rightHandSize.x / 2.0f) + (pixelSize / 2) - (pixelSize * characterSettings.rightIndexSize.x / 2.0f), jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                }
+                else
+                {
+                    jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x - pixelSize * Mathf.Ceil(characterSettings.rightHandSize.x / 2.0f) + (pixelSize * characterSettings.rightIndexSize.x / 2.0f), jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
                 }
                 break;
             case BodyPart.LeftUpLeg:

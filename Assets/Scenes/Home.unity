@@ -1130,16 +1130,16 @@ MonoBehaviour:
   rightArmSize: {x: 4, y: 18, z: 4}
   leftHandSize: {x: 4, y: 4, z: 1}
   rightHandSize: {x: 4, y: 4, z: 1}
-  leftThumbSize: {x: 0, y: 0, z: 0}
-  rightThumbSize: {x: 0, y: 0, z: 0}
-  leftIndexSize: {x: 0, y: 0, z: 0}
-  rightIndexSize: {x: 0, y: 0, z: 0}
-  leftMiddleSize: {x: 0, y: 0, z: 0}
-  rightMiddleSize: {x: 0, y: 0, z: 0}
-  leftRingSize: {x: 0, y: 0, z: 0}
-  rightRingSize: {x: 0, y: 0, z: 0}
-  leftPinkySize: {x: 0, y: 0, z: 0}
-  rightPinkySize: {x: 0, y: 0, z: 0}
+  leftThumbSize: {x: 1, y: 5, z: 1}
+  rightThumbSize: {x: 1, y: 5, z: 1}
+  leftIndexSize: {x: 1, y: 5, z: 1}
+  rightIndexSize: {x: 1, y: 5, z: 1}
+  leftMiddleSize: {x: 1, y: 5, z: 1}
+  rightMiddleSize: {x: 1, y: 5, z: 1}
+  leftRingSize: {x: 1, y: 5, z: 1}
+  rightRingSize: {x: 1, y: 5, z: 1}
+  leftPinkySize: {x: 1, y: 5, z: 1}
+  rightPinkySize: {x: 1, y: 5, z: 1}
   leftLegSize: {x: 4, y: 24, z: 4}
   rightLegSize: {x: 4, y: 24, z: 4}
   leftFootSize: {x: 4, y: 10, z: 2}
