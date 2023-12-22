@@ -1128,6 +1128,18 @@ MonoBehaviour:
   torsoSize: {x: 10, y: 16, z: 4}
   leftArmSize: {x: 4, y: 18, z: 4}
   rightArmSize: {x: 4, y: 18, z: 4}
+  leftHandSize: {x: 4, y: 4, z: 1}
+  rightHandSize: {x: 4, y: 4, z: 1}
+  leftThumbSize: {x: 0, y: 0, z: 0}
+  rightThumbSize: {x: 0, y: 0, z: 0}
+  leftIndexSize: {x: 0, y: 0, z: 0}
+  rightIndexSize: {x: 0, y: 0, z: 0}
+  leftMiddleSize: {x: 0, y: 0, z: 0}
+  rightMiddleSize: {x: 0, y: 0, z: 0}
+  leftRingSize: {x: 0, y: 0, z: 0}
+  rightRingSize: {x: 0, y: 0, z: 0}
+  leftPinkySize: {x: 0, y: 0, z: 0}
+  rightPinkySize: {x: 0, y: 0, z: 0}
   leftLegSize: {x: 4, y: 24, z: 4}
   rightLegSize: {x: 4, y: 24, z: 4}
   leftFootSize: {x: 4, y: 10, z: 2}
