@@ -21,7 +21,7 @@ public class Pixelation : MonoBehaviour
         frame++;
         if (frame >= 60 / frameRate)
         {
-            /*pixelGrid.ClearAllTiles();
+            pixelGrid.ClearAllTiles();
             // Gets the pixel objects and draws sprites in them in order based on their z-positions
             // This makes it so pixels that already have a color can't be drawn over.
             System.Array.Sort(pixelLocations, ZPositionComparison);
@@ -32,7 +32,7 @@ public class Pixelation : MonoBehaviour
                 {
                     SetTileColor(pixel.GetComponent<PixelData>().pixelColor, cellPosition, pixelGrid);
                 }
-            }*/
+            }
         }
     }
 

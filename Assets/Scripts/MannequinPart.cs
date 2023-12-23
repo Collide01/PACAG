@@ -113,11 +113,13 @@ public class MannequinPart : MonoBehaviour
                 {
                     CreateJoint(BodyPart.LeftThumb1, 0, true);
                     CreateJoint(BodyPart.LeftIndex1, characterSettings.leftHandSize.y, true);
-                    CreateJoint(BodyPart.LeftMiddle1, characterSettings.leftHandSize.y, false);
-                    CreateJoint(BodyPart.LeftRing1, characterSettings.leftHandSize.y, false);
-                    CreateJoint(BodyPart.LeftPinky1, characterSettings.leftHandSize.y, false);
+                    CreateJoint(BodyPart.LeftMiddle1, characterSettings.leftHandSize.y, true);
+                    CreateJoint(BodyPart.LeftRing1, characterSettings.leftHandSize.y, true);
+                    CreateJoint(BodyPart.LeftPinky1, characterSettings.leftHandSize.y, true);
                 }
                 break;
+
+            // LEFT THUMB ---------------------------------------------
             case BodyPart.LeftThumb1:
                 if (pixel != null)
                 {
@@ -177,6 +179,96 @@ public class MannequinPart : MonoBehaviour
                 }
                 break;
 
+            // LEFT MIDDLE FINGER ---------------------------------------------
+            case BodyPart.LeftMiddle1:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.leftMiddleSize.x, (int)Mathf.Ceil(characterSettings.leftMiddleSize.y / 3.0f), characterSettings.leftMiddleSize.z, Color.yellow);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.LeftMiddle2, (int)Mathf.Ceil(characterSettings.leftMiddleSize.y / 3.0f), true);
+                }
+                break;
+            case BodyPart.LeftMiddle2:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.leftMiddleSize.x, (int)Mathf.Ceil(characterSettings.leftMiddleSize.y / 3.0f), characterSettings.leftMiddleSize.z, Color.yellow);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.LeftMiddle3, (int)Mathf.Ceil(characterSettings.leftMiddleSize.y / 3.0f), true);
+                }
+                break;
+            case BodyPart.LeftMiddle3:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.leftMiddleSize.x, characterSettings.leftMiddleSize.y - ((int)Mathf.Ceil(characterSettings.leftMiddleSize.y / 3.0f) * 2), characterSettings.leftMiddleSize.z, Color.yellow);
+                }
+                break;
+
+            // LEFT RING FINGER ---------------------------------------------
+            case BodyPart.LeftRing1:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.leftRingSize.x, (int)Mathf.Ceil(characterSettings.leftRingSize.y / 3.0f), characterSettings.leftRingSize.z, Color.yellow);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.LeftRing2, (int)Mathf.Ceil(characterSettings.leftRingSize.y / 3.0f), true);
+                }
+                break;
+            case BodyPart.LeftRing2:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.leftRingSize.x, (int)Mathf.Ceil(characterSettings.leftRingSize.y / 3.0f), characterSettings.leftRingSize.z, Color.yellow);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.LeftRing3, (int)Mathf.Ceil(characterSettings.leftRingSize.y / 3.0f), true);
+                }
+                break;
+            case BodyPart.LeftRing3:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.leftRingSize.x, characterSettings.leftRingSize.y - ((int)Mathf.Ceil(characterSettings.leftRingSize.y / 3.0f) * 2), characterSettings.leftRingSize.z, Color.yellow);
+                }
+                break;
+
+            // LEFT PINKY ---------------------------------------------
+            case BodyPart.LeftPinky1:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.leftPinkySize.x, (int)Mathf.Ceil(characterSettings.leftPinkySize.y / 3.0f), characterSettings.leftPinkySize.z, Color.yellow);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.LeftPinky2, (int)Mathf.Ceil(characterSettings.leftPinkySize.y / 3.0f), true);
+                }
+                break;
+            case BodyPart.LeftPinky2:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.leftPinkySize.x, (int)Mathf.Ceil(characterSettings.leftPinkySize.y / 3.0f), characterSettings.leftPinkySize.z, Color.yellow);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.LeftPinky3, (int)Mathf.Ceil(characterSettings.leftPinkySize.y / 3.0f), true);
+                }
+                break;
+            case BodyPart.LeftPinky3:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.leftPinkySize.x, characterSettings.leftPinkySize.y - ((int)Mathf.Ceil(characterSettings.leftPinkySize.y / 3.0f) * 2), characterSettings.leftPinkySize.z, Color.yellow);
+                }
+                break;
+
             case BodyPart.RightArm:
                 if (pixel != null)
                 {
@@ -210,11 +302,13 @@ public class MannequinPart : MonoBehaviour
                 {
                     CreateJoint(BodyPart.RightThumb1, 0, true);
                     CreateJoint(BodyPart.RightIndex1, characterSettings.rightHandSize.y, true);
-                    CreateJoint(BodyPart.RightMiddle1, characterSettings.rightHandSize.y, false);
-                    CreateJoint(BodyPart.RightRing1, characterSettings.rightHandSize.y, false);
-                    CreateJoint(BodyPart.RightPinky1, characterSettings.rightHandSize.y, false);
+                    CreateJoint(BodyPart.RightMiddle1, characterSettings.rightHandSize.y, true);
+                    CreateJoint(BodyPart.RightRing1, characterSettings.rightHandSize.y, true);
+                    CreateJoint(BodyPart.RightPinky1, characterSettings.rightHandSize.y, true);
                 }
                 break;
+
+            // RIGHT THUMB ---------------------------------------------
             case BodyPart.RightThumb1:
                 if (pixel != null)
                 {
@@ -244,7 +338,7 @@ public class MannequinPart : MonoBehaviour
                 }
                 break;
 
-            // LEFT INDEX FINGER ---------------------------------------------
+            // RIGHT INDEX FINGER ---------------------------------------------
             case BodyPart.RightIndex1:
                 if (pixel != null)
                 {
@@ -271,6 +365,96 @@ public class MannequinPart : MonoBehaviour
                 if (pixel != null)
                 {
                     CreatePixelBlocks(characterSettings.rightIndexSize.x, characterSettings.rightIndexSize.y - ((int)Mathf.Ceil(characterSettings.rightIndexSize.y / 3.0f) * 2), characterSettings.rightIndexSize.z, Color.yellow);
+                }
+                break;
+
+            // RIGHT MIDDLE FINGER ---------------------------------------------
+            case BodyPart.RightMiddle1:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.rightMiddleSize.x, (int)Mathf.Ceil(characterSettings.rightMiddleSize.y / 3.0f), characterSettings.rightMiddleSize.z, Color.yellow);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.RightMiddle2, (int)Mathf.Ceil(characterSettings.rightMiddleSize.y / 3.0f), true);
+                }
+                break;
+            case BodyPart.RightMiddle2:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.rightMiddleSize.x, (int)Mathf.Ceil(characterSettings.rightMiddleSize.y / 3.0f), characterSettings.rightMiddleSize.z, Color.yellow);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.RightMiddle3, (int)Mathf.Ceil(characterSettings.rightMiddleSize.y / 3.0f), true);
+                }
+                break;
+            case BodyPart.RightMiddle3:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.rightMiddleSize.x, characterSettings.rightMiddleSize.y - ((int)Mathf.Ceil(characterSettings.rightMiddleSize.y / 3.0f) * 2), characterSettings.rightMiddleSize.z, Color.yellow);
+                }
+                break;
+
+            // RIGHT RING FINGER ---------------------------------------------
+            case BodyPart.RightRing1:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.rightRingSize.x, (int)Mathf.Ceil(characterSettings.rightRingSize.y / 3.0f), characterSettings.rightRingSize.z, Color.yellow);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.RightRing2, (int)Mathf.Ceil(characterSettings.rightRingSize.y / 3.0f), true);
+                }
+                break;
+            case BodyPart.RightRing2:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.rightRingSize.x, (int)Mathf.Ceil(characterSettings.rightRingSize.y / 3.0f), characterSettings.rightRingSize.z, Color.yellow);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.RightRing3, (int)Mathf.Ceil(characterSettings.rightRingSize.y / 3.0f), true);
+                }
+                break;
+            case BodyPart.RightRing3:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.rightRingSize.x, characterSettings.rightRingSize.y - ((int)Mathf.Ceil(characterSettings.rightRingSize.y / 3.0f) * 2), characterSettings.rightRingSize.z, Color.yellow);
+                }
+                break;
+
+            // RIGHT PINKY ---------------------------------------------
+            case BodyPart.RightPinky1:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.rightPinkySize.x, (int)Mathf.Ceil(characterSettings.rightPinkySize.y / 3.0f), characterSettings.rightPinkySize.z, Color.yellow);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.RightPinky2, (int)Mathf.Ceil(characterSettings.rightPinkySize.y / 3.0f), true);
+                }
+                break;
+            case BodyPart.RightPinky2:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.rightPinkySize.x, (int)Mathf.Ceil(characterSettings.rightPinkySize.y / 3.0f), characterSettings.rightPinkySize.z, Color.yellow);
+                }
+
+                if (jointPoint != null)
+                {
+                    CreateJoint(BodyPart.RightPinky3, (int)Mathf.Ceil(characterSettings.rightPinkySize.y / 3.0f), true);
+                }
+                break;
+            case BodyPart.RightPinky3:
+                if (pixel != null)
+                {
+                    CreatePixelBlocks(characterSettings.rightPinkySize.x, characterSettings.rightPinkySize.y - ((int)Mathf.Ceil(characterSettings.rightPinkySize.y / 3.0f) * 2), characterSettings.rightPinkySize.z, Color.yellow);
                 }
                 break;
 
@@ -462,6 +646,9 @@ public class MannequinPart : MonoBehaviour
         // Create the joints at different locations
         jointInstance.transform.parent = transform;
         float pixelSize = jointInstance.transform.localScale.x;
+        // Used to find the x-values for the middle and ring fingers
+        float indexValue = 0;
+        float pinkyValue = 0;
         switch (joint)
         {
             case BodyPart.LeftArm:
@@ -494,6 +681,44 @@ public class MannequinPart : MonoBehaviour
                     jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x + pixelSize * Mathf.Ceil(characterSettings.leftHandSize.x / 2.0f) - (pixelSize * characterSettings.leftIndexSize.x / 2.0f), jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
                 }
                 break;
+            case BodyPart.LeftMiddle1:
+                // Find the point which is one third of the way between the index and the pinky
+                if (characterSettings.leftHandSize.x % 2 == 1) // Odd
+                {
+                    indexValue = jointInstance.transform.localPosition.x + pixelSize * Mathf.Ceil(characterSettings.leftHandSize.x / 2.0f) - (pixelSize / 2) - (pixelSize * characterSettings.leftIndexSize.x / 2.0f);
+                    pinkyValue = jointInstance.transform.localPosition.x - pixelSize * Mathf.Ceil(characterSettings.leftHandSize.x / 2.0f) + (pixelSize / 2) + (pixelSize * characterSettings.leftIndexSize.x / 2.0f);
+                }
+                else
+                {
+                    indexValue = jointInstance.transform.localPosition.x + pixelSize * Mathf.Ceil(characterSettings.leftHandSize.x / 2.0f) - (pixelSize * characterSettings.leftIndexSize.x / 2.0f);
+                    pinkyValue = jointInstance.transform.localPosition.x - pixelSize * Mathf.Ceil(characterSettings.leftHandSize.x / 2.0f) + (pixelSize * characterSettings.leftIndexSize.x / 2.0f);
+                }
+                jointInstance.transform.localPosition = new Vector3(2.0f / 3.0f * indexValue + 1.0f / 3.0f * pinkyValue, jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                break;
+            case BodyPart.LeftRing1:
+                // Find the point which is one third of the way between the pinky and the index
+                if (characterSettings.leftHandSize.x % 2 == 1) // Odd
+                {
+                    indexValue = jointInstance.transform.localPosition.x + pixelSize * Mathf.Ceil(characterSettings.leftHandSize.x / 2.0f) - (pixelSize / 2) - (pixelSize * characterSettings.leftIndexSize.x / 2.0f);
+                    pinkyValue = jointInstance.transform.localPosition.x - pixelSize * Mathf.Ceil(characterSettings.leftHandSize.x / 2.0f) + (pixelSize / 2) + (pixelSize * characterSettings.leftIndexSize.x / 2.0f);
+                }
+                else
+                {
+                    indexValue = jointInstance.transform.localPosition.x + pixelSize * Mathf.Ceil(characterSettings.leftHandSize.x / 2.0f) - (pixelSize * characterSettings.leftIndexSize.x / 2.0f);
+                    pinkyValue = jointInstance.transform.localPosition.x - pixelSize * Mathf.Ceil(characterSettings.leftHandSize.x / 2.0f) + (pixelSize * characterSettings.leftIndexSize.x / 2.0f);
+                }
+                jointInstance.transform.localPosition = new Vector3(2.0f / 3.0f * pinkyValue + 1.0f / 3.0f * indexValue, jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                break;
+            case BodyPart.LeftPinky1:
+                if (characterSettings.leftHandSize.x % 2 == 1) // Odd
+                {
+                    jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x - pixelSize * Mathf.Ceil(characterSettings.leftHandSize.x / 2.0f) + (pixelSize / 2) + (pixelSize * characterSettings.leftIndexSize.x / 2.0f), jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                }
+                else
+                {
+                    jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x - pixelSize * Mathf.Ceil(characterSettings.leftHandSize.x / 2.0f) + (pixelSize * characterSettings.leftIndexSize.x / 2.0f), jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                }
+                break;
             case BodyPart.RightArm:
                 if (characterSettings.torsoSize.x % 2 == 1) // Odd
                 {
@@ -522,6 +747,44 @@ public class MannequinPart : MonoBehaviour
                 else
                 {
                     jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x - pixelSize * Mathf.Ceil(characterSettings.rightHandSize.x / 2.0f) + (pixelSize * characterSettings.rightIndexSize.x / 2.0f), jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                }
+                break;
+            case BodyPart.RightMiddle1:
+                // Find the point which is one third of the way between the index and the pinky
+                if (characterSettings.rightHandSize.x % 2 == 1) // Odd
+                {
+                    indexValue = jointInstance.transform.localPosition.x - pixelSize * Mathf.Ceil(characterSettings.rightHandSize.x / 2.0f) + (pixelSize / 2) + (pixelSize * characterSettings.rightIndexSize.x / 2.0f);
+                    pinkyValue = jointInstance.transform.localPosition.x + pixelSize * Mathf.Ceil(characterSettings.rightHandSize.x / 2.0f) - (pixelSize / 2) - (pixelSize * characterSettings.rightIndexSize.x / 2.0f);
+                }
+                else
+                {
+                    indexValue = jointInstance.transform.localPosition.x - pixelSize * Mathf.Ceil(characterSettings.rightHandSize.x / 2.0f) + (pixelSize * characterSettings.rightIndexSize.x / 2.0f);
+                    pinkyValue = jointInstance.transform.localPosition.x + pixelSize * Mathf.Ceil(characterSettings.rightHandSize.x / 2.0f) - (pixelSize * characterSettings.rightIndexSize.x / 2.0f);
+                }
+                jointInstance.transform.localPosition = new Vector3(2.0f / 3.0f * indexValue + 1.0f / 3.0f * pinkyValue, jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                break;
+            case BodyPart.RightRing1:
+                // Find the point which is one third of the way between the pinky and the index
+                if (characterSettings.rightHandSize.x % 2 == 1) // Odd
+                {
+                    indexValue = jointInstance.transform.localPosition.x - pixelSize * Mathf.Ceil(characterSettings.rightHandSize.x / 2.0f) + (pixelSize / 2) + (pixelSize * characterSettings.rightIndexSize.x / 2.0f);
+                    pinkyValue = jointInstance.transform.localPosition.x + pixelSize * Mathf.Ceil(characterSettings.rightHandSize.x / 2.0f) - (pixelSize / 2) - (pixelSize * characterSettings.rightIndexSize.x / 2.0f);
+                }
+                else
+                {
+                    indexValue = jointInstance.transform.localPosition.x - pixelSize * Mathf.Ceil(characterSettings.rightHandSize.x / 2.0f) + (pixelSize * characterSettings.rightIndexSize.x / 2.0f);
+                    pinkyValue = jointInstance.transform.localPosition.x + pixelSize * Mathf.Ceil(characterSettings.rightHandSize.x / 2.0f) - (pixelSize * characterSettings.rightIndexSize.x / 2.0f);
+                }
+                jointInstance.transform.localPosition = new Vector3(2.0f / 3.0f * pinkyValue + 1.0f / 3.0f * indexValue, jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                break;
+            case BodyPart.RightPinky1:
+                if (characterSettings.rightHandSize.x % 2 == 1) // Odd
+                {
+                    jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x + pixelSize * Mathf.Ceil(characterSettings.rightHandSize.x / 2.0f) - (pixelSize / 2) - (pixelSize * characterSettings.rightIndexSize.x / 2.0f), jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
+                }
+                else
+                {
+                    jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x + pixelSize * Mathf.Ceil(characterSettings.rightHandSize.x / 2.0f) - (pixelSize * characterSettings.rightIndexSize.x / 2.0f), jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
                 }
                 break;
             case BodyPart.LeftUpLeg:
