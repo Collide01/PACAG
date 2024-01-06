@@ -6,6 +6,8 @@ using UnityEngine.Tilemaps;
 public class MannequinPart : MonoBehaviour
 {
     private CharacterSettings characterSettings;
+    public GridLayout pixelGrid;
+    public Tilemap pixelTilemap;
     public Pixelation pixelation;
     public GameObject pixel;
     public GameObject jointPoint;
@@ -544,6 +546,12 @@ public class MannequinPart : MonoBehaviour
         }
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
     // Creates the pixels for the pixelation
     private void CreatePixelBlocks(int partSizeX, int partSizeY, int partSizeZ, Color pixelColor)
     {
@@ -625,6 +633,9 @@ public class MannequinPart : MonoBehaviour
         jointData.jointSet = true;
 
         MannequinPart jointMannequinPart = jointInstance.GetComponent<MannequinPart>();
+        jointMannequinPart.pixelGrid = pixelGrid;
+        jointMannequinPart.pixelTilemap = pixelTilemap;
+        jointMannequinPart.pixelation = pixelation;
         if (createNewJoint)
         {
             jointMannequinPart.pixel = pixel;
