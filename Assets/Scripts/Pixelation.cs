@@ -7,40 +7,25 @@ public class Pixelation : MonoBehaviour
 {
     [SerializeField] private Tilemap pixelGrid;
     [SerializeField] private Tile pixelTile;
-    [HideInInspector] public int frameRate;
-    [HideInInspector] public int frame;
     [HideInInspector] public GameObject[] pixelLocations;
 
     private void Start()
     {
-        frameRate = GameObject.FindGameObjectWithTag("CharacterSettings").GetComponent<CharacterSettings>().frameRate;
+        pixelGrid.ClearAllTiles();
     }
 
-    private void FixedUpdate()
+    public void SetSpriteFrame()
     {
-        frame++;
-        if (frame >= 60 / frameRate)
+        // Gets the pixel objects and draws sprites in them in order based on their z-positions
+        // This makes it so pixels that already have a color can't be drawn over.
+        System.Array.Sort(pixelLocations, ZPositionComparison);
+        foreach (GameObject pixel in pixelLocations)
         {
-            pixelGrid.ClearAllTiles();
-            // Gets the pixel objects and draws sprites in them in order based on their z-positions
-            // This makes it so pixels that already have a color can't be drawn over.
-            System.Array.Sort(pixelLocations, ZPositionComparison);
-            foreach (GameObject pixel in pixelLocations)
+            Vector3Int cellPosition = pixelGrid.WorldToCell(pixel.transform.position);
+            if (!pixelGrid.HasTile(cellPosition))
             {
-                Vector3Int cellPosition = pixelGrid.WorldToCell(pixel.transform.position);
-                if (!pixelGrid.HasTile(cellPosition))
-                {
-                    SetTileColor(pixel.GetComponent<PixelData>().pixelColor, cellPosition, pixelGrid);
-                }
+                SetTileColor(pixel.GetComponent<PixelData>().pixelColor, cellPosition, pixelGrid);
             }
-        }
-    }
-
-    private void LateUpdate()
-    {
-        if (frame >= 60 / frameRate)
-        {
-            frame = 0;
         }
     }
 
