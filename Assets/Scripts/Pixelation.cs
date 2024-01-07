@@ -12,7 +12,7 @@ public class Pixelation : MonoBehaviour
     [HideInInspector] public List<Vector3Int> cellPositions;
     [HideInInspector] public List<Color> cellColors;
     [HideInInspector] public GameObject[] pixelLocations;
-    //private FPSCounter fpsCounter;
+    private FPSCounter fpsCounter;
     // These floats get the animation length in seconds to determine how long the frame creation process occurs
     private float animationLength;
     private float currentAnimationTime;
@@ -21,12 +21,26 @@ public class Pixelation : MonoBehaviour
     private void Start()
     {
         frameRate = GameObject.FindGameObjectWithTag("CharacterSettings").GetComponent<CharacterSettings>().frameRate;
+        fpsCounter = GameObject.FindGameObjectWithTag("FPSController").GetComponent<FPSCounter>();
+        animationLength = GameObject.FindGameObjectWithTag("Mannequin").GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length;
+        GameObject.FindGameObjectWithTag("Mannequin").GetComponent<Animator>().speed = 0;
+        creatingAnimation = 0;
     }
 
     private void FixedUpdate()
     {
-        frame++;
-        if (frame >= 60 / frameRate)
+        if (fpsCounter.fps >= 59.0f && fpsCounter.fps <= 61.0f)
+        {
+            GameObject.FindGameObjectWithTag("Mannequin").GetComponent<Animator>().speed = 1;
+            currentAnimationTime += Time.unscaledDeltaTime;
+            frame++;
+        }
+        else
+        {
+            GameObject.FindGameObjectWithTag("Mannequin").GetComponent<Animator>().speed = 0;
+        }
+        
+        if (frame >= 60 / frameRate && fpsCounter.fps >= 59.0f && fpsCounter.fps <= 61.0f)
         {
             pixelGrid.ClearAllTiles();
             // Gets the pixel objects and draws sprites in them in order based on their z-positions
@@ -45,6 +59,11 @@ public class Pixelation : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (currentAnimationTime > animationLength)
+        {
+            currentAnimationTime = 0;
+        }
+
         if (frame >= 60 / frameRate)
         {
             frame = 0;
