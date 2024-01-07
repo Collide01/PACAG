@@ -16,7 +16,6 @@ public class AnimateSprite : MonoBehaviour
     // These floats get the animation length in seconds to determine how long the frame creation process occurs
     private float animationLength;
     private float currentAnimationTime;
-    private bool creatingAnimation;
 
     // Start is called before the first frame update
     void Start()
@@ -24,22 +23,30 @@ public class AnimateSprite : MonoBehaviour
         frameRate = GameObject.FindGameObjectWithTag("CharacterSettings").GetComponent<CharacterSettings>().frameRate;
         jointObjects = (MannequinPart[])FindObjectsOfType(typeof(MannequinPart));
         animationLength = GameObject.FindGameObjectWithTag("Mannequin").GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length;
-        Debug.Log(animationLength);
-        creatingAnimation = true;
+
+        // Create all of the pixel grids for the animation
+        int numberOfFrames = Mathf.FloorToInt(animationLength * frameRate);
+        for (int i = 0; i < numberOfFrames; i++)
+        {
+            GameObject currentGrid = Instantiate(pixelGrid, transform);
+            pixelGrids.Add(currentGrid);
+        }
+
+        // Set the first pixel grid as the active one
+        for (int i = 0; i < pixelGrids.Count; i++)
+        {
+            pixelGrids[i].SetActive(false);
+        }
+        pixelGrids[0].SetActive(true);
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
+        currentAnimationTime += Time.unscaledDeltaTime;
+        frame++;
         if (frame >= 60 / frameRate)
         {
-            // If the animation is currently being created, add a new frame to the list
-            if (creatingAnimation)
-            {
-                GameObject currentGrid = Instantiate(pixelGrid, transform);
-                pixelGrids.Add(currentGrid);
-            }
-
             for (int i = 0; i < pixelGrids.Count; i++)
             {
                 if (i != currentFrame)
@@ -54,21 +61,20 @@ public class AnimateSprite : MonoBehaviour
                     foreach (MannequinPart jointObject in jointObjects)
                     {
                         jointObject.pixelation = pixelGrids[i].GetComponent<Pixelation>();
+                        jointObject.pixelation.UpdatePixelList();
+                        jointObject.pixelation.SetSpriteFrame();
                     }
                 }
             }
 
             currentFrame++;
         }
-        currentAnimationTime += Time.deltaTime;
-        frame++;
     }
 
     private void LateUpdate()
     {
         if (currentAnimationTime > animationLength)
         {
-            creatingAnimation = false;
             currentAnimationTime = 0;
             currentFrame = 0;
         }

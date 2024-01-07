@@ -8,24 +8,31 @@ public class Pixelation : MonoBehaviour
     [SerializeField] private Tilemap pixelGrid;
     [SerializeField] private Tile pixelTile;
     [HideInInspector] public GameObject[] pixelLocations;
+    private bool createdSprite;
 
     private void Start()
     {
         pixelGrid.ClearAllTiles();
+        createdSprite = false;
     }
 
     public void SetSpriteFrame()
     {
-        // Gets the pixel objects and draws sprites in them in order based on their z-positions
-        // This makes it so pixels that already have a color can't be drawn over.
-        System.Array.Sort(pixelLocations, ZPositionComparison);
-        foreach (GameObject pixel in pixelLocations)
+        if (!createdSprite && pixelLocations.Length > 0)
         {
-            Vector3Int cellPosition = pixelGrid.WorldToCell(pixel.transform.position);
-            if (!pixelGrid.HasTile(cellPosition))
+            // Gets the pixel objects and draws sprites in them in order based on their z-positions
+            // This makes it so pixels that already have a color can't be drawn over.
+            System.Array.Sort(pixelLocations, ZPositionComparison);
+            foreach (GameObject pixel in pixelLocations)
             {
-                SetTileColor(pixel.GetComponent<PixelData>().pixelColor, cellPosition, pixelGrid);
+                Vector3Int cellPosition = pixelGrid.WorldToCell(pixel.transform.position);
+                if (!pixelGrid.HasTile(cellPosition))
+                {
+                    SetTileColor(pixel.GetComponent<PixelData>().pixelColor, cellPosition, pixelGrid);
+                }
             }
+
+            createdSprite = true;
         }
     }
 

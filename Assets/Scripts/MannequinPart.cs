@@ -611,8 +611,6 @@ public class MannequinPart : MonoBehaviour
                 }
             }
         }
-
-        pixelation.UpdatePixelList();
     }
 
     // Creates a joint for the pixel body
