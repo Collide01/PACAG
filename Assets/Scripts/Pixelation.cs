@@ -9,7 +9,14 @@ public class Pixelation : MonoBehaviour
     [SerializeField] private Tile pixelTile;
     [HideInInspector] public int frameRate;
     [HideInInspector] public int frame;
+    [HideInInspector] public List<Vector3Int> cellPositions;
+    [HideInInspector] public List<Color> cellColors;
     [HideInInspector] public GameObject[] pixelLocations;
+    //private FPSCounter fpsCounter;
+    // These floats get the animation length in seconds to determine how long the frame creation process occurs
+    private float animationLength;
+    private float currentAnimationTime;
+    private int creatingAnimation; // 0 = Creating grids; 1 = Checking for repetition; 2 = Done
 
     private void Start()
     {
