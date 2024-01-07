@@ -8,6 +8,8 @@ public class Pixelation : MonoBehaviour
     [SerializeField] private Tilemap pixelGrid;
     [SerializeField] private Tile pixelTile;
     [HideInInspector] public GameObject[] pixelLocations;
+    [HideInInspector] public List<Vector3Int> cellPositions;
+    [HideInInspector] public List<Color> cellColors;
     private bool createdSprite;
 
     private void Start()
@@ -16,9 +18,9 @@ public class Pixelation : MonoBehaviour
         createdSprite = false;
     }
 
-    public void SetSpriteFrame()
+    public void SetSpriteData()
     {
-        if (!createdSprite && pixelLocations.Length > 0)
+        if (pixelLocations.Length > 0)
         {
             // Gets the pixel objects and draws sprites in them in order based on their z-positions
             // This makes it so pixels that already have a color can't be drawn over.
@@ -26,10 +28,22 @@ public class Pixelation : MonoBehaviour
             foreach (GameObject pixel in pixelLocations)
             {
                 Vector3Int cellPosition = pixelGrid.WorldToCell(pixel.transform.position);
-                if (!pixelGrid.HasTile(cellPosition))
+                if (!cellPositions.Contains(cellPosition))
                 {
-                    SetTileColor(pixel.GetComponent<PixelData>().pixelColor, cellPosition, pixelGrid);
+                    cellPositions.Add(cellPosition);
+                    cellColors.Add(pixel.GetComponent<PixelData>().pixelColor);
                 }
+            }
+        }
+    }
+
+    public void CreateSpriteFrame()
+    {
+        if (!createdSprite)
+        {
+            for (int i = 0; i < cellPositions.Count; i++)
+            {
+                SetTileColor(cellColors[i], cellPositions[i], pixelGrid);
             }
 
             createdSprite = true;
