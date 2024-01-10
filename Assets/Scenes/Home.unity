@@ -425,8 +425,6 @@ MonoBehaviour:
   pixelTile: {fileID: 11400000, guid: ba88f54ff42af654195452dce4c61a52, type: 2}
   frameRate: 60
   frame: 0
-  cellPositions: []
-  cellColors: []
   pixelLocations: []
 --- !u!1 &576473754
 GameObject:
