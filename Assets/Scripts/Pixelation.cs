@@ -48,7 +48,7 @@ public class Pixelation : MonoBehaviour
     private void SetAnimationEvents()
     {
         mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.events = null;
-        float frameInterval = 1000 / frameRate / 1000;
+        float frameInterval = 1000.0f / frameRate / 1000.0f;
 
         // Creates new Animation Events at specific intervals based on the frame rate
         int eventIndex = 0;
@@ -64,11 +64,10 @@ public class Pixelation : MonoBehaviour
             eventIndex++;
         }
 
-        // Creates one last event at the end of the animation to signal that the sprite is complete
+        // Creates one last event at the beginning of the animation to signal that the sprite is complete
         AnimationEvent finalEvt = new AnimationEvent();
-        finalEvt.time = animationLength;
+        finalEvt.time = 0;
         finalEvt.functionName = "SwitchCreationState";
-        finalEvt.objectReferenceParameter = this;
 
         mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.AddEvent(finalEvt);
     }
@@ -82,8 +81,10 @@ public class Pixelation : MonoBehaviour
         switch (creatingAnimation)
         {
             case true:
-                CreateSpriteData();
-                Debug.Log(cellPositions.Count);
+                if (!(frame == 0 && cellPositions.Count > 0))
+                {
+                    CreateSpriteData();
+                }
                 break;
             case false:
                 CreateSprite(frame);
@@ -93,7 +94,7 @@ public class Pixelation : MonoBehaviour
 
     public void SwitchCreationState()
     {
-        if (creatingAnimation)
+        if (creatingAnimation && cellPositions.Count > 0)
         {
             creatingAnimation = false;
         }
@@ -119,7 +120,9 @@ public class Pixelation : MonoBehaviour
 
     private void CreateSprite(int frame)
     {
+        Debug.Log(frame);
         pixelGrid.ClearAllTiles();
+        //Debug.Log(cellPositions.Count + ", " + frame);
         // Gets the pixel objects and draws sprites in them based on the sprite data
         for (int i = 0; i < cellPositions[frame].Count; i++)
         {
