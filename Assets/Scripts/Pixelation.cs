@@ -29,10 +29,8 @@ public class Pixelation : MonoBehaviour
         cellPositions = new List<List<Vector3Int>>();
         cellColors = new List<List<Color>>();
         animationLength = mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length;
+        mannequin.GetComponent<Animator>().speed = 0;
         creatingAnimation = true;
-
-        // Create animation events for the animation based on the frame rate
-        SetAnimationEvents();
     }
 
     private void Update()
@@ -45,8 +43,12 @@ public class Pixelation : MonoBehaviour
         
     }
 
-    private void SetAnimationEvents()
+    /// <summary>
+    /// Create animation events for the animation based on the frame rate
+    /// </summary>
+    public void SetAnimationEvents()
     {
+        mannequin.GetComponent<Animator>().speed = 1;
         mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.events = null;
         float frameInterval = 1000.0f / frameRate / 1000.0f;
 
