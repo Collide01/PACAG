@@ -51,7 +51,7 @@ public class Pixelation : MonoBehaviour
         float frameInterval = 1000 / frameRate / 1000;
 
         // Creates new Animation Events at specific intervals based on the frame rate
-        /*int eventIndex = 0;
+        int eventIndex = 0;
         while (frameInterval * eventIndex < animationLength)
         {
             AnimationEvent evt = new AnimationEvent();
@@ -62,7 +62,7 @@ public class Pixelation : MonoBehaviour
             mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.AddEvent(evt);
 
             eventIndex++;
-        }*/
+        }
 
         // Creates one last event at the end of the animation to signal that the sprite is complete
         AnimationEvent finalEvt = new AnimationEvent();
@@ -93,7 +93,6 @@ public class Pixelation : MonoBehaviour
 
     public void SwitchCreationState()
     {
-        Debug.Log("Called");
         if (creatingAnimation)
         {
             creatingAnimation = false;

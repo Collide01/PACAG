@@ -424,7 +424,6 @@ MonoBehaviour:
   pixelGrid: {fileID: 1546057320}
   pixelTile: {fileID: 11400000, guid: ba88f54ff42af654195452dce4c61a52, type: 2}
   frameRate: 60
-  frame: 0
   pixelLocations: []
 --- !u!1 &576473754
 GameObject:
@@ -3457,6 +3456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4712053342969029523}
   - component: {fileID: 5345565088989067562}
+  - component: {fileID: 5345565088989067563}
   m_Layer: 0
   m_Name: Mannequin
   m_TagString: Mannequin
@@ -3484,6 +3484,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5345565088989067563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5345565088989067561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fea83aad0334e84da89d57572a8b3f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pixelation: {fileID: 517680565}
 --- !u!4 &5383819494367043814
 Transform:
   m_ObjectHideFlags: 0
