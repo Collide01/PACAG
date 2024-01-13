@@ -630,7 +630,7 @@ public class MannequinPart : MonoBehaviour
 
         JointData jointData = jointInstance.GetComponent<JointData>();
         jointData.modelJoint = joint;
-        jointData.jointSet = true;
+        //jointData.SetRotationConstraint();
 
         MannequinPart jointMannequinPart = jointInstance.GetComponent<MannequinPart>();
         jointMannequinPart.pixelGrid = pixelGrid;

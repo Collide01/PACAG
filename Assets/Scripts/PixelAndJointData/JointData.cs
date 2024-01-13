@@ -5,7 +5,6 @@ using UnityEngine.Animations;
 
 public class JointData : MonoBehaviour
 {
-    [HideInInspector] public bool jointSet;
     public BodyPart modelJoint; // Joint to replicate
     public RotationConstraint rotationConstraint;
     private ConstraintSource source;
@@ -16,22 +15,17 @@ public class JointData : MonoBehaviour
         jointObjects = (MannequinPart[])FindObjectsOfType(typeof(MannequinPart));
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetRotationConstraint()
     {
-        if (jointSet)
+        // Find the same joint on the mannequin and copy its rotation
+        foreach (MannequinPart jointObject in jointObjects)
         {
-            // Find the same joint on the mannequin and copy its rotation
-            foreach (MannequinPart jointObject in jointObjects)
+            if (jointObject.gameObject != gameObject && jointObject.bodyPart == modelJoint)
             {
-                if (jointObject.gameObject != gameObject && jointObject.bodyPart == modelJoint)
-                {
-                    source.weight = 1;
-                    source.sourceTransform = jointObject.transform;
-                    rotationConstraint.AddSource(source);
-                    jointSet = false;
-                    break;
-                }
+                source.weight = 1;
+                source.sourceTransform = jointObject.transform;
+                rotationConstraint.AddSource(source);
+                break;
             }
         }
     }

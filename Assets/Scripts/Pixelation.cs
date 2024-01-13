@@ -33,16 +33,6 @@ public class Pixelation : MonoBehaviour
         creatingAnimation = true;
     }
 
-    private void Update()
-    {
-        
-    }
-
-    private void LateUpdate()
-    {
-        
-    }
-
     /// <summary>
     /// Create animation events for the animation based on the frame rate
     /// </summary>
@@ -80,7 +70,7 @@ public class Pixelation : MonoBehaviour
     /// </summary>
     public void AnimationEventFunction(int frame)
     {
-        switch (creatingAnimation)
+        /*switch (creatingAnimation)
         {
             case true:
                 if (!(frame == 0 && cellPositions.Count > 0))
@@ -91,15 +81,15 @@ public class Pixelation : MonoBehaviour
             case false:
                 CreateSprite(frame);
                 break;
-        }
+        }*/
     }
 
     public void SwitchCreationState()
     {
-        if (creatingAnimation && cellPositions.Count > 0)
+        /*if (creatingAnimation && cellPositions.Count > 0)
         {
             creatingAnimation = false;
-        }
+        }*/
     }
 
     private void CreateSpriteData()
