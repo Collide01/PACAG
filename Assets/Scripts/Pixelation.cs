@@ -55,13 +55,6 @@ public class Pixelation : MonoBehaviour
 
             eventIndex++;
         }
-
-        // Creates one last event at the beginning of the animation to signal that the sprite is complete
-        AnimationEvent finalEvt = new AnimationEvent();
-        finalEvt.time = 0;
-        finalEvt.functionName = "SwitchCreationState";
-
-        mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.AddEvent(finalEvt);
     }
 
     /// <summary>
@@ -70,35 +63,46 @@ public class Pixelation : MonoBehaviour
     /// </summary>
     public void AnimationEventFunction(int frame)
     {
-        /*switch (creatingAnimation)
+        GameObject[] pixelBoxes = GameObject.FindGameObjectsWithTag("RectTransform");
+        if (pixelBoxes.Length > 0)
         {
-            case true:
-                if (!(frame == 0 && cellPositions.Count > 0))
-                {
-                    CreateSpriteData();
-                }
-                break;
-            case false:
-                CreateSprite(frame);
-                break;
-        }*/
+            // Organizes the sprite data based on their z-positions.
+            // This makes it so pixels that already have a color can't be drawn over.
+            Array.Sort(pixelLocations, ZPositionComparison);
+            CreateSpriteData(frame);
+        }
+        else
+        {
+            CreateSprite(frame);
+        }
     }
 
     public void SwitchCreationState()
     {
-        /*if (creatingAnimation && cellPositions.Count > 0)
+        if (creatingAnimation && cellPositions.Count > 0)
         {
             creatingAnimation = false;
-        }*/
+            mannequin.GetComponent<Mannequin>().CallRemove();
+        }
     }
 
-    private void CreateSpriteData()
+    /// <summary>
+    /// Create pixels for each frame, 1000 at a time.
+    /// </summary>
+    /// <param name="frame">Frame of the animation</param>
+    public void CreateSpriteData(int frame)
     {
-        cellPositions.Add(new List<Vector3Int>());
-        cellColors.Add(new List<Color>());
-        // Gets the sprite data based on their z-positions
-        // This makes it so pixels that already have a color can't be drawn over.
-        System.Array.Sort(pixelLocations, ZPositionComparison);
+        // Creates a frame for the first loop of the animation
+        if (cellPositions.Count <= frame)
+        {
+            cellPositions.Add(new List<Vector3Int>());
+            cellColors.Add(new List<Color>());
+        }
+
+        // Selects the first 1000 pixels for the loop
+
+
+        // Creates the pixels
         foreach (GameObject pixel in pixelLocations)
         {
             Vector3Int cellPosition = pixelGrid.WorldToCell(pixel.transform.position);
@@ -106,6 +110,12 @@ public class Pixelation : MonoBehaviour
             {
                 cellPositions[cellPositions.Count - 1].Add(cellPosition);
                 cellColors[cellPositions.Count - 1].Add(pixel.GetComponent<PixelData>().pixelColor);
+            }
+
+            // If this is the last frame in the animation, delete the pixel block
+            if (frame == mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.events.Length - 1)
+            {
+                Destroy(pixel);
             }
         }
     }

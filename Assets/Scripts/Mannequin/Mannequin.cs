@@ -19,4 +19,9 @@ public class Mannequin : MonoBehaviour
     {
         pixelation.SwitchCreationState();
     }
+
+    public void CallRemove()
+    {
+        GetComponentInChildren<MannequinPart>().RemovePixelsAndJoints();
+    }
 }
