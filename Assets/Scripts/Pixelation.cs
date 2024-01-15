@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -15,6 +16,7 @@ public class Pixelation : MonoBehaviour
     [HideInInspector] public List<List<Vector3Int>> cellPositions;
     [HideInInspector] public List<List<Color>> cellColors;
     [HideInInspector] public GameObject[] pixelLocations;
+    private int pixelDrawnCount;
     private FPSCounter fpsCounter;
     // These floats get the animation length in seconds to determine how long the frame creation process occurs
     private float animationLength;
@@ -55,6 +57,10 @@ public class Pixelation : MonoBehaviour
 
             eventIndex++;
         }
+
+        // Organizes the sprite data based on their z-positions.
+        // This makes it so pixels that already have a color can't be drawn over.
+        Array.Sort(pixelLocations, ZPositionComparison);
     }
 
     /// <summary>
@@ -63,26 +69,15 @@ public class Pixelation : MonoBehaviour
     /// </summary>
     public void AnimationEventFunction(int frame)
     {
-        GameObject[] pixelBoxes = GameObject.FindGameObjectsWithTag("RectTransform");
-        if (pixelBoxes.Length > 0)
+        Debug.Log(pixelDrawnCount);
+        if (pixelDrawnCount < pixelLocations.Length)
         {
-            // Organizes the sprite data based on their z-positions.
-            // This makes it so pixels that already have a color can't be drawn over.
-            Array.Sort(pixelLocations, ZPositionComparison);
             CreateSpriteData(frame);
         }
         else
         {
-            CreateSprite(frame);
-        }
-    }
-
-    public void SwitchCreationState()
-    {
-        if (creatingAnimation && cellPositions.Count > 0)
-        {
-            creatingAnimation = false;
             mannequin.GetComponent<Mannequin>().CallRemove();
+            CreateSprite(frame);
         }
     }
 
@@ -99,24 +94,37 @@ public class Pixelation : MonoBehaviour
             cellColors.Add(new List<Color>());
         }
 
-        // Selects the first 1000 pixels for the loop
-
-
-        // Creates the pixels
-        foreach (GameObject pixel in pixelLocations)
+        // Counter for the first 1000 pixels for the loop
+        int pixelCount = 0;
+        if (pixelLocations.Length - pixelDrawnCount >= 1000)
         {
-            Vector3Int cellPosition = pixelGrid.WorldToCell(pixel.transform.position);
-            if (!cellPositions[cellPositions.Count - 1].Contains(cellPosition))
+            pixelCount = 1000;
+        }
+        else
+        {
+            pixelCount = pixelLocations.Length - pixelDrawnCount;
+        }
+        
+        // Creates the pixels
+        for (int i = pixelDrawnCount; i < pixelDrawnCount + pixelCount; i++)
+        {
+            Vector3Int cellPosition = pixelGrid.WorldToCell(pixelLocations[i].transform.position);
+            if (!cellPositions[frame].Contains(cellPosition))
             {
-                cellPositions[cellPositions.Count - 1].Add(cellPosition);
-                cellColors[cellPositions.Count - 1].Add(pixel.GetComponent<PixelData>().pixelColor);
+                cellPositions[frame].Add(cellPosition);
+                cellColors[frame].Add(pixelLocations[i].GetComponent<PixelData>().pixelColor);
             }
+            else
+            {
+                int index = cellPositions[frame].IndexOf(cellPosition);
+                cellColors[frame][index] = pixelLocations[i].GetComponent<PixelData>().pixelColor;
+            }
+        }
 
-            // If this is the last frame in the animation, delete the pixel block
-            if (frame == mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.events.Length - 1)
-            {
-                Destroy(pixel);
-            }
+        // If this is the last frame in the animation, delete the pixel block
+        if (frame == mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.events.Length - 1)
+        {
+            pixelDrawnCount += pixelCount;
         }
     }
 
@@ -164,6 +172,6 @@ public class Pixelation : MonoBehaviour
 
         var za = a.transform.position.z;
         var zb = b.transform.position.z;
-        return za.CompareTo(zb); //here I use the default comparison of floats
+        return zb.CompareTo(za); //here I use the default comparison of floats
     }
 }

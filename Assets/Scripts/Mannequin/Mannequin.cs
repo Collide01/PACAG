@@ -15,11 +15,6 @@ public class Mannequin : MonoBehaviour
         pixelation.AnimationEventFunction(frame);
     }
 
-    public void SwitchCreationState()
-    {
-        pixelation.SwitchCreationState();
-    }
-
     public void CallRemove()
     {
         GetComponentInChildren<MannequinPart>().RemovePixelsAndJoints();
