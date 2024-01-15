@@ -998,7 +998,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1072,19 +1071,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &963194229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 612febc8010816649ab82147e0f56f9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraSlider: {fileID: 1982189845}
 --- !u!1 &1123493795
 GameObject:
   m_ObjectHideFlags: 0
@@ -2058,19 +2044,7 @@ MonoBehaviour:
   m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 963194229}
-        m_TargetAssemblyTypeName: CameraSize, Assembly-CSharp
-        m_MethodName: ChangeCameraSize
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!4 &23456842869575482
 Transform:
   m_ObjectHideFlags: 0
@@ -2265,8 +2239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -2602,8 +2574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -2636,8 +2606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -2687,8 +2655,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -2839,8 +2805,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -2953,8 +2917,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -3003,8 +2965,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -3071,8 +3031,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -3123,8 +3081,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -3191,8 +3147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -3272,8 +3226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -3339,8 +3291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -3374,8 +3324,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -3409,8 +3357,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -3461,8 +3407,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -3528,8 +3472,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -3561,8 +3503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -3614,8 +3554,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -3650,8 +3588,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -3685,8 +3621,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -3750,8 +3684,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -3785,8 +3717,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -3852,8 +3782,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
   jointPoint: {fileID: 6793576486800379558, guid: 92276b3c7221f4844838d3f9b4e92eec, type: 3}
@@ -3951,8 +3879,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -3985,8 +3911,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -4037,8 +3961,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -4071,8 +3993,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -4106,8 +4026,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -4262,8 +4180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -4296,8 +4212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -4346,8 +4260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -4398,8 +4310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -4449,8 +4359,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -4521,8 +4429,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -4556,8 +4462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -4622,8 +4526,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -4672,8 +4574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -4706,8 +4606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -4740,8 +4638,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -4789,8 +4685,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -4824,8 +4718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -4858,8 +4750,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -4909,8 +4799,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -4944,8 +4832,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -4996,8 +4882,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -5029,8 +4913,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -5080,8 +4962,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -5115,8 +4995,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -5150,8 +5028,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -5185,8 +5061,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -5220,8 +5094,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -5255,8 +5127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -5289,8 +5159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -5324,8 +5192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -5359,8 +5225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -5393,8 +5257,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -5428,8 +5290,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -5462,8 +5322,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -5514,8 +5372,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -5549,8 +5405,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -5584,8 +5438,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -5619,8 +5471,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -5654,8 +5504,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -5687,8 +5535,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
@@ -5722,8 +5568,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 517680563}
-  pixelTilemap: {fileID: 1546057320}
   pixelation: {fileID: 517680565}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}

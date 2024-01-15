@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -37,6 +36,7 @@ public class Pixelation : MonoBehaviour
     /// </summary>
     public void SetAnimationEvents()
     {
+        UpdatePixelList();
         mannequin.GetComponent<Animator>().speed = 1;
         mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.events = null;
         float frameInterval = 1000.0f / frameRate / 1000.0f;
@@ -66,7 +66,7 @@ public class Pixelation : MonoBehaviour
     /// </summary>
     public void AnimationEventFunction(int frame)
     {
-        Debug.Log(pixelDrawnCount);
+        Debug.Log(pixelDrawnCount + ", " + pixelLocations.Length);
         if (pixelDrawnCount < pixelLocations.Length)
         {
             CreateSpriteData(frame);
@@ -110,11 +110,6 @@ public class Pixelation : MonoBehaviour
             {
                 cellPositions[frame].Add(cellPosition);
                 cellColors[frame].Add(pixelLocations[i].GetComponent<PixelData>().pixelColor);
-            }
-            else
-            {
-                int index = cellPositions[frame].IndexOf(cellPosition);
-                cellColors[frame][index] = pixelLocations[i].GetComponent<PixelData>().pixelColor;
             }
         }
 
@@ -169,6 +164,6 @@ public class Pixelation : MonoBehaviour
 
         var za = a.transform.position.z;
         var zb = b.transform.position.z;
-        return zb.CompareTo(za); //here I use the default comparison of floats
+        return za.CompareTo(zb); //here I use the default comparison of floats
     }
 }

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 338075325014258900}
   - component: {fileID: 696797923728462178}
   - component: {fileID: 835197876490991056}
-  - component: {fileID: -6695171549027705979}
   m_Layer: 0
   m_Name: NewJoint
   m_TagString: NewJoint
@@ -59,27 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b96d33e496567b4989705fbc5445b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelGrid: {fileID: 0}
-  pixelTilemap: {fileID: 0}
   pixelation: {fileID: 0}
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 0
---- !u!1818360609 &-6695171549027705979
-RotationConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6793576486800379558}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Weight: 1
-  m_RotationAtRest: {x: 0, y: 0, z: 0}
-  m_RotationOffset: {x: 0, y: 0, z: 0}
-  m_AffectRotationX: 1
-  m_AffectRotationY: 1
-  m_AffectRotationZ: 1
-  m_Active: 1
-  m_IsLocked: 1
-  m_Sources: []

@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class CameraSize : MonoBehaviour
 {
     public Slider cameraSlider;
+    public Camera mainCamera;
 
     public void ChangeCameraSize()
     {
-        Camera.current.orthographicSize = cameraSlider.value;
+        mainCamera.orthographicSize = cameraSlider.value;
     }
 }
