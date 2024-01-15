@@ -20,8 +20,6 @@ public class Pixelation : MonoBehaviour
     private FPSCounter fpsCounter;
     // These floats get the animation length in seconds to determine how long the frame creation process occurs
     private float animationLength;
-    private float currentAnimationTime;
-    private bool creatingAnimation;
 
     private void Start()
     {
@@ -32,7 +30,6 @@ public class Pixelation : MonoBehaviour
         cellColors = new List<List<Color>>();
         animationLength = mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length;
         mannequin.GetComponent<Animator>().speed = 0;
-        creatingAnimation = true;
     }
 
     /// <summary>
