@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6695171549027705979}
   m_Layer: 0
   m_Name: NewJoint
-  m_TagString: Untagged
+  m_TagString: NewJoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJoint: 0
-  rotationConstraint: {fileID: -6695171549027705979}
 --- !u!114 &835197876490991056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,7 +65,6 @@ MonoBehaviour:
   pixel: {fileID: 0}
   jointPoint: {fileID: 0}
   bodyPart: 0
-  partColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1818360609 &-6695171549027705979
 RotationConstraint:
   m_ObjectHideFlags: 0

@@ -1,52 +1,139 @@
+using System;
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class Pixelation : MonoBehaviour
 {
+    private GameObject mannequin;
     [SerializeField] private Tilemap pixelGrid;
     [SerializeField] private Tile pixelTile;
+    [HideInInspector] public int frameRate;
+    private int prevFrameRate; // Checks if the frame rate changed during runtime
+    // cellPositions and cellColors store the pixel data for each frame of the animation
+    [HideInInspector] public List<List<Vector3Int>> cellPositions;
+    [HideInInspector] public List<List<Color>> cellColors;
     [HideInInspector] public GameObject[] pixelLocations;
-    [HideInInspector] public List<Vector3Int> cellPositions;
-    [HideInInspector] public List<Color> cellColors;
-    private bool createdSprite;
+    private int pixelDrawnCount;
+    private FPSCounter fpsCounter;
+    // These floats get the animation length in seconds to determine how long the frame creation process occurs
+    private float animationLength;
 
     private void Start()
     {
-        pixelGrid.ClearAllTiles();
-        createdSprite = false;
+        mannequin = GameObject.FindGameObjectWithTag("Mannequin");
+        frameRate = GameObject.FindGameObjectWithTag("CharacterSettings").GetComponent<CharacterSettings>().frameRate;
+        fpsCounter = GameObject.FindGameObjectWithTag("FPSController").GetComponent<FPSCounter>();
+        cellPositions = new List<List<Vector3Int>>();
+        cellColors = new List<List<Color>>();
+        animationLength = mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length;
+        mannequin.GetComponent<Animator>().speed = 0;
     }
 
-    public void SetSpriteData()
+    /// <summary>
+    /// Create animation events for the animation based on the frame rate
+    /// </summary>
+    public void SetAnimationEvents()
     {
-        if (pixelLocations.Length > 0)
+        mannequin.GetComponent<Animator>().speed = 1;
+        mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.events = null;
+        float frameInterval = 1000.0f / frameRate / 1000.0f;
+
+        // Creates new Animation Events at specific intervals based on the frame rate
+        int eventIndex = 0;
+        while (frameInterval * eventIndex < animationLength)
         {
-            // Gets the pixel objects and draws sprites in them in order based on their z-positions
-            // This makes it so pixels that already have a color can't be drawn over.
-            System.Array.Sort(pixelLocations, ZPositionComparison);
-            foreach (GameObject pixel in pixelLocations)
-            {
-                Vector3Int cellPosition = pixelGrid.WorldToCell(pixel.transform.position);
-                if (!cellPositions.Contains(cellPosition))
-                {
-                    cellPositions.Add(cellPosition);
-                    cellColors.Add(pixel.GetComponent<PixelData>().pixelColor);
-                }
-            }
+            AnimationEvent evt = new AnimationEvent();
+            evt.time = frameInterval * eventIndex;
+            evt.intParameter = eventIndex;
+            evt.functionName = "AnimationEventFunction";
+
+            mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.AddEvent(evt);
+
+            eventIndex++;
+        }
+
+        // Organizes the sprite data based on their z-positions.
+        // This makes it so pixels that already have a color can't be drawn over.
+        Array.Sort(pixelLocations, ZPositionComparison);
+    }
+
+    /// <summary>
+    /// The function that AnimationEvents call as the animation plays.
+    /// AnimationEvents are used to make the sprite rendering more accurate.
+    /// </summary>
+    public void AnimationEventFunction(int frame)
+    {
+        Debug.Log(pixelDrawnCount);
+        if (pixelDrawnCount < pixelLocations.Length)
+        {
+            CreateSpriteData(frame);
+        }
+        else
+        {
+            mannequin.GetComponent<Mannequin>().CallRemove();
+            CreateSprite(frame);
         }
     }
 
-    public void CreateSpriteFrame()
+    /// <summary>
+    /// Create pixels for each frame, 1000 at a time.
+    /// </summary>
+    /// <param name="frame">Frame of the animation</param>
+    public void CreateSpriteData(int frame)
     {
-        if (!createdSprite)
+        // Creates a frame for the first loop of the animation
+        if (cellPositions.Count <= frame)
         {
-            for (int i = 0; i < cellPositions.Count; i++)
-            {
-                SetTileColor(cellColors[i], cellPositions[i], pixelGrid);
-            }
+            cellPositions.Add(new List<Vector3Int>());
+            cellColors.Add(new List<Color>());
+        }
 
-            createdSprite = true;
+        // Counter for the first 1000 pixels for the loop
+        int pixelCount = 0;
+        if (pixelLocations.Length - pixelDrawnCount >= 1000)
+        {
+            pixelCount = 1000;
+        }
+        else
+        {
+            pixelCount = pixelLocations.Length - pixelDrawnCount;
+        }
+        
+        // Creates the pixels
+        for (int i = pixelDrawnCount; i < pixelDrawnCount + pixelCount; i++)
+        {
+            Vector3Int cellPosition = pixelGrid.WorldToCell(pixelLocations[i].transform.position);
+            if (!cellPositions[frame].Contains(cellPosition))
+            {
+                cellPositions[frame].Add(cellPosition);
+                cellColors[frame].Add(pixelLocations[i].GetComponent<PixelData>().pixelColor);
+            }
+            else
+            {
+                int index = cellPositions[frame].IndexOf(cellPosition);
+                cellColors[frame][index] = pixelLocations[i].GetComponent<PixelData>().pixelColor;
+            }
+        }
+
+        // If this is the last frame in the animation, delete the pixel block
+        if (frame == mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.events.Length - 1)
+        {
+            pixelDrawnCount += pixelCount;
+        }
+    }
+
+    private void CreateSprite(int frame)
+    {
+        Debug.Log(frame);
+        pixelGrid.ClearAllTiles();
+        //Debug.Log(cellPositions.Count + ", " + frame);
+        // Gets the pixel objects and draws sprites in them based on the sprite data
+        for (int i = 0; i < cellPositions[frame].Count; i++)
+        {
+            SetTileColor(cellColors[frame][i], cellPositions[frame][i], pixelGrid);
         }
     }
 
@@ -82,6 +169,6 @@ public class Pixelation : MonoBehaviour
 
         var za = a.transform.position.z;
         var zb = b.transform.position.z;
-        return za.CompareTo(zb); //here I use the default comparison of floats
+        return zb.CompareTo(za); //here I use the default comparison of floats
     }
 }

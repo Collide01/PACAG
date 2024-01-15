@@ -620,7 +620,7 @@ public class MannequinPart : MonoBehaviour
 
         JointData jointData = jointInstance.GetComponent<JointData>();
         jointData.modelJoint = joint;
-        jointData.jointSet = true;
+        jointData.SetRotationSource();
 
         MannequinPart jointMannequinPart = jointInstance.GetComponent<MannequinPart>();
         if (createNewJoint)
@@ -797,6 +797,29 @@ public class MannequinPart : MonoBehaviour
             default:
                 jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x, jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
                 break;
+        }
+    }
+
+    /// <summary>
+    /// Remove the pixel blocks and joints from the scene to reduce memory usage
+    /// </summary>
+    public void RemovePixelsAndJoints()
+    {
+        if (bodyPart == BodyPart.Hips)
+        {
+            // First, destroy the spine and leg joints and all of their children
+            GameObject[] joints = GameObject.FindGameObjectsWithTag("NewJoint");
+            foreach (GameObject joint in joints)
+            {
+                Destroy(joint);
+            }
+
+            // Second, destroy the remaining pixel blocks
+            GameObject[] pixelBlocks = GameObject.FindGameObjectsWithTag("GridTransform");
+            foreach (GameObject pixelBlock in pixelBlocks)
+            {
+                Destroy(pixelBlock);
+            }
         }
     }
 }
