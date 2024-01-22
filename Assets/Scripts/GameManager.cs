@@ -5,11 +5,14 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public States currentState;
-    public GameObject UIStart;
-    public GameObject UIDraw;
-    public GameObject UIAnimate;
-    public GameObject UIEdit;
-    public GameObject UISave;
+    public GameObject uiStart;
+    public GameObject uiDraw;
+    public GameObject uiAnimate;
+    public GameObject uiEdit;
+    public GameObject uiSave;
+
+    public GameObject drawGrids;
+    public GameObject mannequin;
 
     // Start is called before the first frame update
     void Start()
@@ -26,46 +29,61 @@ public class GameManager : MonoBehaviour
 
     public void ChangeToStart()
     {
-        UIStart.SetActive(true);
-        UIDraw.SetActive(false);
-        UIAnimate.SetActive(false);
-        UIEdit.SetActive(false);
-        UISave.SetActive(false);
+        uiStart.SetActive(true);
+        uiDraw.SetActive(false);
+        uiAnimate.SetActive(false);
+        uiEdit.SetActive(false);
+        uiSave.SetActive(false);
+
+        drawGrids.SetActive(false);
+        mannequin.SetActive(false);
     }
 
     public void ChangeToDraw()
     {
-        UIStart.SetActive(false);
-        UIDraw.SetActive(true);
-        UIAnimate.SetActive(false);
-        UIEdit.SetActive(false);
-        UISave.SetActive(false);
+        uiStart.SetActive(false);
+        uiDraw.SetActive(true);
+        uiAnimate.SetActive(false);
+        uiEdit.SetActive(false);
+        uiSave.SetActive(false);
+
+        drawGrids.SetActive(true);
+        mannequin.SetActive(false);
     }
 
     public void ChangeToAnimate()
     {
-        UIStart.SetActive(false);
-        UIDraw.SetActive(false);
-        UIAnimate.SetActive(true);
-        UIEdit.SetActive(false);
-        UISave.SetActive(false);
+        uiStart.SetActive(false);
+        uiDraw.SetActive(false);
+        uiAnimate.SetActive(true);
+        uiEdit.SetActive(false);
+        uiSave.SetActive(false);
+
+        drawGrids.SetActive(false);
+        mannequin.SetActive(true);
     }
 
     public void ChangeToEdit()
     {
-        UIStart.SetActive(false);
-        UIDraw.SetActive(false);
-        UIAnimate.SetActive(false);
-        UIEdit.SetActive(true);
-        UISave.SetActive(false);
+        uiStart.SetActive(false);
+        uiDraw.SetActive(false);
+        uiAnimate.SetActive(false);
+        uiEdit.SetActive(true);
+        uiSave.SetActive(false);
+
+        drawGrids.SetActive(false);
+        mannequin.SetActive(false);
     }
 
     public void ChangeToSave()
     {
-        UIStart.SetActive(false);
-        UIDraw.SetActive(false);
-        UIAnimate.SetActive(false);
-        UIEdit.SetActive(false);
-        UISave.SetActive(true);
+        uiStart.SetActive(false);
+        uiDraw.SetActive(false);
+        uiAnimate.SetActive(false);
+        uiEdit.SetActive(false);
+        uiSave.SetActive(true);
+
+        drawGrids.SetActive(false);
+        mannequin.SetActive(false);
     }
 }
