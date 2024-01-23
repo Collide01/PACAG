@@ -14,9 +14,12 @@ public class GameManager : MonoBehaviour
     public GameObject drawGrids;
     public GameObject mannequin;
 
+    private DrawingManager drawingManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        drawingManager = drawGrids.GetComponent<DrawingManager>();
         currentState = States.Start;
         ChangeToStart();
     }
@@ -49,6 +52,8 @@ public class GameManager : MonoBehaviour
 
         drawGrids.SetActive(true);
         mannequin.SetActive(false);
+
+        drawingManager.Init();
     }
 
     public void ChangeToAnimate()
