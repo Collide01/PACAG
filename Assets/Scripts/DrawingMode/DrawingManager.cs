@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DrawingManager : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class DrawingManager : MonoBehaviour
     public Button colorButton;
 
     [Header("Popups and Misc.")]
-    public GameObject gridView;
+    public TMP_Dropdown gridView;
     public GameObject colorPicker;
     public GameObject colorPickerBackground;
     [HideInInspector] public Color currentColor;
@@ -42,12 +43,30 @@ public class DrawingManager : MonoBehaviour
         colorButton.interactable = true;
 
         colorPicker.SetActive(false);
+        colorPickerBackground.SetActive(false);
         currentColor = Color.red;
         colorPicker.GetComponent<FlexibleColorPicker>().color = currentColor;
         colorButton.GetComponent<Image>().color = currentColor;
 
         currentMode = DrawModes.Draw;
         currentView = GridViews.Front;
+    }
+
+    public void ChangeDrawMode(int modeID)
+    {
+        switch (modeID)
+        {
+            case 0:
+                drawButton.interactable = false;
+                eraseButton.interactable = true;
+                currentMode = DrawModes.Draw;
+                break;
+            case 1:
+                drawButton.interactable = true;
+                eraseButton.interactable = false;
+                currentMode = DrawModes.Erase;
+                break;
+        }
     }
 
     public void OpenColorPicker()
@@ -60,6 +79,7 @@ public class DrawingManager : MonoBehaviour
     {
         colorPicker.SetActive(false);
         colorPickerBackground.SetActive(false);
+        ChangeColor();
     }
 
     public void ChangeColor()
@@ -70,7 +90,7 @@ public class DrawingManager : MonoBehaviour
 
     public void ChangeView()
     {
-        switch (gridView.GetComponent<Dropdown>().value)
+        switch (gridView.value)
         {
             case 0: // Front
                 frontGrid.SetActive(true);

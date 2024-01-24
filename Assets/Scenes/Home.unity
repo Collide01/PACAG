@@ -6538,7 +6538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2130943084915617138, guid: 4214b57e615806c448ba9d993d629531, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2130943085226611853, guid: 4214b57e615806c448ba9d993d629531, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -7299,7 +7299,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &632169452
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10135,10 +10135,10 @@ RectTransform:
   - {fileID: 1944090537}
   - {fileID: 1764766679}
   - {fileID: 1925683086}
-  - {fileID: 632169452}
-  - {fileID: 563539457}
   - {fileID: 783780690}
   - {fileID: 881480688}
+  - {fileID: 632169452}
+  - {fileID: 563539457}
   m_Father: {fileID: 468821289}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11672,7 +11672,7 @@ MonoBehaviour:
       - m_Target: {fileID: 737578965}
         m_TargetAssemblyTypeName: DrawingManager, Assembly-CSharp
         m_MethodName: ChangeView
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -24364,7 +24364,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1764766681}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 737578965}
+        m_TargetAssemblyTypeName: DrawingManager, Assembly-CSharp
+        m_MethodName: ChangeDrawMode
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1764766681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26630,7 +26642,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1944090539}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 737578965}
+        m_TargetAssemblyTypeName: DrawingManager, Assembly-CSharp
+        m_MethodName: ChangeDrawMode
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1944090539
 MonoBehaviour:
   m_ObjectHideFlags: 0
