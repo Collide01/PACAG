@@ -19,6 +19,26 @@ public class DrawingManager : MonoBehaviour
     public Button eraseButton;
     public Button colorButton;
 
+    [Header("Dimension Inputs")]
+    public TMP_InputField headX;
+    public TMP_InputField headY;
+    public TMP_InputField headZ;
+    public TMP_InputField torsoX;
+    public TMP_InputField torsoY;
+    public TMP_InputField torsoZ;
+    public TMP_InputField leftArmX;
+    public TMP_InputField leftArmY;
+    public TMP_InputField leftArmZ;
+    public TMP_InputField rightArmX;
+    public TMP_InputField rightArmY;
+    public TMP_InputField rightArmZ;
+    public TMP_InputField leftLegX;
+    public TMP_InputField leftLegY;
+    public TMP_InputField leftLegZ;
+    public TMP_InputField rightLegX;
+    public TMP_InputField rightLegY;
+    public TMP_InputField rightLegZ;
+
     [Header("Popups and Misc.")]
     public TMP_Dropdown gridView;
     public GameObject colorPicker;

@@ -9055,7 +9055,25 @@ MonoBehaviour:
   drawButton: {fileID: 1944090538}
   eraseButton: {fileID: 1764766680}
   colorButton: {fileID: 1925683087}
-  gridView: {fileID: 881480687}
+  headX: {fileID: 342331200}
+  headY: {fileID: 1698784126}
+  headZ: {fileID: 2028790381}
+  torsoX: {fileID: 453632193}
+  torsoY: {fileID: 1078012593}
+  torsoZ: {fileID: 1042324225}
+  leftArmX: {fileID: 804476001}
+  leftArmY: {fileID: 1398459029}
+  leftArmZ: {fileID: 789002081}
+  rightArmX: {fileID: 1538820385}
+  rightArmY: {fileID: 150872757}
+  rightArmZ: {fileID: 560280459}
+  leftLegX: {fileID: 1898219584}
+  leftLegY: {fileID: 1134572440}
+  leftLegZ: {fileID: 595868330}
+  rightLegX: {fileID: 1081604591}
+  rightLegY: {fileID: 226783617}
+  rightLegZ: {fileID: 363793544}
+  gridView: {fileID: 881480689}
   colorPicker: {fileID: 563539458}
   colorPickerBackground: {fileID: 632169451}
   currentColor: {r: 0, g: 0, b: 0, a: 0}
