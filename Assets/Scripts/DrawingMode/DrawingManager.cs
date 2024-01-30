@@ -47,6 +47,7 @@ public class DrawingManager : MonoBehaviour
 
     [HideInInspector] public DrawModes currentMode;
     [HideInInspector] public GridViews currentView;
+    [HideInInspector] public bool changingColors;
 
     // This sets the settings to their default state
     public void Init()
@@ -93,12 +94,14 @@ public class DrawingManager : MonoBehaviour
     {
         colorPicker.SetActive(true);
         colorPickerBackground.SetActive(true);
+        changingColors = true;
     }
 
     public void CloseColorPicker()
     {
         colorPicker.SetActive(false);
         colorPickerBackground.SetActive(false);
+        changingColors = false;
         ChangeColor();
     }
 
