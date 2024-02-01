@@ -43,12 +43,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: DrawBorder
-    uniqueID: 1735445479
+  - name: TransparencyBackground
+    uniqueID: 3196056499
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: TransparencyBackground
-    uniqueID: 3196056499
+  - name: DrawBorder
+    uniqueID: 1735445479
     locked: 0

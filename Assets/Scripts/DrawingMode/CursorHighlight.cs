@@ -31,6 +31,6 @@ public class CursorHighlight : MonoBehaviour
         tilemap.SetTileFlags(position, TileFlags.None);
 
         // Set the color.
-        tilemap.SetColor(position, Color.white);
+        tilemap.SetColor(position, drawingManager.currentColor);
     }
 }

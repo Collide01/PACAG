@@ -5,11 +5,22 @@ using UnityEngine.UI;
 
 public class CameraSize : MonoBehaviour
 {
-    public Slider cameraSlider;
     public Camera mainCamera;
 
-    public void ChangeCameraSize()
+    // Update is called once per frame
+    void Update()
     {
-        mainCamera.orthographicSize = cameraSlider.value;
+        if (Input.mouseScrollDelta.y != 0)
+        {
+            mainCamera.orthographicSize += Input.mouseScrollDelta.y;
+            if (mainCamera.orthographicSize > 30)
+            {
+                mainCamera.orthographicSize = 30;
+            }
+            else if (mainCamera.orthographicSize < 1)
+            {
+                mainCamera.orthographicSize = 1;
+            }
+        }
     }
 }
