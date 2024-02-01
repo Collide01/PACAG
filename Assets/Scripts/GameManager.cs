@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject drawGrids;
     public GameObject transparencyBackground;
+    public GameObject drawBorders;
     public GameObject mannequin;
 
     private DrawingManager drawingManager;
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
 
         drawGrids.SetActive(false);
         transparencyBackground.SetActive(false);
+        drawBorders.SetActive(false);
         mannequin.SetActive(false);
     }
 
@@ -54,6 +56,7 @@ public class GameManager : MonoBehaviour
 
         drawGrids.SetActive(true);
         transparencyBackground.SetActive(true);
+        drawBorders.SetActive(true);
         mannequin.SetActive(false);
 
         drawingManager.Init();
@@ -69,6 +72,7 @@ public class GameManager : MonoBehaviour
 
         drawGrids.SetActive(false);
         transparencyBackground.SetActive(false);
+        drawBorders.SetActive(false);
         mannequin.SetActive(true);
     }
 
@@ -82,6 +86,7 @@ public class GameManager : MonoBehaviour
 
         drawGrids.SetActive(false);
         transparencyBackground.SetActive(false);
+        drawBorders.SetActive(false);
         mannequin.SetActive(false);
     }
 
@@ -95,6 +100,7 @@ public class GameManager : MonoBehaviour
 
         drawGrids.SetActive(false);
         transparencyBackground.SetActive(false);
+        drawBorders.SetActive(false);
         mannequin.SetActive(false);
     }
 }

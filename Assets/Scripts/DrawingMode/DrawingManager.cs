@@ -6,6 +6,9 @@ using TMPro;
 
 public class DrawingManager : MonoBehaviour
 {
+    [Header("Managers and Settings")]
+    private CharacterSettings characterSettings;
+
     [Header("Grids")]
     public GameObject frontGrid;
     public GameObject backGrid;
@@ -48,6 +51,13 @@ public class DrawingManager : MonoBehaviour
     [HideInInspector] public DrawModes currentMode;
     [HideInInspector] public GridViews currentView;
     [HideInInspector] public bool changingColors;
+    [HideInInspector] public bool mouseInDrawField;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        characterSettings = GameObject.FindGameObjectWithTag("CharacterSettings").GetComponent<CharacterSettings>();
+    }
 
     // This sets the settings to their default state
     public void Init()
@@ -63,11 +73,31 @@ public class DrawingManager : MonoBehaviour
         eraseButton.interactable = true;
         colorButton.interactable = true;
 
+        headX.text = characterSettings.headSize.x.ToString();
+        headY.text = characterSettings.headSize.y.ToString();
+        headZ.text = characterSettings.headSize.z.ToString();
+        torsoX.text = characterSettings.torsoSize.x.ToString();
+        torsoY.text = characterSettings.torsoSize.y.ToString();
+        torsoZ.text = characterSettings.torsoSize.z.ToString();
+        leftArmX.text = characterSettings.leftArmSize.x.ToString();
+        leftArmY.text = characterSettings.leftArmSize.y.ToString();
+        leftArmZ.text = characterSettings.leftArmSize.z.ToString();
+        rightArmX.text = characterSettings.rightArmSize.x.ToString();
+        rightArmY.text = characterSettings.rightArmSize.y.ToString();
+        rightArmZ.text = characterSettings.rightArmSize.z.ToString();
+        leftLegX.text = characterSettings.leftLegSize.x.ToString();
+        leftLegY.text = characterSettings.leftLegSize.y.ToString();
+        leftLegZ.text = characterSettings.leftLegSize.z.ToString();
+        rightLegX.text = characterSettings.rightLegSize.x.ToString();
+        rightLegY.text = characterSettings.rightLegSize.y.ToString();
+        rightLegZ.text = characterSettings.rightLegSize.z.ToString();
+
         colorPicker.SetActive(false);
         colorPickerBackground.SetActive(false);
         currentColor = Color.red;
         colorPicker.GetComponent<FlexibleColorPicker>().color = currentColor;
         colorButton.GetComponent<Image>().color = currentColor;
+        mouseInDrawField = true;
 
         currentMode = DrawModes.Draw;
         currentView = GridViews.Front;
@@ -176,5 +206,10 @@ public class DrawingManager : MonoBehaviour
                 currentView = GridViews.Bottom;
                 break;
         }
+    }
+
+    public void MouseInDrawField(bool param)
+    {
+        mouseInDrawField = param;
     }
 }

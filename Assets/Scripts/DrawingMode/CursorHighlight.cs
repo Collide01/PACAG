@@ -20,17 +20,20 @@ public class CursorHighlight : MonoBehaviour
     {
         tilemap.ClearAllTiles();
 
-        Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3Int position = tilemap.WorldToCell(worldPoint);
+        if (drawingManager.mouseInDrawField)
+        {
+            Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3Int position = tilemap.WorldToCell(worldPoint);
 
-        // Set the tile for color creation.
-        tilemap.SetTile(position, tile);
+            // Set the tile for color creation.
+            tilemap.SetTile(position, tile);
 
-        // Flag the tile, inidicating that it can change color.
-        // By default it's set to "Lock Color".
-        tilemap.SetTileFlags(position, TileFlags.None);
+            // Flag the tile, inidicating that it can change color.
+            // By default it's set to "Lock Color".
+            tilemap.SetTileFlags(position, TileFlags.None);
 
-        // Set the color.
-        tilemap.SetColor(position, drawingManager.currentColor);
+            // Set the color.
+            tilemap.SetColor(position, drawingManager.currentColor);
+        }
     }
 }

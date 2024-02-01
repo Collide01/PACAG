@@ -18,7 +18,7 @@ public class DrawGrid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0) && !drawingManager.changingColors)
+        if (Input.GetMouseButton(0) && !drawingManager.changingColors && drawingManager.mouseInDrawField)
         {
             Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int position = tilemap.WorldToCell(worldPoint);
