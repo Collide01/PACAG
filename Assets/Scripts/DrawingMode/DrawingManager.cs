@@ -42,6 +42,29 @@ public class DrawingManager : MonoBehaviour
     public TMP_InputField rightLegY;
     public TMP_InputField rightLegZ;
 
+    [Header("Draw Borders")]
+    public GameObject drawBorders;
+    public SpriteRenderer headBorder;
+    public SpriteRenderer torsoBorder;
+    public SpriteRenderer leftArmBorder;
+    public SpriteRenderer leftHandBorder;
+    public SpriteRenderer leftThumbBorder;
+    public SpriteRenderer leftIndexBorder;
+    public SpriteRenderer leftMiddleBorder;
+    public SpriteRenderer leftRingBorder;
+    public SpriteRenderer leftPinkyBorder;
+    public SpriteRenderer rightArmBorder;
+    public SpriteRenderer rightHandBorder;
+    public SpriteRenderer rightThumbBorder;
+    public SpriteRenderer rightIndexBorder;
+    public SpriteRenderer rightMiddleBorder;
+    public SpriteRenderer rightRingBorder;
+    public SpriteRenderer rightPinkyBorder;
+    public SpriteRenderer leftLegBorder;
+    public SpriteRenderer leftFootBorder;
+    public SpriteRenderer rightLegBorder;
+    public SpriteRenderer rightFootBorder;
+
     [Header("Popups and Misc.")]
     public TMP_Dropdown gridView;
     public GameObject colorPicker;
@@ -91,6 +114,7 @@ public class DrawingManager : MonoBehaviour
         rightLegX.text = characterSettings.rightLegSize.x.ToString();
         rightLegY.text = characterSettings.rightLegSize.y.ToString();
         rightLegZ.text = characterSettings.rightLegSize.z.ToString();
+        ChangeBorderSizes();
 
         colorPicker.SetActive(false);
         colorPickerBackground.SetActive(false);
@@ -211,5 +235,42 @@ public class DrawingManager : MonoBehaviour
     public void MouseInDrawField(bool param)
     {
         mouseInDrawField = param;
+    }
+
+    public void UpdateCharacterSizes()
+    {
+        characterSettings.headSize.x = int.Parse(headX.text);
+        characterSettings.headSize.y = int.Parse(headY.text);
+        characterSettings.headSize.z = int.Parse(headZ.text);
+        characterSettings.torsoSize.x = int.Parse(torsoX.text);
+        characterSettings.torsoSize.y = int.Parse(torsoY.text);
+        characterSettings.torsoSize.z = int.Parse(torsoZ.text);
+        characterSettings.leftArmSize.x = int.Parse(leftArmX.text);
+        characterSettings.leftArmSize.y = int.Parse(leftArmY.text);
+        characterSettings.leftArmSize.z = int.Parse(leftArmZ.text);
+        characterSettings.rightArmSize.x = int.Parse(rightArmX.text);
+        characterSettings.rightArmSize.y = int.Parse(rightArmY.text);
+        characterSettings.rightArmSize.z = int.Parse(rightArmZ.text);
+        characterSettings.leftLegSize.x = int.Parse(leftLegX.text);
+        characterSettings.leftLegSize.y = int.Parse(leftLegY.text);
+        characterSettings.leftLegSize.z = int.Parse(leftLegZ.text);
+        characterSettings.rightLegSize.x = int.Parse(rightLegX.text);
+        characterSettings.rightLegSize.y = int.Parse(rightLegY.text);
+        characterSettings.rightLegSize.z = int.Parse(rightLegZ.text);
+        ChangeBorderSizes();
+    }
+
+    public void ChangeBorderSizes()
+    {
+        if (characterSettings.torsoSize.x % 2 == 1) // Odd
+        {
+            drawBorders.transform.position = new Vector3(0.5f, 0.5f, drawBorders.transform.position.z);
+        }
+        else
+        {
+            drawBorders.transform.position = new Vector3(0, 0, drawBorders.transform.position.z);
+        }
+
+        torsoBorder.size = new Vector2(characterSettings.torsoSize.x, characterSettings.torsoSize.y);
     }
 }
