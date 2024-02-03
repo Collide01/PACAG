@@ -12,7 +12,7 @@ public class CameraSize : MonoBehaviour
     {
         if (Input.mouseScrollDelta.y != 0)
         {
-            mainCamera.orthographicSize += Input.mouseScrollDelta.y;
+            mainCamera.orthographicSize -= Input.mouseScrollDelta.y;
             if (mainCamera.orthographicSize > 30)
             {
                 mainCamera.orthographicSize = 30;

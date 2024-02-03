@@ -230,6 +230,7 @@ public class DrawingManager : MonoBehaviour
                 currentView = GridViews.Bottom;
                 break;
         }
+        ChangeBorderSizes();
     }
 
     public void MouseInDrawField(bool param)
@@ -262,15 +263,81 @@ public class DrawingManager : MonoBehaviour
 
     public void ChangeBorderSizes()
     {
-        if (characterSettings.torsoSize.x % 2 == 1) // Odd
+        float positionX = 0;
+        float positionY = 0;
+        float headPositionX = 0;
+        switch (currentView)
         {
-            drawBorders.transform.position = new Vector3(0.5f, 0.5f, drawBorders.transform.position.z);
-        }
-        else
-        {
-            drawBorders.transform.position = new Vector3(0, 0, drawBorders.transform.position.z);
-        }
+            case GridViews.Front:
+                if (characterSettings.torsoSize.x % 2 == 1) // Odd
+                {
+                    positionX = 0.5f;
+                }
+                if (characterSettings.torsoSize.y % 2 == 1) // Odd
+                {
+                    positionY = 0.5f;
+                }
+                drawBorders.transform.position = new Vector3(positionX, positionY, drawBorders.transform.position.z);
 
-        torsoBorder.size = new Vector2(characterSettings.torsoSize.x, characterSettings.torsoSize.y);
+                headBorder.size = new Vector2(characterSettings.headSize.x, characterSettings.headSize.y);
+                torsoBorder.size = new Vector2(characterSettings.torsoSize.x, characterSettings.torsoSize.y);
+                leftArmBorder.size = new Vector2(characterSettings.leftArmSize.y, characterSettings.leftArmSize.x);
+                rightArmBorder.size = new Vector2(characterSettings.rightArmSize.y, characterSettings.rightArmSize.x);
+                leftLegBorder.size = new Vector2(characterSettings.leftLegSize.x, characterSettings.leftLegSize.y);
+                rightLegBorder.size = new Vector2(characterSettings.rightLegSize.x, characterSettings.rightLegSize.y);
+
+                if (characterSettings.headSize.x % 2 != 0) // Odd
+                {
+                    headPositionX = 0.5f;
+                }
+                headBorder.gameObject.transform.position = new Vector3(headPositionX, Mathf.Floor(torsoBorder.size.y / 2.0f) + headBorder.size.y / 2.0f, headBorder.gameObject.transform.position.z);
+                leftArmBorder.gameObject.transform.position = new Vector3(Mathf.Ceil(torsoBorder.size.x / 2.0f) + leftArmBorder.size.x / 2.0f, Mathf.Floor(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f, leftArmBorder.gameObject.transform.position.z);
+                rightArmBorder.gameObject.transform.position = new Vector3(-Mathf.Floor(torsoBorder.size.x / 2.0f) - rightArmBorder.size.x / 2.0f, Mathf.Floor(torsoBorder.size.y / 2.0f) - rightArmBorder.size.y / 2.0f, rightArmBorder.gameObject.transform.position.z);
+                leftLegBorder.gameObject.transform.position = new Vector3(Mathf.Ceil(torsoBorder.size.x / 2.0f) - leftLegBorder.size.x / 2.0f, -Mathf.Floor(torsoBorder.size.y / 2.0f) - leftLegBorder.size.y / 2.0f, leftLegBorder.gameObject.transform.position.z);
+                rightLegBorder.gameObject.transform.position = new Vector3(-Mathf.Floor(torsoBorder.size.x / 2.0f) + rightLegBorder.size.x / 2.0f, -Mathf.Floor(torsoBorder.size.y / 2.0f) - rightLegBorder.size.y / 2.0f, rightLegBorder.gameObject.transform.position.z);
+
+                break;
+            case GridViews.Back:
+                if (characterSettings.torsoSize.x % 2 == 1) // Odd
+                {
+                    positionX = -0.5f;
+                }
+                if (characterSettings.torsoSize.y % 2 == 1) // Odd
+                {
+                    positionY = 0.5f;
+                }
+                drawBorders.transform.position = new Vector3(positionX, positionY, drawBorders.transform.position.z);
+
+                headBorder.size = new Vector2(characterSettings.headSize.x, characterSettings.headSize.y);
+                torsoBorder.size = new Vector2(characterSettings.torsoSize.x, characterSettings.torsoSize.y);
+                leftArmBorder.size = new Vector2(characterSettings.leftArmSize.y, characterSettings.leftArmSize.x);
+                rightArmBorder.size = new Vector2(characterSettings.rightArmSize.y, characterSettings.rightArmSize.x);
+                leftLegBorder.size = new Vector2(characterSettings.leftLegSize.x, characterSettings.leftLegSize.y);
+                rightLegBorder.size = new Vector2(characterSettings.rightLegSize.x, characterSettings.rightLegSize.y);
+
+                if (characterSettings.headSize.x % 2 != 0) // Odd
+                {
+                    headPositionX = -0.5f;
+                }
+                headBorder.gameObject.transform.position = new Vector3(headPositionX, Mathf.Floor(torsoBorder.size.y / 2.0f) + headBorder.size.y / 2.0f, headBorder.gameObject.transform.position.z);
+                leftArmBorder.gameObject.transform.position = new Vector3(-Mathf.Ceil(torsoBorder.size.x / 2.0f) - leftArmBorder.size.x / 2.0f, Mathf.Floor(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f, leftArmBorder.gameObject.transform.position.z);
+                rightArmBorder.gameObject.transform.position = new Vector3(Mathf.Floor(torsoBorder.size.x / 2.0f) + rightArmBorder.size.x / 2.0f, Mathf.Floor(torsoBorder.size.y / 2.0f) - rightArmBorder.size.y / 2.0f, rightArmBorder.gameObject.transform.position.z);
+                leftLegBorder.gameObject.transform.position = new Vector3(-Mathf.Ceil(torsoBorder.size.x / 2.0f) + leftLegBorder.size.x / 2.0f, -Mathf.Floor(torsoBorder.size.y / 2.0f) - leftLegBorder.size.y / 2.0f, leftLegBorder.gameObject.transform.position.z);
+                rightLegBorder.gameObject.transform.position = new Vector3(Mathf.Floor(torsoBorder.size.x / 2.0f) - rightLegBorder.size.x / 2.0f, -Mathf.Floor(torsoBorder.size.y / 2.0f) - rightLegBorder.size.y / 2.0f, rightLegBorder.gameObject.transform.position.z);
+
+                break;
+            case GridViews.Left:
+
+                break;
+            case GridViews.Right:
+
+                break;
+            case GridViews.Top:
+
+                break;
+            case GridViews.Bottom:
+
+                break;
+        }
     }
 }
