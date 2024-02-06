@@ -75,6 +75,7 @@ public class DrawingManager : MonoBehaviour
     [HideInInspector] public GridViews currentView;
     [HideInInspector] public bool changingColors;
     [HideInInspector] public bool mouseInDrawField;
+    [HideInInspector] public bool mouseInBorder;
 
     // Start is called before the first frame update
     void Start()
@@ -520,5 +521,11 @@ public class DrawingManager : MonoBehaviour
                 rightLegBorder.gameObject.transform.position = new Vector3(-Mathf.Floor(torsoBorder.size.x / 2.0f) + rightLegBorder.size.x / 2.0f, rightLegPositionZ, rightLegBorder.gameObject.transform.position.z);
                 break;
         }
+        headBorder.gameObject.GetComponent<DrawBorder>().ChangeColliderSize();
+        torsoBorder.gameObject.GetComponent<DrawBorder>().ChangeColliderSize();
+        leftArmBorder.gameObject.GetComponent<DrawBorder>().ChangeColliderSize();
+        rightArmBorder.gameObject.GetComponent<DrawBorder>().ChangeColliderSize();
+        leftLegBorder.gameObject.GetComponent<DrawBorder>().ChangeColliderSize();
+        rightLegBorder.gameObject.GetComponent<DrawBorder>().ChangeColliderSize();
     }
 }
