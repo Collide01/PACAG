@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class DrawGrid : MonoBehaviour
 {
     [SerializeField] private DrawingManager drawingManager;
-    [SerializeField] private Tilemap tilemap;
+    public Tilemap tilemap;
     [SerializeField] private Tile tile;
 
     // Start is called before the first frame update
