@@ -132,7 +132,7 @@ public class DrawingManager : MonoBehaviour
         rightLegY.text = characterSettings.rightLegSize.y.ToString();
         rightLegZ.text = characterSettings.rightLegSize.z.ToString();
         ChangeBorderSizes();
-        AssignGridToBodyParts();
+        AssignTilemapsToBodyParts();
 
         colorPicker.SetActive(false);
         colorPickerBackground.SetActive(false);
@@ -249,7 +249,7 @@ public class DrawingManager : MonoBehaviour
                 break;
         }
         ChangeBorderSizes();
-        AssignGridToBodyParts();
+        AssignTilemapsToBodyParts();
     }
 
     public void MouseInDrawField(bool param)
@@ -278,7 +278,7 @@ public class DrawingManager : MonoBehaviour
         characterSettings.rightLegSize.y = int.Parse(rightLegY.text);
         characterSettings.rightLegSize.z = int.Parse(rightLegZ.text);
         ChangeBorderSizes();
-        AssignGridToBodyParts();
+        AssignTilemapsToBodyParts();
     }
 
     public void ChangeBorderSizes()
@@ -548,7 +548,7 @@ public class DrawingManager : MonoBehaviour
         rightLegBorder.gameObject.GetComponent<DrawBorder>().ChangeColliderSize();
     }
 
-    public void AssignGridToBodyParts()
+    public void AssignTilemapsToBodyParts()
     {
         // Create copies of each of the tile coordinate lists
         List<Vector3Int> prevHeadGridTiles = new List<Vector3Int>(headGridTiles);
