@@ -6,12 +6,6 @@ using UnityEngine.Tilemaps;
 public class DrawGrid : MonoBehaviour
 {
     [SerializeField] private DrawingManager drawingManager;
-    public Tilemap headTilemap;
-    public Tilemap torsoTilemap;
-    public Tilemap leftArmTilemap;
-    public Tilemap rightArmTilemap;
-    public Tilemap leftLegTilemap;
-    public Tilemap rightLegTilemap;
     [SerializeField] private Tile tile;
 
     // Start is called before the first frame update
@@ -27,7 +21,7 @@ public class DrawGrid : MonoBehaviour
         {
             Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int position = drawingManager.currentTilemap.WorldToCell(worldPoint);
-            
+            Debug.Log(position);
             if (drawingManager.currentMode == DrawModes.Draw)
             {
                 // Set the tile for color creation.

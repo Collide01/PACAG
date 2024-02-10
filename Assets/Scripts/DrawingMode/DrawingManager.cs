@@ -66,14 +66,6 @@ public class DrawingManager : MonoBehaviour
     public SpriteRenderer rightLegBorder;
     public SpriteRenderer rightFootBorder;
 
-    // Grid Tiles
-    [HideInInspector] public List<Vector3Int> headGridTiles;
-    [HideInInspector] public List<Vector3Int> torsoGridTiles;
-    [HideInInspector] public List<Vector3Int> leftArmGridTiles;
-    [HideInInspector] public List<Vector3Int> rightArmGridTiles;
-    [HideInInspector] public List<Vector3Int> leftLegGridTiles;
-    [HideInInspector] public List<Vector3Int> rightLegGridTiles;
-
     [Header("Popups and Misc.")]
     public TMP_Dropdown gridView;
     public GameObject colorPicker;
@@ -91,12 +83,6 @@ public class DrawingManager : MonoBehaviour
     void Start()
     {
         characterSettings = GameObject.FindGameObjectWithTag("CharacterSettings").GetComponent<CharacterSettings>();
-        headGridTiles = new List<Vector3Int>();
-        torsoGridTiles = new List<Vector3Int>();
-        leftArmGridTiles = new List<Vector3Int>();
-        rightArmGridTiles = new List<Vector3Int>();
-        leftLegGridTiles = new List<Vector3Int>();
-        rightLegGridTiles = new List<Vector3Int>();
     }
 
     // This sets the settings to their default state
@@ -132,7 +118,7 @@ public class DrawingManager : MonoBehaviour
         rightLegY.text = characterSettings.rightLegSize.y.ToString();
         rightLegZ.text = characterSettings.rightLegSize.z.ToString();
         ChangeBorderSizes();
-        AssignTilemapsToBodyParts();
+        AlignTilemaps();
 
         colorPicker.SetActive(false);
         colorPickerBackground.SetActive(false);
@@ -249,7 +235,7 @@ public class DrawingManager : MonoBehaviour
                 break;
         }
         ChangeBorderSizes();
-        AssignTilemapsToBodyParts();
+        AlignTilemaps();
     }
 
     public void MouseInDrawField(bool param)
@@ -278,7 +264,7 @@ public class DrawingManager : MonoBehaviour
         characterSettings.rightLegSize.y = int.Parse(rightLegY.text);
         characterSettings.rightLegSize.z = int.Parse(rightLegZ.text);
         ChangeBorderSizes();
-        AssignTilemapsToBodyParts();
+        AlignTilemaps();
     }
 
     public void ChangeBorderSizes()
@@ -548,24 +534,8 @@ public class DrawingManager : MonoBehaviour
         rightLegBorder.gameObject.GetComponent<DrawBorder>().ChangeColliderSize();
     }
 
-    public void AssignTilemapsToBodyParts()
+    public void AlignTilemaps()
     {
-        // Create copies of each of the tile coordinate lists
-        List<Vector3Int> prevHeadGridTiles = new List<Vector3Int>(headGridTiles);
-        List<Vector3Int> prevTorsoGridTiles = new List<Vector3Int>(torsoGridTiles);
-        List<Vector3Int> prevLeftArmGridTiles = new List<Vector3Int>(leftArmGridTiles);
-        List<Vector3Int> prevRightArmGridTiles = new List<Vector3Int>(rightArmGridTiles);
-        List<Vector3Int> prevLeftLegGridTiles = new List<Vector3Int>(leftLegGridTiles);
-        List<Vector3Int> prevRightLegGridTiles = new List<Vector3Int>(rightLegGridTiles);
-        
-        // Clear the original lists to refill them again
-        headGridTiles.Clear();
-        torsoGridTiles.Clear();
-        leftArmGridTiles.Clear();
-        rightArmGridTiles.Clear();
-        leftLegGridTiles.Clear();
-        rightLegGridTiles.Clear();
-        
         //Vector3Int centerPoint = frontGrid.GetComponent<DrawGrid>().tilemap.WorldToCell(torsoBorder.transform.position);
         int leftmostPoint = 0;
         int bottomPoint = 0;
@@ -573,7 +543,7 @@ public class DrawingManager : MonoBehaviour
         {
             case GridViews.Front:
                 // TORSO -----------------------------------------------------------------
-                IdentifyGridSpots(frontGrid, torsoGridTiles, ref prevTorsoGridTiles, characterSettings.torsoSize, ref leftmostPoint, ref bottomPoint);
+
                 /*if (characterSettings.torsoSize.x % 2 == 1) // Odd
                 {
                     leftmostPoint = (characterSettings.torsoSize.x - 1) / 2;
