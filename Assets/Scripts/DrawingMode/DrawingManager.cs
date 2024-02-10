@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using TMPro;
 
@@ -84,6 +85,7 @@ public class DrawingManager : MonoBehaviour
     [HideInInspector] public bool changingColors;
     [HideInInspector] public bool mouseInDrawField;
     [HideInInspector] public bool mouseInBorder;
+    [HideInInspector] public Tilemap currentTilemap;
 
     // Start is called before the first frame update
     void Start()
@@ -564,13 +566,15 @@ public class DrawingManager : MonoBehaviour
         leftLegGridTiles.Clear();
         rightLegGridTiles.Clear();
         
-        Vector3Int centerPoint = frontGrid.GetComponent<DrawGrid>().tilemap.WorldToCell(torsoBorder.transform.position);
+        //Vector3Int centerPoint = frontGrid.GetComponent<DrawGrid>().tilemap.WorldToCell(torsoBorder.transform.position);
         int leftmostPoint = 0;
         int bottomPoint = 0;
         switch (currentView)
         {
             case GridViews.Front:
-                if (characterSettings.torsoSize.x % 2 == 1) // Odd
+                // TORSO -----------------------------------------------------------------
+                IdentifyGridSpots(frontGrid, torsoGridTiles, ref prevTorsoGridTiles, characterSettings.torsoSize, ref leftmostPoint, ref bottomPoint);
+                /*if (characterSettings.torsoSize.x % 2 == 1) // Odd
                 {
                     leftmostPoint = (characterSettings.torsoSize.x - 1) / 2;
                 }
@@ -606,58 +610,78 @@ public class DrawingManager : MonoBehaviour
                     {
                         frontGrid.GetComponent<DrawGrid>().tilemap.SetTile(tileCoordinate, null);
                     }
-                }
+                }*/
+
+                // HEAD ------------------------------------------------------------------------------
+
+
+                // LEFT ARM ------------------------------------------------------------------------
+
+
+                // RIGHT ARM -----------------------------------------------------------------------
+
+
+                // LEFT LEG --------------------------------------------------------------------------
+
+
+                // RIGHT LEG -------------------------------------------------------------------------
                 break;
             case GridViews.Back:
-                if (characterSettings.torsoSize.x % 2 == 1) // Odd
-                {
-
-                }
-                if (characterSettings.torsoSize.y % 2 == 1) // Odd
-                {
-
-                }
+                
                 break;
             case GridViews.Left:
-                if (characterSettings.torsoSize.x % 2 == 1) // Odd
-                {
-
-                }
-                if (characterSettings.torsoSize.y % 2 == 1) // Odd
-                {
-
-                }
+                
                 break;
             case GridViews.Right:
-                if (characterSettings.torsoSize.x % 2 == 1) // Odd
-                {
-
-                }
-                if (characterSettings.torsoSize.y % 2 == 1) // Odd
-                {
-
-                }
+                
                 break;
             case GridViews.Top:
-                if (characterSettings.torsoSize.x % 2 == 1) // Odd
-                {
-
-                }
-                if (characterSettings.torsoSize.y % 2 == 1) // Odd
-                {
-
-                }
+                
                 break;
             case GridViews.Bottom:
-                if (characterSettings.torsoSize.x % 2 == 1) // Odd
-                {
-
-                }
-                if (characterSettings.torsoSize.y % 2 == 1) // Odd
-                {
-
-                }
+                
                 break;
+        }
+    }
+
+    private void IdentifyGridSpots(GameObject grid, List<Vector3Int> partGridTiles, ref List<Vector3Int> prevPartGridTiles, Vector3Int bodyPartSize, ref int leftmostPoint, ref int bottomPoint)
+    {
+        if (bodyPartSize.x % 2 == 1) // Odd
+        {
+            leftmostPoint = (bodyPartSize.x - 1) / 2;
+        }
+        else
+        {
+            leftmostPoint = bodyPartSize.x / 2;
+        }
+        leftmostPoint *= -1;
+
+        if (bodyPartSize.y % 2 == 1) // Odd
+        {
+            bottomPoint = (bodyPartSize.y - 1) / 2;
+        }
+        else
+        {
+            bottomPoint = bodyPartSize.y / 2;
+        }
+        bottomPoint *= -1;
+
+        // Identify which tiles are in each body part
+        for (int i = 0; i < bodyPartSize.x; i++)
+        {
+            for (int j = 0; j < bodyPartSize.y; j++)
+            {
+                partGridTiles.Add(new Vector3Int(leftmostPoint + i, bottomPoint + j, 0));
+            }
+        }
+
+        // If the grid changed size and the tile is no longer in the grid, delete it
+        foreach (Vector3Int tileCoordinate in prevPartGridTiles)
+        {
+            if (!partGridTiles.Contains(tileCoordinate))
+            {
+                //grid.GetComponent<DrawGrid>().tilemap.SetTile(tileCoordinate, null);
+            }
         }
     }
 }
