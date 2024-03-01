@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         drawGrids.SetActive(false);
         transparencyBackground.SetActive(false);
         drawBorders.SetActive(false);
-        mannequin.SetActive(false);
+        //mannequin.SetActive(false);
     }
 
     public void ChangeToDraw()

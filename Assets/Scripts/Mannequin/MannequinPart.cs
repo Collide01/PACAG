@@ -549,6 +549,8 @@ public class MannequinPart : MonoBehaviour
     {
         for (int y = 0; y < partSizeY; y++)
         {
+            int xCoordinate = 0;
+            int zCoordinate = 0;
             for (int x = 0; x < partSizeX; x++)
             {
                 for (int z = 0; z < partSizeZ; z++)
@@ -560,6 +562,13 @@ public class MannequinPart : MonoBehaviour
                     float currentXPosition = 0;
                     float currentZPosition = 0;
 
+                    // Creates the pixel blocks in a specific order.
+                    // Order, based on numbers in grid:
+                    // 24 | 22 | 20 | 19 | 21 | 23
+                    // 12 | 10 | 08 | 07 | 09 | 11
+                    // 06 | 04 | 02 | 01 | 03 | 05
+                    // 18 | 16 | 14 | 13 | 15 | 17
+                    // 30 | 28 | 26 | 25 | 27 | 29
                     if (partSizeX % 2 == 0) // If the length is even
                     {
                         if (x % 2 == 1) // odd numbers
@@ -608,6 +617,26 @@ public class MannequinPart : MonoBehaviour
 
                     pixelInstance.transform.localPosition = new Vector3(currentXPosition, y * pixelSize, currentZPosition);
                     pixelInstance.GetComponent<PixelData>().pixelColor = pixelColor;
+                    pixelInstance.GetComponent<PixelData>().pixelPosition = new Vector3(xCoordinate, y, zCoordinate);
+
+                    if (zCoordinate >= 0)
+                    {
+                        zCoordinate = (zCoordinate + 1) * -1;
+                    }
+                    else
+                    {
+                        zCoordinate *= -1;
+                    }
+                }
+                zCoordinate = 0;
+
+                if (xCoordinate >= 0)
+                {
+                    xCoordinate = (xCoordinate + 1) * -1;
+                }
+                else
+                {
+                    xCoordinate *= -1;
                 }
             }
         }
