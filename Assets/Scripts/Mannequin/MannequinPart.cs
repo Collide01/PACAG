@@ -619,24 +619,32 @@ public class MannequinPart : MonoBehaviour
                     pixelInstance.GetComponent<PixelData>().pixelColor = pixelColor;
                     pixelInstance.GetComponent<PixelData>().pixelPosition = new Vector3(xCoordinate, y, zCoordinate);
 
-                    if (zCoordinate >= 0)
+                    if (zCoordinate == 0)
                     {
-                        zCoordinate = (zCoordinate + 1) * -1;
+                        zCoordinate = 1;
+                    }
+                    else if (zCoordinate > 0)
+                    {
+                        zCoordinate *= -1;
                     }
                     else
                     {
-                        zCoordinate *= -1;
+                        zCoordinate = (zCoordinate - 1) * -1;
                     }
                 }
                 zCoordinate = 0;
 
-                if (xCoordinate >= 0)
+                if (xCoordinate == 0)
                 {
-                    xCoordinate = (xCoordinate + 1) * -1;
+                    xCoordinate = 1;
+                }
+                else if (xCoordinate > 0)
+                {
+                    xCoordinate *= -1;
                 }
                 else
                 {
-                    xCoordinate *= -1;
+                    xCoordinate = (xCoordinate - 1) * -1;
                 }
             }
         }
