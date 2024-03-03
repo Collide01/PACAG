@@ -298,6 +298,7 @@ public class DrawingManager : MonoBehaviour
                 leftLegBorder.size = new Vector2(characterSettings.leftLegSize.x, characterSettings.leftLegSize.y);
                 rightLegBorder.size = new Vector2(characterSettings.rightLegSize.x, characterSettings.rightLegSize.y);
 
+                // Set the offsets of each border to line up with the rest of the body properly
                 if (characterSettings.headSize.x % 2 != 0) // Odd
                 {
                     headPositionX = 0.5f;
@@ -318,6 +319,7 @@ public class DrawingManager : MonoBehaviour
                 {
                     rightLegOffset = 0.5f;
                 }
+                // The z-values determine which tilemap the user is editing (closer ones have a closer z-value)
                 headBorder.gameObject.transform.position = new Vector3(headPositionX, Mathf.Ceil(torsoBorder.size.y / 2.0f) + headBorder.size.y / 2.0f, headBorder.gameObject.transform.position.z);
                 leftArmBorder.gameObject.transform.position = new Vector3(Mathf.Ceil(torsoBorder.size.x / 2.0f) + leftArmBorder.size.x / 2.0f, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f, leftArmBorder.gameObject.transform.position.z);
                 rightArmBorder.gameObject.transform.position = new Vector3(-Mathf.Floor(torsoBorder.size.x / 2.0f) - rightArmBorder.size.x / 2.0f, Mathf.Ceil(torsoBorder.size.y / 2.0f) - rightArmBorder.size.y / 2.0f, rightArmBorder.gameObject.transform.position.z);
@@ -354,6 +356,7 @@ public class DrawingManager : MonoBehaviour
                 leftLegBorder.size = new Vector2(characterSettings.leftLegSize.x, characterSettings.leftLegSize.y);
                 rightLegBorder.size = new Vector2(characterSettings.rightLegSize.x, characterSettings.rightLegSize.y);
 
+                // Set the offsets of each border to line up with the rest of the body properly
                 if (characterSettings.headSize.x % 2 != 0) // Odd
                 {
                     headPositionX = -0.5f;
@@ -374,17 +377,13 @@ public class DrawingManager : MonoBehaviour
                 {
                     rightLegOffset = 0.5f;
                 }
+                // The z-values determine which tilemap the user is editing (closer ones have a closer z-value)
                 headBorder.gameObject.transform.position = new Vector3(headPositionX, Mathf.Ceil(torsoBorder.size.y / 2.0f) + headBorder.size.y / 2.0f, headBorder.gameObject.transform.position.z);
                 leftArmBorder.gameObject.transform.position = new Vector3(-Mathf.Ceil(torsoBorder.size.x / 2.0f) - leftArmBorder.size.x / 2.0f, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f, leftArmBorder.gameObject.transform.position.z);
                 rightArmBorder.gameObject.transform.position = new Vector3(Mathf.Floor(torsoBorder.size.x / 2.0f) + rightArmBorder.size.x / 2.0f, Mathf.Ceil(torsoBorder.size.y / 2.0f) - rightArmBorder.size.y / 2.0f, rightArmBorder.gameObject.transform.position.z);
                 leftLegBorder.gameObject.transform.position = new Vector3(-Mathf.Ceil(torsoBorder.size.x / 2.0f) + leftLegBorder.size.x / 2.0f, -Mathf.Floor(torsoBorder.size.y / 2.0f) - leftLegBorder.size.y / 2.0f, leftLegBorder.gameObject.transform.position.z);
                 rightLegBorder.gameObject.transform.position = new Vector3(Mathf.Floor(torsoBorder.size.x / 2.0f) - rightLegBorder.size.x / 2.0f, -Mathf.Floor(torsoBorder.size.y / 2.0f) - rightLegBorder.size.y / 2.0f, rightLegBorder.gameObject.transform.position.z);
 
-                // Changes position of grid itself
-                if (characterSettings.headSize.x % 2 != 0) // Odd
-                {
-                    headPositionX = 0f;
-                }
                 backGrid.GetComponent<DrawGrid>().headTilemap.gameObject.transform.position = new Vector3(-1, Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
                 backGrid.GetComponent<DrawGrid>().torsoTilemap.gameObject.transform.position = new Vector3(-1, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
                 
@@ -418,6 +417,7 @@ public class DrawingManager : MonoBehaviour
                 leftLegBorder.size = new Vector2(characterSettings.leftLegSize.z, characterSettings.leftLegSize.y);
                 rightLegBorder.size = new Vector2(characterSettings.rightLegSize.z, characterSettings.rightLegSize.y);
 
+                // Set the offsets of each border to line up with the rest of the body properly
                 if (characterSettings.headSize.z % 2 != 0) // Odd
                 {
                     headPositionX = -0.5f;
@@ -438,18 +438,33 @@ public class DrawingManager : MonoBehaviour
                 {
                     rightLegOffset = -0.5f;
                 }
-                headBorder.gameObject.transform.position = new Vector3(headPositionX, Mathf.Ceil(torsoBorder.size.y / 2.0f) + headBorder.size.y / 2.0f, headBorder.gameObject.transform.position.z);
-                leftArmBorder.gameObject.transform.position = new Vector3(leftArmOffset, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f, leftArmBorder.gameObject.transform.position.z);
-                rightArmBorder.gameObject.transform.position = new Vector3(rightArmOffset, Mathf.Ceil(torsoBorder.size.y / 2.0f) - rightArmBorder.size.y / 2.0f, rightArmBorder.gameObject.transform.position.z);
-                leftLegBorder.gameObject.transform.position = new Vector3(leftLegOffset, -Mathf.Floor(torsoBorder.size.y / 2.0f) - leftLegBorder.size.y / 2.0f, leftLegBorder.gameObject.transform.position.z);
-                rightLegBorder.gameObject.transform.position = new Vector3(rightLegOffset, -Mathf.Floor(torsoBorder.size.y / 2.0f) - rightLegBorder.size.y / 2.0f, rightLegBorder.gameObject.transform.position.z);
+                // The z-values determine which tilemap the user is editing (closer ones have a closer z-value)
+                headBorder.gameObject.transform.position = new Vector3(headPositionX, Mathf.Ceil(torsoBorder.size.y / 2.0f) + headBorder.size.y / 2.0f, 103);
+                leftArmBorder.gameObject.transform.position = new Vector3(leftArmOffset, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f, 102.9f);
+                rightArmBorder.gameObject.transform.position = new Vector3(rightArmOffset, Mathf.Ceil(torsoBorder.size.y / 2.0f) - rightArmBorder.size.y / 2.0f, 102.1f);
+                leftLegBorder.gameObject.transform.position = new Vector3(leftLegOffset, -Mathf.Floor(torsoBorder.size.y / 2.0f) - leftLegBorder.size.y / 2.0f, 102.9f);
+                rightLegBorder.gameObject.transform.position = new Vector3(rightLegOffset, -Mathf.Floor(torsoBorder.size.y / 2.0f) - rightLegBorder.size.y / 2.0f, 103.1f);
 
-                leftGrid.GetComponent<DrawGrid>().headTilemap.gameObject.transform.position = new Vector3(headPositionX, Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
-                leftGrid.GetComponent<DrawGrid>().torsoTilemap.gameObject.transform.position = new Vector3(0, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
-                leftGrid.GetComponent<DrawGrid>().leftArmTilemap.gameObject.transform.position = new Vector3(leftArmOffset, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f, transform.position.z);
-                leftGrid.GetComponent<DrawGrid>().rightArmTilemap.gameObject.transform.position = new Vector3(rightArmOffset, Mathf.Ceil(torsoBorder.size.y / 2.0f) - rightArmBorder.size.y / 2.0f, transform.position.z);
-                leftGrid.GetComponent<DrawGrid>().leftLegTilemap.gameObject.transform.position = new Vector3(leftLegOffset, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
-                leftGrid.GetComponent<DrawGrid>().rightLegTilemap.gameObject.transform.position = new Vector3(rightLegOffset, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+                if (characterSettings.headSize.z % 2 != 0) leftGrid.GetComponent<DrawGrid>().headTilemap.gameObject.transform.position = new Vector3(0, Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().headTilemap.gameObject.transform.position = new Vector3(1, Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+
+                if (characterSettings.torsoSize.z % 2 != 0) leftGrid.GetComponent<DrawGrid>().torsoTilemap.gameObject.transform.position = new Vector3(0, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().torsoTilemap.gameObject.transform.position = new Vector3(1, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+
+                if (characterSettings.leftArmSize.z % 2 != 0) leftArmOffset = -0.5f;
+                else leftArmOffset = 0;
+                if (characterSettings.leftArmSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().leftArmTilemap.gameObject.transform.position = new Vector3(0, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f + 1 + leftArmOffset, transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().leftArmTilemap.gameObject.transform.position = new Vector3(1, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f + 1 + leftArmOffset, transform.position.z);
+
+                if (characterSettings.rightArmSize.z % 2 != 0) rightArmOffset = -0.5f;
+                else rightArmOffset = 0;
+                leftGrid.GetComponent<DrawGrid>().rightArmTilemap.gameObject.transform.position = new Vector3(-1, Mathf.Ceil(torsoBorder.size.y / 2.0f) - rightArmBorder.size.y / 2.0f + 1 + rightArmOffset, transform.position.z);
+
+                if (characterSettings.leftLegSize.z % 2 != 0) leftGrid.GetComponent<DrawGrid>().leftLegTilemap.gameObject.transform.position = new Vector3(0, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().leftLegTilemap.gameObject.transform.position = new Vector3(1, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+
+                if (characterSettings.rightLegSize.z % 2 != 0) leftGrid.GetComponent<DrawGrid>().rightLegTilemap.gameObject.transform.position = new Vector3(0, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().rightLegTilemap.gameObject.transform.position = new Vector3(1, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
                 break;
             case GridViews.Right:
                 if (characterSettings.torsoSize.z % 2 == 1) // Odd
@@ -469,6 +484,7 @@ public class DrawingManager : MonoBehaviour
                 leftLegBorder.size = new Vector2(characterSettings.leftLegSize.z, characterSettings.leftLegSize.y);
                 rightLegBorder.size = new Vector2(characterSettings.rightLegSize.z, characterSettings.rightLegSize.y);
 
+                // Set the offsets of each border to line up with the rest of the body properly
                 if (characterSettings.headSize.z % 2 != 0) // Odd
                 {
                     headPositionX = 0.5f;
@@ -489,18 +505,33 @@ public class DrawingManager : MonoBehaviour
                 {
                     rightLegOffset = 0.5f;
                 }
-                headBorder.gameObject.transform.position = new Vector3(headPositionX, Mathf.Ceil(torsoBorder.size.y / 2.0f) + headBorder.size.y / 2.0f, headBorder.gameObject.transform.position.z);
-                leftArmBorder.gameObject.transform.position = new Vector3(leftArmOffset, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f, leftArmBorder.gameObject.transform.position.z);
-                rightArmBorder.gameObject.transform.position = new Vector3(rightArmOffset, Mathf.Ceil(torsoBorder.size.y / 2.0f) - rightArmBorder.size.y / 2.0f, rightArmBorder.gameObject.transform.position.z);
-                leftLegBorder.gameObject.transform.position = new Vector3(leftLegOffset, -Mathf.Floor(torsoBorder.size.y / 2.0f) - leftLegBorder.size.y / 2.0f, leftLegBorder.gameObject.transform.position.z);
-                rightLegBorder.gameObject.transform.position = new Vector3(rightLegOffset, -Mathf.Floor(torsoBorder.size.y / 2.0f) - rightLegBorder.size.y / 2.0f, rightLegBorder.gameObject.transform.position.z);
+                // The z-values determine which tilemap the user is editing (closer ones have a closer z-value)
+                headBorder.gameObject.transform.position = new Vector3(headPositionX, Mathf.Ceil(torsoBorder.size.y / 2.0f) + headBorder.size.y / 2.0f, 103);
+                leftArmBorder.gameObject.transform.position = new Vector3(leftArmOffset, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f, 103.1f);
+                rightArmBorder.gameObject.transform.position = new Vector3(rightArmOffset, Mathf.Ceil(torsoBorder.size.y / 2.0f) - rightArmBorder.size.y / 2.0f, 102.9f);
+                leftLegBorder.gameObject.transform.position = new Vector3(leftLegOffset, -Mathf.Floor(torsoBorder.size.y / 2.0f) - leftLegBorder.size.y / 2.0f, 103.1f);
+                rightLegBorder.gameObject.transform.position = new Vector3(rightLegOffset, -Mathf.Floor(torsoBorder.size.y / 2.0f) - rightLegBorder.size.y / 2.0f, 102.9f);
 
-                rightGrid.GetComponent<DrawGrid>().headTilemap.gameObject.transform.position = new Vector3(headPositionX, Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
-                rightGrid.GetComponent<DrawGrid>().torsoTilemap.gameObject.transform.position = new Vector3(0, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
-                rightGrid.GetComponent<DrawGrid>().leftArmTilemap.gameObject.transform.position = new Vector3(leftArmOffset, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f, transform.position.z);
-                rightGrid.GetComponent<DrawGrid>().rightArmTilemap.gameObject.transform.position = new Vector3(rightArmOffset, Mathf.Ceil(torsoBorder.size.y / 2.0f) - rightArmBorder.size.y / 2.0f, transform.position.z);
-                rightGrid.GetComponent<DrawGrid>().leftLegTilemap.gameObject.transform.position = new Vector3(leftLegOffset, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
-                rightGrid.GetComponent<DrawGrid>().rightLegTilemap.gameObject.transform.position = new Vector3(rightLegOffset, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+                if (characterSettings.headSize.z % 2 != 0) rightGrid.GetComponent<DrawGrid>().headTilemap.gameObject.transform.position = new Vector3(0, Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().headTilemap.gameObject.transform.position = new Vector3(-1, Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+
+                if (characterSettings.torsoSize.z % 2 != 0) rightGrid.GetComponent<DrawGrid>().torsoTilemap.gameObject.transform.position = new Vector3(0, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().torsoTilemap.gameObject.transform.position = new Vector3(-1, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+
+                if (characterSettings.leftArmSize.z % 2 != 0) leftArmOffset = -0.5f;
+                else leftArmOffset = 0;
+                if (characterSettings.leftArmSize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().leftArmTilemap.gameObject.transform.position = new Vector3(0, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f + 1 + leftArmOffset, transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().leftArmTilemap.gameObject.transform.position = new Vector3(-1, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f + 1 + leftArmOffset, transform.position.z);
+
+                if (characterSettings.rightArmSize.z % 2 != 0) rightArmOffset = -0.5f;
+                else rightArmOffset = 0;
+                rightGrid.GetComponent<DrawGrid>().rightArmTilemap.gameObject.transform.position = new Vector3(1, Mathf.Ceil(torsoBorder.size.y / 2.0f) - rightArmBorder.size.y / 2.0f + 1 + rightArmOffset, transform.position.z);
+
+                if (characterSettings.leftLegSize.z % 2 != 0) rightGrid.GetComponent<DrawGrid>().leftLegTilemap.gameObject.transform.position = new Vector3(0, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().leftLegTilemap.gameObject.transform.position = new Vector3(-1, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+
+                if (characterSettings.rightLegSize.z % 2 != 0) rightGrid.GetComponent<DrawGrid>().rightLegTilemap.gameObject.transform.position = new Vector3(0, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().rightLegTilemap.gameObject.transform.position = new Vector3(-1, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
                 break;
             case GridViews.Top:
                 if (characterSettings.torsoSize.x % 2 == 1) // Odd
@@ -520,6 +551,7 @@ public class DrawingManager : MonoBehaviour
                 leftLegBorder.size = new Vector2(characterSettings.leftLegSize.x, characterSettings.leftLegSize.z);
                 rightLegBorder.size = new Vector2(characterSettings.rightLegSize.x, characterSettings.rightLegSize.z);
 
+                // Set the offsets of each border to line up with the rest of the body properly
                 if (characterSettings.headSize.x % 2 != 0) // Odd
                 {
                     headPositionX = 0.5f;
@@ -544,6 +576,7 @@ public class DrawingManager : MonoBehaviour
                 {
                     rightLegOffset = -0.5f;
                 }
+                // The z-values determine which tilemap the user is editing (closer ones have a closer z-value)
                 headBorder.gameObject.transform.position = new Vector3(headPositionX, headPositionZ, headBorder.gameObject.transform.position.z);
                 leftArmBorder.gameObject.transform.position = new Vector3(Mathf.Ceil(torsoBorder.size.x / 2.0f) + leftArmBorder.size.x / 2.0f, leftArmOffset, leftArmBorder.gameObject.transform.position.z);
                 rightArmBorder.gameObject.transform.position = new Vector3(-Mathf.Floor(torsoBorder.size.x / 2.0f) - rightArmBorder.size.x / 2.0f, rightArmOffset, rightArmBorder.gameObject.transform.position.z);
@@ -575,6 +608,7 @@ public class DrawingManager : MonoBehaviour
                 leftLegBorder.size = new Vector2(characterSettings.leftLegSize.x, characterSettings.leftLegSize.z);
                 rightLegBorder.size = new Vector2(characterSettings.rightLegSize.x, characterSettings.rightLegSize.z);
 
+                // Set the offsets of each border to line up with the rest of the body properly
                 if (characterSettings.headSize.x % 2 != 0) // Odd
                 {
                     headPositionX = 0.5f;
@@ -599,6 +633,7 @@ public class DrawingManager : MonoBehaviour
                 {
                     rightLegOffset = 0.5f;
                 }
+                // The z-values determine which tilemap the user is editing (closer ones have a closer z-value)
                 headBorder.gameObject.transform.position = new Vector3(headPositionX, headPositionZ, headBorder.gameObject.transform.position.z);
                 leftArmBorder.gameObject.transform.position = new Vector3(Mathf.Ceil(torsoBorder.size.x / 2.0f) + leftArmBorder.size.x / 2.0f, leftArmOffset, leftArmBorder.gameObject.transform.position.z);
                 rightArmBorder.gameObject.transform.position = new Vector3(-Mathf.Floor(torsoBorder.size.x / 2.0f) - rightArmBorder.size.x / 2.0f, rightArmOffset, rightArmBorder.gameObject.transform.position.z);

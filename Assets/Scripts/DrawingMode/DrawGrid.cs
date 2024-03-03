@@ -27,7 +27,7 @@ public class DrawGrid : MonoBehaviour
         {
             Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int position = drawingManager.currentTilemap.WorldToCell(worldPoint);
-            Debug.Log(position);
+            Debug.Log(drawingManager.currentTilemap.name + ", " + position);
             if (drawingManager.currentMode == DrawModes.Draw)
             {
                 // Set the tile for color creation.
