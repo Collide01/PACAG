@@ -27,7 +27,20 @@ public class DrawGrid : MonoBehaviour
         {
             Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int position = drawingManager.currentTilemap.WorldToCell(worldPoint);
-            Debug.Log(drawingManager.currentTilemap.name + ", " + position);
+
+            if (Mathf.Abs(position.x) >= 100)
+            {
+                position = new Vector3Int(0, position.y, position.z);
+            }
+            if (Mathf.Abs(position.y) >= 100)
+            {
+                position = new Vector3Int(position.x, 0, position.z);
+            }
+            if (Mathf.Abs(position.z) >= 100)
+            {
+                position = new Vector3Int(position.x, position.y, 0);
+            }
+            Debug.Log(drawingManager.currentTilemap.name + ", " + position + ", " + drawingManager.currentTilemap.gameObject.transform.forward);
             if (drawingManager.currentMode == DrawModes.Draw)
             {
                 // Set the tile for color creation.
