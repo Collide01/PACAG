@@ -6,13 +6,14 @@ using UnityEngine.UI;
 public class DrawControls : MonoBehaviour
 {
     public Camera mainCamera;
+    [SerializeField] private DrawingManager drawingManager;
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
         {
-            if (Input.mouseScrollDelta.y != 0) // Sideways scroll
+            if (Input.mouseScrollDelta.y != 0 && drawingManager.mouseInDrawField) // Sideways scroll
             {
                 mainCamera.transform.Translate(new Vector3(Input.mouseScrollDelta.y, 0, 0));
             }
@@ -39,7 +40,7 @@ public class DrawControls : MonoBehaviour
                 }
             }
         }
-        else if (Input.mouseScrollDelta.y != 0)
+        else if (Input.mouseScrollDelta.y != 0 && drawingManager.mouseInDrawField)
         {
             mainCamera.transform.Translate(new Vector3(0, Input.mouseScrollDelta.y, 0));
         }
