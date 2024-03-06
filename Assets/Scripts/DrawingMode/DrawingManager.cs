@@ -417,9 +417,23 @@ public class DrawingManager : MonoBehaviour
                 headBorder.size = new Vector2(characterSettings.headSize.x, characterSettings.headSize.y);
                 torsoBorder.size = new Vector2(characterSettings.torsoSize.x, characterSettings.torsoSize.y);
                 leftArmBorder.size = new Vector2(characterSettings.leftArmSize.y, characterSettings.leftArmSize.z);
+                leftHandBorder.size = new Vector2(characterSettings.leftHandSize.y, characterSettings.leftHandSize.z);
+                leftThumbBorder.size = new Vector2(characterSettings.leftThumbSize.y, characterSettings.leftThumbSize.z);
+                leftIndexBorder.size = new Vector2(characterSettings.leftIndexSize.y, characterSettings.leftIndexSize.z);
+                leftMiddleBorder.size = new Vector2(characterSettings.leftMiddleSize.y, characterSettings.leftMiddleSize.z);
+                leftRingBorder.size = new Vector2(characterSettings.leftRingSize.y, characterSettings.leftRingSize.z);
+                leftPinkyBorder.size = new Vector2(characterSettings.leftPinkySize.y, characterSettings.leftPinkySize.z);
                 rightArmBorder.size = new Vector2(characterSettings.rightArmSize.y, characterSettings.rightArmSize.z);
+                rightHandBorder.size = new Vector2(characterSettings.rightHandSize.y, characterSettings.rightHandSize.z);
+                rightThumbBorder.size = new Vector2(characterSettings.rightThumbSize.y, characterSettings.rightThumbSize.z);
+                rightIndexBorder.size = new Vector2(characterSettings.rightIndexSize.y, characterSettings.rightIndexSize.z);
+                rightMiddleBorder.size = new Vector2(characterSettings.rightMiddleSize.y, characterSettings.rightMiddleSize.z);
+                rightRingBorder.size = new Vector2(characterSettings.rightRingSize.y, characterSettings.rightRingSize.z);
+                rightPinkyBorder.size = new Vector2(characterSettings.rightPinkySize.y, characterSettings.rightPinkySize.z);
                 leftLegBorder.size = new Vector2(characterSettings.leftLegSize.x, characterSettings.leftLegSize.y);
+                leftFootBorder.size = new Vector2(characterSettings.leftFootSize.x, characterSettings.leftFootSize.z);
                 rightLegBorder.size = new Vector2(characterSettings.rightLegSize.x, characterSettings.rightLegSize.y);
+                rightFootBorder.size = new Vector2(characterSettings.rightFootSize.x, characterSettings.rightFootSize.z);
 
                 // Set the offsets of each border to line up with the rest of the body properly
                 if (characterSettings.headSize.x % 2 != 0) // Odd
@@ -475,9 +489,23 @@ public class DrawingManager : MonoBehaviour
                 headBorder.size = new Vector2(characterSettings.headSize.x, characterSettings.headSize.y);
                 torsoBorder.size = new Vector2(characterSettings.torsoSize.x, characterSettings.torsoSize.y);
                 leftArmBorder.size = new Vector2(characterSettings.leftArmSize.y, characterSettings.leftArmSize.z);
+                leftHandBorder.size = new Vector2(characterSettings.leftHandSize.y, characterSettings.leftHandSize.z);
+                leftThumbBorder.size = new Vector2(characterSettings.leftThumbSize.y, characterSettings.leftThumbSize.z);
+                leftIndexBorder.size = new Vector2(characterSettings.leftIndexSize.y, characterSettings.leftIndexSize.z);
+                leftMiddleBorder.size = new Vector2(characterSettings.leftMiddleSize.y, characterSettings.leftMiddleSize.z);
+                leftRingBorder.size = new Vector2(characterSettings.leftRingSize.y, characterSettings.leftRingSize.z);
+                leftPinkyBorder.size = new Vector2(characterSettings.leftPinkySize.y, characterSettings.leftPinkySize.z);
                 rightArmBorder.size = new Vector2(characterSettings.rightArmSize.y, characterSettings.rightArmSize.z);
+                rightHandBorder.size = new Vector2(characterSettings.rightHandSize.y, characterSettings.rightHandSize.z);
+                rightThumbBorder.size = new Vector2(characterSettings.rightThumbSize.y, characterSettings.rightThumbSize.z);
+                rightIndexBorder.size = new Vector2(characterSettings.rightIndexSize.y, characterSettings.rightIndexSize.z);
+                rightMiddleBorder.size = new Vector2(characterSettings.rightMiddleSize.y, characterSettings.rightMiddleSize.z);
+                rightRingBorder.size = new Vector2(characterSettings.rightRingSize.y, characterSettings.rightRingSize.z);
+                rightPinkyBorder.size = new Vector2(characterSettings.rightPinkySize.y, characterSettings.rightPinkySize.z);
                 leftLegBorder.size = new Vector2(characterSettings.leftLegSize.x, characterSettings.leftLegSize.y);
+                leftFootBorder.size = new Vector2(characterSettings.leftFootSize.x, characterSettings.leftFootSize.z);
                 rightLegBorder.size = new Vector2(characterSettings.rightLegSize.x, characterSettings.rightLegSize.y);
+                rightFootBorder.size = new Vector2(characterSettings.rightFootSize.x, characterSettings.rightFootSize.z);
 
                 // Set the offsets of each border to line up with the rest of the body properly
                 if (characterSettings.headSize.x % 2 != 0) // Odd
@@ -536,9 +564,23 @@ public class DrawingManager : MonoBehaviour
                 headBorder.size = new Vector2(characterSettings.headSize.z, characterSettings.headSize.y);
                 torsoBorder.size = new Vector2(characterSettings.torsoSize.z, characterSettings.torsoSize.y);
                 leftArmBorder.size = new Vector2(characterSettings.leftArmSize.x, characterSettings.leftArmSize.z);
+                leftHandBorder.size = new Vector2(characterSettings.leftHandSize.x, characterSettings.leftHandSize.z);
+                leftThumbBorder.size = new Vector2(characterSettings.leftThumbSize.x, characterSettings.leftThumbSize.z);
+                leftIndexBorder.size = new Vector2(characterSettings.leftIndexSize.x, characterSettings.leftIndexSize.z);
+                leftMiddleBorder.size = new Vector2(characterSettings.leftMiddleSize.x, characterSettings.leftMiddleSize.z);
+                leftRingBorder.size = new Vector2(characterSettings.leftRingSize.x, characterSettings.leftRingSize.z);
+                leftPinkyBorder.size = new Vector2(characterSettings.leftPinkySize.x, characterSettings.leftPinkySize.z);
                 rightArmBorder.size = new Vector2(characterSettings.rightArmSize.x, characterSettings.rightArmSize.z);
+                rightHandBorder.size = new Vector2(characterSettings.rightHandSize.x, characterSettings.rightHandSize.z);
+                rightThumbBorder.size = new Vector2(characterSettings.rightThumbSize.x, characterSettings.rightThumbSize.z);
+                rightIndexBorder.size = new Vector2(characterSettings.rightIndexSize.x, characterSettings.rightIndexSize.z);
+                rightMiddleBorder.size = new Vector2(characterSettings.rightMiddleSize.x, characterSettings.rightMiddleSize.z);
+                rightRingBorder.size = new Vector2(characterSettings.rightRingSize.x, characterSettings.rightRingSize.z);
+                rightPinkyBorder.size = new Vector2(characterSettings.rightPinkySize.x, characterSettings.rightPinkySize.z);
                 leftLegBorder.size = new Vector2(characterSettings.leftLegSize.z, characterSettings.leftLegSize.y);
+                leftFootBorder.size = new Vector2(characterSettings.leftFootSize.y, characterSettings.leftFootSize.z);
                 rightLegBorder.size = new Vector2(characterSettings.rightLegSize.z, characterSettings.rightLegSize.y);
+                rightFootBorder.size = new Vector2(characterSettings.rightFootSize.y, characterSettings.rightFootSize.z);
 
                 // Set the offsets of each border to line up with the rest of the body properly
                 if (characterSettings.headSize.z % 2 != 0) // Odd
@@ -603,9 +645,23 @@ public class DrawingManager : MonoBehaviour
                 headBorder.size = new Vector2(characterSettings.headSize.z, characterSettings.headSize.y);
                 torsoBorder.size = new Vector2(characterSettings.torsoSize.z, characterSettings.torsoSize.y);
                 leftArmBorder.size = new Vector2(characterSettings.leftArmSize.x, characterSettings.leftArmSize.z);
+                leftHandBorder.size = new Vector2(characterSettings.leftHandSize.x, characterSettings.leftHandSize.z);
+                leftThumbBorder.size = new Vector2(characterSettings.leftThumbSize.x, characterSettings.leftThumbSize.z);
+                leftIndexBorder.size = new Vector2(characterSettings.leftIndexSize.x, characterSettings.leftIndexSize.z);
+                leftMiddleBorder.size = new Vector2(characterSettings.leftMiddleSize.x, characterSettings.leftMiddleSize.z);
+                leftRingBorder.size = new Vector2(characterSettings.leftRingSize.x, characterSettings.leftRingSize.z);
+                leftPinkyBorder.size = new Vector2(characterSettings.leftPinkySize.x, characterSettings.leftPinkySize.z);
                 rightArmBorder.size = new Vector2(characterSettings.rightArmSize.x, characterSettings.rightArmSize.z);
+                rightHandBorder.size = new Vector2(characterSettings.rightHandSize.x, characterSettings.rightHandSize.z);
+                rightThumbBorder.size = new Vector2(characterSettings.rightThumbSize.x, characterSettings.rightThumbSize.z);
+                rightIndexBorder.size = new Vector2(characterSettings.rightIndexSize.x, characterSettings.rightIndexSize.z);
+                rightMiddleBorder.size = new Vector2(characterSettings.rightMiddleSize.x, characterSettings.rightMiddleSize.z);
+                rightRingBorder.size = new Vector2(characterSettings.rightRingSize.x, characterSettings.rightRingSize.z);
+                rightPinkyBorder.size = new Vector2(characterSettings.rightPinkySize.x, characterSettings.rightPinkySize.z);
                 leftLegBorder.size = new Vector2(characterSettings.leftLegSize.z, characterSettings.leftLegSize.y);
+                leftFootBorder.size = new Vector2(characterSettings.leftFootSize.y, characterSettings.leftFootSize.z);
                 rightLegBorder.size = new Vector2(characterSettings.rightLegSize.z, characterSettings.rightLegSize.y);
+                rightFootBorder.size = new Vector2(characterSettings.rightFootSize.y, characterSettings.rightFootSize.z);
 
                 // Set the offsets of each border to line up with the rest of the body properly
                 if (characterSettings.headSize.z % 2 != 0) // Odd
@@ -670,9 +726,23 @@ public class DrawingManager : MonoBehaviour
                 headBorder.size = new Vector2(characterSettings.headSize.x, characterSettings.headSize.z);
                 torsoBorder.size = new Vector2(characterSettings.torsoSize.x, characterSettings.torsoSize.z);
                 leftArmBorder.size = new Vector2(characterSettings.leftArmSize.y, characterSettings.leftArmSize.x);
+                leftHandBorder.size = new Vector2(characterSettings.leftHandSize.y, characterSettings.leftHandSize.x);
+                leftThumbBorder.size = new Vector2(characterSettings.leftThumbSize.y, characterSettings.leftThumbSize.x);
+                leftIndexBorder.size = new Vector2(characterSettings.leftIndexSize.y, characterSettings.leftIndexSize.x);
+                leftMiddleBorder.size = new Vector2(characterSettings.leftMiddleSize.y, characterSettings.leftMiddleSize.x);
+                leftRingBorder.size = new Vector2(characterSettings.leftRingSize.y, characterSettings.leftRingSize.x);
+                leftPinkyBorder.size = new Vector2(characterSettings.leftPinkySize.y, characterSettings.leftPinkySize.x);
                 rightArmBorder.size = new Vector2(characterSettings.rightArmSize.y, characterSettings.rightArmSize.x);
+                rightHandBorder.size = new Vector2(characterSettings.rightHandSize.y, characterSettings.rightHandSize.x);
+                rightThumbBorder.size = new Vector2(characterSettings.rightThumbSize.y, characterSettings.rightThumbSize.x);
+                rightIndexBorder.size = new Vector2(characterSettings.rightIndexSize.y, characterSettings.rightIndexSize.x);
+                rightMiddleBorder.size = new Vector2(characterSettings.rightMiddleSize.y, characterSettings.rightMiddleSize.x);
+                rightRingBorder.size = new Vector2(characterSettings.rightRingSize.y, characterSettings.rightRingSize.x);
+                rightPinkyBorder.size = new Vector2(characterSettings.rightPinkySize.y, characterSettings.rightPinkySize.x);
                 leftLegBorder.size = new Vector2(characterSettings.leftLegSize.x, characterSettings.leftLegSize.z);
+                leftFootBorder.size = new Vector2(characterSettings.leftFootSize.x, characterSettings.leftFootSize.y);
                 rightLegBorder.size = new Vector2(characterSettings.rightLegSize.x, characterSettings.rightLegSize.z);
+                rightFootBorder.size = new Vector2(characterSettings.rightFootSize.x, characterSettings.rightFootSize.y);
 
                 // Set the offsets of each border to line up with the rest of the body properly
                 if (characterSettings.headSize.x % 2 != 0) // Odd
@@ -741,9 +811,23 @@ public class DrawingManager : MonoBehaviour
                 headBorder.size = new Vector2(characterSettings.headSize.x, characterSettings.headSize.z);
                 torsoBorder.size = new Vector2(characterSettings.torsoSize.x, characterSettings.torsoSize.z);
                 leftArmBorder.size = new Vector2(characterSettings.leftArmSize.y, characterSettings.leftArmSize.x);
+                leftHandBorder.size = new Vector2(characterSettings.leftHandSize.y, characterSettings.leftHandSize.x);
+                leftThumbBorder.size = new Vector2(characterSettings.leftThumbSize.y, characterSettings.leftThumbSize.x);
+                leftIndexBorder.size = new Vector2(characterSettings.leftIndexSize.y, characterSettings.leftIndexSize.x);
+                leftMiddleBorder.size = new Vector2(characterSettings.leftMiddleSize.y, characterSettings.leftMiddleSize.x);
+                leftRingBorder.size = new Vector2(characterSettings.leftRingSize.y, characterSettings.leftRingSize.x);
+                leftPinkyBorder.size = new Vector2(characterSettings.leftPinkySize.y, characterSettings.leftPinkySize.x);
                 rightArmBorder.size = new Vector2(characterSettings.rightArmSize.y, characterSettings.rightArmSize.x);
+                rightHandBorder.size = new Vector2(characterSettings.rightHandSize.y, characterSettings.rightHandSize.x);
+                rightThumbBorder.size = new Vector2(characterSettings.rightThumbSize.y, characterSettings.rightThumbSize.x);
+                rightIndexBorder.size = new Vector2(characterSettings.rightIndexSize.y, characterSettings.rightIndexSize.x);
+                rightMiddleBorder.size = new Vector2(characterSettings.rightMiddleSize.y, characterSettings.rightMiddleSize.x);
+                rightRingBorder.size = new Vector2(characterSettings.rightRingSize.y, characterSettings.rightRingSize.x);
+                rightPinkyBorder.size = new Vector2(characterSettings.rightPinkySize.y, characterSettings.rightPinkySize.x);
                 leftLegBorder.size = new Vector2(characterSettings.leftLegSize.x, characterSettings.leftLegSize.z);
+                leftFootBorder.size = new Vector2(characterSettings.leftFootSize.x, characterSettings.leftFootSize.y);
                 rightLegBorder.size = new Vector2(characterSettings.rightLegSize.x, characterSettings.rightLegSize.z);
+                rightFootBorder.size = new Vector2(characterSettings.rightFootSize.x, characterSettings.rightFootSize.y);
 
                 // Set the offsets of each border to line up with the rest of the body properly
                 if (characterSettings.headSize.x % 2 != 0) // Odd
