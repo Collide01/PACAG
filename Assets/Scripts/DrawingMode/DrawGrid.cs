@@ -40,7 +40,7 @@ public class DrawGrid : MonoBehaviour
             {
                 position = new Vector3Int(position.x, position.y, 0);
             }
-            Debug.Log(drawingManager.currentTilemap.name + ", " + position + ", " + drawingManager.currentTilemap.gameObject.transform.forward);
+            Debug.Log(drawingManager.currentTilemap.name + ", " + position);
             if (drawingManager.currentMode == DrawModes.Draw)
             {
                 // Set the tile for color creation.

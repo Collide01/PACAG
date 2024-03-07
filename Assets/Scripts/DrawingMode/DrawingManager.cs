@@ -398,9 +398,23 @@ public class DrawingManager : MonoBehaviour
         float headPositionX = 0;
         float headPositionZ = 0;
         float leftArmOffset = 0;
+        float leftHandOffset = 0;
+        float leftThumbOffset = 0;
+        float leftIndexOffset = 0;
+        float leftMiddleOffset = 0;
+        float leftRingOffset = 0;
+        float leftPinkyOffset = 0;
         float rightArmOffset = 0;
+        float rightHandOffset = 0;
+        float rightThumbOffset = 0;
+        float rightIndexOffset = 0;
+        float rightMiddleOffset = 0;
+        float rightRingOffset = 0;
+        float rightPinkyOffset = 0;
         float leftLegOffset = 0;
+        float leftFootOffset = 0;
         float rightLegOffset = 0;
+        float rightFootOffset = 0;
         switch (currentView)
         {
             case GridViews.Front:
@@ -444,24 +458,94 @@ public class DrawingManager : MonoBehaviour
                 {
                     leftArmOffset = 0.5f;
                 }
+                if ((characterSettings.leftHandSize.z % 2 != 0 && characterSettings.leftArmSize.z % 2 == 0) || (characterSettings.leftHandSize.z % 2 == 0 && characterSettings.leftArmSize.z % 2 != 0))
+                {
+                    leftHandOffset = 0.5f;
+                }
+                if ((characterSettings.leftHandSize.z % 2 != 0 && characterSettings.leftThumbSize.z % 2 == 0) || (characterSettings.leftHandSize.z % 2 == 0 && characterSettings.leftThumbSize.z % 2 != 0))
+                {
+                    leftThumbOffset = 0.5f;
+                }
+                if ((characterSettings.leftHandSize.z % 2 != 0 && characterSettings.leftIndexSize.z % 2 == 0) || (characterSettings.leftHandSize.z % 2 == 0 && characterSettings.leftIndexSize.z % 2 != 0))
+                {
+                    leftIndexOffset = 0.5f;
+                }
+                if ((characterSettings.leftHandSize.z % 2 != 0 && characterSettings.leftMiddleSize.z % 2 == 0) || (characterSettings.leftHandSize.z % 2 == 0 && characterSettings.leftMiddleSize.z % 2 != 0))
+                {
+                    leftMiddleOffset = 0.5f;
+                }
+                if ((characterSettings.leftHandSize.z % 2 != 0 && characterSettings.leftRingSize.z % 2 == 0) || (characterSettings.leftHandSize.z % 2 == 0 && characterSettings.leftRingSize.z % 2 != 0))
+                {
+                    leftRingOffset = 0.5f;
+                }
+                if ((characterSettings.leftHandSize.z % 2 != 0 && characterSettings.leftPinkySize.z % 2 == 0) || (characterSettings.leftHandSize.z % 2 == 0 && characterSettings.leftPinkySize.z % 2 != 0))
+                {
+                    leftPinkyOffset = 0.5f;
+                }
                 if (characterSettings.rightArmSize.z % 2 != 0) // Odd
                 {
                     rightArmOffset = 0.5f;
+                }
+                if ((characterSettings.rightHandSize.z % 2 != 0 && characterSettings.rightArmSize.z % 2 == 0) || (characterSettings.rightHandSize.z % 2 == 0 && characterSettings.rightArmSize.z % 2 != 0))
+                {
+                    rightHandOffset = 0.5f;
+                }
+                if ((characterSettings.rightHandSize.z % 2 != 0 && characterSettings.rightThumbSize.z % 2 == 0) || (characterSettings.rightHandSize.z % 2 == 0 && characterSettings.rightThumbSize.z % 2 != 0))
+                {
+                    rightThumbOffset = 0.5f;
+                }
+                if ((characterSettings.rightHandSize.z % 2 != 0 && characterSettings.rightIndexSize.z % 2 == 0) || (characterSettings.rightHandSize.z % 2 == 0 && characterSettings.rightIndexSize.z % 2 != 0))
+                {
+                    rightIndexOffset = 0.5f;
+                }
+                if ((characterSettings.rightHandSize.z % 2 != 0 && characterSettings.rightMiddleSize.z % 2 == 0) || (characterSettings.rightHandSize.z % 2 == 0 && characterSettings.rightMiddleSize.z % 2 != 0))
+                {
+                    rightMiddleOffset = 0.5f;
+                }
+                if ((characterSettings.rightHandSize.z % 2 != 0 && characterSettings.rightRingSize.z % 2 == 0) || (characterSettings.rightHandSize.z % 2 == 0 && characterSettings.rightRingSize.z % 2 != 0))
+                {
+                    rightRingOffset = 0.5f;
+                }
+                if ((characterSettings.rightHandSize.z % 2 != 0 && characterSettings.rightPinkySize.z % 2 == 0) || (characterSettings.rightHandSize.z % 2 == 0 && characterSettings.rightPinkySize.z % 2 != 0))
+                {
+                    rightPinkyOffset = 0.5f;
                 }
                 if (characterSettings.leftLegSize.x % 2 != 0) // Odd
                 {
                     leftLegOffset = 0.5f;
                 }
+                if ((characterSettings.leftLegSize.x % 2 != 0 && characterSettings.leftFootSize.x % 2 == 0) || (characterSettings.leftLegSize.x % 2 == 0 && characterSettings.leftFootSize.x % 2 != 0))
+                {
+                    leftFootOffset = 0.5f;
+                }
                 if (characterSettings.rightLegSize.x % 2 != 0) // Odd
                 {
                     rightLegOffset = 0.5f;
                 }
+                if ((characterSettings.rightLegSize.x % 2 != 0 && characterSettings.rightFootSize.x % 2 == 0) || (characterSettings.rightLegSize.x % 2 == 0 && characterSettings.rightFootSize.x % 2 != 0))
+                {
+                    rightFootOffset = 0.5f;
+                }
                 // The z-values determine which tilemap the user is editing (closer ones have a closer z-value)
-                headBorder.gameObject.transform.position = new Vector3(headPositionX, Mathf.Ceil(torsoBorder.size.y / 2.0f) + headBorder.size.y / 2.0f, headBorder.gameObject.transform.position.z);
-                leftArmBorder.gameObject.transform.position = new Vector3(Mathf.Ceil(torsoBorder.size.x / 2.0f) + leftArmBorder.size.x / 2.0f, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f, leftArmBorder.gameObject.transform.position.z);
-                rightArmBorder.gameObject.transform.position = new Vector3(-Mathf.Floor(torsoBorder.size.x / 2.0f) - rightArmBorder.size.x / 2.0f, Mathf.Ceil(torsoBorder.size.y / 2.0f) - rightArmBorder.size.y / 2.0f, rightArmBorder.gameObject.transform.position.z);
-                leftLegBorder.gameObject.transform.position = new Vector3(Mathf.Ceil(torsoBorder.size.x / 2.0f) - leftLegBorder.size.x / 2.0f, -Mathf.Floor(torsoBorder.size.y / 2.0f) - leftLegBorder.size.y / 2.0f, leftLegBorder.gameObject.transform.position.z);
-                rightLegBorder.gameObject.transform.position = new Vector3(-Mathf.Floor(torsoBorder.size.x / 2.0f) + rightLegBorder.size.x / 2.0f, -Mathf.Floor(torsoBorder.size.y / 2.0f) - rightLegBorder.size.y / 2.0f, rightLegBorder.gameObject.transform.position.z);
+                headBorder.gameObject.transform.position = new Vector3(headPositionX, Mathf.Ceil(torsoBorder.size.y / 2.0f) + headBorder.size.y / 2.0f, 103);
+                leftArmBorder.gameObject.transform.position = new Vector3(Mathf.Ceil(torsoBorder.size.x / 2.0f) + leftArmBorder.size.x / 2.0f, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f, 103);
+                leftHandBorder.gameObject.transform.position = new Vector3(Mathf.Ceil(torsoBorder.size.x / 2.0f) + leftArmBorder.size.x + leftHandBorder.size.x / 2.0f, leftArmBorder.transform.position.y + leftHandOffset, 103);
+                leftThumbBorder.gameObject.transform.position = new Vector3(Mathf.Ceil(torsoBorder.size.x / 2.0f) + leftArmBorder.size.x + leftHandBorder.size.x / 2.0f + leftThumbBorder.size.x / 2.0f, leftHandBorder.transform.position.y + leftThumbOffset, 102.8f);
+                leftIndexBorder.gameObject.transform.position = new Vector3(Mathf.Ceil(torsoBorder.size.x / 2.0f) + leftArmBorder.size.x + leftHandBorder.size.x + leftIndexBorder.size.x / 2.0f, leftHandBorder.transform.position.y + leftIndexOffset, 102.9f);
+                leftMiddleBorder.gameObject.transform.position = new Vector3(Mathf.Ceil(torsoBorder.size.x / 2.0f) + leftArmBorder.size.x + leftHandBorder.size.x + leftMiddleBorder.size.x / 2.0f, leftHandBorder.transform.position.y + leftMiddleOffset, 103);
+                leftRingBorder.gameObject.transform.position = new Vector3(Mathf.Ceil(torsoBorder.size.x / 2.0f) + leftArmBorder.size.x + leftHandBorder.size.x + leftRingBorder.size.x / 2.0f, leftHandBorder.transform.position.y + leftRingOffset, 103.1f);
+                leftPinkyBorder.gameObject.transform.position = new Vector3(Mathf.Ceil(torsoBorder.size.x / 2.0f) + leftArmBorder.size.x + leftHandBorder.size.x + leftPinkyBorder.size.x / 2.0f, leftHandBorder.transform.position.y + leftPinkyOffset, 103.2f);
+                rightArmBorder.gameObject.transform.position = new Vector3(-Mathf.Floor(torsoBorder.size.x / 2.0f) - rightArmBorder.size.x / 2.0f, Mathf.Ceil(torsoBorder.size.y / 2.0f) - rightArmBorder.size.y / 2.0f, 103);
+                rightHandBorder.gameObject.transform.position = new Vector3(-Mathf.Ceil(torsoBorder.size.x / 2.0f) - rightArmBorder.size.x - rightHandBorder.size.x / 2.0f, rightArmBorder.transform.position.y + rightHandOffset, 103);
+                rightThumbBorder.gameObject.transform.position = new Vector3(-Mathf.Ceil(torsoBorder.size.x / 2.0f) - rightArmBorder.size.x - rightHandBorder.size.x / 2.0f - rightThumbBorder.size.x / 2.0f, rightHandBorder.transform.position.y + rightThumbOffset, 102.8f);
+                rightIndexBorder.gameObject.transform.position = new Vector3(-Mathf.Ceil(torsoBorder.size.x / 2.0f) - rightArmBorder.size.x - rightHandBorder.size.x - rightIndexBorder.size.x / 2.0f, rightHandBorder.transform.position.y + rightIndexOffset, 102.9f);
+                rightMiddleBorder.gameObject.transform.position = new Vector3(-Mathf.Ceil(torsoBorder.size.x / 2.0f) - rightArmBorder.size.x - rightHandBorder.size.x - rightMiddleBorder.size.x / 2.0f, rightHandBorder.transform.position.y + rightMiddleOffset, 103);
+                rightRingBorder.gameObject.transform.position = new Vector3(-Mathf.Ceil(torsoBorder.size.x / 2.0f) - rightArmBorder.size.x - rightHandBorder.size.x - rightRingBorder.size.x / 2.0f, rightHandBorder.transform.position.y + rightRingOffset, 103.1f);
+                rightPinkyBorder.gameObject.transform.position = new Vector3(-Mathf.Ceil(torsoBorder.size.x / 2.0f) - rightArmBorder.size.x - rightHandBorder.size.x - rightPinkyBorder.size.x / 2.0f, rightHandBorder.transform.position.y + rightPinkyOffset, 103.2f);
+                leftLegBorder.gameObject.transform.position = new Vector3(Mathf.Ceil(torsoBorder.size.x / 2.0f) - leftLegBorder.size.x / 2.0f, -Mathf.Floor(torsoBorder.size.y / 2.0f) - leftLegBorder.size.y / 2.0f, 103);
+                leftFootBorder.gameObject.transform.position = new Vector3(leftLegBorder.transform.position.x + leftFootOffset, -Mathf.Floor(torsoBorder.size.y / 2.0f) - leftLegBorder.size.y - leftFootBorder.size.y / 2.0f, 103);
+                rightLegBorder.gameObject.transform.position = new Vector3(-Mathf.Floor(torsoBorder.size.x / 2.0f) + rightLegBorder.size.x / 2.0f, -Mathf.Floor(torsoBorder.size.y / 2.0f) - rightLegBorder.size.y / 2.0f, 103);
+                rightFootBorder.gameObject.transform.position = new Vector3(rightLegBorder.transform.position.x - rightFootOffset, -Mathf.Floor(torsoBorder.size.y / 2.0f) - rightLegBorder.size.y - rightFootBorder.size.y / 2.0f, 103);
 
                 frontGrid.GetComponent<DrawGrid>().headTilemap.gameObject.transform.position = new Vector3(1, Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
                 frontGrid.GetComponent<DrawGrid>().torsoTilemap.gameObject.transform.position = new Vector3(1, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
