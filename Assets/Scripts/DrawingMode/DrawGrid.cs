@@ -9,9 +9,23 @@ public class DrawGrid : MonoBehaviour
     public Tilemap headTilemap;
     public Tilemap torsoTilemap;
     public Tilemap leftArmTilemap;
+    public Tilemap leftHandTilemap;
+    public Tilemap leftThumbTilemap;
+    public Tilemap leftIndexTilemap;
+    public Tilemap leftMiddleTilemap;
+    public Tilemap leftRingTilemap;
+    public Tilemap leftPinkyTilemap;
     public Tilemap rightArmTilemap;
+    public Tilemap rightHandTilemap;
+    public Tilemap rightThumbTilemap;
+    public Tilemap rightIndexTilemap;
+    public Tilemap rightMiddleTilemap;
+    public Tilemap rightRingTilemap;
+    public Tilemap rightPinkyTilemap;
     public Tilemap leftLegTilemap;
+    public Tilemap leftFootTilemap;
     public Tilemap rightLegTilemap;
+    public Tilemap rightFootTilemap;
     [SerializeField] private Tile tile;
 
     // Start is called before the first frame update

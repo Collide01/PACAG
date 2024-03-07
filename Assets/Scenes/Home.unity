@@ -3345,9 +3345,23 @@ MonoBehaviour:
   headTilemap: {fileID: 1298615556}
   torsoTilemap: {fileID: 393062461}
   leftArmTilemap: {fileID: 241867754}
+  leftHandTilemap: {fileID: 1071687862}
+  leftThumbTilemap: {fileID: 1908669397}
+  leftIndexTilemap: {fileID: 2003706262}
+  leftMiddleTilemap: {fileID: 1593681267}
+  leftRingTilemap: {fileID: 422246636}
+  leftPinkyTilemap: {fileID: 160560966}
   rightArmTilemap: {fileID: 1501026818}
+  rightHandTilemap: {fileID: 1054010652}
+  rightThumbTilemap: {fileID: 1508101733}
+  rightIndexTilemap: {fileID: 642174400}
+  rightMiddleTilemap: {fileID: 1316958588}
+  rightRingTilemap: {fileID: 2120431292}
+  rightPinkyTilemap: {fileID: 2075172189}
   leftLegTilemap: {fileID: 757026245}
+  leftFootTilemap: {fileID: 1781554226}
   rightLegTilemap: {fileID: 2139588917}
+  rightFootTilemap: {fileID: 2064217275}
   tile: {fileID: 11400000, guid: ba88f54ff42af654195452dce4c61a52, type: 2}
 --- !u!1 &117235937
 GameObject:
@@ -17897,9 +17911,23 @@ MonoBehaviour:
   headTilemap: {fileID: 1100531509}
   torsoTilemap: {fileID: 1083291227}
   leftArmTilemap: {fileID: 1351198204}
+  leftHandTilemap: {fileID: 333679708}
+  leftThumbTilemap: {fileID: 1455381189}
+  leftIndexTilemap: {fileID: 1877690194}
+  leftMiddleTilemap: {fileID: 1612114506}
+  leftRingTilemap: {fileID: 1844780444}
+  leftPinkyTilemap: {fileID: 356877600}
   rightArmTilemap: {fileID: 661781334}
+  rightHandTilemap: {fileID: 475168774}
+  rightThumbTilemap: {fileID: 645914304}
+  rightIndexTilemap: {fileID: 325713512}
+  rightMiddleTilemap: {fileID: 221398203}
+  rightRingTilemap: {fileID: 1870314927}
+  rightPinkyTilemap: {fileID: 1688871223}
   leftLegTilemap: {fileID: 2107568807}
+  leftFootTilemap: {fileID: 821413400}
   rightLegTilemap: {fileID: 440498229}
+  rightFootTilemap: {fileID: 421492392}
   tile: {fileID: 11400000, guid: ba88f54ff42af654195452dce4c61a52, type: 2}
 --- !u!1 &661246566
 GameObject:
@@ -19007,9 +19035,23 @@ MonoBehaviour:
   headTilemap: {fileID: 436416482}
   torsoTilemap: {fileID: 1343213451}
   leftArmTilemap: {fileID: 1953199648}
+  leftHandTilemap: {fileID: 1336413004}
+  leftThumbTilemap: {fileID: 1691165799}
+  leftIndexTilemap: {fileID: 23012097}
+  leftMiddleTilemap: {fileID: 1198766228}
+  leftRingTilemap: {fileID: 778085852}
+  leftPinkyTilemap: {fileID: 176025923}
   rightArmTilemap: {fileID: 1599526181}
+  rightHandTilemap: {fileID: 537226201}
+  rightThumbTilemap: {fileID: 446284376}
+  rightIndexTilemap: {fileID: 176449766}
+  rightMiddleTilemap: {fileID: 313877212}
+  rightRingTilemap: {fileID: 423914591}
+  rightPinkyTilemap: {fileID: 1832887875}
   leftLegTilemap: {fileID: 1834700505}
+  leftFootTilemap: {fileID: 40061264}
   rightLegTilemap: {fileID: 1066017185}
+  rightFootTilemap: {fileID: 717502413}
   tile: {fileID: 11400000, guid: ba88f54ff42af654195452dce4c61a52, type: 2}
 --- !u!1 &712515025
 GameObject:
@@ -41599,9 +41641,23 @@ MonoBehaviour:
   headTilemap: {fileID: 176391273}
   torsoTilemap: {fileID: 502764305}
   leftArmTilemap: {fileID: 1753561753}
+  leftHandTilemap: {fileID: 912645931}
+  leftThumbTilemap: {fileID: 1250809684}
+  leftIndexTilemap: {fileID: 1747101477}
+  leftMiddleTilemap: {fileID: 1765072837}
+  leftRingTilemap: {fileID: 394095920}
+  leftPinkyTilemap: {fileID: 1213024266}
   rightArmTilemap: {fileID: 1803259380}
+  rightHandTilemap: {fileID: 318915239}
+  rightThumbTilemap: {fileID: 600555402}
+  rightIndexTilemap: {fileID: 1567642611}
+  rightMiddleTilemap: {fileID: 1756783714}
+  rightRingTilemap: {fileID: 1853608029}
+  rightPinkyTilemap: {fileID: 1762851582}
   leftLegTilemap: {fileID: 1150275814}
+  leftFootTilemap: {fileID: 2008566131}
   rightLegTilemap: {fileID: 765063098}
+  rightFootTilemap: {fileID: 1398448683}
   tile: {fileID: 11400000, guid: ba88f54ff42af654195452dce4c61a52, type: 2}
 --- !u!1 &1564409598
 GameObject:
@@ -43192,9 +43248,23 @@ MonoBehaviour:
   headTilemap: {fileID: 1779940264}
   torsoTilemap: {fileID: 1407320955}
   leftArmTilemap: {fileID: 1345619206}
+  leftHandTilemap: {fileID: 37180686}
+  leftThumbTilemap: {fileID: 1838862749}
+  leftIndexTilemap: {fileID: 32792391}
+  leftMiddleTilemap: {fileID: 1371633919}
+  leftRingTilemap: {fileID: 593073020}
+  leftPinkyTilemap: {fileID: 1206217967}
   rightArmTilemap: {fileID: 1174575380}
+  rightHandTilemap: {fileID: 1210255563}
+  rightThumbTilemap: {fileID: 2013351294}
+  rightIndexTilemap: {fileID: 1889701721}
+  rightMiddleTilemap: {fileID: 1198064647}
+  rightRingTilemap: {fileID: 940642430}
+  rightPinkyTilemap: {fileID: 546641889}
   leftLegTilemap: {fileID: 118637298}
+  leftFootTilemap: {fileID: 67530579}
   rightLegTilemap: {fileID: 808539424}
+  rightFootTilemap: {fileID: 2036391148}
   tile: {fileID: 11400000, guid: ba88f54ff42af654195452dce4c61a52, type: 2}
 --- !u!1 &1625707209
 GameObject:
@@ -44287,9 +44357,23 @@ MonoBehaviour:
   headTilemap: {fileID: 69592686}
   torsoTilemap: {fileID: 461374953}
   leftArmTilemap: {fileID: 854596089}
+  leftHandTilemap: {fileID: 804069612}
+  leftThumbTilemap: {fileID: 661246569}
+  leftIndexTilemap: {fileID: 1641589805}
+  leftMiddleTilemap: {fileID: 1199331624}
+  leftRingTilemap: {fileID: 1776036363}
+  leftPinkyTilemap: {fileID: 584881525}
   rightArmTilemap: {fileID: 962423749}
+  rightHandTilemap: {fileID: 302825574}
+  rightThumbTilemap: {fileID: 1913893920}
+  rightIndexTilemap: {fileID: 2112535742}
+  rightMiddleTilemap: {fileID: 1729883504}
+  rightRingTilemap: {fileID: 1444334908}
+  rightPinkyTilemap: {fileID: 1660793213}
   leftLegTilemap: {fileID: 1963574181}
+  leftFootTilemap: {fileID: 1125854726}
   rightLegTilemap: {fileID: 946979404}
+  rightFootTilemap: {fileID: 1368131091}
   tile: {fileID: 11400000, guid: ba88f54ff42af654195452dce4c61a52, type: 2}
 --- !u!1 &1670991118
 GameObject:
@@ -48382,14 +48466,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781554223}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: -0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 106391419}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: -90, y: 180, z: 180}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!483693784 &1781554225
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -56256,14 +56340,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064217272}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: -0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 106391419}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: -90, y: 180, z: 180}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!483693784 &2064217274
 TilemapRenderer:
   m_ObjectHideFlags: 0
