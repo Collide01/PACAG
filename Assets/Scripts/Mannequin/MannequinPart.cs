@@ -616,7 +616,7 @@ public class MannequinPart : MonoBehaviour
                     }
 
                     pixelInstance.transform.localPosition = new Vector3(currentXPosition, y * pixelSize, currentZPosition);
-                    pixelInstance.GetComponent<PixelData>().pixelColor = pixelColor;
+                    //pixelInstance.GetComponent<PixelData>().currentColor = pixelColor; // TODO: Change this to get colors from draw
                     pixelInstance.GetComponent<PixelData>().pixelPosition = new Vector3(xCoordinate, y, zCoordinate);
 
                     if (zCoordinate == 0)

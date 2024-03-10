@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.Animations;
 
@@ -39,6 +40,40 @@ public class JointData : MonoBehaviour
                 jointSet = true;
                 break;
             }
+        }
+    }
+
+    /// <summary>
+    /// Get the face of the pixel cube that's facing towards the camera
+    /// </summary>
+    public GridViews GetFaceToward()
+    {
+        var toObserver = transform.InverseTransformPoint(Vector3.zero);
+
+        var absolute = new Vector3(
+                          Mathf.Abs(toObserver.x),
+                          Mathf.Abs(toObserver.y),
+                          Mathf.Abs(toObserver.z)
+                       );
+
+        if (absolute.x >= absolute.y)
+        {
+            if (absolute.x >= absolute.z)
+            {
+                return toObserver.x > 0 ? GridViews.Right : GridViews.Left;
+            }
+            else
+            {
+                return toObserver.z > 0 ? GridViews.Front : GridViews.Back;
+            }
+        }
+        else if (absolute.y >= absolute.z)
+        {
+            return toObserver.y > 0 ? GridViews.Top : GridViews.Bottom;
+        }
+        else
+        {
+            return toObserver.z > 0 ? GridViews.Front : GridViews.Back;
         }
     }
 }

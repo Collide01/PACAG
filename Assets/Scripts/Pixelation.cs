@@ -109,7 +109,7 @@ public class Pixelation : MonoBehaviour
             if (!cellPositions[frame].Contains(cellPosition))
             {
                 cellPositions[frame].Add(cellPosition);
-                cellColors[frame].Add(pixelLocations[i].GetComponent<PixelData>().pixelColor);
+                cellColors[frame].Add(pixelLocations[i].GetComponent<PixelData>().GetColor());
             }
         }
 
