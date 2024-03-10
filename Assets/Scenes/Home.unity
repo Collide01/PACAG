@@ -6507,8 +6507,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 393062461}
   backGridTilemap: {fileID: 1407320955}
-  leftGridTilemap: {fileID: 502764305}
-  rightGridTilemap: {fileID: 1343213451}
+  leftGridTilemap: {fileID: 1343213451}
+  rightGridTilemap: {fileID: 502764305}
   topGridTilemap: {fileID: 461374953}
   bottomGridTilemap: {fileID: 1083291227}
 --- !u!61 &227645792
@@ -10395,8 +10395,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 160560966}
   backGridTilemap: {fileID: 1206217967}
-  leftGridTilemap: {fileID: 1213024266}
-  rightGridTilemap: {fileID: 176025923}
+  leftGridTilemap: {fileID: 176025923}
+  rightGridTilemap: {fileID: 1213024266}
   topGridTilemap: {fileID: 584881525}
   bottomGridTilemap: {fileID: 356877600}
 --- !u!61 &359533471
@@ -13888,8 +13888,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 757026245}
   backGridTilemap: {fileID: 118637298}
-  leftGridTilemap: {fileID: 1150275814}
-  rightGridTilemap: {fileID: 1834700505}
+  leftGridTilemap: {fileID: 1834700505}
+  rightGridTilemap: {fileID: 1150275814}
   topGridTilemap: {fileID: 1963574181}
   bottomGridTilemap: {fileID: 2107568807}
 --- !u!61 &486848435
@@ -14938,8 +14938,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 1508101733}
   backGridTilemap: {fileID: 2013351294}
-  leftGridTilemap: {fileID: 600555402}
-  rightGridTilemap: {fileID: 446284376}
+  leftGridTilemap: {fileID: 446284376}
+  rightGridTilemap: {fileID: 600555402}
   topGridTilemap: {fileID: 1913893920}
   bottomGridTilemap: {fileID: 645914304}
 --- !u!61 &525866581
@@ -18872,8 +18872,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 1054010652}
   backGridTilemap: {fileID: 1210255563}
-  leftGridTilemap: {fileID: 318915239}
-  rightGridTilemap: {fileID: 537226201}
+  leftGridTilemap: {fileID: 537226201}
+  rightGridTilemap: {fileID: 318915239}
   topGridTilemap: {fileID: 302825574}
   bottomGridTilemap: {fileID: 475168774}
 --- !u!61 &703742359
@@ -18966,7 +18966,7 @@ GameObject:
   - component: {fileID: 710069868}
   - component: {fileID: 710069869}
   m_Layer: 0
-  m_Name: RightGrid
+  m_Name: LeftGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19528,8 +19528,8 @@ Transform:
   m_Children:
   - {fileID: 106391419}
   - {fileID: 1621739540}
-  - {fileID: 1553983163}
   - {fileID: 710069867}
+  - {fileID: 1553983163}
   - {fileID: 1668926145}
   - {fileID: 657854768}
   - {fileID: 1920247648}
@@ -19550,8 +19550,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontGrid: {fileID: 106391418}
   backGrid: {fileID: 1621739539}
-  leftGrid: {fileID: 1553983162}
-  rightGrid: {fileID: 710069866}
+  leftGrid: {fileID: 710069866}
+  rightGrid: {fileID: 1553983162}
   topGrid: {fileID: 1668926144}
   bottomGrid: {fileID: 657854767}
   drawButton: {fileID: 1944090538}
@@ -24892,8 +24892,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 2139588917}
   backGridTilemap: {fileID: 808539424}
-  leftGridTilemap: {fileID: 765063098}
-  rightGridTilemap: {fileID: 1066017185}
+  leftGridTilemap: {fileID: 1066017185}
+  rightGridTilemap: {fileID: 765063098}
   topGridTilemap: {fileID: 946979404}
   bottomGridTilemap: {fileID: 440498229}
 --- !u!61 &972397783
@@ -25675,8 +25675,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 1501026818}
   backGridTilemap: {fileID: 1174575380}
-  leftGridTilemap: {fileID: 1803259380}
-  rightGridTilemap: {fileID: 1599526181}
+  leftGridTilemap: {fileID: 1599526181}
+  rightGridTilemap: {fileID: 1803259380}
   topGridTilemap: {fileID: 962423749}
   bottomGridTilemap: {fileID: 661781334}
 --- !u!61 &1009696812
@@ -26066,8 +26066,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 2064217275}
   backGridTilemap: {fileID: 2036391148}
-  leftGridTilemap: {fileID: 1398448683}
-  rightGridTilemap: {fileID: 717502413}
+  leftGridTilemap: {fileID: 717502413}
+  rightGridTilemap: {fileID: 1398448683}
   topGridTilemap: {fileID: 1368131091}
   bottomGridTilemap: {fileID: 421492392}
 --- !u!61 &1032137172
@@ -27073,8 +27073,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 1908669397}
   backGridTilemap: {fileID: 1838862749}
-  leftGridTilemap: {fileID: 1250809684}
-  rightGridTilemap: {fileID: 1691165799}
+  leftGridTilemap: {fileID: 1691165799}
+  rightGridTilemap: {fileID: 1250809684}
   topGridTilemap: {fileID: 661246569}
   bottomGridTilemap: {fileID: 1455381189}
 --- !u!61 &1050377676
@@ -27688,8 +27688,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 422246636}
   backGridTilemap: {fileID: 593073020}
-  leftGridTilemap: {fileID: 394095920}
-  rightGridTilemap: {fileID: 778085852}
+  leftGridTilemap: {fileID: 778085852}
+  rightGridTilemap: {fileID: 394095920}
   topGridTilemap: {fileID: 1776036363}
   bottomGridTilemap: {fileID: 1844780444}
 --- !u!61 &1060947843
@@ -33095,8 +33095,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 642174400}
   backGridTilemap: {fileID: 1889701721}
-  leftGridTilemap: {fileID: 1567642611}
-  rightGridTilemap: {fileID: 176449766}
+  leftGridTilemap: {fileID: 176449766}
+  rightGridTilemap: {fileID: 1567642611}
   topGridTilemap: {fileID: 2112535742}
   bottomGridTilemap: {fileID: 325713512}
 --- !u!61 &1250692746
@@ -34272,8 +34272,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 2120431292}
   backGridTilemap: {fileID: 940642430}
-  leftGridTilemap: {fileID: 1853608029}
-  rightGridTilemap: {fileID: 423914591}
+  leftGridTilemap: {fileID: 423914591}
+  rightGridTilemap: {fileID: 1853608029}
   topGridTilemap: {fileID: 1444334908}
   bottomGridTilemap: {fileID: 1870314927}
 --- !u!61 &1293901928
@@ -38992,8 +38992,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 1781554226}
   backGridTilemap: {fileID: 67530579}
-  leftGridTilemap: {fileID: 2008566131}
-  rightGridTilemap: {fileID: 40061264}
+  leftGridTilemap: {fileID: 40061264}
+  rightGridTilemap: {fileID: 2008566131}
   topGridTilemap: {fileID: 1125854726}
   bottomGridTilemap: {fileID: 821413400}
 --- !u!61 &1436435963
@@ -40959,8 +40959,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 2003706262}
   backGridTilemap: {fileID: 32792391}
-  leftGridTilemap: {fileID: 1747101477}
-  rightGridTilemap: {fileID: 23012097}
+  leftGridTilemap: {fileID: 23012097}
+  rightGridTilemap: {fileID: 1747101477}
   topGridTilemap: {fileID: 1641589805}
   bottomGridTilemap: {fileID: 1877690194}
 --- !u!61 &1540141002
@@ -41572,7 +41572,7 @@ GameObject:
   - component: {fileID: 1553983164}
   - component: {fileID: 1553983165}
   m_Layer: 0
-  m_Name: LeftGrid
+  m_Name: RightGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42912,8 +42912,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 1593681267}
   backGridTilemap: {fileID: 1371633919}
-  leftGridTilemap: {fileID: 1765072837}
-  rightGridTilemap: {fileID: 1198766228}
+  leftGridTilemap: {fileID: 1198766228}
+  rightGridTilemap: {fileID: 1765072837}
   topGridTilemap: {fileID: 1199331624}
   bottomGridTilemap: {fileID: 1612114506}
 --- !u!61 &1611250870
@@ -44746,8 +44746,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 241867754}
   backGridTilemap: {fileID: 1345619206}
-  leftGridTilemap: {fileID: 1753561753}
-  rightGridTilemap: {fileID: 1953199648}
+  leftGridTilemap: {fileID: 1953199648}
+  rightGridTilemap: {fileID: 1753561753}
   topGridTilemap: {fileID: 854596089}
   bottomGridTilemap: {fileID: 1351198204}
 --- !u!61 &1684022951
@@ -47070,8 +47070,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 1071687862}
   backGridTilemap: {fileID: 37180686}
-  leftGridTilemap: {fileID: 912645931}
-  rightGridTilemap: {fileID: 1336413004}
+  leftGridTilemap: {fileID: 1336413004}
+  rightGridTilemap: {fileID: 912645931}
   topGridTilemap: {fileID: 804069612}
   bottomGridTilemap: {fileID: 333679708}
 --- !u!61 &1740815712
@@ -50257,8 +50257,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 1316958588}
   backGridTilemap: {fileID: 1198064647}
-  leftGridTilemap: {fileID: 1756783714}
-  rightGridTilemap: {fileID: 313877212}
+  leftGridTilemap: {fileID: 313877212}
+  rightGridTilemap: {fileID: 1756783714}
   topGridTilemap: {fileID: 1729883504}
   bottomGridTilemap: {fileID: 221398203}
 --- !u!61 &1838823244
@@ -52806,8 +52806,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 1298615556}
   backGridTilemap: {fileID: 1779940264}
-  leftGridTilemap: {fileID: 176391273}
-  rightGridTilemap: {fileID: 436416482}
+  leftGridTilemap: {fileID: 436416482}
+  rightGridTilemap: {fileID: 176391273}
   topGridTilemap: {fileID: 69592686}
   bottomGridTilemap: {fileID: 1100531509}
 --- !u!61 &1910914556
@@ -56792,8 +56792,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 2075172189}
   backGridTilemap: {fileID: 546641889}
-  leftGridTilemap: {fileID: 1762851582}
-  rightGridTilemap: {fileID: 1832887875}
+  leftGridTilemap: {fileID: 1832887875}
+  rightGridTilemap: {fileID: 1762851582}
   topGridTilemap: {fileID: 1660793213}
   bottomGridTilemap: {fileID: 1688871223}
 --- !u!61 &2080710791
