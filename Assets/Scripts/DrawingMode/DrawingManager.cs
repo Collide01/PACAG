@@ -86,6 +86,17 @@ public class DrawingManager : MonoBehaviour
     public TMP_InputField rightFootY;
     public TMP_InputField rightFootZ;
 
+    [Header("Joint Inputs")]
+    public TMP_InputField spine1;
+    public TMP_InputField spine2;
+    public TMP_InputField spine3;
+    public TMP_InputField leftElbow;
+    public TMP_InputField rightElbow;
+    public TMP_InputField leftKnee;
+    public TMP_InputField rightKnee;
+    public TMP_InputField leftToe;
+    public TMP_InputField rightToe;
+
     [Header("Draw Borders")]
     public GameObject drawBorders;
     public SpriteRenderer headBorder;
@@ -202,6 +213,16 @@ public class DrawingManager : MonoBehaviour
         rightFootX.text = characterSettings.rightFootSize.x.ToString();
         rightFootY.text = characterSettings.rightFootSize.y.ToString();
         rightFootZ.text = characterSettings.rightFootSize.z.ToString();
+
+        spine1.text = characterSettings.torsoJoint1.ToString();
+        spine2.text = characterSettings.torsoJoint2.ToString();
+        spine3.text = characterSettings.torsoJoint3.ToString();
+        leftElbow.text = characterSettings.leftElbow.ToString();
+        rightElbow.text = characterSettings.rightElbow.ToString();
+        leftKnee.text = characterSettings.leftKnee.ToString();
+        rightKnee.text = characterSettings.rightKnee.ToString();
+        leftToe.text = characterSettings.leftToe.ToString();
+        rightToe.text = characterSettings.rightToe.ToString();
         ChangeBorderSizes();
 
         colorPicker.SetActive(false);
@@ -388,6 +409,16 @@ public class DrawingManager : MonoBehaviour
         characterSettings.rightFootSize.x = int.Parse(rightFootX.text);
         characterSettings.rightFootSize.y = int.Parse(rightFootY.text);
         characterSettings.rightFootSize.z = int.Parse(rightFootZ.text);
+
+        characterSettings.torsoJoint1 = int.Parse(spine1.text);
+        characterSettings.torsoJoint2 = int.Parse(spine2.text);
+        characterSettings.torsoJoint3 = int.Parse(spine3.text);
+        characterSettings.leftElbow = int.Parse(leftElbow.text);
+        characterSettings.rightElbow = int.Parse(rightElbow.text);
+        characterSettings.leftKnee = int.Parse(leftKnee.text);
+        characterSettings.rightKnee = int.Parse(rightKnee.text);
+        characterSettings.leftToe = int.Parse(leftToe.text);
+        characterSettings.rightToe = int.Parse(rightToe.text);
         ChangeBorderSizes();
     }
 
