@@ -44,5 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f29ea6f9cc05844b27383616a283b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelColor: {r: 0, g: 0, b: 0, a: 0}
+  pixelColorFront: {r: 0, g: 0, b: 0, a: 0}
+  pixelColorBack: {r: 0, g: 0, b: 0, a: 0}
+  pixelColorLeft: {r: 0, g: 0, b: 0, a: 0}
+  pixelColorRight: {r: 0, g: 0, b: 0, a: 0}
+  pixelColorTop: {r: 0, g: 0, b: 0, a: 0}
+  pixelColorBottom: {r: 0, g: 0, b: 0, a: 0}
   pixelPosition: {x: 0, y: 0, z: 0}
