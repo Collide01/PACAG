@@ -852,46 +852,6 @@ public class MannequinPart : MonoBehaviour
                 break;
         }
 
-        // Assign the associated levels to each joint
-        switch (jointData.modelJoint)
-        {
-            case BodyPart.Spine:
-            case BodyPart.LeftForearm:
-            case BodyPart.RightForearm:
-            case BodyPart.LeftThumb2:
-            case BodyPart.LeftIndex2:
-            case BodyPart.LeftMiddle2:
-            case BodyPart.LeftRing2:
-            case BodyPart.LeftPinky2:
-            case BodyPart.RightThumb2:
-            case BodyPart.RightIndex2:
-            case BodyPart.RightMiddle2:
-            case BodyPart.RightRing2:
-            case BodyPart.RightPinky2:
-            case BodyPart.LeftLeg:
-            case BodyPart.RightLeg:
-            case BodyPart.LeftToeBase:
-            case BodyPart.RightToeBase:
-                jointData.partLevel = 1;
-                break;
-            case BodyPart.Spine1:
-            case BodyPart.LeftThumb3:
-            case BodyPart.LeftIndex3:
-            case BodyPart.LeftMiddle3:
-            case BodyPart.LeftRing3:
-            case BodyPart.LeftPinky3:
-            case BodyPart.RightThumb3:
-            case BodyPart.RightIndex3:
-            case BodyPart.RightMiddle3:
-            case BodyPart.RightRing3:
-            case BodyPart.RightPinky3:
-                jointData.partLevel = 2;
-                break;
-            case BodyPart.Spine2:
-                jointData.partLevel = 3;
-                break;
-        }
-
         MannequinPart jointMannequinPart = jointInstance.GetComponent<MannequinPart>();
         if (createNewJoint)
         {

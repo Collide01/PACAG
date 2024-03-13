@@ -14,7 +14,6 @@ public class JointData : MonoBehaviour
     public Tilemap associatedTilemapRight;
     public Tilemap associatedTilemapTop;
     public Tilemap associatedTilemapBottom;
-    public int partLevel; // Determines the joint in each part of the body (i.e. Arms = level 0 and Elbows = level 1)
     private MannequinPart[] jointObjects;
     private MannequinPart sourceObject;
     private bool jointSet;
