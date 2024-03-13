@@ -5,6 +5,12 @@ using UnityEngine;
 public class Mannequin : MonoBehaviour
 {
     public Pixelation pixelation;
+    public MannequinPart basePart;
+
+    public void Init()
+    {
+        basePart.Init();
+    }
 
     /// <summary>
     /// The function that AnimationEvents call as the animation plays.

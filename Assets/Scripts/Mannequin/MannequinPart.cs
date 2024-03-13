@@ -11,8 +11,7 @@ public class MannequinPart : MonoBehaviour
     public GameObject jointPoint;
     public BodyPart bodyPart;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Init()
     {
         characterSettings = GameObject.FindGameObjectWithTag("CharacterSettings").GetComponent<CharacterSettings>();
 
@@ -519,7 +518,7 @@ public class MannequinPart : MonoBehaviour
 
                 if (jointPoint != null)
                 {
-                    CreateJoint(BodyPart.RightFoot, characterSettings.rightKnee, true);
+                    CreateJoint(BodyPart.RightFoot, characterSettings.rightLegSize.y - characterSettings.rightKnee, true);
                 }
                 break;
 
@@ -658,6 +657,260 @@ public class MannequinPart : MonoBehaviour
         JointData jointData = jointInstance.GetComponent<JointData>();
         jointData.modelJoint = joint;
         jointData.SetRotationSource();
+
+        // Assign the associated tilemaps to each joint
+        switch (jointData.modelJoint)
+        {
+            case BodyPart.Hips:
+            case BodyPart.Spine:
+            case BodyPart.Spine1:
+            case BodyPart.Spine2:
+                jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().torsoTilemap;
+                jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().torsoTilemap;
+                jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().torsoTilemap;
+                jointData.associatedTilemapRight = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().rightGrid.GetComponent<DrawGrid>().torsoTilemap;
+                jointData.associatedTilemapTop = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().topGrid.GetComponent<DrawGrid>().torsoTilemap;
+                jointData.associatedTilemapBottom = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().bottomGrid.GetComponent<DrawGrid>().torsoTilemap;
+                break;
+            case BodyPart.Neck:
+                jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().headTilemap;
+                jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().headTilemap;
+                jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().headTilemap;
+                jointData.associatedTilemapRight = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().rightGrid.GetComponent<DrawGrid>().headTilemap;
+                jointData.associatedTilemapTop = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().topGrid.GetComponent<DrawGrid>().headTilemap;
+                jointData.associatedTilemapBottom = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().bottomGrid.GetComponent<DrawGrid>().headTilemap;
+                break;
+            case BodyPart.LeftArm:
+            case BodyPart.LeftForearm:
+                jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().leftArmTilemap;
+                jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().leftArmTilemap;
+                jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().leftArmTilemap;
+                jointData.associatedTilemapRight = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().rightGrid.GetComponent<DrawGrid>().leftArmTilemap;
+                jointData.associatedTilemapTop = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().topGrid.GetComponent<DrawGrid>().leftArmTilemap;
+                jointData.associatedTilemapBottom = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().bottomGrid.GetComponent<DrawGrid>().leftArmTilemap;
+                break;
+            case BodyPart.LeftHand:
+                jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().leftHandTilemap;
+                jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().leftHandTilemap;
+                jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().leftHandTilemap;
+                jointData.associatedTilemapRight = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().rightGrid.GetComponent<DrawGrid>().leftHandTilemap;
+                jointData.associatedTilemapTop = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().topGrid.GetComponent<DrawGrid>().leftHandTilemap;
+                jointData.associatedTilemapBottom = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().bottomGrid.GetComponent<DrawGrid>().leftHandTilemap;
+                break;
+            case BodyPart.LeftThumb1:
+            case BodyPart.LeftThumb2:
+            case BodyPart.LeftThumb3:
+            case BodyPart.LeftThumb4:
+                jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().leftThumbTilemap;
+                jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().leftThumbTilemap;
+                jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().leftThumbTilemap;
+                jointData.associatedTilemapRight = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().rightGrid.GetComponent<DrawGrid>().leftThumbTilemap;
+                jointData.associatedTilemapTop = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().topGrid.GetComponent<DrawGrid>().leftThumbTilemap;
+                jointData.associatedTilemapBottom = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().bottomGrid.GetComponent<DrawGrid>().leftThumbTilemap;
+                break;
+            case BodyPart.LeftIndex1:
+            case BodyPart.LeftIndex2:
+            case BodyPart.LeftIndex3:
+            case BodyPart.LeftIndex4:
+                jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().leftIndexTilemap;
+                jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().leftIndexTilemap;
+                jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().leftIndexTilemap;
+                jointData.associatedTilemapRight = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().rightGrid.GetComponent<DrawGrid>().leftIndexTilemap;
+                jointData.associatedTilemapTop = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().topGrid.GetComponent<DrawGrid>().leftIndexTilemap;
+                jointData.associatedTilemapBottom = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().bottomGrid.GetComponent<DrawGrid>().leftIndexTilemap;
+                break;
+            case BodyPart.LeftMiddle1:
+            case BodyPart.LeftMiddle2:
+            case BodyPart.LeftMiddle3:
+            case BodyPart.LeftMiddle4:
+                jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().leftMiddleTilemap;
+                jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().leftMiddleTilemap;
+                jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().leftMiddleTilemap;
+                jointData.associatedTilemapRight = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().rightGrid.GetComponent<DrawGrid>().leftMiddleTilemap;
+                jointData.associatedTilemapTop = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().topGrid.GetComponent<DrawGrid>().leftMiddleTilemap;
+                jointData.associatedTilemapBottom = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().bottomGrid.GetComponent<DrawGrid>().leftMiddleTilemap;
+                break;
+            case BodyPart.LeftRing1:
+            case BodyPart.LeftRing2:
+            case BodyPart.LeftRing3:
+            case BodyPart.LeftRing4:
+                jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().leftRingTilemap;
+                jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().leftRingTilemap;
+                jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().leftRingTilemap;
+                jointData.associatedTilemapRight = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().rightGrid.GetComponent<DrawGrid>().leftRingTilemap;
+                jointData.associatedTilemapTop = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().topGrid.GetComponent<DrawGrid>().leftRingTilemap;
+                jointData.associatedTilemapBottom = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().bottomGrid.GetComponent<DrawGrid>().leftRingTilemap;
+                break;
+            case BodyPart.LeftPinky1:
+            case BodyPart.LeftPinky2:
+            case BodyPart.LeftPinky3:
+            case BodyPart.LeftPinky4:
+                jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().leftPinkyTilemap;
+                jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().leftPinkyTilemap;
+                jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().leftPinkyTilemap;
+                jointData.associatedTilemapRight = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().rightGrid.GetComponent<DrawGrid>().leftPinkyTilemap;
+                jointData.associatedTilemapTop = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().topGrid.GetComponent<DrawGrid>().leftPinkyTilemap;
+                jointData.associatedTilemapBottom = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().bottomGrid.GetComponent<DrawGrid>().leftPinkyTilemap;
+                break;
+            case BodyPart.RightArm:
+            case BodyPart.RightForearm:
+                jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().rightArmTilemap;
+                jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().rightArmTilemap;
+                jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().rightArmTilemap;
+                jointData.associatedTilemapRight = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().rightGrid.GetComponent<DrawGrid>().rightArmTilemap;
+                jointData.associatedTilemapTop = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().topGrid.GetComponent<DrawGrid>().rightArmTilemap;
+                jointData.associatedTilemapBottom = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().bottomGrid.GetComponent<DrawGrid>().rightArmTilemap;
+                break;
+            case BodyPart.RightHand:
+                jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().rightHandTilemap;
+                jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().rightHandTilemap;
+                jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().rightHandTilemap;
+                jointData.associatedTilemapRight = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().rightGrid.GetComponent<DrawGrid>().rightHandTilemap;
+                jointData.associatedTilemapTop = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().topGrid.GetComponent<DrawGrid>().rightHandTilemap;
+                jointData.associatedTilemapBottom = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().bottomGrid.GetComponent<DrawGrid>().rightHandTilemap;
+                break;
+            case BodyPart.RightThumb1:
+            case BodyPart.RightThumb2:
+            case BodyPart.RightThumb3:
+            case BodyPart.RightThumb4:
+                jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().rightThumbTilemap;
+                jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().rightThumbTilemap;
+                jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().rightThumbTilemap;
+                jointData.associatedTilemapRight = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().rightGrid.GetComponent<DrawGrid>().rightThumbTilemap;
+                jointData.associatedTilemapTop = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().topGrid.GetComponent<DrawGrid>().rightThumbTilemap;
+                jointData.associatedTilemapBottom = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().bottomGrid.GetComponent<DrawGrid>().rightThumbTilemap;
+                break;
+            case BodyPart.RightIndex1:
+            case BodyPart.RightIndex2:
+            case BodyPart.RightIndex3:
+            case BodyPart.RightIndex4:
+                jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().rightIndexTilemap;
+                jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().rightIndexTilemap;
+                jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().rightIndexTilemap;
+                jointData.associatedTilemapRight = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().rightGrid.GetComponent<DrawGrid>().rightIndexTilemap;
+                jointData.associatedTilemapTop = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().topGrid.GetComponent<DrawGrid>().rightIndexTilemap;
+                jointData.associatedTilemapBottom = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().bottomGrid.GetComponent<DrawGrid>().rightIndexTilemap;
+                break;
+            case BodyPart.RightMiddle1:
+            case BodyPart.RightMiddle2:
+            case BodyPart.RightMiddle3:
+            case BodyPart.RightMiddle4:
+                jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().rightMiddleTilemap;
+                jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().rightMiddleTilemap;
+                jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().rightMiddleTilemap;
+                jointData.associatedTilemapRight = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().rightGrid.GetComponent<DrawGrid>().rightMiddleTilemap;
+                jointData.associatedTilemapTop = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().topGrid.GetComponent<DrawGrid>().rightMiddleTilemap;
+                jointData.associatedTilemapBottom = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().bottomGrid.GetComponent<DrawGrid>().rightMiddleTilemap;
+                break;
+            case BodyPart.RightRing1:
+            case BodyPart.RightRing2:
+            case BodyPart.RightRing3:
+            case BodyPart.RightRing4:
+                jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().rightRingTilemap;
+                jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().rightRingTilemap;
+                jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().rightRingTilemap;
+                jointData.associatedTilemapRight = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().rightGrid.GetComponent<DrawGrid>().rightRingTilemap;
+                jointData.associatedTilemapTop = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().topGrid.GetComponent<DrawGrid>().rightRingTilemap;
+                jointData.associatedTilemapBottom = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().bottomGrid.GetComponent<DrawGrid>().rightRingTilemap;
+                break;
+            case BodyPart.RightPinky1:
+            case BodyPart.RightPinky2:
+            case BodyPart.RightPinky3:
+            case BodyPart.RightPinky4:
+                jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().rightPinkyTilemap;
+                jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().rightPinkyTilemap;
+                jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().rightPinkyTilemap;
+                jointData.associatedTilemapRight = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().rightGrid.GetComponent<DrawGrid>().rightPinkyTilemap;
+                jointData.associatedTilemapTop = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().topGrid.GetComponent<DrawGrid>().rightPinkyTilemap;
+                jointData.associatedTilemapBottom = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().bottomGrid.GetComponent<DrawGrid>().rightPinkyTilemap;
+                break;
+            case BodyPart.LeftUpLeg:
+            case BodyPart.LeftLeg:
+                jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().leftLegTilemap;
+                jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().leftLegTilemap;
+                jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().leftLegTilemap;
+                jointData.associatedTilemapRight = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().rightGrid.GetComponent<DrawGrid>().leftLegTilemap;
+                jointData.associatedTilemapTop = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().topGrid.GetComponent<DrawGrid>().leftLegTilemap;
+                jointData.associatedTilemapBottom = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().bottomGrid.GetComponent<DrawGrid>().leftLegTilemap;
+                break;
+            case BodyPart.LeftFoot:
+            case BodyPart.LeftToeBase:
+                jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().leftFootTilemap;
+                jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().leftFootTilemap;
+                jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().leftFootTilemap;
+                jointData.associatedTilemapRight = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().rightGrid.GetComponent<DrawGrid>().leftFootTilemap;
+                jointData.associatedTilemapTop = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().topGrid.GetComponent<DrawGrid>().leftFootTilemap;
+                jointData.associatedTilemapBottom = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().bottomGrid.GetComponent<DrawGrid>().leftFootTilemap;
+                break;
+            case BodyPart.RightUpLeg:
+            case BodyPart.RightLeg:
+                jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().rightLegTilemap;
+                jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().rightLegTilemap;
+                jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().rightLegTilemap;
+                jointData.associatedTilemapRight = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().rightGrid.GetComponent<DrawGrid>().rightLegTilemap;
+                jointData.associatedTilemapTop = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().topGrid.GetComponent<DrawGrid>().rightLegTilemap;
+                jointData.associatedTilemapBottom = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().bottomGrid.GetComponent<DrawGrid>().rightLegTilemap;
+                break;
+            case BodyPart.RightFoot:
+            case BodyPart.RightToeBase:
+                jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().rightFootTilemap;
+                jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().rightFootTilemap;
+                jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().rightFootTilemap;
+                jointData.associatedTilemapRight = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().rightGrid.GetComponent<DrawGrid>().rightFootTilemap;
+                jointData.associatedTilemapTop = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().topGrid.GetComponent<DrawGrid>().rightFootTilemap;
+                jointData.associatedTilemapBottom = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().bottomGrid.GetComponent<DrawGrid>().rightFootTilemap;
+                break;
+        }
+
+        // Assign the associated levels to each joint
+        switch (jointData.modelJoint)
+        {
+            case BodyPart.Spine:
+            case BodyPart.LeftForearm:
+            case BodyPart.RightForearm:
+            case BodyPart.LeftThumb2:
+            case BodyPart.LeftIndex2:
+            case BodyPart.LeftMiddle2:
+            case BodyPart.LeftRing2:
+            case BodyPart.LeftPinky2:
+            case BodyPart.RightThumb2:
+            case BodyPart.RightIndex2:
+            case BodyPart.RightMiddle2:
+            case BodyPart.RightRing2:
+            case BodyPart.RightPinky2:
+            case BodyPart.LeftLeg:
+            case BodyPart.RightLeg:
+            case BodyPart.LeftToeBase:
+            case BodyPart.RightToeBase:
+                jointData.partLevel = 1;
+                break;
+            case BodyPart.Spine1:
+            case BodyPart.LeftThumb3:
+            case BodyPart.LeftIndex3:
+            case BodyPart.LeftMiddle3:
+            case BodyPart.LeftRing3:
+            case BodyPart.LeftPinky3:
+            case BodyPart.RightThumb3:
+            case BodyPart.RightIndex3:
+            case BodyPart.RightMiddle3:
+            case BodyPart.RightRing3:
+            case BodyPart.RightPinky3:
+                jointData.partLevel = 2;
+                break;
+            case BodyPart.Spine2:
+            case BodyPart.LeftThumb4:
+            case BodyPart.LeftIndex4:
+            case BodyPart.LeftMiddle4:
+            case BodyPart.LeftRing4:
+            case BodyPart.LeftPinky4:
+            case BodyPart.RightThumb4:
+            case BodyPart.RightIndex4:
+            case BodyPart.RightMiddle4:
+            case BodyPart.RightRing4:
+            case BodyPart.RightPinky4:
+                jointData.partLevel = 3;
+                break;
+        }
 
         MannequinPart jointMannequinPart = jointInstance.GetComponent<MannequinPart>();
         if (createNewJoint)
@@ -835,6 +1088,8 @@ public class MannequinPart : MonoBehaviour
                 jointInstance.transform.localPosition = new Vector3(jointInstance.transform.localPosition.x, jointInstance.transform.localPosition.y + height * pixelSize, jointInstance.transform.localPosition.z);
                 break;
         }
+
+        jointMannequinPart.Init();
     }
 
     /// <summary>

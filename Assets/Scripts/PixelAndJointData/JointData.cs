@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.Tilemaps;
 
 public class JointData : MonoBehaviour
 {
     public BodyPart modelJoint; // Joint to replicate
+    public Tilemap associatedTilemapFront;
+    public Tilemap associatedTilemapBack;
+    public Tilemap associatedTilemapLeft;
+    public Tilemap associatedTilemapRight;
+    public Tilemap associatedTilemapTop;
+    public Tilemap associatedTilemapBottom;
+    public int partLevel; // Determines the joint in each part of the body (i.e. Arms = level 0 and Elbows = level 1)
     private MannequinPart[] jointObjects;
     private MannequinPart sourceObject;
     private bool jointSet;

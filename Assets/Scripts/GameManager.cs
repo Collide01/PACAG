@@ -70,10 +70,11 @@ public class GameManager : MonoBehaviour
         uiEdit.SetActive(false);
         uiSave.SetActive(false);
 
+        mannequin.SetActive(true);
+        mannequin.GetComponent<Mannequin>().Init();
         drawGrids.SetActive(false);
         transparencyBackground.SetActive(false);
         drawBorders.SetActive(false);
-        mannequin.SetActive(true);
     }
 
     public void ChangeToEdit()

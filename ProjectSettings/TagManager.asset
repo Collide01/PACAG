@@ -9,6 +9,7 @@ TagManager:
   - Mannequin
   - GridTransform
   - NewJoint
+  - DrawGrids
   layers:
   - Default
   - TransparentFX

@@ -22101,7 +22101,7 @@ GameObject:
   - component: {fileID: 737578966}
   m_Layer: 0
   m_Name: DrawGrids
-  m_TagString: Untagged
+  m_TagString: DrawGrids
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22209,15 +22209,15 @@ MonoBehaviour:
   rightFootX: {fileID: 1696690495}
   rightFootY: {fileID: 58165162}
   rightFootZ: {fileID: 328236505}
-  spine1: {fileID: 0}
-  spine2: {fileID: 0}
-  spine3: {fileID: 0}
-  leftElbow: {fileID: 0}
-  rightElbow: {fileID: 0}
-  leftKnee: {fileID: 0}
-  rightKnee: {fileID: 0}
-  leftToe: {fileID: 0}
-  rightToe: {fileID: 0}
+  spine1: {fileID: 1098563086}
+  spine2: {fileID: 132462577}
+  spine3: {fileID: 1439579537}
+  leftElbow: {fileID: 565788667}
+  rightElbow: {fileID: 902399493}
+  leftKnee: {fileID: 282036004}
+  rightKnee: {fileID: 2026806810}
+  leftToe: {fileID: 1425417008}
+  rightToe: {fileID: 1826010980}
   drawBorders: {fileID: 986433636}
   headBorder: {fileID: 1910914554}
   torsoBorder: {fileID: 227645790}
@@ -66886,6 +66886,7 @@ GameObject:
   m_Component:
   - component: {fileID: 951597904010806023}
   - component: {fileID: 5326397631944841843}
+  - component: {fileID: 5326397631944841844}
   m_Layer: 0
   m_Name: mixamorig:Hips
   m_TagString: Untagged
@@ -66909,6 +66910,26 @@ MonoBehaviour:
   pixel: {fileID: 7629510782072731025, guid: 9af71e2be44b6104582a54daaceceba5, type: 3}
   jointPoint: {fileID: 6793576486800379558, guid: 92276b3c7221f4844838d3f9b4e92eec, type: 3}
   bodyPart: 0
+--- !u!114 &5326397631944841844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5326397631944841842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58ce55952b6dbcb4b831c226c3aa8d90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJoint: 0
+  associatedTilemapFront: {fileID: 393062461}
+  associatedTilemapBack: {fileID: 1407320955}
+  associatedTilemapLeft: {fileID: 1343213451}
+  associatedTilemapRight: {fileID: 502764305}
+  associatedTilemapTop: {fileID: 461374953}
+  associatedTilemapBottom: {fileID: 1083291227}
+  partLevel: 0
 --- !u!1 &5345565088989067561
 GameObject:
   m_ObjectHideFlags: 0
@@ -66960,6 +66981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pixelation: {fileID: 517680565}
+  basePart: {fileID: 5326397631944841843}
 --- !u!4 &5383819494367043814
 Transform:
   m_ObjectHideFlags: 0
