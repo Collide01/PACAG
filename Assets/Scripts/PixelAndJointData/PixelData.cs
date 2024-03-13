@@ -125,7 +125,30 @@ public class PixelData : MonoBehaviour
                 }
                 break;
             case BodyPart.Neck:
-                
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
                 break;
             case BodyPart.LeftArm:
             case BodyPart.LeftForearm:
