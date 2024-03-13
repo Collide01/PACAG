@@ -108,7 +108,7 @@ public class MannequinPart : MonoBehaviour
                 // Only create fingers if the hand size is big enough to show all of them
                 if (jointPoint != null && characterSettings.leftHandSize.x >= 4)
                 {
-                    CreateJoint(BodyPart.LeftThumb1, 0, true);
+                    CreateJoint(BodyPart.LeftThumb1, characterSettings.leftHandSize.y / 2.0f, true);
                     CreateJoint(BodyPart.LeftIndex1, characterSettings.leftHandSize.y, true);
                     CreateJoint(BodyPart.LeftMiddle1, characterSettings.leftHandSize.y, true);
                     CreateJoint(BodyPart.LeftRing1, characterSettings.leftHandSize.y, true);
@@ -297,7 +297,7 @@ public class MannequinPart : MonoBehaviour
                 // Only create fingers if the hand size is big enough to show all of them
                 if (jointPoint != null && characterSettings.rightHandSize.x >= 4)
                 {
-                    CreateJoint(BodyPart.RightThumb1, 0, true);
+                    CreateJoint(BodyPart.RightThumb1, characterSettings.leftHandSize.y / 2.0f, true);
                     CreateJoint(BodyPart.RightIndex1, characterSettings.rightHandSize.y, true);
                     CreateJoint(BodyPart.RightMiddle1, characterSettings.rightHandSize.y, true);
                     CreateJoint(BodyPart.RightRing1, characterSettings.rightHandSize.y, true);
@@ -700,7 +700,6 @@ public class MannequinPart : MonoBehaviour
             case BodyPart.LeftThumb1:
             case BodyPart.LeftThumb2:
             case BodyPart.LeftThumb3:
-            case BodyPart.LeftThumb4:
                 jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().leftThumbTilemap;
                 jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().leftThumbTilemap;
                 jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().leftThumbTilemap;
@@ -711,7 +710,6 @@ public class MannequinPart : MonoBehaviour
             case BodyPart.LeftIndex1:
             case BodyPart.LeftIndex2:
             case BodyPart.LeftIndex3:
-            case BodyPart.LeftIndex4:
                 jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().leftIndexTilemap;
                 jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().leftIndexTilemap;
                 jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().leftIndexTilemap;
@@ -722,7 +720,6 @@ public class MannequinPart : MonoBehaviour
             case BodyPart.LeftMiddle1:
             case BodyPart.LeftMiddle2:
             case BodyPart.LeftMiddle3:
-            case BodyPart.LeftMiddle4:
                 jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().leftMiddleTilemap;
                 jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().leftMiddleTilemap;
                 jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().leftMiddleTilemap;
@@ -733,7 +730,6 @@ public class MannequinPart : MonoBehaviour
             case BodyPart.LeftRing1:
             case BodyPart.LeftRing2:
             case BodyPart.LeftRing3:
-            case BodyPart.LeftRing4:
                 jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().leftRingTilemap;
                 jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().leftRingTilemap;
                 jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().leftRingTilemap;
@@ -744,7 +740,6 @@ public class MannequinPart : MonoBehaviour
             case BodyPart.LeftPinky1:
             case BodyPart.LeftPinky2:
             case BodyPart.LeftPinky3:
-            case BodyPart.LeftPinky4:
                 jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().leftPinkyTilemap;
                 jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().leftPinkyTilemap;
                 jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().leftPinkyTilemap;
@@ -772,7 +767,6 @@ public class MannequinPart : MonoBehaviour
             case BodyPart.RightThumb1:
             case BodyPart.RightThumb2:
             case BodyPart.RightThumb3:
-            case BodyPart.RightThumb4:
                 jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().rightThumbTilemap;
                 jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().rightThumbTilemap;
                 jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().rightThumbTilemap;
@@ -783,7 +777,6 @@ public class MannequinPart : MonoBehaviour
             case BodyPart.RightIndex1:
             case BodyPart.RightIndex2:
             case BodyPart.RightIndex3:
-            case BodyPart.RightIndex4:
                 jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().rightIndexTilemap;
                 jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().rightIndexTilemap;
                 jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().rightIndexTilemap;
@@ -794,7 +787,6 @@ public class MannequinPart : MonoBehaviour
             case BodyPart.RightMiddle1:
             case BodyPart.RightMiddle2:
             case BodyPart.RightMiddle3:
-            case BodyPart.RightMiddle4:
                 jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().rightMiddleTilemap;
                 jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().rightMiddleTilemap;
                 jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().rightMiddleTilemap;
@@ -805,7 +797,6 @@ public class MannequinPart : MonoBehaviour
             case BodyPart.RightRing1:
             case BodyPart.RightRing2:
             case BodyPart.RightRing3:
-            case BodyPart.RightRing4:
                 jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().rightRingTilemap;
                 jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().rightRingTilemap;
                 jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().rightRingTilemap;
@@ -816,7 +807,6 @@ public class MannequinPart : MonoBehaviour
             case BodyPart.RightPinky1:
             case BodyPart.RightPinky2:
             case BodyPart.RightPinky3:
-            case BodyPart.RightPinky4:
                 jointData.associatedTilemapFront = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().frontGrid.GetComponent<DrawGrid>().rightPinkyTilemap;
                 jointData.associatedTilemapBack = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().backGrid.GetComponent<DrawGrid>().rightPinkyTilemap;
                 jointData.associatedTilemapLeft = GameObject.FindGameObjectWithTag("DrawGrids").GetComponent<DrawingManager>().leftGrid.GetComponent<DrawGrid>().rightPinkyTilemap;
@@ -898,16 +888,6 @@ public class MannequinPart : MonoBehaviour
                 jointData.partLevel = 2;
                 break;
             case BodyPart.Spine2:
-            case BodyPart.LeftThumb4:
-            case BodyPart.LeftIndex4:
-            case BodyPart.LeftMiddle4:
-            case BodyPart.LeftRing4:
-            case BodyPart.LeftPinky4:
-            case BodyPart.RightThumb4:
-            case BodyPart.RightIndex4:
-            case BodyPart.RightMiddle4:
-            case BodyPart.RightRing4:
-            case BodyPart.RightPinky4:
                 jointData.partLevel = 3;
                 break;
         }

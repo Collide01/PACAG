@@ -18,6 +18,7 @@ public class PixelData : MonoBehaviour
         CharacterSettings characterSettings = GameObject.FindGameObjectWithTag("CharacterSettings").GetComponent<CharacterSettings>();
         // Sets the associated colors from the drawing tilemaps
         JointData parentJoint = transform.parent.GetComponent<JointData>();
+        int additionalPixel = 0;
         switch (parentJoint.modelJoint)
         {
             case BodyPart.Hips:
@@ -151,78 +152,1010 @@ public class PixelData : MonoBehaviour
                 }
                 break;
             case BodyPart.LeftArm:
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                break;
             case BodyPart.LeftForearm:
-                
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + characterSettings.leftElbow, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + characterSettings.leftElbow, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + characterSettings.leftElbow, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + characterSettings.leftElbow, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + characterSettings.leftElbow, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + characterSettings.leftElbow, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + characterSettings.leftElbow, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + characterSettings.leftElbow, 0));
+                }
                 break;
             case BodyPart.LeftHand:
-                
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
                 break;
             case BodyPart.LeftThumb1:
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                break;
             case BodyPart.LeftThumb2:
+                // Divide the pixels between each joint of the finger
+                if (characterSettings.leftThumbSize.y % 3 != 0) additionalPixel = 1;
+                else additionalPixel = 0;
+
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftThumbSize.y / 3.0f) + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftThumbSize.y / 3.0f) + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftThumbSize.y / 3.0f) + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftThumbSize.y / 3.0f) + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftThumbSize.y / 3.0f) + additionalPixel, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftThumbSize.y / 3.0f) + additionalPixel, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftThumbSize.y / 3.0f) + additionalPixel, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftThumbSize.y / 3.0f) + additionalPixel, 0));
+                }
+                break;
             case BodyPart.LeftThumb3:
-            case BodyPart.LeftThumb4:
-                
+                // Divide the pixels between each joint of the finger
+                additionalPixel = characterSettings.leftThumbSize.y % 3;
+
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftThumbSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftThumbSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftThumbSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftThumbSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftThumbSize.y / 3.0f) * 2 + additionalPixel, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftThumbSize.y / 3.0f) * 2 + additionalPixel, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftThumbSize.y / 3.0f) * 2 + additionalPixel, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftThumbSize.y / 3.0f) * 2 + additionalPixel, 0));
+                }
                 break;
             case BodyPart.LeftIndex1:
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                break;
             case BodyPart.LeftIndex2:
+                // Divide the pixels between each joint of the finger
+                if (characterSettings.leftIndexSize.y % 3 != 0) additionalPixel = 1;
+                else additionalPixel = 0;
+
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftIndexSize.y / 3.0f) + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftIndexSize.y / 3.0f) + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftIndexSize.y / 3.0f) + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftIndexSize.y / 3.0f) + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftIndexSize.y / 3.0f) + additionalPixel, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftIndexSize.y / 3.0f) + additionalPixel, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftIndexSize.y / 3.0f) + additionalPixel, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftIndexSize.y / 3.0f) + additionalPixel, 0));
+                }
+                break;
             case BodyPart.LeftIndex3:
-            case BodyPart.LeftIndex4:
-                
+                // Divide the pixels between each joint of the finger
+                additionalPixel = characterSettings.leftIndexSize.y % 3;
+
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftIndexSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftIndexSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftIndexSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftIndexSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftIndexSize.y / 3.0f) * 2 + additionalPixel, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftIndexSize.y / 3.0f) * 2 + additionalPixel, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftIndexSize.y / 3.0f) * 2 + additionalPixel, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftIndexSize.y / 3.0f) * 2 + additionalPixel, 0));
+                }
                 break;
             case BodyPart.LeftMiddle1:
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                break;
             case BodyPart.LeftMiddle2:
+                // Divide the pixels between each joint of the finger
+                if (characterSettings.leftMiddleSize.y % 3 != 0) additionalPixel = 1;
+                else additionalPixel = 0;
+
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftMiddleSize.y / 3.0f) + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftMiddleSize.y / 3.0f) + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftMiddleSize.y / 3.0f) + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftMiddleSize.y / 3.0f) + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftMiddleSize.y / 3.0f) + additionalPixel, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftMiddleSize.y / 3.0f) + additionalPixel, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftMiddleSize.y / 3.0f) + additionalPixel, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftMiddleSize.y / 3.0f) + additionalPixel, 0));
+                }
+                break;
             case BodyPart.LeftMiddle3:
-            case BodyPart.LeftMiddle4:
-                
+                // Divide the pixels between each joint of the finger
+                additionalPixel = characterSettings.leftMiddleSize.y % 3;
+
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftMiddleSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftMiddleSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftMiddleSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftMiddleSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftMiddleSize.y / 3.0f) * 2 + additionalPixel, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftMiddleSize.y / 3.0f) * 2 + additionalPixel, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftMiddleSize.y / 3.0f) * 2 + additionalPixel, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftMiddleSize.y / 3.0f) * 2 + additionalPixel, 0));
+                }
                 break;
             case BodyPart.LeftRing1:
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                break;
             case BodyPart.LeftRing2:
+                // Divide the pixels between each joint of the finger
+                if (characterSettings.leftRingSize.y % 3 != 0) additionalPixel = 1;
+                else additionalPixel = 0;
+
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftRingSize.y / 3.0f) + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftRingSize.y / 3.0f) + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftRingSize.y / 3.0f) + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftRingSize.y / 3.0f) + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftRingSize.y / 3.0f) + additionalPixel, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftRingSize.y / 3.0f) + additionalPixel, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftRingSize.y / 3.0f) + additionalPixel, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftRingSize.y / 3.0f) + additionalPixel, 0));
+                }
+                break;
             case BodyPart.LeftRing3:
-            case BodyPart.LeftRing4:
-                
+                // Divide the pixels between each joint of the finger
+                additionalPixel = characterSettings.leftRingSize.y % 3;
+
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftRingSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftRingSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftRingSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftRingSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftRingSize.y / 3.0f) * 2 + additionalPixel, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftRingSize.y / 3.0f) * 2 + additionalPixel, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftRingSize.y / 3.0f) * 2 + additionalPixel, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftRingSize.y / 3.0f) * 2 + additionalPixel, 0));
+                }
                 break;
             case BodyPart.LeftPinky1:
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                break;
             case BodyPart.LeftPinky2:
+                // Divide the pixels between each joint of the finger
+                if (characterSettings.leftPinkySize.y % 3 != 0) additionalPixel = 1;
+                else additionalPixel = 0;
+
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftPinkySize.y / 3.0f) + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftPinkySize.y / 3.0f) + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftPinkySize.y / 3.0f) + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftPinkySize.y / 3.0f) + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftPinkySize.y / 3.0f) + additionalPixel, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftPinkySize.y / 3.0f) + additionalPixel, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftPinkySize.y / 3.0f) + additionalPixel, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftPinkySize.y / 3.0f) + additionalPixel, 0));
+                }
+                break;
             case BodyPart.LeftPinky3:
-            case BodyPart.LeftPinky4:
-                
+                // Divide the pixels between each joint of the finger
+                additionalPixel = characterSettings.leftPinkySize.y % 3;
+
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftPinkySize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftPinkySize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftPinkySize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftPinkySize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftPinkySize.y / 3.0f) * 2 + additionalPixel, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftPinkySize.y / 3.0f) * 2 + additionalPixel, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftPinkySize.y / 3.0f) * 2 + additionalPixel, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.leftPinkySize.y / 3.0f) * 2 + additionalPixel, 0));
+                }
                 break;
             case BodyPart.RightArm:
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                break;
             case BodyPart.RightForearm:
-                
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + characterSettings.rightElbow, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + characterSettings.rightElbow, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + characterSettings.rightElbow, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + characterSettings.rightElbow, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + characterSettings.rightElbow, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + characterSettings.rightElbow, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + characterSettings.rightElbow, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + characterSettings.rightElbow, 0));
+                }
                 break;
             case BodyPart.RightHand:
-                
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
                 break;
             case BodyPart.RightThumb1:
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                break;
             case BodyPart.RightThumb2:
+                // Divide the pixels between each joint of the finger
+                if (characterSettings.rightThumbSize.y % 3 != 0) additionalPixel = 1;
+                else additionalPixel = 0;
+
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightThumbSize.y / 3.0f) + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightThumbSize.y / 3.0f) + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightThumbSize.y / 3.0f) + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightThumbSize.y / 3.0f) + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightThumbSize.y / 3.0f) + additionalPixel, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightThumbSize.y / 3.0f) + additionalPixel, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightThumbSize.y / 3.0f) + additionalPixel, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightThumbSize.y / 3.0f) + additionalPixel, 0));
+                }
+                break;
             case BodyPart.RightThumb3:
-            case BodyPart.RightThumb4:
-                
+                // Divide the pixels between each joint of the finger
+                additionalPixel = characterSettings.rightThumbSize.y % 3;
+
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightThumbSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightThumbSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightThumbSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightThumbSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightThumbSize.y / 3.0f) * 2 + additionalPixel, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightThumbSize.y / 3.0f) * 2 + additionalPixel, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightThumbSize.y / 3.0f) * 2 + additionalPixel, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightThumbSize.y / 3.0f) * 2 + additionalPixel, 0));
+                }
                 break;
             case BodyPart.RightIndex1:
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                break;
             case BodyPart.RightIndex2:
+                // Divide the pixels between each joint of the finger
+                if (characterSettings.rightIndexSize.y % 3 != 0) additionalPixel = 1;
+                else additionalPixel = 0;
+
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightIndexSize.y / 3.0f) + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightIndexSize.y / 3.0f) + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightIndexSize.y / 3.0f) + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightIndexSize.y / 3.0f) + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightIndexSize.y / 3.0f) + additionalPixel, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightIndexSize.y / 3.0f) + additionalPixel, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightIndexSize.y / 3.0f) + additionalPixel, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightIndexSize.y / 3.0f) + additionalPixel, 0));
+                }
+                break;
             case BodyPart.RightIndex3:
-            case BodyPart.RightIndex4:
-                
+                // Divide the pixels between each joint of the finger
+                additionalPixel = characterSettings.rightIndexSize.y % 3;
+
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightIndexSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightIndexSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightIndexSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightIndexSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightIndexSize.y / 3.0f) * 2 + additionalPixel, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightIndexSize.y / 3.0f) * 2 + additionalPixel, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightIndexSize.y / 3.0f) * 2 + additionalPixel, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightIndexSize.y / 3.0f) * 2 + additionalPixel, 0));
+                }
                 break;
             case BodyPart.RightMiddle1:
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                break;
             case BodyPart.RightMiddle2:
+                // Divide the pixels between each joint of the finger
+                if (characterSettings.rightMiddleSize.y % 3 != 0) additionalPixel = 1;
+                else additionalPixel = 0;
+
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightMiddleSize.y / 3.0f) + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightMiddleSize.y / 3.0f) + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightMiddleSize.y / 3.0f) + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightMiddleSize.y / 3.0f) + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightMiddleSize.y / 3.0f) + additionalPixel, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightMiddleSize.y / 3.0f) + additionalPixel, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightMiddleSize.y / 3.0f) + additionalPixel, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightMiddleSize.y / 3.0f) + additionalPixel, 0));
+                }
+                break;
             case BodyPart.RightMiddle3:
-            case BodyPart.RightMiddle4:
-                
+                // Divide the pixels between each joint of the finger
+                additionalPixel = characterSettings.rightMiddleSize.y % 3;
+
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightMiddleSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightMiddleSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightMiddleSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightMiddleSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightMiddleSize.y / 3.0f) * 2 + additionalPixel, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightMiddleSize.y / 3.0f) * 2 + additionalPixel, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightMiddleSize.y / 3.0f) * 2 + additionalPixel, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightMiddleSize.y / 3.0f) * 2 + additionalPixel, 0));
+                }
                 break;
             case BodyPart.RightRing1:
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                break;
             case BodyPart.RightRing2:
+                // Divide the pixels between each joint of the finger
+                if (characterSettings.rightRingSize.y % 3 != 0) additionalPixel = 1;
+                else additionalPixel = 0;
+
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightRingSize.y / 3.0f) + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightRingSize.y / 3.0f) + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightRingSize.y / 3.0f) + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightRingSize.y / 3.0f) + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightRingSize.y / 3.0f) + additionalPixel, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightRingSize.y / 3.0f) + additionalPixel, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightRingSize.y / 3.0f) + additionalPixel, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightRingSize.y / 3.0f) + additionalPixel, 0));
+                }
+                break;
             case BodyPart.RightRing3:
-            case BodyPart.RightRing4:
-                
+                // Divide the pixels between each joint of the finger
+                additionalPixel = characterSettings.rightRingSize.y % 3;
+
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightRingSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightRingSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightRingSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightRingSize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightRingSize.y / 3.0f) * 2 + additionalPixel, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightRingSize.y / 3.0f) * 2 + additionalPixel, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightRingSize.y / 3.0f) * 2 + additionalPixel, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightRingSize.y / 3.0f) * 2 + additionalPixel, 0));
+                }
                 break;
             case BodyPart.RightPinky1:
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y, 0));
+                }
+                break;
             case BodyPart.RightPinky2:
+                // Divide the pixels between each joint of the finger
+                if (characterSettings.rightPinkySize.y % 3 != 0) additionalPixel = 1;
+                else additionalPixel = 0;
+
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightPinkySize.y / 3.0f) + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightPinkySize.y / 3.0f) + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightPinkySize.y / 3.0f) + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightPinkySize.y / 3.0f) + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightPinkySize.y / 3.0f) + additionalPixel, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightPinkySize.y / 3.0f) + additionalPixel, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightPinkySize.y / 3.0f) + additionalPixel, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightPinkySize.y / 3.0f) + additionalPixel, 0));
+                }
+                break;
             case BodyPart.RightPinky3:
-            case BodyPart.RightPinky4:
-                
+                // Divide the pixels between each joint of the finger
+                additionalPixel = characterSettings.rightPinkySize.y % 3;
+
+                if (parentJoint.associatedTilemapFront.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightPinkySize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorFront = parentJoint.associatedTilemapFront.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightPinkySize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapBack.HasTile(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightPinkySize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z)))
+                {
+                    pixelColorBack = parentJoint.associatedTilemapBack.GetColor(new Vector3Int(0, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightPinkySize.y / 3.0f) * 2 + additionalPixel, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapLeft.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorLeft = parentJoint.associatedTilemapLeft.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapRight.HasTile(new Vector3Int(pixelPosition.x, 0, pixelPosition.z)))
+                {
+                    pixelColorRight = parentJoint.associatedTilemapRight.GetColor(new Vector3Int(pixelPosition.x, 0, pixelPosition.z));
+                }
+                if (parentJoint.associatedTilemapTop.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightPinkySize.y / 3.0f) * 2 + additionalPixel, 0)))
+                {
+                    pixelColorTop = parentJoint.associatedTilemapTop.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightPinkySize.y / 3.0f) * 2 + additionalPixel, 0));
+                }
+                if (parentJoint.associatedTilemapBottom.HasTile(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightPinkySize.y / 3.0f) * 2 + additionalPixel, 0)))
+                {
+                    pixelColorBottom = parentJoint.associatedTilemapBottom.GetColor(new Vector3Int(pixelPosition.x, pixelPosition.y + (int)Mathf.Floor(characterSettings.rightPinkySize.y / 3.0f) * 2 + additionalPixel, 0));
+                }
                 break;
             case BodyPart.LeftUpLeg:
             case BodyPart.LeftLeg:
