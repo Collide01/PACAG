@@ -85,7 +85,7 @@ public class Pixelation : MonoBehaviour
     public void CreateSpriteData(int frame)
     {
         // Creates a frame for the first loop of the animation
-        if (cellPositions.Count <= frame)
+        while (cellPositions.Count <= frame)
         {
             cellPositions.Add(new List<Vector3Int>());
             cellColors.Add(new List<Color>());

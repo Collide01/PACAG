@@ -1372,6 +1372,7 @@ public class PixelData : MonoBehaviour
     {
         JointData parentJoint = transform.parent.GetComponent<JointData>();
         GridViews currentDirection = parentJoint.GetFaceToward();
+        Debug.Log(currentDirection);
         switch (currentDirection)
         {
             case GridViews.Front:

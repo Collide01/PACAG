@@ -52,4 +52,15 @@ public class DrawBorder : MonoBehaviour
     {
         drawingManager.mouseInBorder = false;
     }
+
+    public void ToggleView()
+    {
+        frontGridTilemap.gameObject.SetActive(!frontGridTilemap.gameObject.activeSelf);
+        backGridTilemap.gameObject.SetActive(!backGridTilemap.gameObject.activeSelf);
+        leftGridTilemap.gameObject.SetActive(!leftGridTilemap.gameObject.activeSelf);
+        rightGridTilemap.gameObject.SetActive(!rightGridTilemap.gameObject.activeSelf);
+        topGridTilemap.gameObject.SetActive(!topGridTilemap.gameObject.activeSelf);
+        bottomGridTilemap.gameObject.SetActive(!bottomGridTilemap.gameObject.activeSelf);
+        gameObject.SetActive(!gameObject.activeSelf);
+    }
 }

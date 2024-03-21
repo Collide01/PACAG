@@ -67,7 +67,7 @@ public class JointData : MonoBehaviour
         {
             if (absolute.x >= absolute.z)
             {
-                return toObserver.x > 0 ? GridViews.Right : GridViews.Left;
+                return toObserver.x > 0 ? GridViews.Left : GridViews.Right;
             }
             else
             {

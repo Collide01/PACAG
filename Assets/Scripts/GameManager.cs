@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public Camera mainCamera;
     public States currentState;
     public GameObject uiStart;
     public GameObject uiDraw;
@@ -70,6 +71,7 @@ public class GameManager : MonoBehaviour
         uiEdit.SetActive(false);
         uiSave.SetActive(false);
 
+        mainCamera.transform.position = Vector3.zero;
         mannequin.SetActive(true);
         mannequin.GetComponent<Mannequin>().Init();
         drawGrids.SetActive(false);

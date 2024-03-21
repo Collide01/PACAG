@@ -121,6 +121,7 @@ public class DrawingManager : MonoBehaviour
     public SpriteRenderer rightFootBorder;
 
     [Header("Popups and Misc.")]
+    public Camera mainCamera;
     public TMP_Dropdown gridView;
     public GameObject colorPicker;
     public GameObject colorPickerBackground;
@@ -225,6 +226,7 @@ public class DrawingManager : MonoBehaviour
         rightToe.text = characterSettings.rightToe.ToString();
         ChangeBorderSizes();
 
+        mainCamera.transform.position = Vector3.zero;
         colorPicker.SetActive(false);
         colorPickerBackground.SetActive(false);
         currentColor = Color.red;
@@ -276,6 +278,8 @@ public class DrawingManager : MonoBehaviour
 
     public void ChangeView()
     {
+        mainCamera.transform.position = Vector3.zero;
+
         switch (gridView.value)
         {
             case 0: // Front

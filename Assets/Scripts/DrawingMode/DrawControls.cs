@@ -15,7 +15,7 @@ public class DrawControls : MonoBehaviour
         {
             if (Input.mouseScrollDelta.y != 0 && drawingManager.mouseInDrawField) // Sideways scroll
             {
-                mainCamera.transform.Translate(new Vector3(Input.mouseScrollDelta.y, 0, 0));
+                mainCamera.transform.Translate(new Vector3(-Input.mouseScrollDelta.y, 0, 0));
             }
             if (Input.GetKeyDown(KeyCode.Z)) // Undo
             {
