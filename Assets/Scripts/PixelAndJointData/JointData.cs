@@ -102,6 +102,89 @@ public class JointData : MonoBehaviour
                 {
                     return toObserver.z > 0 ? GridViews.Bottom : GridViews.Top;
                 }
+            case BodyPart.RightArm:
+            case BodyPart.RightForearm:
+            case BodyPart.RightHand:
+            case BodyPart.RightThumb1:
+            case BodyPart.RightThumb2:
+            case BodyPart.RightThumb3:
+            case BodyPart.RightIndex1:
+            case BodyPart.RightIndex2:
+            case BodyPart.RightIndex3:
+            case BodyPart.RightMiddle1:
+            case BodyPart.RightMiddle2:
+            case BodyPart.RightMiddle3:
+            case BodyPart.RightRing1:
+            case BodyPart.RightRing2:
+            case BodyPart.RightRing3:
+            case BodyPart.RightPinky1:
+            case BodyPart.RightPinky2:
+            case BodyPart.RightPinky3:
+                if (absolute.x >= absolute.y)
+                {
+                    if (absolute.x >= absolute.z)
+                    {
+                        return toObserver.x > 0 ? GridViews.Back : GridViews.Front;
+                    }
+                    else
+                    {
+                        return toObserver.z > 0 ? GridViews.Bottom : GridViews.Top;
+                    }
+                }
+                else if (absolute.y >= absolute.z)
+                {
+                    return toObserver.y > 0 ? GridViews.Right : GridViews.Left;
+                }
+                else
+                {
+                    return toObserver.z > 0 ? GridViews.Bottom : GridViews.Top;
+                }
+            case BodyPart.LeftUpLeg:
+            case BodyPart.LeftLeg:
+            case BodyPart.RightUpLeg:
+            case BodyPart.RightLeg:
+                if (absolute.x >= absolute.y)
+                {
+                    if (absolute.x >= absolute.z)
+                    {
+                        return toObserver.x > 0 ? GridViews.Left : GridViews.Right;
+                    }
+                    else
+                    {
+                        return toObserver.z > 0 ? GridViews.Front : GridViews.Back;
+                    }
+                }
+                else if (absolute.y >= absolute.z)
+                {
+                    return toObserver.y > 0 ? GridViews.Bottom : GridViews.Top;
+                }
+                else
+                {
+                    return toObserver.z > 0 ? GridViews.Front : GridViews.Back;
+                }
+            case BodyPart.LeftFoot:
+            case BodyPart.LeftToeBase:
+            case BodyPart.RightFoot:
+            case BodyPart.RightToeBase:
+                if (absolute.x >= absolute.y)
+                {
+                    if (absolute.x >= absolute.z)
+                    {
+                        return toObserver.x > 0 ? GridViews.Left : GridViews.Right;
+                    }
+                    else
+                    {
+                        return toObserver.z > 0 ? GridViews.Top : GridViews.Bottom;
+                    }
+                }
+                else if (absolute.y >= absolute.z)
+                {
+                    return toObserver.y > 0 ? GridViews.Front : GridViews.Back;
+                }
+                else
+                {
+                    return toObserver.z > 0 ? GridViews.Top : GridViews.Bottom;
+                }
             default:
                 if (absolute.x >= absolute.y)
                 {
