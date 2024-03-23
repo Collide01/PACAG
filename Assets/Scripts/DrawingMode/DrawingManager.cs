@@ -821,6 +821,270 @@ public class DrawingManager : MonoBehaviour
             case GridViews.Left:
                 if (characterSettings.torsoSize.z % 2 == 1) // Odd
                 {
+                    positionX = -0.5f;
+                }
+                if (characterSettings.torsoSize.y % 2 == 1) // Odd
+                {
+                    positionY = 0.5f;
+                }
+                drawBorders.transform.position = new Vector3(positionX, positionY, drawBorders.transform.position.z);
+
+                headBorder.size = new Vector2(characterSettings.headSize.z, characterSettings.headSize.y);
+                torsoBorder.size = new Vector2(characterSettings.torsoSize.z, characterSettings.torsoSize.y);
+                leftArmBorder.size = new Vector2(characterSettings.leftArmSize.x, characterSettings.leftArmSize.z);
+                leftHandBorder.size = new Vector2(characterSettings.leftHandSize.x, characterSettings.leftHandSize.z);
+                leftThumbBorder.size = new Vector2(characterSettings.leftThumbSize.x, characterSettings.leftThumbSize.z);
+                leftIndexBorder.size = new Vector2(characterSettings.leftIndexSize.x, characterSettings.leftIndexSize.z);
+                leftMiddleBorder.size = new Vector2(characterSettings.leftMiddleSize.x, characterSettings.leftMiddleSize.z);
+                leftRingBorder.size = new Vector2(characterSettings.leftRingSize.x, characterSettings.leftRingSize.z);
+                leftPinkyBorder.size = new Vector2(characterSettings.leftPinkySize.x, characterSettings.leftPinkySize.z);
+                rightArmBorder.size = new Vector2(characterSettings.rightArmSize.x, characterSettings.rightArmSize.z);
+                rightHandBorder.size = new Vector2(characterSettings.rightHandSize.x, characterSettings.rightHandSize.z);
+                rightThumbBorder.size = new Vector2(characterSettings.rightThumbSize.x, characterSettings.rightThumbSize.z);
+                rightIndexBorder.size = new Vector2(characterSettings.rightIndexSize.x, characterSettings.rightIndexSize.z);
+                rightMiddleBorder.size = new Vector2(characterSettings.rightMiddleSize.x, characterSettings.rightMiddleSize.z);
+                rightRingBorder.size = new Vector2(characterSettings.rightRingSize.x, characterSettings.rightRingSize.z);
+                rightPinkyBorder.size = new Vector2(characterSettings.rightPinkySize.x, characterSettings.rightPinkySize.z);
+                leftLegBorder.size = new Vector2(characterSettings.leftLegSize.z, characterSettings.leftLegSize.y);
+                leftFootBorder.size = new Vector2(characterSettings.leftFootSize.y, characterSettings.leftFootSize.z);
+                rightLegBorder.size = new Vector2(characterSettings.rightLegSize.z, characterSettings.rightLegSize.y);
+                rightFootBorder.size = new Vector2(characterSettings.rightFootSize.y, characterSettings.rightFootSize.z);
+
+                // Set the offsets of each border to line up with the rest of the body properly
+                if (characterSettings.headSize.z % 2 != 0) // Odd
+                {
+                    headPositionX = -0.5f;
+                }
+                if (characterSettings.leftArmSize.x % 2 != 0) // Odd
+                {
+                    leftArmOffset = -0.5f;
+                }
+                if (characterSettings.leftHandSize.x % 2 != 0) // Odd
+                {
+                    leftHandOffset = -0.5f;
+                }
+                if (characterSettings.leftHandSize.z % 2 != characterSettings.leftArmSize.z % 2)
+                {
+                    leftHandOffsetY = 0.5f;
+                }
+                if (characterSettings.leftThumbSize.x % 2 != 0) // Odd
+                {
+                    leftThumbOffset = -0.5f;
+                }
+                if (characterSettings.leftHandSize.z % 2 != characterSettings.leftThumbSize.z % 2)
+                {
+                    leftThumbOffsetY = 0.5f;
+                }
+                if (characterSettings.leftIndexSize.x % 2 != 0) // Odd
+                {
+                    leftIndexOffset = -0.5f;
+                }
+                if (characterSettings.leftHandSize.z % 2 != characterSettings.leftIndexSize.z % 2)
+                {
+                    leftIndexOffsetY = 0.5f;
+                }
+                if (characterSettings.leftMiddleSize.x % 2 != 0) // Odd
+                {
+                    leftMiddleOffset = -0.5f;
+                }
+                if (characterSettings.leftHandSize.z % 2 != characterSettings.leftMiddleSize.z % 2)
+                {
+                    leftMiddleOffsetY = 0.5f;
+                }
+                if (characterSettings.leftRingSize.x % 2 != 0) // Odd
+                {
+                    leftRingOffset = -0.5f;
+                }
+                if (characterSettings.leftHandSize.z % 2 != characterSettings.leftRingSize.z % 2)
+                {
+                    leftRingOffsetY = 0.5f;
+                }
+                if (characterSettings.leftPinkySize.x % 2 != 0) // Odd
+                {
+                    leftPinkyOffset = -0.5f;
+                }
+                if (characterSettings.leftHandSize.z % 2 != characterSettings.leftPinkySize.z % 2)
+                {
+                    leftPinkyOffsetY = 0.5f;
+                }
+                if (characterSettings.rightArmSize.x % 2 != 0) // Odd
+                {
+                    rightArmOffset = -0.5f;
+                }
+                if (characterSettings.rightHandSize.x % 2 != 0) // Odd
+                {
+                    rightHandOffset = -0.5f;
+                }
+                if (characterSettings.rightHandSize.z % 2 != characterSettings.rightArmSize.z % 2)
+                {
+                    rightHandOffsetY = 0.5f;
+                }
+                if (characterSettings.rightThumbSize.x % 2 != 0) // Odd
+                {
+                    rightThumbOffset = -0.5f;
+                }
+                if (characterSettings.rightHandSize.z % 2 != characterSettings.rightThumbSize.z % 2)
+                {
+                    rightThumbOffsetY = 0.5f;
+                }
+                if (characterSettings.rightIndexSize.x % 2 != 0) // Odd
+                {
+                    rightIndexOffset = -0.5f;
+                }
+                if (characterSettings.rightHandSize.z % 2 != characterSettings.rightIndexSize.z % 2)
+                {
+                    rightIndexOffsetY = 0.5f;
+                }
+                if (characterSettings.rightMiddleSize.x % 2 != 0) // Odd
+                {
+                    rightMiddleOffset = -0.5f;
+                }
+                if (characterSettings.rightHandSize.z % 2 != characterSettings.rightMiddleSize.z % 2)
+                {
+                    rightMiddleOffsetY = 0.5f;
+                }
+                if (characterSettings.rightRingSize.x % 2 != 0) // Odd
+                {
+                    rightRingOffset = -0.5f;
+                }
+                if (characterSettings.rightHandSize.z % 2 != characterSettings.rightRingSize.z % 2)
+                {
+                    rightRingOffsetY = 0.5f;
+                }
+                if (characterSettings.rightPinkySize.x % 2 != 0) // Odd
+                {
+                    rightPinkyOffset = -0.5f;
+                }
+                if (characterSettings.rightHandSize.z % 2 != characterSettings.rightPinkySize.z % 2)
+                {
+                    rightPinkyOffsetY = 0.5f;
+                }
+                if (characterSettings.leftLegSize.z % 2 != 0) // Odd
+                {
+                    leftLegOffset = -0.5f;
+                }
+                if (characterSettings.leftFootSize.y % 2 != 0) // Odd
+                {
+                    leftFootOffset = -0.5f;
+                }
+                if (characterSettings.rightLegSize.z % 2 != 0) // Odd
+                {
+                    rightLegOffset = -0.5f;
+                }
+                if (characterSettings.rightFootSize.y % 2 != 0) // Odd
+                {
+                    rightFootOffset = -0.5f;
+                }
+                // The z-values determine which tilemap the user is editing (closer ones have a closer z-value)
+                headBorder.gameObject.transform.position = new Vector3(headPositionX, Mathf.Ceil(torsoBorder.size.y / 2.0f) + headBorder.size.y / 2.0f, 103);
+                leftArmBorder.gameObject.transform.position = new Vector3(leftArmOffset, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f, 102.9f);
+                leftHandBorder.gameObject.transform.position = new Vector3(leftHandOffset, leftArmBorder.transform.position.y + leftHandOffsetY, 102.8f);
+                leftThumbBorder.gameObject.transform.position = new Vector3(leftHandBorder.transform.position.x - leftHandBorder.size.x / 2.0f - leftThumbBorder.size.x / 2.0f, leftHandBorder.transform.position.y + leftThumbOffsetY, 102.7f);
+                leftIndexBorder.gameObject.transform.position = new Vector3(leftHandBorder.transform.position.x - leftHandBorder.size.x / 2.0f + leftIndexBorder.size.x / 2.0f, leftHandBorder.transform.position.y + leftIndexOffsetY, 102.7f);
+                leftMiddleBorder.gameObject.transform.position = new Vector3(leftHandBorder.transform.position.x - leftHandBorder.size.x / 2.0f + leftIndexBorder.size.x + leftMiddleBorder.size.x / 2.0f, leftHandBorder.transform.position.y + leftMiddleOffsetY, 102.7f);
+                leftRingBorder.gameObject.transform.position = new Vector3(leftHandBorder.transform.position.x - leftHandBorder.size.x / 2.0f + leftIndexBorder.size.x + leftMiddleBorder.size.x + leftRingBorder.size.x / 2.0f, leftHandBorder.transform.position.y + leftRingOffsetY, 102.7f);
+                leftPinkyBorder.gameObject.transform.position = new Vector3(leftHandBorder.transform.position.x - leftHandBorder.size.x / 2.0f + leftIndexBorder.size.x + leftMiddleBorder.size.x + leftRingBorder.size.x + leftPinkyBorder.size.x / 2.0f, leftHandBorder.transform.position.y + leftPinkyOffsetY, 102.7f);
+                rightArmBorder.gameObject.transform.position = new Vector3(rightArmOffset, Mathf.Ceil(torsoBorder.size.y / 2.0f) - rightArmBorder.size.y / 2.0f, 103.1f);
+                rightHandBorder.gameObject.transform.position = new Vector3(rightHandOffset, rightArmBorder.transform.position.y + rightHandOffsetY, 103.2f);
+                rightThumbBorder.gameObject.transform.position = new Vector3(rightHandBorder.transform.position.x - rightHandBorder.size.x / 2.0f - rightThumbBorder.size.x / 2.0f, rightHandBorder.transform.position.y + rightThumbOffsetY, 103.3f);
+                rightIndexBorder.gameObject.transform.position = new Vector3(rightHandBorder.transform.position.x - rightHandBorder.size.x / 2.0f + rightIndexBorder.size.x / 2.0f, rightHandBorder.transform.position.y + rightIndexOffsetY, 103.3f);
+                rightMiddleBorder.gameObject.transform.position = new Vector3(rightHandBorder.transform.position.x - rightHandBorder.size.x / 2.0f + rightIndexBorder.size.x + rightMiddleBorder.size.x / 2.0f, rightHandBorder.transform.position.y + rightMiddleOffsetY, 103.3f);
+                rightRingBorder.gameObject.transform.position = new Vector3(rightHandBorder.transform.position.x - rightHandBorder.size.x / 2.0f + rightIndexBorder.size.x + rightMiddleBorder.size.x + rightRingBorder.size.x / 2.0f, rightHandBorder.transform.position.y + rightRingOffsetY, 103.3f);
+                rightPinkyBorder.gameObject.transform.position = new Vector3(rightHandBorder.transform.position.x - rightHandBorder.size.x / 2.0f + rightIndexBorder.size.x + rightMiddleBorder.size.x + rightRingBorder.size.x + rightPinkyBorder.size.x / 2.0f, rightHandBorder.transform.position.y + rightPinkyOffsetY, 103.3f);
+                leftLegBorder.gameObject.transform.position = new Vector3(leftLegOffset, -Mathf.Floor(torsoBorder.size.y / 2.0f) - leftLegBorder.size.y / 2.0f, 102.9f);
+                leftFootBorder.gameObject.transform.position = new Vector3(-Mathf.Floor(leftFootBorder.size.x / 2.0f) + Mathf.Floor(leftLegBorder.size.x / 2.0f) + leftFootOffset, -Mathf.Floor(torsoBorder.size.y / 2.0f) - leftLegBorder.size.y - leftFootBorder.size.y / 2.0f, 102.9f);
+                rightLegBorder.gameObject.transform.position = new Vector3(rightLegOffset, -Mathf.Floor(torsoBorder.size.y / 2.0f) - rightLegBorder.size.y / 2.0f, 103.1f);
+                rightFootBorder.gameObject.transform.position = new Vector3(-Mathf.Floor(rightFootBorder.size.x / 2.0f) + Mathf.Floor(rightLegBorder.size.x / 2.0f) + rightFootOffset, -Mathf.Floor(torsoBorder.size.y / 2.0f) - rightLegBorder.size.y - rightFootBorder.size.y / 2.0f, 103.1f);
+
+                if (characterSettings.headSize.z % 2 != 0) leftGrid.GetComponent<DrawGrid>().headTilemap.gameObject.transform.position = new Vector3(0, Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().headTilemap.gameObject.transform.position = new Vector3(1, Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+
+                if (characterSettings.torsoSize.z % 2 != 0) leftGrid.GetComponent<DrawGrid>().torsoTilemap.gameObject.transform.position = new Vector3(0, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().torsoTilemap.gameObject.transform.position = new Vector3(1, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+
+                if (characterSettings.leftArmSize.z % 2 != 0) leftArmOffset = -0.5f;
+                else leftArmOffset = 0;
+                if (characterSettings.leftArmSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().leftArmTilemap.gameObject.transform.position = new Vector3(0, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f + 1 + leftArmOffset, transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().leftArmTilemap.gameObject.transform.position = new Vector3(1, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f + 1 + leftArmOffset, transform.position.z);
+
+                if (characterSettings.leftHandSize.z % 2 != 0) leftHandOffsetY = 0.5f;
+                else leftHandOffsetY = 1;
+                if (characterSettings.leftHandSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().leftHandTilemap.gameObject.transform.position = new Vector3(0, leftHandBorder.transform.position.y + leftHandOffsetY, transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().leftHandTilemap.gameObject.transform.position = new Vector3(1, leftHandBorder.transform.position.y + leftHandOffsetY, transform.position.z);
+
+                if (characterSettings.leftThumbSize.z % 2 != 0) leftThumbOffsetY = 0.5f;
+                else leftThumbOffsetY = 1;
+                if (characterSettings.leftThumbSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().leftThumbTilemap.gameObject.transform.position = new Vector3(leftThumbBorder.transform.position.x + 0.5f, leftThumbBorder.transform.position.y + leftThumbOffsetY, transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().leftThumbTilemap.gameObject.transform.position = new Vector3(leftThumbBorder.transform.position.x + 1, leftThumbBorder.transform.position.y + leftThumbOffsetY, transform.position.z);
+
+                if (characterSettings.leftIndexSize.z % 2 != 0) leftIndexOffsetY = 0.5f;
+                else leftIndexOffsetY = 1;
+                if (characterSettings.leftIndexSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().leftIndexTilemap.gameObject.transform.position = new Vector3(leftIndexBorder.transform.position.x + 0.5f, leftIndexBorder.transform.position.y + leftIndexOffsetY, transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().leftIndexTilemap.gameObject.transform.position = new Vector3(leftIndexBorder.transform.position.x + 1, leftIndexBorder.transform.position.y + leftIndexOffsetY, transform.position.z);
+
+                if (characterSettings.leftMiddleSize.z % 2 != 0) leftMiddleOffsetY = 0.5f;
+                else leftMiddleOffsetY = 1;
+                if (characterSettings.leftMiddleSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().leftMiddleTilemap.gameObject.transform.position = new Vector3(leftMiddleBorder.transform.position.x + 0.5f, leftMiddleBorder.transform.position.y + leftMiddleOffsetY, transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().leftMiddleTilemap.gameObject.transform.position = new Vector3(leftMiddleBorder.transform.position.x + 1, leftMiddleBorder.transform.position.y + leftMiddleOffsetY, transform.position.z);
+
+                if (characterSettings.leftRingSize.z % 2 != 0) leftRingOffsetY = 0.5f;
+                else leftRingOffsetY = 1;
+                if (characterSettings.leftRingSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().leftRingTilemap.gameObject.transform.position = new Vector3(leftRingBorder.transform.position.x + 0.5f, leftRingBorder.transform.position.y + leftRingOffsetY, transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().leftRingTilemap.gameObject.transform.position = new Vector3(leftRingBorder.transform.position.x + 1, leftRingBorder.transform.position.y + leftRingOffsetY, transform.position.z);
+
+                if (characterSettings.leftPinkySize.z % 2 != 0) leftPinkyOffsetY = 0.5f;
+                else leftPinkyOffsetY = 1;
+                if (characterSettings.leftPinkySize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().leftPinkyTilemap.gameObject.transform.position = new Vector3(leftPinkyBorder.transform.position.x + 0.5f, leftPinkyBorder.transform.position.y + leftPinkyOffsetY, transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().leftPinkyTilemap.gameObject.transform.position = new Vector3(leftPinkyBorder.transform.position.x + 1, leftPinkyBorder.transform.position.y + leftPinkyOffsetY, transform.position.z);
+
+                if (characterSettings.rightArmSize.z % 2 != 0) rightArmOffset = -0.5f;
+                else rightArmOffset = 0;
+                leftGrid.GetComponent<DrawGrid>().rightArmTilemap.gameObject.transform.position = new Vector3(-1, Mathf.Ceil(torsoBorder.size.y / 2.0f) - rightArmBorder.size.y / 2.0f + 1 + rightArmOffset, transform.position.z);
+
+                if (characterSettings.rightHandSize.z % 2 != 0) rightHandOffsetY = 0.5f;
+                else rightHandOffsetY = 1;
+                leftGrid.GetComponent<DrawGrid>().rightHandTilemap.gameObject.transform.position = new Vector3(-1, rightHandBorder.transform.position.y + rightHandOffsetY, transform.position.z);
+
+                if (characterSettings.rightThumbSize.z % 2 != 0) rightThumbOffsetY = 0.5f;
+                else rightThumbOffsetY = 1;
+                if (characterSettings.rightThumbSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().rightThumbTilemap.gameObject.transform.position = new Vector3(rightThumbBorder.transform.position.x - 0.5f, rightThumbBorder.transform.position.y + rightThumbOffsetY, transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().rightThumbTilemap.gameObject.transform.position = new Vector3(rightThumbBorder.transform.position.x - 1, rightThumbBorder.transform.position.y + rightThumbOffsetY, transform.position.z);
+
+                if (characterSettings.rightIndexSize.z % 2 != 0) rightIndexOffsetY = 0.5f;
+                else rightIndexOffsetY = 1;
+                if (characterSettings.rightIndexSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().rightIndexTilemap.gameObject.transform.position = new Vector3(rightIndexBorder.transform.position.x - 0.5f, rightIndexBorder.transform.position.y + rightIndexOffsetY, transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().rightIndexTilemap.gameObject.transform.position = new Vector3(rightIndexBorder.transform.position.x - 1, rightIndexBorder.transform.position.y + rightIndexOffsetY, transform.position.z);
+
+                if (characterSettings.rightMiddleSize.z % 2 != 0) rightMiddleOffsetY = 0.5f;
+                else rightMiddleOffsetY = 1;
+                if (characterSettings.rightMiddleSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().rightMiddleTilemap.gameObject.transform.position = new Vector3(rightMiddleBorder.transform.position.x - 0.5f, rightMiddleBorder.transform.position.y + rightMiddleOffsetY, transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().rightMiddleTilemap.gameObject.transform.position = new Vector3(rightMiddleBorder.transform.position.x - 1, rightMiddleBorder.transform.position.y + rightMiddleOffsetY, transform.position.z);
+
+                if (characterSettings.rightRingSize.z % 2 != 0) rightRingOffsetY = 0.5f;
+                else rightRingOffsetY = 1;
+                if (characterSettings.rightRingSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().rightRingTilemap.gameObject.transform.position = new Vector3(rightRingBorder.transform.position.x - 0.5f, rightRingBorder.transform.position.y + rightRingOffsetY, transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().rightRingTilemap.gameObject.transform.position = new Vector3(rightRingBorder.transform.position.x - 1, rightRingBorder.transform.position.y + rightRingOffsetY, transform.position.z);
+
+                if (characterSettings.rightPinkySize.z % 2 != 0) rightPinkyOffsetY = 0.5f;
+                else rightPinkyOffsetY = 1;
+                if (characterSettings.rightPinkySize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().rightPinkyTilemap.gameObject.transform.position = new Vector3(rightPinkyBorder.transform.position.x - 0.5f, rightPinkyBorder.transform.position.y + rightPinkyOffsetY, transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().rightPinkyTilemap.gameObject.transform.position = new Vector3(rightPinkyBorder.transform.position.x - 1, rightPinkyBorder.transform.position.y + rightPinkyOffsetY, transform.position.z);
+
+                if (characterSettings.leftLegSize.z % 2 != 0) leftGrid.GetComponent<DrawGrid>().leftLegTilemap.gameObject.transform.position = new Vector3(0, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().leftLegTilemap.gameObject.transform.position = new Vector3(1, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+
+                if (characterSettings.leftFootSize.z % 2 != 0) leftGrid.GetComponent<DrawGrid>().leftFootTilemap.gameObject.transform.position = new Vector3(leftFootBorder.transform.position.x + leftFootBorder.size.x / 2.0f, leftFootBorder.transform.position.y - 0.5f, transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().leftFootTilemap.gameObject.transform.position = new Vector3(leftFootBorder.transform.position.x + leftFootBorder.size.x / 2.0f, leftFootBorder.transform.position.y - 1, transform.position.z);
+
+                if (characterSettings.rightLegSize.z % 2 != 0) leftGrid.GetComponent<DrawGrid>().rightLegTilemap.gameObject.transform.position = new Vector3(0, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().rightLegTilemap.gameObject.transform.position = new Vector3(1, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+
+                if (characterSettings.rightFootSize.z % 2 != 0) leftGrid.GetComponent<DrawGrid>().rightFootTilemap.gameObject.transform.position = new Vector3(rightFootBorder.transform.position.x + rightFootBorder.size.x / 2.0f, rightFootBorder.transform.position.y - 0.5f, transform.position.z);
+                else leftGrid.GetComponent<DrawGrid>().rightFootTilemap.gameObject.transform.position = new Vector3(rightFootBorder.transform.position.x + rightFootBorder.size.x / 2.0f, rightFootBorder.transform.position.y - 1, transform.position.z);
+                break;
+            case GridViews.Right:
+                if (characterSettings.torsoSize.z % 2 == 1) // Odd
+                {
                     positionX = 0.5f;
                 }
                 if (characterSettings.torsoSize.y % 2 == 1) // Odd
@@ -996,355 +1260,91 @@ public class DrawingManager : MonoBehaviour
                 rightLegBorder.gameObject.transform.position = new Vector3(rightLegOffset, -Mathf.Floor(torsoBorder.size.y / 2.0f) - rightLegBorder.size.y / 2.0f, 102.9f);
                 rightFootBorder.gameObject.transform.position = new Vector3(Mathf.Ceil(rightFootBorder.size.x / 2.0f) - Mathf.Floor(rightLegBorder.size.x / 2.0f) - rightFootOffset, -Mathf.Floor(torsoBorder.size.y / 2.0f) - rightLegBorder.size.y - rightFootBorder.size.y / 2.0f, 102.9f);
 
-                if (characterSettings.headSize.z % 2 != 0) leftGrid.GetComponent<DrawGrid>().headTilemap.gameObject.transform.position = new Vector3(0, Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
-                else leftGrid.GetComponent<DrawGrid>().headTilemap.gameObject.transform.position = new Vector3(-1, Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
-
-                if (characterSettings.torsoSize.z % 2 != 0) leftGrid.GetComponent<DrawGrid>().torsoTilemap.gameObject.transform.position = new Vector3(0, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
-                else leftGrid.GetComponent<DrawGrid>().torsoTilemap.gameObject.transform.position = new Vector3(-1, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
-
-                if (characterSettings.leftArmSize.z % 2 != 0) leftArmOffset = -0.5f;
-                else leftArmOffset = 0;
-                if (characterSettings.leftArmSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().leftArmTilemap.gameObject.transform.position = new Vector3(0, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f + 1 + leftArmOffset, transform.position.z);
-                else leftGrid.GetComponent<DrawGrid>().leftArmTilemap.gameObject.transform.position = new Vector3(-1, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f + 1 + leftArmOffset, transform.position.z);
-
-                if (characterSettings.leftHandSize.z % 2 != 0) leftHandOffsetY = 0.5f;
-                else leftHandOffsetY = 1;
-                if (characterSettings.leftHandSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().leftHandTilemap.gameObject.transform.position = new Vector3(0, leftHandBorder.transform.position.y + leftHandOffsetY, transform.position.z);
-                else leftGrid.GetComponent<DrawGrid>().leftHandTilemap.gameObject.transform.position = new Vector3(-1, leftHandBorder.transform.position.y + leftHandOffsetY, transform.position.z);
-
-                if (characterSettings.leftThumbSize.z % 2 != 0) leftThumbOffsetY = 0.5f;
-                else leftThumbOffsetY = 1;
-                if (characterSettings.leftThumbSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().leftThumbTilemap.gameObject.transform.position = new Vector3(leftThumbBorder.size.x, leftThumbBorder.transform.position.y + leftThumbOffsetY, transform.position.z);
-                else leftGrid.GetComponent<DrawGrid>().leftThumbTilemap.gameObject.transform.position = new Vector3(leftThumbBorder.size.x - 1, leftThumbBorder.transform.position.y + leftThumbOffsetY, transform.position.z);
-
-                if (characterSettings.leftIndexSize.z % 2 != 0) leftIndexOffsetY = 0.5f;
-                else leftIndexOffsetY = 1;
-                if (characterSettings.leftIndexSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().leftIndexTilemap.gameObject.transform.position = new Vector3(leftIndexBorder.size.x, leftIndexBorder.transform.position.y + leftIndexOffsetY, transform.position.z);
-                else leftGrid.GetComponent<DrawGrid>().leftIndexTilemap.gameObject.transform.position = new Vector3(leftIndexBorder.size.x - 1, leftIndexBorder.transform.position.y + leftIndexOffsetY, transform.position.z);
-
-                if (characterSettings.leftMiddleSize.z % 2 != 0) leftMiddleOffsetY = 0.5f;
-                else leftMiddleOffsetY = 1;
-                if (characterSettings.leftMiddleSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().leftMiddleTilemap.gameObject.transform.position = new Vector3(leftMiddleBorder.size.x, leftMiddleBorder.transform.position.y + leftMiddleOffsetY, transform.position.z);
-                else leftGrid.GetComponent<DrawGrid>().leftMiddleTilemap.gameObject.transform.position = new Vector3(leftMiddleBorder.size.x - 1, leftMiddleBorder.transform.position.y + leftMiddleOffsetY, transform.position.z);
-
-                if (characterSettings.leftRingSize.z % 2 != 0) leftRingOffsetY = 0.5f;
-                else leftRingOffsetY = 1;
-                if (characterSettings.leftRingSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().leftRingTilemap.gameObject.transform.position = new Vector3(leftRingBorder.size.x, leftRingBorder.transform.position.y + leftRingOffsetY, transform.position.z);
-                else leftGrid.GetComponent<DrawGrid>().leftRingTilemap.gameObject.transform.position = new Vector3(leftRingBorder.size.x - 1, leftRingBorder.transform.position.y + leftRingOffsetY, transform.position.z);
-
-                if (characterSettings.leftPinkySize.z % 2 != 0) leftPinkyOffsetY = 0.5f;
-                else leftPinkyOffsetY = 1;
-                if (characterSettings.leftPinkySize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().leftPinkyTilemap.gameObject.transform.position = new Vector3(leftPinkyBorder.size.x, leftPinkyBorder.transform.position.y + leftPinkyOffsetY, transform.position.z);
-                else leftGrid.GetComponent<DrawGrid>().leftPinkyTilemap.gameObject.transform.position = new Vector3(leftPinkyBorder.size.x - 1, leftPinkyBorder.transform.position.y + leftPinkyOffsetY, transform.position.z);
-
-                if (characterSettings.rightArmSize.z % 2 != 0) rightArmOffset = -0.5f;
-                else rightArmOffset = 0;
-                leftGrid.GetComponent<DrawGrid>().rightArmTilemap.gameObject.transform.position = new Vector3(1, Mathf.Ceil(torsoBorder.size.y / 2.0f) - rightArmBorder.size.y / 2.0f + 1 + rightArmOffset, transform.position.z);
-
-                if (characterSettings.rightHandSize.z % 2 != 0) rightHandOffsetY = 0.5f;
-                else rightHandOffsetY = 1;
-                leftGrid.GetComponent<DrawGrid>().rightHandTilemap.gameObject.transform.position = new Vector3(1, rightHandBorder.transform.position.y + rightHandOffsetY, transform.position.z);
-
-                if (characterSettings.rightThumbSize.z % 2 != 0) rightThumbOffsetY = 0.5f;
-                else rightThumbOffsetY = 1;
-                if (characterSettings.rightThumbSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().rightThumbTilemap.gameObject.transform.position = new Vector3(rightThumbBorder.transform.position.x + 0.5f, rightThumbBorder.transform.position.y + rightThumbOffsetY, transform.position.z);
-                else leftGrid.GetComponent<DrawGrid>().rightThumbTilemap.gameObject.transform.position = new Vector3(rightThumbBorder.transform.position.x + 1, rightThumbBorder.transform.position.y + rightThumbOffsetY, transform.position.z);
-
-                if (characterSettings.rightIndexSize.z % 2 != 0) rightIndexOffsetY = 0.5f;
-                else rightIndexOffsetY = 1;
-                if (characterSettings.rightIndexSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().rightIndexTilemap.gameObject.transform.position = new Vector3(rightIndexBorder.transform.position.x + 0.5f, rightIndexBorder.transform.position.y + rightIndexOffsetY, transform.position.z);
-                else leftGrid.GetComponent<DrawGrid>().rightIndexTilemap.gameObject.transform.position = new Vector3(rightIndexBorder.transform.position.x + 1, rightIndexBorder.transform.position.y + rightIndexOffsetY, transform.position.z);
-
-                if (characterSettings.rightMiddleSize.z % 2 != 0) rightMiddleOffsetY = 0.5f;
-                else rightMiddleOffsetY = 1;
-                if (characterSettings.rightMiddleSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().rightMiddleTilemap.gameObject.transform.position = new Vector3(rightMiddleBorder.transform.position.x + 0.5f, rightMiddleBorder.transform.position.y + rightMiddleOffsetY, transform.position.z);
-                else leftGrid.GetComponent<DrawGrid>().rightMiddleTilemap.gameObject.transform.position = new Vector3(rightMiddleBorder.transform.position.x + 1, rightMiddleBorder.transform.position.y + rightMiddleOffsetY, transform.position.z);
-
-                if (characterSettings.rightRingSize.z % 2 != 0) rightRingOffsetY = 0.5f;
-                else rightRingOffsetY = 1;
-                if (characterSettings.rightRingSize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().rightRingTilemap.gameObject.transform.position = new Vector3(rightRingBorder.transform.position.x + 0.5f, rightRingBorder.transform.position.y + rightRingOffsetY, transform.position.z);
-                else leftGrid.GetComponent<DrawGrid>().rightRingTilemap.gameObject.transform.position = new Vector3(rightRingBorder.transform.position.x + 1, rightRingBorder.transform.position.y + rightRingOffsetY, transform.position.z);
-
-                if (characterSettings.rightPinkySize.z % 2 != 0) rightPinkyOffsetY = 0.5f;
-                else rightPinkyOffsetY = 1;
-                if (characterSettings.rightPinkySize.x % 2 != 0) leftGrid.GetComponent<DrawGrid>().rightPinkyTilemap.gameObject.transform.position = new Vector3(rightPinkyBorder.transform.position.x + 0.5f, rightPinkyBorder.transform.position.y + rightPinkyOffsetY, transform.position.z);
-                else leftGrid.GetComponent<DrawGrid>().rightPinkyTilemap.gameObject.transform.position = new Vector3(rightPinkyBorder.transform.position.x + 1, rightPinkyBorder.transform.position.y + rightPinkyOffsetY, transform.position.z);
-
-                if (characterSettings.leftLegSize.z % 2 != 0) leftGrid.GetComponent<DrawGrid>().leftLegTilemap.gameObject.transform.position = new Vector3(0, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
-                else leftGrid.GetComponent<DrawGrid>().leftLegTilemap.gameObject.transform.position = new Vector3(-1, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
-
-                if (characterSettings.leftFootSize.z % 2 != 0) leftGrid.GetComponent<DrawGrid>().leftFootTilemap.gameObject.transform.position = new Vector3(leftFootBorder.transform.position.x - leftFootBorder.size.x / 2.0f, leftFootBorder.transform.position.y - 0.5f, transform.position.z);
-                else leftGrid.GetComponent<DrawGrid>().leftFootTilemap.gameObject.transform.position = new Vector3(leftFootBorder.transform.position.x - leftFootBorder.size.x / 2.0f, leftFootBorder.transform.position.y - 1, transform.position.z);
-
-                if (characterSettings.rightLegSize.z % 2 != 0) leftGrid.GetComponent<DrawGrid>().rightLegTilemap.gameObject.transform.position = new Vector3(0, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
-                else leftGrid.GetComponent<DrawGrid>().rightLegTilemap.gameObject.transform.position = new Vector3(-1, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
-
-                if (characterSettings.rightFootSize.z % 2 != 0) leftGrid.GetComponent<DrawGrid>().rightFootTilemap.gameObject.transform.position = new Vector3(rightFootBorder.transform.position.x - rightFootBorder.size.x / 2.0f, rightFootBorder.transform.position.y - 0.5f, transform.position.z);
-                else leftGrid.GetComponent<DrawGrid>().rightFootTilemap.gameObject.transform.position = new Vector3(rightFootBorder.transform.position.x - rightFootBorder.size.x / 2.0f, rightFootBorder.transform.position.y - 1, transform.position.z);
-                break;
-            case GridViews.Right:
-                if (characterSettings.torsoSize.z % 2 == 1) // Odd
-                {
-                    positionX = -0.5f;
-                }
-                if (characterSettings.torsoSize.y % 2 == 1) // Odd
-                {
-                    positionY = 0.5f;
-                }
-                drawBorders.transform.position = new Vector3(positionX, positionY, drawBorders.transform.position.z);
-
-                headBorder.size = new Vector2(characterSettings.headSize.z, characterSettings.headSize.y);
-                torsoBorder.size = new Vector2(characterSettings.torsoSize.z, characterSettings.torsoSize.y);
-                leftArmBorder.size = new Vector2(characterSettings.leftArmSize.x, characterSettings.leftArmSize.z);
-                leftHandBorder.size = new Vector2(characterSettings.leftHandSize.x, characterSettings.leftHandSize.z);
-                leftThumbBorder.size = new Vector2(characterSettings.leftThumbSize.x, characterSettings.leftThumbSize.z);
-                leftIndexBorder.size = new Vector2(characterSettings.leftIndexSize.x, characterSettings.leftIndexSize.z);
-                leftMiddleBorder.size = new Vector2(characterSettings.leftMiddleSize.x, characterSettings.leftMiddleSize.z);
-                leftRingBorder.size = new Vector2(characterSettings.leftRingSize.x, characterSettings.leftRingSize.z);
-                leftPinkyBorder.size = new Vector2(characterSettings.leftPinkySize.x, characterSettings.leftPinkySize.z);
-                rightArmBorder.size = new Vector2(characterSettings.rightArmSize.x, characterSettings.rightArmSize.z);
-                rightHandBorder.size = new Vector2(characterSettings.rightHandSize.x, characterSettings.rightHandSize.z);
-                rightThumbBorder.size = new Vector2(characterSettings.rightThumbSize.x, characterSettings.rightThumbSize.z);
-                rightIndexBorder.size = new Vector2(characterSettings.rightIndexSize.x, characterSettings.rightIndexSize.z);
-                rightMiddleBorder.size = new Vector2(characterSettings.rightMiddleSize.x, characterSettings.rightMiddleSize.z);
-                rightRingBorder.size = new Vector2(characterSettings.rightRingSize.x, characterSettings.rightRingSize.z);
-                rightPinkyBorder.size = new Vector2(characterSettings.rightPinkySize.x, characterSettings.rightPinkySize.z);
-                leftLegBorder.size = new Vector2(characterSettings.leftLegSize.z, characterSettings.leftLegSize.y);
-                leftFootBorder.size = new Vector2(characterSettings.leftFootSize.y, characterSettings.leftFootSize.z);
-                rightLegBorder.size = new Vector2(characterSettings.rightLegSize.z, characterSettings.rightLegSize.y);
-                rightFootBorder.size = new Vector2(characterSettings.rightFootSize.y, characterSettings.rightFootSize.z);
-
-                // Set the offsets of each border to line up with the rest of the body properly
-                if (characterSettings.headSize.z % 2 != 0) // Odd
-                {
-                    headPositionX = -0.5f;
-                }
-                if (characterSettings.leftArmSize.x % 2 != 0) // Odd
-                {
-                    leftArmOffset = -0.5f;
-                }
-                if (characterSettings.leftHandSize.x % 2 != 0) // Odd
-                {
-                    leftHandOffset = -0.5f;
-                }
-                if (characterSettings.leftHandSize.z % 2 != characterSettings.leftArmSize.z % 2)
-                {
-                    leftHandOffsetY = 0.5f;
-                }
-                if (characterSettings.leftThumbSize.x % 2 != 0) // Odd
-                {
-                    leftThumbOffset = -0.5f;
-                }
-                if (characterSettings.leftHandSize.z % 2 != characterSettings.leftThumbSize.z % 2)
-                {
-                    leftThumbOffsetY = 0.5f;
-                }
-                if (characterSettings.leftIndexSize.x % 2 != 0) // Odd
-                {
-                    leftIndexOffset = -0.5f;
-                }
-                if (characterSettings.leftHandSize.z % 2 != characterSettings.leftIndexSize.z % 2)
-                {
-                    leftIndexOffsetY = 0.5f;
-                }
-                if (characterSettings.leftMiddleSize.x % 2 != 0) // Odd
-                {
-                    leftMiddleOffset = -0.5f;
-                }
-                if (characterSettings.leftHandSize.z % 2 != characterSettings.leftMiddleSize.z % 2)
-                {
-                    leftMiddleOffsetY = 0.5f;
-                }
-                if (characterSettings.leftRingSize.x % 2 != 0) // Odd
-                {
-                    leftRingOffset = -0.5f;
-                }
-                if (characterSettings.leftHandSize.z % 2 != characterSettings.leftRingSize.z % 2)
-                {
-                    leftRingOffsetY = 0.5f;
-                }
-                if (characterSettings.leftPinkySize.x % 2 != 0) // Odd
-                {
-                    leftPinkyOffset = -0.5f;
-                }
-                if (characterSettings.leftHandSize.z % 2 != characterSettings.leftPinkySize.z % 2)
-                {
-                    leftPinkyOffsetY = 0.5f;
-                }
-                if (characterSettings.rightArmSize.x % 2 != 0) // Odd
-                {
-                    rightArmOffset = -0.5f;
-                }
-                if (characterSettings.rightHandSize.x % 2 != 0) // Odd
-                {
-                    rightHandOffset = -0.5f;
-                }
-                if (characterSettings.rightHandSize.z % 2 != characterSettings.rightArmSize.z % 2)
-                {
-                    rightHandOffsetY = 0.5f;
-                }
-                if (characterSettings.rightThumbSize.x % 2 != 0) // Odd
-                {
-                    rightThumbOffset = -0.5f;
-                }
-                if (characterSettings.rightHandSize.z % 2 != characterSettings.rightThumbSize.z % 2)
-                {
-                    rightThumbOffsetY = 0.5f;
-                }
-                if (characterSettings.rightIndexSize.x % 2 != 0) // Odd
-                {
-                    rightIndexOffset = -0.5f;
-                }
-                if (characterSettings.rightHandSize.z % 2 != characterSettings.rightIndexSize.z % 2)
-                {
-                    rightIndexOffsetY = 0.5f;
-                }
-                if (characterSettings.rightMiddleSize.x % 2 != 0) // Odd
-                {
-                    rightMiddleOffset = -0.5f;
-                }
-                if (characterSettings.rightHandSize.z % 2 != characterSettings.rightMiddleSize.z % 2)
-                {
-                    rightMiddleOffsetY = 0.5f;
-                }
-                if (characterSettings.rightRingSize.x % 2 != 0) // Odd
-                {
-                    rightRingOffset = -0.5f;
-                }
-                if (characterSettings.rightHandSize.z % 2 != characterSettings.rightRingSize.z % 2)
-                {
-                    rightRingOffsetY = 0.5f;
-                }
-                if (characterSettings.rightPinkySize.x % 2 != 0) // Odd
-                {
-                    rightPinkyOffset = -0.5f;
-                }
-                if (characterSettings.rightHandSize.z % 2 != characterSettings.rightPinkySize.z % 2)
-                {
-                    rightPinkyOffsetY = 0.5f;
-                }
-                if (characterSettings.leftLegSize.z % 2 != 0) // Odd
-                {
-                    leftLegOffset = -0.5f;
-                }
-                if (characterSettings.leftFootSize.y % 2 != 0) // Odd
-                {
-                    leftFootOffset = -0.5f;
-                }
-                if (characterSettings.rightLegSize.z % 2 != 0) // Odd
-                {
-                    rightLegOffset = -0.5f;
-                }
-                if (characterSettings.rightFootSize.y % 2 != 0) // Odd
-                {
-                    rightFootOffset = -0.5f;
-                }
-                // The z-values determine which tilemap the user is editing (closer ones have a closer z-value)
-                headBorder.gameObject.transform.position = new Vector3(headPositionX, Mathf.Ceil(torsoBorder.size.y / 2.0f) + headBorder.size.y / 2.0f, 103);
-                leftArmBorder.gameObject.transform.position = new Vector3(leftArmOffset, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f, 102.9f);
-                leftHandBorder.gameObject.transform.position = new Vector3(leftHandOffset, leftArmBorder.transform.position.y + leftHandOffsetY, 102.8f);
-                leftThumbBorder.gameObject.transform.position = new Vector3(leftHandBorder.transform.position.x - leftHandBorder.size.x / 2.0f - leftThumbBorder.size.x / 2.0f, leftHandBorder.transform.position.y + leftThumbOffsetY, 102.7f);
-                leftIndexBorder.gameObject.transform.position = new Vector3(leftHandBorder.transform.position.x - leftHandBorder.size.x / 2.0f + leftIndexBorder.size.x / 2.0f, leftHandBorder.transform.position.y + leftIndexOffsetY, 102.7f);
-                leftMiddleBorder.gameObject.transform.position = new Vector3(leftHandBorder.transform.position.x - leftHandBorder.size.x / 2.0f + leftIndexBorder.size.x + leftMiddleBorder.size.x / 2.0f, leftHandBorder.transform.position.y + leftMiddleOffsetY, 102.7f);                
-                leftRingBorder.gameObject.transform.position = new Vector3(leftHandBorder.transform.position.x - leftHandBorder.size.x / 2.0f + leftIndexBorder.size.x + leftMiddleBorder.size.x + leftRingBorder.size.x / 2.0f, leftHandBorder.transform.position.y + leftRingOffsetY, 102.7f);
-                leftPinkyBorder.gameObject.transform.position = new Vector3(leftHandBorder.transform.position.x - leftHandBorder.size.x / 2.0f + leftIndexBorder.size.x + leftMiddleBorder.size.x + leftRingBorder.size.x + leftPinkyBorder.size.x / 2.0f, leftHandBorder.transform.position.y + leftPinkyOffsetY, 102.7f);
-                rightArmBorder.gameObject.transform.position = new Vector3(rightArmOffset, Mathf.Ceil(torsoBorder.size.y / 2.0f) - rightArmBorder.size.y / 2.0f, 103.1f);
-                rightHandBorder.gameObject.transform.position = new Vector3(rightHandOffset, rightArmBorder.transform.position.y + rightHandOffsetY, 103.2f);
-                rightThumbBorder.gameObject.transform.position = new Vector3(rightHandBorder.transform.position.x - rightHandBorder.size.x / 2.0f - rightThumbBorder.size.x / 2.0f, rightHandBorder.transform.position.y + rightThumbOffsetY, 103.3f);
-                rightIndexBorder.gameObject.transform.position = new Vector3(rightHandBorder.transform.position.x - rightHandBorder.size.x / 2.0f + rightIndexBorder.size.x / 2.0f, rightHandBorder.transform.position.y + rightIndexOffsetY, 103.3f);
-                rightMiddleBorder.gameObject.transform.position = new Vector3(rightHandBorder.transform.position.x - rightHandBorder.size.x / 2.0f + rightIndexBorder.size.x + rightMiddleBorder.size.x / 2.0f, rightHandBorder.transform.position.y + rightMiddleOffsetY, 103.3f);
-                rightRingBorder.gameObject.transform.position = new Vector3(rightHandBorder.transform.position.x - rightHandBorder.size.x / 2.0f + rightIndexBorder.size.x + rightMiddleBorder.size.x + rightRingBorder.size.x / 2.0f, rightHandBorder.transform.position.y + rightRingOffsetY, 103.3f);
-                rightPinkyBorder.gameObject.transform.position = new Vector3(rightHandBorder.transform.position.x - rightHandBorder.size.x / 2.0f + rightIndexBorder.size.x + rightMiddleBorder.size.x + rightRingBorder.size.x + rightPinkyBorder.size.x / 2.0f, rightHandBorder.transform.position.y + rightPinkyOffsetY, 103.3f);
-                leftLegBorder.gameObject.transform.position = new Vector3(leftLegOffset, -Mathf.Floor(torsoBorder.size.y / 2.0f) - leftLegBorder.size.y / 2.0f, 102.9f);
-                leftFootBorder.gameObject.transform.position = new Vector3(-Mathf.Floor(leftFootBorder.size.x / 2.0f) + Mathf.Floor(leftLegBorder.size.x / 2.0f) + leftFootOffset, -Mathf.Floor(torsoBorder.size.y / 2.0f) - leftLegBorder.size.y - leftFootBorder.size.y / 2.0f, 102.9f);
-                rightLegBorder.gameObject.transform.position = new Vector3(rightLegOffset, -Mathf.Floor(torsoBorder.size.y / 2.0f) - rightLegBorder.size.y / 2.0f, 103.1f);
-                rightFootBorder.gameObject.transform.position = new Vector3(-Mathf.Floor(rightFootBorder.size.x / 2.0f) + Mathf.Floor(rightLegBorder.size.x / 2.0f) + rightFootOffset, -Mathf.Floor(torsoBorder.size.y / 2.0f) - rightLegBorder.size.y - rightFootBorder.size.y / 2.0f, 103.1f);
-
                 if (characterSettings.headSize.z % 2 != 0) rightGrid.GetComponent<DrawGrid>().headTilemap.gameObject.transform.position = new Vector3(0, Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
-                else rightGrid.GetComponent<DrawGrid>().headTilemap.gameObject.transform.position = new Vector3(1, Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().headTilemap.gameObject.transform.position = new Vector3(-1, Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
 
                 if (characterSettings.torsoSize.z % 2 != 0) rightGrid.GetComponent<DrawGrid>().torsoTilemap.gameObject.transform.position = new Vector3(0, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
-                else rightGrid.GetComponent<DrawGrid>().torsoTilemap.gameObject.transform.position = new Vector3(1, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().torsoTilemap.gameObject.transform.position = new Vector3(-1, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
 
                 if (characterSettings.leftArmSize.z % 2 != 0) leftArmOffset = -0.5f;
                 else leftArmOffset = 0;
                 if (characterSettings.leftArmSize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().leftArmTilemap.gameObject.transform.position = new Vector3(0, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f + 1 + leftArmOffset, transform.position.z);
-                else rightGrid.GetComponent<DrawGrid>().leftArmTilemap.gameObject.transform.position = new Vector3(1, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f + 1 + leftArmOffset, transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().leftArmTilemap.gameObject.transform.position = new Vector3(-1, Mathf.Ceil(torsoBorder.size.y / 2.0f) - leftArmBorder.size.y / 2.0f + 1 + leftArmOffset, transform.position.z);
 
                 if (characterSettings.leftHandSize.z % 2 != 0) leftHandOffsetY = 0.5f;
                 else leftHandOffsetY = 1;
                 if (characterSettings.leftHandSize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().leftHandTilemap.gameObject.transform.position = new Vector3(0, leftHandBorder.transform.position.y + leftHandOffsetY, transform.position.z);
-                else rightGrid.GetComponent<DrawGrid>().leftHandTilemap.gameObject.transform.position = new Vector3(1, leftHandBorder.transform.position.y + leftHandOffsetY, transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().leftHandTilemap.gameObject.transform.position = new Vector3(-1, leftHandBorder.transform.position.y + leftHandOffsetY, transform.position.z);
 
                 if (characterSettings.leftThumbSize.z % 2 != 0) leftThumbOffsetY = 0.5f;
                 else leftThumbOffsetY = 1;
-                if (characterSettings.leftThumbSize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().leftThumbTilemap.gameObject.transform.position = new Vector3(leftThumbBorder.transform.position.x + 0.5f, leftThumbBorder.transform.position.y + leftThumbOffsetY, transform.position.z);
-                else rightGrid.GetComponent<DrawGrid>().leftThumbTilemap.gameObject.transform.position = new Vector3(leftThumbBorder.transform.position.x + 1, leftThumbBorder.transform.position.y + leftThumbOffsetY, transform.position.z);
+                if (characterSettings.leftThumbSize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().leftThumbTilemap.gameObject.transform.position = new Vector3(leftThumbBorder.size.x, leftThumbBorder.transform.position.y + leftThumbOffsetY, transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().leftThumbTilemap.gameObject.transform.position = new Vector3(leftThumbBorder.size.x - 1, leftThumbBorder.transform.position.y + leftThumbOffsetY, transform.position.z);
 
                 if (characterSettings.leftIndexSize.z % 2 != 0) leftIndexOffsetY = 0.5f;
                 else leftIndexOffsetY = 1;
-                if (characterSettings.leftIndexSize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().leftIndexTilemap.gameObject.transform.position = new Vector3(leftIndexBorder.transform.position.x + 0.5f, leftIndexBorder.transform.position.y + leftIndexOffsetY, transform.position.z);
-                else rightGrid.GetComponent<DrawGrid>().leftIndexTilemap.gameObject.transform.position = new Vector3(leftIndexBorder.transform.position.x + 1, leftIndexBorder.transform.position.y + leftIndexOffsetY, transform.position.z);
+                if (characterSettings.leftIndexSize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().leftIndexTilemap.gameObject.transform.position = new Vector3(leftIndexBorder.size.x, leftIndexBorder.transform.position.y + leftIndexOffsetY, transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().leftIndexTilemap.gameObject.transform.position = new Vector3(leftIndexBorder.size.x - 1, leftIndexBorder.transform.position.y + leftIndexOffsetY, transform.position.z);
 
                 if (characterSettings.leftMiddleSize.z % 2 != 0) leftMiddleOffsetY = 0.5f;
                 else leftMiddleOffsetY = 1;
-                if (characterSettings.leftMiddleSize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().leftMiddleTilemap.gameObject.transform.position = new Vector3(leftMiddleBorder.transform.position.x + 0.5f, leftMiddleBorder.transform.position.y + leftMiddleOffsetY, transform.position.z);
-                else rightGrid.GetComponent<DrawGrid>().leftMiddleTilemap.gameObject.transform.position = new Vector3(leftMiddleBorder.transform.position.x + 1, leftMiddleBorder.transform.position.y + leftMiddleOffsetY, transform.position.z);
+                if (characterSettings.leftMiddleSize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().leftMiddleTilemap.gameObject.transform.position = new Vector3(leftMiddleBorder.size.x, leftMiddleBorder.transform.position.y + leftMiddleOffsetY, transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().leftMiddleTilemap.gameObject.transform.position = new Vector3(leftMiddleBorder.size.x - 1, leftMiddleBorder.transform.position.y + leftMiddleOffsetY, transform.position.z);
 
                 if (characterSettings.leftRingSize.z % 2 != 0) leftRingOffsetY = 0.5f;
                 else leftRingOffsetY = 1;
-                if (characterSettings.leftRingSize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().leftRingTilemap.gameObject.transform.position = new Vector3(leftRingBorder.transform.position.x + 0.5f, leftRingBorder.transform.position.y + leftRingOffsetY, transform.position.z);
-                else rightGrid.GetComponent<DrawGrid>().leftRingTilemap.gameObject.transform.position = new Vector3(leftRingBorder.transform.position.x + 1, leftRingBorder.transform.position.y + leftRingOffsetY, transform.position.z);
+                if (characterSettings.leftRingSize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().leftRingTilemap.gameObject.transform.position = new Vector3(leftRingBorder.size.x, leftRingBorder.transform.position.y + leftRingOffsetY, transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().leftRingTilemap.gameObject.transform.position = new Vector3(leftRingBorder.size.x - 1, leftRingBorder.transform.position.y + leftRingOffsetY, transform.position.z);
 
                 if (characterSettings.leftPinkySize.z % 2 != 0) leftPinkyOffsetY = 0.5f;
                 else leftPinkyOffsetY = 1;
-                if (characterSettings.leftPinkySize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().leftPinkyTilemap.gameObject.transform.position = new Vector3(leftPinkyBorder.transform.position.x + 0.5f, leftPinkyBorder.transform.position.y + leftPinkyOffsetY, transform.position.z);
-                else rightGrid.GetComponent<DrawGrid>().leftPinkyTilemap.gameObject.transform.position = new Vector3(leftPinkyBorder.transform.position.x + 1, leftPinkyBorder.transform.position.y + leftPinkyOffsetY, transform.position.z);
+                if (characterSettings.leftPinkySize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().leftPinkyTilemap.gameObject.transform.position = new Vector3(leftPinkyBorder.size.x, leftPinkyBorder.transform.position.y + leftPinkyOffsetY, transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().leftPinkyTilemap.gameObject.transform.position = new Vector3(leftPinkyBorder.size.x - 1, leftPinkyBorder.transform.position.y + leftPinkyOffsetY, transform.position.z);
 
                 if (characterSettings.rightArmSize.z % 2 != 0) rightArmOffset = -0.5f;
                 else rightArmOffset = 0;
-                rightGrid.GetComponent<DrawGrid>().rightArmTilemap.gameObject.transform.position = new Vector3(-1, Mathf.Ceil(torsoBorder.size.y / 2.0f) - rightArmBorder.size.y / 2.0f + 1 + rightArmOffset, transform.position.z);
+                rightGrid.GetComponent<DrawGrid>().rightArmTilemap.gameObject.transform.position = new Vector3(1, Mathf.Ceil(torsoBorder.size.y / 2.0f) - rightArmBorder.size.y / 2.0f + 1 + rightArmOffset, transform.position.z);
 
                 if (characterSettings.rightHandSize.z % 2 != 0) rightHandOffsetY = 0.5f;
                 else rightHandOffsetY = 1;
-                rightGrid.GetComponent<DrawGrid>().rightHandTilemap.gameObject.transform.position = new Vector3(-1, rightHandBorder.transform.position.y + rightHandOffsetY, transform.position.z);
+                rightGrid.GetComponent<DrawGrid>().rightHandTilemap.gameObject.transform.position = new Vector3(1, rightHandBorder.transform.position.y + rightHandOffsetY, transform.position.z);
 
                 if (characterSettings.rightThumbSize.z % 2 != 0) rightThumbOffsetY = 0.5f;
                 else rightThumbOffsetY = 1;
-                if (characterSettings.rightThumbSize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().rightThumbTilemap.gameObject.transform.position = new Vector3(rightThumbBorder.transform.position.x - 0.5f, rightThumbBorder.transform.position.y + rightThumbOffsetY, transform.position.z);
-                else rightGrid.GetComponent<DrawGrid>().rightThumbTilemap.gameObject.transform.position = new Vector3(rightThumbBorder.transform.position.x - 1, rightThumbBorder.transform.position.y + rightThumbOffsetY, transform.position.z);
+                if (characterSettings.rightThumbSize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().rightThumbTilemap.gameObject.transform.position = new Vector3(rightThumbBorder.transform.position.x + 0.5f, rightThumbBorder.transform.position.y + rightThumbOffsetY, transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().rightThumbTilemap.gameObject.transform.position = new Vector3(rightThumbBorder.transform.position.x + 1, rightThumbBorder.transform.position.y + rightThumbOffsetY, transform.position.z);
 
                 if (characterSettings.rightIndexSize.z % 2 != 0) rightIndexOffsetY = 0.5f;
                 else rightIndexOffsetY = 1;
-                if (characterSettings.rightIndexSize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().rightIndexTilemap.gameObject.transform.position = new Vector3(rightIndexBorder.transform.position.x - 0.5f, rightIndexBorder.transform.position.y + rightIndexOffsetY, transform.position.z);
-                else rightGrid.GetComponent<DrawGrid>().rightIndexTilemap.gameObject.transform.position = new Vector3(rightIndexBorder.transform.position.x - 1, rightIndexBorder.transform.position.y + rightIndexOffsetY, transform.position.z);
+                if (characterSettings.rightIndexSize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().rightIndexTilemap.gameObject.transform.position = new Vector3(rightIndexBorder.transform.position.x + 0.5f, rightIndexBorder.transform.position.y + rightIndexOffsetY, transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().rightIndexTilemap.gameObject.transform.position = new Vector3(rightIndexBorder.transform.position.x + 1, rightIndexBorder.transform.position.y + rightIndexOffsetY, transform.position.z);
 
                 if (characterSettings.rightMiddleSize.z % 2 != 0) rightMiddleOffsetY = 0.5f;
                 else rightMiddleOffsetY = 1;
-                if (characterSettings.rightMiddleSize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().rightMiddleTilemap.gameObject.transform.position = new Vector3(rightMiddleBorder.transform.position.x - 0.5f, rightMiddleBorder.transform.position.y + rightMiddleOffsetY, transform.position.z);
-                else rightGrid.GetComponent<DrawGrid>().rightMiddleTilemap.gameObject.transform.position = new Vector3(rightMiddleBorder.transform.position.x - 1, rightMiddleBorder.transform.position.y + rightMiddleOffsetY, transform.position.z);
+                if (characterSettings.rightMiddleSize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().rightMiddleTilemap.gameObject.transform.position = new Vector3(rightMiddleBorder.transform.position.x + 0.5f, rightMiddleBorder.transform.position.y + rightMiddleOffsetY, transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().rightMiddleTilemap.gameObject.transform.position = new Vector3(rightMiddleBorder.transform.position.x + 1, rightMiddleBorder.transform.position.y + rightMiddleOffsetY, transform.position.z);
 
                 if (characterSettings.rightRingSize.z % 2 != 0) rightRingOffsetY = 0.5f;
                 else rightRingOffsetY = 1;
-                if (characterSettings.rightRingSize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().rightRingTilemap.gameObject.transform.position = new Vector3(rightRingBorder.transform.position.x - 0.5f, rightRingBorder.transform.position.y + rightRingOffsetY, transform.position.z);
-                else rightGrid.GetComponent<DrawGrid>().rightRingTilemap.gameObject.transform.position = new Vector3(rightRingBorder.transform.position.x - 1, rightRingBorder.transform.position.y + rightRingOffsetY, transform.position.z);
+                if (characterSettings.rightRingSize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().rightRingTilemap.gameObject.transform.position = new Vector3(rightRingBorder.transform.position.x + 0.5f, rightRingBorder.transform.position.y + rightRingOffsetY, transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().rightRingTilemap.gameObject.transform.position = new Vector3(rightRingBorder.transform.position.x + 1, rightRingBorder.transform.position.y + rightRingOffsetY, transform.position.z);
 
                 if (characterSettings.rightPinkySize.z % 2 != 0) rightPinkyOffsetY = 0.5f;
                 else rightPinkyOffsetY = 1;
-                if (characterSettings.rightPinkySize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().rightPinkyTilemap.gameObject.transform.position = new Vector3(rightPinkyBorder.transform.position.x - 0.5f, rightPinkyBorder.transform.position.y + rightPinkyOffsetY, transform.position.z);
-                else rightGrid.GetComponent<DrawGrid>().rightPinkyTilemap.gameObject.transform.position = new Vector3(rightPinkyBorder.transform.position.x - 1, rightPinkyBorder.transform.position.y + rightPinkyOffsetY, transform.position.z);
+                if (characterSettings.rightPinkySize.x % 2 != 0) rightGrid.GetComponent<DrawGrid>().rightPinkyTilemap.gameObject.transform.position = new Vector3(rightPinkyBorder.transform.position.x + 0.5f, rightPinkyBorder.transform.position.y + rightPinkyOffsetY, transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().rightPinkyTilemap.gameObject.transform.position = new Vector3(rightPinkyBorder.transform.position.x + 1, rightPinkyBorder.transform.position.y + rightPinkyOffsetY, transform.position.z);
 
                 if (characterSettings.leftLegSize.z % 2 != 0) rightGrid.GetComponent<DrawGrid>().leftLegTilemap.gameObject.transform.position = new Vector3(0, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
-                else rightGrid.GetComponent<DrawGrid>().leftLegTilemap.gameObject.transform.position = new Vector3(1, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().leftLegTilemap.gameObject.transform.position = new Vector3(-1, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
 
-                if (characterSettings.leftFootSize.z % 2 != 0) rightGrid.GetComponent<DrawGrid>().leftFootTilemap.gameObject.transform.position = new Vector3(leftFootBorder.transform.position.x + leftFootBorder.size.x / 2.0f, leftFootBorder.transform.position.y - 0.5f, transform.position.z);
-                else rightGrid.GetComponent<DrawGrid>().leftFootTilemap.gameObject.transform.position = new Vector3(leftFootBorder.transform.position.x + leftFootBorder.size.x / 2.0f, leftFootBorder.transform.position.y - 1, transform.position.z);
+                if (characterSettings.leftFootSize.z % 2 != 0) rightGrid.GetComponent<DrawGrid>().leftFootTilemap.gameObject.transform.position = new Vector3(leftFootBorder.transform.position.x - leftFootBorder.size.x / 2.0f, leftFootBorder.transform.position.y - 0.5f, transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().leftFootTilemap.gameObject.transform.position = new Vector3(leftFootBorder.transform.position.x - leftFootBorder.size.x / 2.0f, leftFootBorder.transform.position.y - 1, transform.position.z);
 
                 if (characterSettings.rightLegSize.z % 2 != 0) rightGrid.GetComponent<DrawGrid>().rightLegTilemap.gameObject.transform.position = new Vector3(0, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
-                else rightGrid.GetComponent<DrawGrid>().rightLegTilemap.gameObject.transform.position = new Vector3(1, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().rightLegTilemap.gameObject.transform.position = new Vector3(-1, -Mathf.Ceil(torsoBorder.size.y / 2.0f), transform.position.z);
 
-                if (characterSettings.rightFootSize.z % 2 != 0) rightGrid.GetComponent<DrawGrid>().rightFootTilemap.gameObject.transform.position = new Vector3(rightFootBorder.transform.position.x + rightFootBorder.size.x / 2.0f, rightFootBorder.transform.position.y - 0.5f, transform.position.z);
-                else rightGrid.GetComponent<DrawGrid>().rightFootTilemap.gameObject.transform.position = new Vector3(rightFootBorder.transform.position.x + rightFootBorder.size.x / 2.0f, rightFootBorder.transform.position.y - 1, transform.position.z);
+                if (characterSettings.rightFootSize.z % 2 != 0) rightGrid.GetComponent<DrawGrid>().rightFootTilemap.gameObject.transform.position = new Vector3(rightFootBorder.transform.position.x - rightFootBorder.size.x / 2.0f, rightFootBorder.transform.position.y - 0.5f, transform.position.z);
+                else rightGrid.GetComponent<DrawGrid>().rightFootTilemap.gameObject.transform.position = new Vector3(rightFootBorder.transform.position.x - rightFootBorder.size.x / 2.0f, rightFootBorder.transform.position.y - 1, transform.position.z);
                 break;
             case GridViews.Top:
                 if (characterSettings.torsoSize.x % 2 == 1) // Odd

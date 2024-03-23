@@ -63,24 +63,65 @@ public class JointData : MonoBehaviour
                           Mathf.Abs(toObserver.z)
                        );
 
-        if (absolute.x >= absolute.y)
+        switch (modelJoint)
         {
-            if (absolute.x >= absolute.z)
-            {
-                return toObserver.x > 0 ? GridViews.Left : GridViews.Right;
-            }
-            else
-            {
-                return toObserver.z > 0 ? GridViews.Front : GridViews.Back;
-            }
-        }
-        else if (absolute.y >= absolute.z)
-        {
-            return toObserver.y > 0 ? GridViews.Top : GridViews.Bottom;
-        }
-        else
-        {
-            return toObserver.z > 0 ? GridViews.Front : GridViews.Back;
+            case BodyPart.LeftArm:
+            case BodyPart.LeftForearm:
+            case BodyPart.LeftHand:
+            case BodyPart.LeftThumb1:
+            case BodyPart.LeftThumb2:
+            case BodyPart.LeftThumb3:
+            case BodyPart.LeftIndex1:
+            case BodyPart.LeftIndex2:
+            case BodyPart.LeftIndex3:
+            case BodyPart.LeftMiddle1:
+            case BodyPart.LeftMiddle2:
+            case BodyPart.LeftMiddle3:
+            case BodyPart.LeftRing1:
+            case BodyPart.LeftRing2:
+            case BodyPart.LeftRing3:
+            case BodyPart.LeftPinky1:
+            case BodyPart.LeftPinky2:
+            case BodyPart.LeftPinky3:
+                if (absolute.x >= absolute.y)
+                {
+                    if (absolute.x >= absolute.z)
+                    {
+                        return toObserver.x > 0 ? GridViews.Front : GridViews.Back;
+                    }
+                    else
+                    {
+                        return toObserver.z > 0 ? GridViews.Bottom : GridViews.Top;
+                    }
+                }
+                else if (absolute.y >= absolute.z)
+                {
+                    return toObserver.y > 0 ? GridViews.Left: GridViews.Right;
+                }
+                else
+                {
+                    return toObserver.z > 0 ? GridViews.Bottom : GridViews.Top;
+                }
+            default:
+                if (absolute.x >= absolute.y)
+                {
+                    if (absolute.x >= absolute.z)
+                    {
+                        return toObserver.x > 0 ? GridViews.Right : GridViews.Left;
+                    }
+                    else
+                    {
+                        return toObserver.z > 0 ? GridViews.Front : GridViews.Back;
+                    }
+                }
+                else if (absolute.y >= absolute.z)
+                {
+                    return toObserver.y > 0 ? GridViews.Top : GridViews.Bottom;
+                }
+                else
+                {
+                    return toObserver.z > 0 ? GridViews.Front : GridViews.Back;
+                }
         }
     }
 }

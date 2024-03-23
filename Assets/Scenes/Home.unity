@@ -990,7 +990,7 @@ GameObject:
   - component: {fileID: 23012097}
   - component: {fileID: 23012096}
   m_Layer: 0
-  m_Name: LeftIndexTilemap
+  m_Name: LeftIndexTilemapR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1433,7 +1433,7 @@ GameObject:
   - component: {fileID: 32792391}
   - component: {fileID: 32792390}
   m_Layer: 0
-  m_Name: LeftIndexTilemap
+  m_Name: LeftIndexTilemapB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1696,7 +1696,7 @@ GameObject:
   - component: {fileID: 37180686}
   - component: {fileID: 37180685}
   m_Layer: 0
-  m_Name: LeftHandTilemap
+  m_Name: LeftHandTilemapB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2004,7 +2004,7 @@ GameObject:
   - component: {fileID: 40061264}
   - component: {fileID: 40061263}
   m_Layer: 0
-  m_Name: LeftFootTilemap
+  m_Name: LeftFootTilemapR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3038,7 +3038,7 @@ GameObject:
   - component: {fileID: 67530579}
   - component: {fileID: 67530578}
   m_Layer: 0
-  m_Name: LeftFootTilemap
+  m_Name: LeftFootTilemapB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3158,7 +3158,7 @@ GameObject:
   - component: {fileID: 69592686}
   - component: {fileID: 69592685}
   m_Layer: 0
-  m_Name: HeadTilemap
+  m_Name: HeadTilemapT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3801,7 +3801,7 @@ GameObject:
   - component: {fileID: 118637298}
   - component: {fileID: 118637297}
   m_Layer: 0
-  m_Name: LeftLegTilemap
+  m_Name: LeftLegTilemapB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5573,7 +5573,7 @@ GameObject:
   - component: {fileID: 160560966}
   - component: {fileID: 160560965}
   m_Layer: 0
-  m_Name: LeftPinkyTilemap
+  m_Name: LeftPinkyTilemapF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5975,7 +5975,7 @@ GameObject:
   - component: {fileID: 176025923}
   - component: {fileID: 176025922}
   m_Layer: 0
-  m_Name: LeftPinkyTilemap
+  m_Name: LeftPinkyTilemapR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6095,7 +6095,7 @@ GameObject:
   - component: {fileID: 176391273}
   - component: {fileID: 176391272}
   m_Layer: 0
-  m_Name: HeadTilemap
+  m_Name: HeadTilemapL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6215,7 +6215,7 @@ GameObject:
   - component: {fileID: 176449766}
   - component: {fileID: 176449765}
   m_Layer: 0
-  m_Name: RightIndexTilemap
+  m_Name: RightIndexTilemapR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7058,7 +7058,7 @@ GameObject:
   - component: {fileID: 221398203}
   - component: {fileID: 221398202}
   m_Layer: 0
-  m_Name: RightMiddleTilemap
+  m_Name: RightMiddleTilemapBo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7455,8 +7455,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 393062461}
   backGridTilemap: {fileID: 1407320955}
-  leftGridTilemap: {fileID: 1343213451}
-  rightGridTilemap: {fileID: 502764305}
+  leftGridTilemap: {fileID: 502764305}
+  rightGridTilemap: {fileID: 1343213451}
   topGridTilemap: {fileID: 461374953}
   bottomGridTilemap: {fileID: 1083291227}
 --- !u!61 &227645792
@@ -7694,7 +7694,7 @@ GameObject:
   - component: {fileID: 241867754}
   - component: {fileID: 241867753}
   m_Layer: 0
-  m_Name: LeftArmTilemap
+  m_Name: LeftArmTilemapF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9985,7 +9985,7 @@ GameObject:
   - component: {fileID: 302825574}
   - component: {fileID: 302825573}
   m_Layer: 0
-  m_Name: RightHandTilemap
+  m_Name: RightHandTilemapT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10293,7 +10293,7 @@ GameObject:
   - component: {fileID: 313877212}
   - component: {fileID: 313877211}
   m_Layer: 0
-  m_Name: RightMiddleTilemap
+  m_Name: RightMiddleTilemapR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10489,7 +10489,7 @@ GameObject:
   - component: {fileID: 318915239}
   - component: {fileID: 318915238}
   m_Layer: 0
-  m_Name: RightHandTilemap
+  m_Name: RightHandTilemapL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10873,7 +10873,7 @@ GameObject:
   - component: {fileID: 325713512}
   - component: {fileID: 325713511}
   m_Layer: 0
-  m_Name: RightIndexTilemap
+  m_Name: RightIndexTilemapBo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11257,7 +11257,7 @@ GameObject:
   - component: {fileID: 333679708}
   - component: {fileID: 333679707}
   m_Layer: 0
-  m_Name: LeftHandTilemap
+  m_Name: LeftHandTilemapBo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12514,7 +12514,7 @@ GameObject:
   - component: {fileID: 356877600}
   - component: {fileID: 356877599}
   m_Layer: 0
-  m_Name: LeftPinkyTilemap
+  m_Name: LeftPinkyTilemapBo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12724,8 +12724,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 160560966}
   backGridTilemap: {fileID: 1206217967}
-  leftGridTilemap: {fileID: 176025923}
-  rightGridTilemap: {fileID: 1213024266}
+  leftGridTilemap: {fileID: 1213024266}
+  rightGridTilemap: {fileID: 176025923}
   topGridTilemap: {fileID: 584881525}
   bottomGridTilemap: {fileID: 356877600}
 --- !u!61 &359533471
@@ -13497,7 +13497,7 @@ GameObject:
   - component: {fileID: 393062461}
   - component: {fileID: 393062460}
   m_Layer: 0
-  m_Name: TorsoTilemap
+  m_Name: TorsoTilemapF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13617,7 +13617,7 @@ GameObject:
   - component: {fileID: 394095920}
   - component: {fileID: 394095919}
   m_Layer: 0
-  m_Name: LeftRingTilemap
+  m_Name: LeftRingTilemapL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14216,7 +14216,7 @@ GameObject:
   - component: {fileID: 421492392}
   - component: {fileID: 421492391}
   m_Layer: 0
-  m_Name: RightFootTilemap
+  m_Name: RightFootTilemapBo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14336,7 +14336,7 @@ GameObject:
   - component: {fileID: 422246636}
   - component: {fileID: 422246635}
   m_Layer: 0
-  m_Name: LeftRingTilemap
+  m_Name: LeftRingTilemapF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14456,7 +14456,7 @@ GameObject:
   - component: {fileID: 423914591}
   - component: {fileID: 423914590}
   m_Layer: 0
-  m_Name: RightRingTilemap
+  m_Name: RightRingTilemapR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14613,7 +14613,7 @@ GameObject:
   - component: {fileID: 436416482}
   - component: {fileID: 436416481}
   m_Layer: 0
-  m_Name: HeadTilemap
+  m_Name: HeadTilemapR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14733,7 +14733,7 @@ GameObject:
   - component: {fileID: 440498229}
   - component: {fileID: 440498228}
   m_Layer: 0
-  m_Name: RightLegTilemap
+  m_Name: RightLegTilemapBo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15029,7 +15029,7 @@ GameObject:
   - component: {fileID: 446284376}
   - component: {fileID: 446284375}
   m_Layer: 0
-  m_Name: RightThumbTilemap
+  m_Name: RightThumbTilemapR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15616,6 +15616,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453632191}
   m_CullTransparentMesh: 1
+--- !u!1001 &458445163
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 228cbf4592b887042b38447e3f02674a, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 228cbf4592b887042b38447e3f02674a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.46
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 228cbf4592b887042b38447e3f02674a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.28
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 228cbf4592b887042b38447e3f02674a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 323.93
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 228cbf4592b887042b38447e3f02674a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 228cbf4592b887042b38447e3f02674a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 228cbf4592b887042b38447e3f02674a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 228cbf4592b887042b38447e3f02674a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 228cbf4592b887042b38447e3f02674a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 228cbf4592b887042b38447e3f02674a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 228cbf4592b887042b38447e3f02674a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 228cbf4592b887042b38447e3f02674a, type: 3}
+      propertyPath: m_Name
+      value: Y Bot
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 228cbf4592b887042b38447e3f02674a, type: 3}
 --- !u!1 &461374950
 GameObject:
   m_ObjectHideFlags: 0
@@ -15628,7 +15687,7 @@ GameObject:
   - component: {fileID: 461374953}
   - component: {fileID: 461374952}
   m_Layer: 0
-  m_Name: TorsoTilemap
+  m_Name: TorsoTilemapT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16023,7 +16082,7 @@ RectTransform:
   - {fileID: 1121156948}
   - {fileID: 1891560074}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -16198,7 +16257,7 @@ GameObject:
   - component: {fileID: 475168774}
   - component: {fileID: 475168773}
   m_Layer: 0
-  m_Name: RightHandTilemap
+  m_Name: RightHandTilemapBo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16407,8 +16466,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 757026245}
   backGridTilemap: {fileID: 118637298}
-  leftGridTilemap: {fileID: 1834700505}
-  rightGridTilemap: {fileID: 1150275814}
+  leftGridTilemap: {fileID: 1150275814}
+  rightGridTilemap: {fileID: 1834700505}
   topGridTilemap: {fileID: 1963574181}
   bottomGridTilemap: {fileID: 2107568807}
 --- !u!61 &486848435
@@ -16678,7 +16737,7 @@ GameObject:
   - component: {fileID: 502764305}
   - component: {fileID: 502764304}
   m_Layer: 0
-  m_Name: TorsoTilemap
+  m_Name: TorsoTilemapL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17391,7 +17450,7 @@ Transform:
   m_Children:
   - {fileID: 1546057318}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &517680565
 MonoBehaviour:
@@ -17458,8 +17517,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 1508101733}
   backGridTilemap: {fileID: 2013351294}
-  leftGridTilemap: {fileID: 446284376}
-  rightGridTilemap: {fileID: 600555402}
+  leftGridTilemap: {fileID: 600555402}
+  rightGridTilemap: {fileID: 446284376}
   topGridTilemap: {fileID: 1913893920}
   bottomGridTilemap: {fileID: 645914304}
 --- !u!61 &525866581
@@ -17552,7 +17611,7 @@ GameObject:
   - component: {fileID: 537226201}
   - component: {fileID: 537226200}
   m_Layer: 0
-  m_Name: RightHandTilemap
+  m_Name: RightHandTilemapR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17940,7 +17999,7 @@ GameObject:
   - component: {fileID: 546641889}
   - component: {fileID: 546641888}
   m_Layer: 0
-  m_Name: RightPinkyTilemap
+  m_Name: RightPinkyTilemapB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19024,7 +19083,7 @@ GameObject:
   - component: {fileID: 584881525}
   - component: {fileID: 584881524}
   m_Layer: 0
-  m_Name: LeftPinkyTilemap
+  m_Name: LeftPinkyTilemapT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19144,7 +19203,7 @@ GameObject:
   - component: {fileID: 593073020}
   - component: {fileID: 593073019}
   m_Layer: 0
-  m_Name: LeftRingTilemap
+  m_Name: LeftRingTilemapB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19452,7 +19511,7 @@ GameObject:
   - component: {fileID: 600555402}
   - component: {fileID: 600555401}
   m_Layer: 0
-  m_Name: RightThumbTilemap
+  m_Name: RightThumbTilemapL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20205,7 +20264,7 @@ GameObject:
   - component: {fileID: 642174400}
   - component: {fileID: 642174399}
   m_Layer: 0
-  m_Name: RightIndexTilemap
+  m_Name: RightIndexTilemapF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20325,7 +20384,7 @@ GameObject:
   - component: {fileID: 645914304}
   - component: {fileID: 645914303}
   m_Layer: 0
-  m_Name: RightThumbTilemap
+  m_Name: RightThumbTilemapBo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20835,7 +20894,7 @@ GameObject:
   - component: {fileID: 661246569}
   - component: {fileID: 661246568}
   m_Layer: 0
-  m_Name: LeftThumbTilemap
+  m_Name: LeftThumbTilemapT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20955,7 +21014,7 @@ GameObject:
   - component: {fileID: 661781334}
   - component: {fileID: 661781333}
   m_Layer: 0
-  m_Name: RightArmTilemap
+  m_Name: RightArmTilemapBo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22348,8 +22407,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 1054010652}
   backGridTilemap: {fileID: 1210255563}
-  leftGridTilemap: {fileID: 537226201}
-  rightGridTilemap: {fileID: 318915239}
+  leftGridTilemap: {fileID: 318915239}
+  rightGridTilemap: {fileID: 537226201}
   topGridTilemap: {fileID: 302825574}
   bottomGridTilemap: {fileID: 475168774}
 --- !u!61 &703742359
@@ -22630,7 +22689,7 @@ GameObject:
   - component: {fileID: 710069868}
   - component: {fileID: 710069869}
   m_Layer: 0
-  m_Name: LeftGrid
+  m_Name: RightGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22782,7 +22841,7 @@ GameObject:
   - component: {fileID: 717502413}
   - component: {fileID: 717502412}
   m_Layer: 0
-  m_Name: RightFootTilemap
+  m_Name: RightFootTilemapR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23192,13 +23251,13 @@ Transform:
   m_Children:
   - {fileID: 106391419}
   - {fileID: 1621739540}
-  - {fileID: 710069867}
   - {fileID: 1553983163}
+  - {fileID: 710069867}
   - {fileID: 1668926145}
   - {fileID: 657854768}
   - {fileID: 1920247648}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &737578965
 MonoBehaviour:
@@ -23214,8 +23273,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontGrid: {fileID: 106391418}
   backGrid: {fileID: 1621739539}
-  leftGrid: {fileID: 710069866}
-  rightGrid: {fileID: 1553983162}
+  leftGrid: {fileID: 1553983162}
+  rightGrid: {fileID: 710069866}
   topGrid: {fileID: 1668926144}
   bottomGrid: {fileID: 657854767}
   drawButton: {fileID: 1944090538}
@@ -23730,7 +23789,7 @@ GameObject:
   - component: {fileID: 757026245}
   - component: {fileID: 757026244}
   m_Layer: 0
-  m_Name: LeftLegTilemap
+  m_Name: LeftLegTilemapF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23985,7 +24044,7 @@ GameObject:
   - component: {fileID: 765063098}
   - component: {fileID: 765063097}
   m_Layer: 0
-  m_Name: RightLegTilemap
+  m_Name: RightLegTilemapL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24399,7 +24458,7 @@ GameObject:
   - component: {fileID: 778085852}
   - component: {fileID: 778085851}
   m_Layer: 0
-  m_Name: LeftRingTilemap
+  m_Name: LeftRingTilemapR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24942,7 +25001,7 @@ GameObject:
   - component: {fileID: 804069612}
   - component: {fileID: 804069611}
   m_Layer: 0
-  m_Name: LeftHandTilemap
+  m_Name: LeftHandTilemapT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25303,7 +25362,7 @@ GameObject:
   - component: {fileID: 808539424}
   - component: {fileID: 808539423}
   m_Layer: 0
-  m_Name: RightLegTilemap
+  m_Name: RightLegTilemapB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25423,7 +25482,7 @@ GameObject:
   - component: {fileID: 821413400}
   - component: {fileID: 821413399}
   m_Layer: 0
-  m_Name: LeftFootTilemap
+  m_Name: LeftFootTilemapBo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26095,7 +26154,7 @@ GameObject:
   - component: {fileID: 854596089}
   - component: {fileID: 854596088}
   m_Layer: 0
-  m_Name: LeftArmTilemap
+  m_Name: LeftArmTilemapT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27532,7 +27591,7 @@ GameObject:
   - component: {fileID: 912645931}
   - component: {fileID: 912645930}
   m_Layer: 0
-  m_Name: LeftHandTilemap
+  m_Name: LeftHandTilemapL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28028,7 +28087,7 @@ GameObject:
   - component: {fileID: 940642430}
   - component: {fileID: 940642429}
   m_Layer: 0
-  m_Name: RightRingTilemap
+  m_Name: RightRingTilemapB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28336,7 +28395,7 @@ GameObject:
   - component: {fileID: 946979404}
   - component: {fileID: 946979403}
   m_Layer: 0
-  m_Name: RightLegTilemap
+  m_Name: RightLegTilemapT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28779,7 +28838,7 @@ GameObject:
   - component: {fileID: 962423749}
   - component: {fileID: 962423748}
   m_Layer: 0
-  m_Name: RightArmTilemap
+  m_Name: RightArmTilemapT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29342,8 +29401,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 2139588917}
   backGridTilemap: {fileID: 808539424}
-  leftGridTilemap: {fileID: 1066017185}
-  rightGridTilemap: {fileID: 765063098}
+  leftGridTilemap: {fileID: 765063098}
+  rightGridTilemap: {fileID: 1066017185}
   topGridTilemap: {fileID: 946979404}
   bottomGridTilemap: {fileID: 440498229}
 --- !u!61 &972397783
@@ -29609,7 +29668,7 @@ Transform:
   - {fileID: 972397780}
   - {fileID: 1032137170}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &986862820
 GameObject:
@@ -30260,8 +30319,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 1501026818}
   backGridTilemap: {fileID: 1174575380}
-  leftGridTilemap: {fileID: 1599526181}
-  rightGridTilemap: {fileID: 1803259380}
+  leftGridTilemap: {fileID: 1803259380}
+  rightGridTilemap: {fileID: 1599526181}
   topGridTilemap: {fileID: 962423749}
   bottomGridTilemap: {fileID: 661781334}
 --- !u!61 &1009696812
@@ -30651,8 +30710,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 2064217275}
   backGridTilemap: {fileID: 2036391148}
-  leftGridTilemap: {fileID: 717502413}
-  rightGridTilemap: {fileID: 1398448683}
+  leftGridTilemap: {fileID: 1398448683}
+  rightGridTilemap: {fileID: 717502413}
   topGridTilemap: {fileID: 1368131091}
   bottomGridTilemap: {fileID: 421492392}
 --- !u!61 &1032137172
@@ -31658,8 +31717,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 1908669397}
   backGridTilemap: {fileID: 1838862749}
-  leftGridTilemap: {fileID: 1691165799}
-  rightGridTilemap: {fileID: 1250809684}
+  leftGridTilemap: {fileID: 1250809684}
+  rightGridTilemap: {fileID: 1691165799}
   topGridTilemap: {fileID: 661246569}
   bottomGridTilemap: {fileID: 1455381189}
 --- !u!61 &1050377676
@@ -31793,7 +31852,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1053544054
 GameObject:
@@ -31848,7 +31907,7 @@ GameObject:
   - component: {fileID: 1054010652}
   - component: {fileID: 1054010651}
   m_Layer: 0
-  m_Name: RightHandTilemap
+  m_Name: RightHandTilemapF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32275,8 +32334,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 422246636}
   backGridTilemap: {fileID: 593073020}
-  leftGridTilemap: {fileID: 778085852}
-  rightGridTilemap: {fileID: 394095920}
+  leftGridTilemap: {fileID: 394095920}
+  rightGridTilemap: {fileID: 778085852}
   topGridTilemap: {fileID: 1776036363}
   bottomGridTilemap: {fileID: 1844780444}
 --- !u!61 &1060947843
@@ -32504,7 +32563,7 @@ GameObject:
   - component: {fileID: 1066017185}
   - component: {fileID: 1066017184}
   m_Layer: 0
-  m_Name: RightLegTilemap
+  m_Name: RightLegTilemapR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32759,7 +32818,7 @@ GameObject:
   - component: {fileID: 1071687862}
   - component: {fileID: 1071687861}
   m_Layer: 0
-  m_Name: LeftHandTilemap
+  m_Name: LeftHandTilemapF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33713,7 +33772,7 @@ GameObject:
   - component: {fileID: 1083291227}
   - component: {fileID: 1083291226}
   m_Layer: 0
-  m_Name: TorsoTilemap
+  m_Name: TorsoTilemapBo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34303,7 +34362,7 @@ GameObject:
   - component: {fileID: 1100531509}
   - component: {fileID: 1100531508}
   m_Layer: 0
-  m_Name: HeadTilemap
+  m_Name: HeadTilemapBo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34906,7 +34965,7 @@ GameObject:
   - component: {fileID: 1125854726}
   - component: {fileID: 1125854725}
   m_Layer: 0
-  m_Name: LeftFootTilemap
+  m_Name: LeftFootTilemapT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35778,7 +35837,7 @@ GameObject:
   - component: {fileID: 1150275814}
   - component: {fileID: 1150275813}
   m_Layer: 0
-  m_Name: LeftLegTilemap
+  m_Name: LeftLegTilemapL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36524,7 +36583,7 @@ GameObject:
   - component: {fileID: 1174575380}
   - component: {fileID: 1174575379}
   m_Layer: 0
-  m_Name: RightArmTilemap
+  m_Name: RightArmTilemapB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37164,7 +37223,7 @@ GameObject:
   - component: {fileID: 1198064647}
   - component: {fileID: 1198064646}
   m_Layer: 0
-  m_Name: RightMiddleTilemap
+  m_Name: RightMiddleTilemapB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37337,7 +37396,7 @@ GameObject:
   - component: {fileID: 1198766228}
   - component: {fileID: 1198766227}
   m_Layer: 0
-  m_Name: LeftMiddleTilemap
+  m_Name: LeftMiddleTilemapR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37513,7 +37572,7 @@ GameObject:
   - component: {fileID: 1199331624}
   - component: {fileID: 1199331623}
   m_Layer: 0
-  m_Name: LeftMiddleTilemap
+  m_Name: LeftMiddleTilemapT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37633,7 +37692,7 @@ GameObject:
   - component: {fileID: 1206217967}
   - component: {fileID: 1206217966}
   m_Layer: 0
-  m_Name: LeftPinkyTilemap
+  m_Name: LeftPinkyTilemapB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37806,7 +37865,7 @@ GameObject:
   - component: {fileID: 1210255563}
   - component: {fileID: 1210255562}
   m_Layer: 0
-  m_Name: RightHandTilemap
+  m_Name: RightHandTilemapB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37926,7 +37985,7 @@ GameObject:
   - component: {fileID: 1213024266}
   - component: {fileID: 1213024265}
   m_Layer: 0
-  m_Name: LeftPinkyTilemap
+  m_Name: LeftPinkyTilemapL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38561,8 +38620,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 642174400}
   backGridTilemap: {fileID: 1889701721}
-  leftGridTilemap: {fileID: 176449766}
-  rightGridTilemap: {fileID: 1567642611}
+  leftGridTilemap: {fileID: 1567642611}
+  rightGridTilemap: {fileID: 176449766}
   topGridTilemap: {fileID: 2112535742}
   bottomGridTilemap: {fileID: 325713512}
 --- !u!61 &1250692746
@@ -38655,7 +38714,7 @@ GameObject:
   - component: {fileID: 1250809684}
   - component: {fileID: 1250809683}
   m_Layer: 0
-  m_Name: LeftThumbTilemap
+  m_Name: LeftThumbTilemapL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39894,8 +39953,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 2120431292}
   backGridTilemap: {fileID: 940642430}
-  leftGridTilemap: {fileID: 423914591}
-  rightGridTilemap: {fileID: 1853608029}
+  leftGridTilemap: {fileID: 1853608029}
+  rightGridTilemap: {fileID: 423914591}
   topGridTilemap: {fileID: 1444334908}
   bottomGridTilemap: {fileID: 1870314927}
 --- !u!61 &1293901928
@@ -40144,7 +40203,7 @@ GameObject:
   - component: {fileID: 1298615556}
   - component: {fileID: 1298615555}
   m_Layer: 0
-  m_Name: HeadTilemap
+  m_Name: HeadTilemapF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40846,7 +40905,7 @@ GameObject:
   - component: {fileID: 1316958588}
   - component: {fileID: 1316958587}
   m_Layer: 0
-  m_Name: RightMiddleTilemap
+  m_Name: RightMiddleTilemapF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41693,7 +41752,7 @@ GameObject:
   - component: {fileID: 1336413004}
   - component: {fileID: 1336413003}
   m_Layer: 0
-  m_Name: LeftHandTilemap
+  m_Name: LeftHandTilemapR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41831,7 +41890,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1337571353
 MonoBehaviour:
@@ -42021,7 +42080,7 @@ GameObject:
   - component: {fileID: 1343213451}
   - component: {fileID: 1343213450}
   m_Layer: 0
-  m_Name: TorsoTilemap
+  m_Name: TorsoTilemapR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42141,7 +42200,7 @@ GameObject:
   - component: {fileID: 1345619206}
   - component: {fileID: 1345619205}
   m_Layer: 0
-  m_Name: LeftArmTilemap
+  m_Name: LeftArmTilemapB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42584,7 +42643,7 @@ GameObject:
   - component: {fileID: 1351198204}
   - component: {fileID: 1351198203}
   m_Layer: 0
-  m_Name: LeftArmTilemap
+  m_Name: LeftArmTilemapBo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42877,7 +42936,7 @@ GameObject:
   - component: {fileID: 1368131091}
   - component: {fileID: 1368131090}
   m_Layer: 0
-  m_Name: RightFootTilemap
+  m_Name: RightFootTilemapT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43185,7 +43244,7 @@ GameObject:
   - component: {fileID: 1371633919}
   - component: {fileID: 1371633918}
   m_Layer: 0
-  m_Name: LeftMiddleTilemap
+  m_Name: LeftMiddleTilemapB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43837,7 +43896,7 @@ GameObject:
   - component: {fileID: 1398448683}
   - component: {fileID: 1398448682}
   m_Layer: 0
-  m_Name: RightFootTilemap
+  m_Name: RightFootTilemapL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44145,7 +44204,7 @@ GameObject:
   - component: {fileID: 1407320955}
   - component: {fileID: 1407320954}
   m_Layer: 0
-  m_Name: TorsoTilemap
+  m_Name: TorsoTilemapB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45279,8 +45338,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 1781554226}
   backGridTilemap: {fileID: 67530579}
-  leftGridTilemap: {fileID: 40061264}
-  rightGridTilemap: {fileID: 2008566131}
+  leftGridTilemap: {fileID: 2008566131}
+  rightGridTilemap: {fileID: 40061264}
   topGridTilemap: {fileID: 1125854726}
   bottomGridTilemap: {fileID: 821413400}
 --- !u!61 &1436435963
@@ -45561,7 +45620,7 @@ GameObject:
   - component: {fileID: 1444334908}
   - component: {fileID: 1444334907}
   m_Layer: 0
-  m_Name: RightRingTilemap
+  m_Name: RightRingTilemapT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46057,7 +46116,7 @@ GameObject:
   - component: {fileID: 1455381189}
   - component: {fileID: 1455381188}
   m_Layer: 0
-  m_Name: LeftThumbTilemap
+  m_Name: LeftThumbTilemapBo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46238,7 +46297,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1461708825
 GameObject:
@@ -46886,7 +46945,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1501026815
 GameObject:
@@ -46900,7 +46959,7 @@ GameObject:
   - component: {fileID: 1501026818}
   - component: {fileID: 1501026817}
   m_Layer: 0
-  m_Name: RightArmTilemap
+  m_Name: RightArmTilemapF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47020,7 +47079,7 @@ GameObject:
   - component: {fileID: 1508101733}
   - component: {fileID: 1508101732}
   m_Layer: 0
-  m_Name: RightThumbTilemap
+  m_Name: RightThumbTilemapF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47840,8 +47899,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 2003706262}
   backGridTilemap: {fileID: 32792391}
-  leftGridTilemap: {fileID: 23012097}
-  rightGridTilemap: {fileID: 1747101477}
+  leftGridTilemap: {fileID: 1747101477}
+  rightGridTilemap: {fileID: 23012097}
   topGridTilemap: {fileID: 1641589805}
   bottomGridTilemap: {fileID: 1877690194}
 --- !u!61 &1540141002
@@ -48877,7 +48936,7 @@ GameObject:
   - component: {fileID: 1553983164}
   - component: {fileID: 1553983165}
   m_Layer: 0
-  m_Name: RightGrid
+  m_Name: LeftGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49320,7 +49379,7 @@ GameObject:
   - component: {fileID: 1567642611}
   - component: {fileID: 1567642610}
   m_Layer: 0
-  m_Name: RightIndexTilemap
+  m_Name: RightIndexTilemapL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49440,7 +49499,7 @@ GameObject:
   - component: {fileID: 1593681267}
   - component: {fileID: 1593681266}
   m_Layer: 0
-  m_Name: LeftMiddleTilemap
+  m_Name: LeftMiddleTilemapF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49560,7 +49619,7 @@ GameObject:
   - component: {fileID: 1599526181}
   - component: {fileID: 1599526180}
   m_Layer: 0
-  m_Name: RightArmTilemap
+  m_Name: RightArmTilemapR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50373,8 +50432,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 1593681267}
   backGridTilemap: {fileID: 1371633919}
-  leftGridTilemap: {fileID: 1198766228}
-  rightGridTilemap: {fileID: 1765072837}
+  leftGridTilemap: {fileID: 1765072837}
+  rightGridTilemap: {fileID: 1198766228}
   topGridTilemap: {fileID: 1199331624}
   bottomGridTilemap: {fileID: 1612114506}
 --- !u!61 &1611250870
@@ -50467,7 +50526,7 @@ GameObject:
   - component: {fileID: 1612114506}
   - component: {fileID: 1612114505}
   m_Layer: 0
-  m_Name: LeftMiddleTilemap
+  m_Name: LeftMiddleTilemapBo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51030,7 +51089,7 @@ GameObject:
   - component: {fileID: 1641589805}
   - component: {fileID: 1641589804}
   m_Layer: 0
-  m_Name: LeftIndexTilemap
+  m_Name: LeftIndexTilemapT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51494,7 +51553,7 @@ GameObject:
   - component: {fileID: 1660793213}
   - component: {fileID: 1660793212}
   m_Layer: 0
-  m_Name: RightPinkyTilemap
+  m_Name: RightPinkyTilemapT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52207,8 +52266,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 241867754}
   backGridTilemap: {fileID: 1345619206}
-  leftGridTilemap: {fileID: 1953199648}
-  rightGridTilemap: {fileID: 1753561753}
+  leftGridTilemap: {fileID: 1753561753}
+  rightGridTilemap: {fileID: 1953199648}
   topGridTilemap: {fileID: 854596089}
   bottomGridTilemap: {fileID: 1351198204}
 --- !u!61 &1684022951
@@ -52399,7 +52458,7 @@ GameObject:
   - component: {fileID: 1688871223}
   - component: {fileID: 1688871222}
   m_Layer: 0
-  m_Name: RightPinkyTilemap
+  m_Name: RightPinkyTilemapBo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52652,7 +52711,7 @@ GameObject:
   - component: {fileID: 1691165799}
   - component: {fileID: 1691165798}
   m_Layer: 0
-  m_Name: LeftThumbTilemap
+  m_Name: LeftThumbTilemapR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54244,7 +54303,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1711279387
 MonoBehaviour:
@@ -54406,7 +54465,7 @@ GameObject:
   - component: {fileID: 1729883504}
   - component: {fileID: 1729883503}
   m_Layer: 0
-  m_Name: RightMiddleTilemap
+  m_Name: RightMiddleTilemapT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54985,8 +55044,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 1071687862}
   backGridTilemap: {fileID: 37180686}
-  leftGridTilemap: {fileID: 1336413004}
-  rightGridTilemap: {fileID: 912645931}
+  leftGridTilemap: {fileID: 912645931}
+  rightGridTilemap: {fileID: 1336413004}
   topGridTilemap: {fileID: 804069612}
   bottomGridTilemap: {fileID: 333679708}
 --- !u!61 &1740815712
@@ -55079,7 +55138,7 @@ GameObject:
   - component: {fileID: 1747101477}
   - component: {fileID: 1747101476}
   m_Layer: 0
-  m_Name: LeftIndexTilemap
+  m_Name: LeftIndexTilemapL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55199,7 +55258,7 @@ GameObject:
   - component: {fileID: 1753561753}
   - component: {fileID: 1753561752}
   m_Layer: 0
-  m_Name: LeftArmTilemap
+  m_Name: LeftArmTilemapL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55319,7 +55378,7 @@ GameObject:
   - component: {fileID: 1756783714}
   - component: {fileID: 1756783713}
   m_Layer: 0
-  m_Name: RightMiddleTilemap
+  m_Name: RightMiddleTilemapL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55492,7 +55551,7 @@ GameObject:
   - component: {fileID: 1762851582}
   - component: {fileID: 1762851581}
   m_Layer: 0
-  m_Name: RightPinkyTilemap
+  m_Name: RightPinkyTilemapL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55746,7 +55805,7 @@ GameObject:
   - component: {fileID: 1765072837}
   - component: {fileID: 1765072836}
   m_Layer: 0
-  m_Name: LeftMiddleTilemap
+  m_Name: LeftMiddleTilemapL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56173,7 +56232,7 @@ GameObject:
   - component: {fileID: 1776036363}
   - component: {fileID: 1776036362}
   m_Layer: 0
-  m_Name: LeftRingTilemap
+  m_Name: LeftRingTilemapT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56293,7 +56352,7 @@ GameObject:
   - component: {fileID: 1779940264}
   - component: {fileID: 1779940263}
   m_Layer: 0
-  m_Name: HeadTilemap
+  m_Name: HeadTilemapB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56413,7 +56472,7 @@ GameObject:
   - component: {fileID: 1781554226}
   - component: {fileID: 1781554225}
   m_Layer: 0
-  m_Name: LeftFootTilemap
+  m_Name: LeftFootTilemapF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57186,7 +57245,7 @@ GameObject:
   - component: {fileID: 1803259380}
   - component: {fileID: 1803259379}
   m_Layer: 0
-  m_Name: RightArmTilemap
+  m_Name: RightArmTilemapL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58232,7 +58291,7 @@ GameObject:
   - component: {fileID: 1832887875}
   - component: {fileID: 1832887874}
   m_Layer: 0
-  m_Name: RightPinkyTilemap
+  m_Name: RightPinkyTilemapR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58352,7 +58411,7 @@ GameObject:
   - component: {fileID: 1834700505}
   - component: {fileID: 1834700504}
   m_Layer: 0
-  m_Name: LeftLegTilemap
+  m_Name: LeftLegTilemapR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58697,8 +58756,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 1316958588}
   backGridTilemap: {fileID: 1198064647}
-  leftGridTilemap: {fileID: 313877212}
-  rightGridTilemap: {fileID: 1756783714}
+  leftGridTilemap: {fileID: 1756783714}
+  rightGridTilemap: {fileID: 313877212}
   topGridTilemap: {fileID: 1729883504}
   bottomGridTilemap: {fileID: 221398203}
 --- !u!61 &1838823244
@@ -58791,7 +58850,7 @@ GameObject:
   - component: {fileID: 1838862749}
   - component: {fileID: 1838862748}
   m_Layer: 0
-  m_Name: LeftThumbTilemap
+  m_Name: LeftThumbTilemapB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59046,7 +59105,7 @@ GameObject:
   - component: {fileID: 1844780444}
   - component: {fileID: 1844780443}
   m_Layer: 0
-  m_Name: LeftRingTilemap
+  m_Name: LeftRingTilemapBo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59301,7 +59360,7 @@ GameObject:
   - component: {fileID: 1853608029}
   - component: {fileID: 1853608028}
   m_Layer: 0
-  m_Name: RightRingTilemap
+  m_Name: RightRingTilemapL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60027,7 +60086,7 @@ GameObject:
   - component: {fileID: 1870314927}
   - component: {fileID: 1870314926}
   m_Layer: 0
-  m_Name: RightRingTilemap
+  m_Name: RightRingTilemapBo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60147,7 +60206,7 @@ GameObject:
   - component: {fileID: 1877690194}
   - component: {fileID: 1877690193}
   m_Layer: 0
-  m_Name: LeftIndexTilemap
+  m_Name: LeftIndexTilemapBo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60267,7 +60326,7 @@ GameObject:
   - component: {fileID: 1889701721}
   - component: {fileID: 1889701720}
   m_Layer: 0
-  m_Name: RightIndexTilemap
+  m_Name: RightIndexTilemapB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60881,7 +60940,7 @@ GameObject:
   - component: {fileID: 1908669397}
   - component: {fileID: 1908669396}
   m_Layer: 0
-  m_Name: LeftThumbTilemap
+  m_Name: LeftThumbTilemapF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61246,8 +61305,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 1298615556}
   backGridTilemap: {fileID: 1779940264}
-  leftGridTilemap: {fileID: 436416482}
-  rightGridTilemap: {fileID: 176391273}
+  leftGridTilemap: {fileID: 176391273}
+  rightGridTilemap: {fileID: 436416482}
   topGridTilemap: {fileID: 69592686}
   bottomGridTilemap: {fileID: 1100531509}
 --- !u!61 &1910914556
@@ -61341,7 +61400,7 @@ GameObject:
   - component: {fileID: 1913893920}
   - component: {fileID: 1913893919}
   m_Layer: 0
-  m_Name: RightThumbTilemap
+  m_Name: RightThumbTilemapT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62268,7 +62327,7 @@ GameObject:
   - component: {fileID: 1953199648}
   - component: {fileID: 1953199647}
   m_Layer: 0
-  m_Name: LeftArmTilemap
+  m_Name: LeftArmTilemapR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62544,7 +62603,7 @@ GameObject:
   - component: {fileID: 1963574181}
   - component: {fileID: 1963574180}
   m_Layer: 0
-  m_Name: LeftLegTilemap
+  m_Name: LeftLegTilemapT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62882,7 +62941,7 @@ RectTransform:
   m_Children:
   - {fileID: 1002324035}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -63142,7 +63201,7 @@ GameObject:
   - component: {fileID: 2003706262}
   - component: {fileID: 2003706261}
   m_Layer: 0
-  m_Name: LeftIndexTilemap
+  m_Name: LeftIndexTilemapF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63262,7 +63321,7 @@ GameObject:
   - component: {fileID: 2008566131}
   - component: {fileID: 2008566130}
   m_Layer: 0
-  m_Name: LeftFootTilemap
+  m_Name: LeftFootTilemapL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63517,7 +63576,7 @@ GameObject:
   - component: {fileID: 2013351294}
   - component: {fileID: 2013351293}
   m_Layer: 0
-  m_Name: RightThumbTilemap
+  m_Name: RightThumbTilemapB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64605,7 +64664,7 @@ GameObject:
   - component: {fileID: 2036391148}
   - component: {fileID: 2036391147}
   m_Layer: 0
-  m_Name: RightFootTilemap
+  m_Name: RightFootTilemapB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65625,7 +65684,7 @@ GameObject:
   - component: {fileID: 2064217275}
   - component: {fileID: 2064217274}
   m_Layer: 0
-  m_Name: RightFootTilemap
+  m_Name: RightFootTilemapF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65933,7 +65992,7 @@ GameObject:
   - component: {fileID: 2075172189}
   - component: {fileID: 2075172188}
   m_Layer: 0
-  m_Name: RightPinkyTilemap
+  m_Name: RightPinkyTilemapF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66090,8 +66149,8 @@ MonoBehaviour:
   drawingManager: {fileID: 737578965}
   frontGridTilemap: {fileID: 2075172189}
   backGridTilemap: {fileID: 546641889}
-  leftGridTilemap: {fileID: 1832887875}
-  rightGridTilemap: {fileID: 1762851582}
+  leftGridTilemap: {fileID: 1762851582}
+  rightGridTilemap: {fileID: 1832887875}
   topGridTilemap: {fileID: 1660793213}
   bottomGridTilemap: {fileID: 1688871223}
 --- !u!61 &2080710791
@@ -66430,7 +66489,7 @@ GameObject:
   - component: {fileID: 2107568807}
   - component: {fileID: 2107568806}
   m_Layer: 0
-  m_Name: LeftLegTilemap
+  m_Name: LeftLegTilemapBo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66850,7 +66909,7 @@ GameObject:
   - component: {fileID: 2112535742}
   - component: {fileID: 2112535741}
   m_Layer: 0
-  m_Name: RightIndexTilemap
+  m_Name: RightIndexTilemapT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67023,7 +67082,7 @@ GameObject:
   - component: {fileID: 2120431292}
   - component: {fileID: 2120431291}
   m_Layer: 0
-  m_Name: RightRingTilemap
+  m_Name: RightRingTilemapF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67609,7 +67668,7 @@ GameObject:
   - component: {fileID: 2139588917}
   - component: {fileID: 2139588916}
   m_Layer: 0
-  m_Name: RightLegTilemap
+  m_Name: RightLegTilemapF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69330,7 +69389,7 @@ Transform:
   - {fileID: 7248349326561992892}
   - {fileID: 951597904010806023}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &4850683916310981720
 GameObject:
@@ -69609,8 +69668,8 @@ MonoBehaviour:
   modelJoint: 0
   associatedTilemapFront: {fileID: 393062461}
   associatedTilemapBack: {fileID: 1407320955}
-  associatedTilemapLeft: {fileID: 1343213451}
-  associatedTilemapRight: {fileID: 502764305}
+  associatedTilemapLeft: {fileID: 502764305}
+  associatedTilemapRight: {fileID: 1343213451}
   associatedTilemapTop: {fileID: 461374953}
   associatedTilemapBottom: {fileID: 1083291227}
 --- !u!1 &5345565088989067561
