@@ -226,6 +226,7 @@ public class DrawingManager : MonoBehaviour
         rightToe.text = characterSettings.rightToe.ToString();
         ChangeBorderSizes();
 
+        mainCamera.orthographicSize = 16;
         mainCamera.transform.position = Vector3.zero;
         colorPicker.SetActive(false);
         colorPickerBackground.SetActive(false);
@@ -278,6 +279,7 @@ public class DrawingManager : MonoBehaviour
 
     public void ChangeView()
     {
+        mainCamera.orthographicSize = 16;
         mainCamera.transform.position = Vector3.zero;
 
         switch (gridView.value)

@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour
         uiEdit.SetActive(false);
         uiSave.SetActive(false);
 
+        mainCamera.orthographicSize = 16;
+        mainCamera.transform.position = Vector3.zero;
         drawGrids.SetActive(true);
         transparencyBackground.SetActive(true);
         drawBorders.SetActive(true);
@@ -71,8 +73,11 @@ public class GameManager : MonoBehaviour
         uiEdit.SetActive(false);
         uiSave.SetActive(false);
 
+        mainCamera.orthographicSize = 10;
         mainCamera.transform.position = Vector3.zero;
+        uiAnimate.GetComponent<AnimationManager>().Init();
         mannequin.SetActive(true);
+        mannequin.GetComponent<Mannequin>().CallRemove();
         mannequin.GetComponent<Mannequin>().Init();
         drawGrids.SetActive(false);
         transparencyBackground.SetActive(false);
