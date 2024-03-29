@@ -20,7 +20,9 @@ public class Pixelation : MonoBehaviour
     private float animationLength;
     private List<float> animationFrames;
     private bool animationSet;
-    private float currentAnimationTime;
+    // Coroutines
+    IEnumerator animationPreReq;
+    IEnumerator animateMannequin;
 
     private void Start()
     {
@@ -29,8 +31,42 @@ public class Pixelation : MonoBehaviour
         animationFrames = new List<float>();
         cellPositions = new List<List<Vector3Int>>();
         cellColors = new List<List<Color>>();
+        animationPreReq = AnimationPreReq();
+        animateMannequin = AnimateMannequin();
+
         animationLength = mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length;
         mannequin.GetComponent<Animator>().SetFloat("motionTime", 0);
+    }
+
+    public void StartAnimationProcess()
+    {
+        StopCoroutine(animateMannequin);
+        cellPositions.Clear();
+        cellColors.Clear();
+        animationFrames.Clear();
+        animationSet = false;
+        StartCoroutine(animationPreReq);
+    }
+
+    /// <summary>
+    /// Waits a little bit for the program to receive the Animator Clip Data
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator AnimationPreReq()
+    {
+        while (true)
+        {
+            yield return new WaitForSecondsRealtime(0.25f);
+
+            if (mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length > 0)
+            {
+                SetAnimationEvents();
+            }
+            else
+            {
+                Debug.Log("No animation clip info");
+            }
+        }
     }
 
     /// <summary>
@@ -38,6 +74,11 @@ public class Pixelation : MonoBehaviour
     /// </summary>
     public void SetAnimationEvents()
     {
+        StopCoroutine(animationPreReq);
+
+        animationLength = mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length;
+        mannequin.GetComponent<Animator>().SetFloat("motionTime", 0);
+
         UpdatePixelList();
         mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.events = null;
         float frameInterval = 1000.0f / frameRate / 1000.0f;
@@ -110,10 +151,7 @@ public class Pixelation : MonoBehaviour
         if (frame == mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.events.Length - 1)
         {
             animationSet = true;
-            currentAnimationTime = 0;
-            mannequin.GetComponent<Animator>().SetFloat("motionTime", 0);
-            mannequin.GetComponent<Mannequin>().CallRemove();
-            StartCoroutine(AnimateMannequin());
+            StartCoroutine(animateMannequin);
         }
         else
         {
@@ -123,12 +161,18 @@ public class Pixelation : MonoBehaviour
 
     private IEnumerator AnimateMannequin()
     {
+        int frame = 0;
         while (animationSet)
         {
-            yield return new WaitForSeconds(Time.unscaledDeltaTime);
+            mannequin.GetComponent<Animator>().SetFloat("motionTime", animationFrames[frame]);
 
-            currentAnimationTime += Time.unscaledDeltaTime;
-            mannequin.GetComponent<Animator>().SetFloat("motionTime", currentAnimationTime);
+            yield return new WaitForSecondsRealtime(1000.0f / frameRate / 1000.0f);
+
+            frame++;
+            if (frame >= animationFrames.Count)
+            {
+                frame = 0;
+            }
         }
     }
 
