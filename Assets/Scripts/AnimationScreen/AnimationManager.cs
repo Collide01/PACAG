@@ -65,7 +65,18 @@ public class AnimationManager : MonoBehaviour
         rotationX.value = 0;
         rotationY.value = 0;
         rotationZ.value = 0;
-        frameRateInput.text = characterSettings.frameRate.ToString();
+        frameRateInput.text = "60";
+
+        prevRotationX = rotationX.value;
+        prevRotationY = rotationY.value;
+        prevRotationZ = rotationZ.value;
+        prevFrameRate = int.Parse(frameRateInput.text);
+
+        rotationModel.transform.rotation = Quaternion.Euler(rotationX.value, rotationY.value, rotationZ.value);
+        mannequinContainer.transform.rotation = Quaternion.Euler(rotationX.value, rotationY.value, rotationZ.value);
+        characterSettings.frameRate = int.Parse(frameRateInput.text);
+
+        updateButton.interactable = false;
     }
 
     public void OnRotationChanged()
@@ -87,11 +98,11 @@ public class AnimationManager : MonoBehaviour
     {
         if (rotationX.value != prevRotationX || rotationX.value != prevRotationY || rotationY.value != prevRotationZ || characterSettings.frameRate != prevFrameRate)
         {
-            updateButton.enabled = true;
+            updateButton.interactable = true;
         }
         else
         {
-            updateButton.enabled = false;
+            updateButton.interactable = false;
         }
     }
 
@@ -103,7 +114,6 @@ public class AnimationManager : MonoBehaviour
         frameRateInput.text = "60";
 
         rotationModel.transform.rotation = Quaternion.Euler(rotationX.value, rotationY.value, rotationZ.value);
-        mannequinContainer.transform.rotation = Quaternion.Euler(rotationX.value, rotationY.value, rotationZ.value);
         characterSettings.frameRate = int.Parse(frameRateInput.text);
     }
 
@@ -112,12 +122,14 @@ public class AnimationManager : MonoBehaviour
     /// </summary>
     public void OnUpdate()
     {
+        mannequinContainer.transform.rotation = Quaternion.Euler(rotationX.value, rotationY.value, rotationZ.value);
+
         prevRotationX = rotationX.value;
         prevRotationY = rotationY.value;
         prevRotationZ = rotationZ.value;
         prevFrameRate = int.Parse(frameRateInput.text);
 
-        updateButton.enabled = false;
+        updateButton.interactable = false;
 
         pixelation.StartAnimationProcess();
     }
