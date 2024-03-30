@@ -85,18 +85,13 @@ public class AnimationManager : MonoBehaviour
         mannequinContainer.transform.rotation = Quaternion.Euler(rotationX.value, rotationY.value, rotationZ.value);
     }
 
-    public void OnFrameRateChanged()
-    {
-        characterSettings.frameRate = int.Parse(frameRateInput.text);
-    }
-
     /// <summary>
     /// Checks to see if any of the animation control values changed since the last update. 
     /// If they did, the Update button is enabled.
     /// </summary>
     public void OnValueChanged()
     {
-        if (rotationX.value != prevRotationX || rotationX.value != prevRotationY || rotationY.value != prevRotationZ || characterSettings.frameRate != prevFrameRate)
+        if (rotationX.value != prevRotationX || rotationX.value != prevRotationY || rotationY.value != prevRotationZ || int.Parse(frameRateInput.text) != prevFrameRate)
         {
             updateButton.interactable = true;
         }
@@ -114,7 +109,6 @@ public class AnimationManager : MonoBehaviour
         frameRateInput.text = "60";
 
         rotationModel.transform.rotation = Quaternion.Euler(rotationX.value, rotationY.value, rotationZ.value);
-        characterSettings.frameRate = int.Parse(frameRateInput.text);
     }
 
     /// <summary>
@@ -123,6 +117,7 @@ public class AnimationManager : MonoBehaviour
     public void OnUpdate()
     {
         mannequinContainer.transform.rotation = Quaternion.Euler(rotationX.value, rotationY.value, rotationZ.value);
+        characterSettings.frameRate = int.Parse(frameRateInput.text);
 
         prevRotationX = rotationX.value;
         prevRotationY = rotationY.value;
