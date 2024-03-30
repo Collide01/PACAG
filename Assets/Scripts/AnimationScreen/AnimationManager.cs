@@ -15,6 +15,12 @@ public class AnimationManager : MonoBehaviour
     private Pixelation pixelation;
     private CharacterSettings characterSettings;
 
+    // Animation control values; holds previous values so Update can only be clicked if a value changed
+    private float prevRotationX;
+    private float prevRotationY;
+    private float prevRotationZ;
+    private int prevFrameRate;
+
     [Header("UI Elements")]
     public Slider rotationX;
     public Slider rotationY;
@@ -22,6 +28,8 @@ public class AnimationManager : MonoBehaviour
     public GameObject rotationModel;
     public GameObject mannequinContainer; // Rotates along with the rotation model
     public TMP_InputField frameRateInput;
+    public Button resetToDefaultButton;
+    public Button updateButton;
 
     [Header("Animation List")]
     public GameObject animationButton; // Selectable animation in scroll view
@@ -69,5 +77,48 @@ public class AnimationManager : MonoBehaviour
     public void OnFrameRateChanged()
     {
         characterSettings.frameRate = int.Parse(frameRateInput.text);
+    }
+
+    /// <summary>
+    /// Checks to see if any of the animation control values changed since the last update. 
+    /// If they did, the Update button is enabled.
+    /// </summary>
+    public void OnValueChanged()
+    {
+        if (rotationX.value != prevRotationX || rotationX.value != prevRotationY || rotationY.value != prevRotationZ || characterSettings.frameRate != prevFrameRate)
+        {
+            updateButton.enabled = true;
+        }
+        else
+        {
+            updateButton.enabled = false;
+        }
+    }
+
+    public void ResetToDefault()
+    {
+        rotationX.value = 0;
+        rotationY.value = 0;
+        rotationZ.value = 0;
+        frameRateInput.text = "60";
+
+        rotationModel.transform.rotation = Quaternion.Euler(rotationX.value, rotationY.value, rotationZ.value);
+        mannequinContainer.transform.rotation = Quaternion.Euler(rotationX.value, rotationY.value, rotationZ.value);
+        characterSettings.frameRate = int.Parse(frameRateInput.text);
+    }
+
+    /// <summary>
+    /// Updates the animation when the Update button is clicked
+    /// </summary>
+    public void OnUpdate()
+    {
+        prevRotationX = rotationX.value;
+        prevRotationY = rotationY.value;
+        prevRotationZ = rotationZ.value;
+        prevFrameRate = int.Parse(frameRateInput.text);
+
+        updateButton.enabled = false;
+
+        pixelation.StartAnimationProcess();
     }
 }
