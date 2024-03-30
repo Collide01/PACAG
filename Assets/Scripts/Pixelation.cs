@@ -17,13 +17,13 @@ public class Pixelation : MonoBehaviour
     [HideInInspector] public List<List<Color>> cellColors;
     [HideInInspector] public GameObject[] pixelLocations;
     // These variables help to create the animation
-    private AnimatorClipInfo prevClipInfo;
+    private int currentFrame;
     private float animationLength;
     private List<float> animationFrames;
     private bool animationSet;
     // Coroutines
     private IEnumerator animationPreReq;
-    private IEnumerator animateMannequin;
+    private IEnumerator handleSpriteData;
 
     private void Start()
     {
@@ -33,20 +33,21 @@ public class Pixelation : MonoBehaviour
         cellPositions = new List<List<Vector3Int>>();
         cellColors = new List<List<Color>>();
         animationPreReq = AnimationPreReq();
-        animateMannequin = AnimateMannequin();
-
-        animationLength = mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length;
-        mannequin.GetComponent<Animator>().SetFloat("motionTime", 0);
+        handleSpriteData = HandleSpriteData();
+        StartCoroutine(handleSpriteData);
     }
 
     public void StartAnimationProcess()
     {
-        StopCoroutine(animateMannequin);
-        if (prevClipInfo.clip != null) prevClipInfo.clip.events = null;
+        // Reset animation values
         cellPositions.Clear();
         cellColors.Clear();
+        pixelGrid.ClearAllTiles();
         animationFrames.Clear();
         animationSet = false;
+        currentFrame = 0;
+
+        UpdatePixelList();
         StartCoroutine(animationPreReq);
     }
 
@@ -77,107 +78,85 @@ public class Pixelation : MonoBehaviour
     public void SetAnimationEvents()
     {
         StopCoroutine(animationPreReq);
-        UpdatePixelList();
-
-        prevClipInfo = mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0];
-        animationLength = mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length;
-        Debug.Log(animationLength);
-        mannequin.GetComponent<Animator>().SetFloat("motionTime", 0);
-
-        float frameInterval = 1000.0f / frameRate / 1000.0f;
-
-        // Creates new Animation Events at specific intervals based on the frame rate
-        int eventIndex = 0;
-        while (frameInterval * eventIndex < animationLength)
-        {
-            AnimationEvent evt = new AnimationEvent();
-            evt.time = frameInterval * eventIndex;
-            evt.intParameter = eventIndex;
-            evt.functionName = "AnimationEventFunction";
-
-            mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.AddEvent(evt);
-
-            animationFrames.Add(frameInterval * eventIndex);
-
-            eventIndex++;
-        }
 
         // Organizes the sprite data based on their z-positions.
         // This makes it so pixels that already have a color can't be drawn over.
         Array.Sort(pixelLocations, ZPositionComparison);
 
+        animationLength = mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length;
         mannequin.GetComponent<Animator>().SetFloat("motionTime", 0);
-    }
 
-    /// <summary>
-    /// The function that AnimationEvents call as the animation plays.
-    /// AnimationEvents are used to make the sprite rendering more accurate.
-    /// </summary>
-    public void AnimationEventFunction(int frame)
-    {
-        Debug.Log(frame + ", " + animationFrames.Count);
-        if (animationFrames.Count > 0)
+        float frameInterval = 1000.0f / frameRate / 1000.0f;
+
+        // Creates animation frame times based on the frame rate
+        int frameIndex = 0;
+        while (frameInterval * frameIndex < animationLength)
         {
-            if (!animationSet)
-            {
-                CreateSpriteData(frame);
-            }
-            else
-            {
-                CreateSprite(frame);
-            }
+            animationFrames.Add(frameInterval * frameIndex);
+
+            frameIndex++;
         }
     }
 
     /// <summary>
     /// Create pixels for each frame.
     /// </summary>
-    /// <param name="frame">Frame of the animation</param>
-    public void CreateSpriteData(int frame)
+    private IEnumerator HandleSpriteData()
     {
-        // Creates a frame for the first loop of the animation
-        while (cellPositions.Count <= frame)
+        while (true)
         {
-            cellPositions.Add(new List<Vector3Int>());
-            cellColors.Add(new List<Color>());
-        }
-        
-        // Creates the pixels
-        for (int i = 0; i < pixelLocations.Length; i++)
-        {
-            Vector3Int cellPosition = pixelGrid.WorldToCell(pixelLocations[i].transform.position);
-            if (!cellPositions[frame].Contains(cellPosition))
+            if (animationFrames.Count > 0)
             {
-                cellPositions[frame].Add(cellPosition);
-                cellColors[frame].Add(pixelLocations[i].GetComponent<PixelData>().GetColor());
+                if (!animationSet)
+                {
+                    // Creates a frame for the first loop of the animation
+                    while (cellPositions.Count <= currentFrame)
+                    {
+                        cellPositions.Add(new List<Vector3Int>());
+                        cellColors.Add(new List<Color>());
+                    }
+
+                    // Creates the pixels
+                    for (int i = 0; i < pixelLocations.Length; i++)
+                    {
+                        Vector3Int cellPosition = pixelGrid.WorldToCell(pixelLocations[i].transform.position);
+                        if (!cellPositions[currentFrame].Contains(cellPosition))
+                        {
+                            cellPositions[currentFrame].Add(cellPosition);
+                            cellColors[currentFrame].Add(pixelLocations[i].GetComponent<PixelData>().GetColor());
+                        }
+                    }
+
+                    // If this is the last frame in the animation, the animation is complete
+                    if (currentFrame == animationFrames.Count - 1)
+                    {
+                        animationSet = true;
+                        currentFrame = 0;
+                    }
+                    else
+                    {
+                        currentFrame++;
+                        mannequin.GetComponent<Animator>().SetFloat("motionTime", animationFrames[currentFrame]);
+                    }
+
+                    yield return new WaitForSecondsRealtime(0.1f);
+                }
+                else
+                {
+                    CreateSprite(currentFrame);
+
+                    yield return new WaitForSecondsRealtime(1000.0f / frameRate / 1000.0f);
+
+                    currentFrame++;
+                    if (currentFrame >= animationFrames.Count)
+                    {
+                        currentFrame = 0;
+                    }
+                }
             }
-        }
-
-        // If this is the last frame in the animation, the animation is complete
-        if (frame == mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.events.Length - 1)
-        {
-            animationSet = true;
-            StartCoroutine(animateMannequin);
-        }
-        else
-        {
-            mannequin.GetComponent<Animator>().SetFloat("motionTime", animationFrames[frame + 1]);
-        }
-    }
-
-    private IEnumerator AnimateMannequin()
-    {
-        int frame = 0;
-        while (animationSet)
-        {
-            mannequin.GetComponent<Animator>().SetFloat("motionTime", animationFrames[frame]);
-
-            yield return new WaitForSecondsRealtime(1000.0f / frameRate / 1000.0f);
-
-            frame++;
-            if (frame >= animationFrames.Count)
+            else
             {
-                frame = 0;
+                yield return null;
             }
         }
     }

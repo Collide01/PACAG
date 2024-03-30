@@ -12,15 +12,6 @@ public class Mannequin : MonoBehaviour
         basePart.Init();
     }
 
-    /// <summary>
-    /// The function that AnimationEvents call as the animation plays.
-    /// AnimationEvents are used to make the sprite rendering more accurate.
-    /// </summary>
-    public void AnimationEventFunction(int frame)
-    {
-        pixelation.AnimationEventFunction(frame);
-    }
-
     public void CallRemove()
     {
         GetComponentInChildren<MannequinPart>().RemovePixelsAndJoints();
