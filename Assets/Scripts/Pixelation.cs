@@ -17,12 +17,13 @@ public class Pixelation : MonoBehaviour
     [HideInInspector] public List<List<Color>> cellColors;
     [HideInInspector] public GameObject[] pixelLocations;
     // These variables help to create the animation
+    private AnimatorClipInfo prevClipInfo;
     private float animationLength;
     private List<float> animationFrames;
     private bool animationSet;
     // Coroutines
-    IEnumerator animationPreReq;
-    IEnumerator animateMannequin;
+    private IEnumerator animationPreReq;
+    private IEnumerator animateMannequin;
 
     private void Start()
     {
@@ -41,6 +42,7 @@ public class Pixelation : MonoBehaviour
     public void StartAnimationProcess()
     {
         StopCoroutine(animateMannequin);
+        if (prevClipInfo.clip != null) prevClipInfo.clip.events = null;
         cellPositions.Clear();
         cellColors.Clear();
         animationFrames.Clear();
@@ -75,12 +77,13 @@ public class Pixelation : MonoBehaviour
     public void SetAnimationEvents()
     {
         StopCoroutine(animationPreReq);
+        UpdatePixelList();
 
+        prevClipInfo = mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0];
         animationLength = mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length;
+        Debug.Log(animationLength);
         mannequin.GetComponent<Animator>().SetFloat("motionTime", 0);
 
-        UpdatePixelList();
-        mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.events = null;
         float frameInterval = 1000.0f / frameRate / 1000.0f;
 
         // Creates new Animation Events at specific intervals based on the frame rate
@@ -113,13 +116,16 @@ public class Pixelation : MonoBehaviour
     public void AnimationEventFunction(int frame)
     {
         Debug.Log(frame + ", " + animationFrames.Count);
-        if (!animationSet)
+        if (animationFrames.Count > 0)
         {
-            CreateSpriteData(frame);
-        }
-        else
-        {
-            CreateSprite(frame);
+            if (!animationSet)
+            {
+                CreateSpriteData(frame);
+            }
+            else
+            {
+                CreateSprite(frame);
+            }
         }
     }
 
