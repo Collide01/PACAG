@@ -19,8 +19,8 @@ public class Pixelation : MonoBehaviour
     // These variables help to create the animation
     private int currentFrame;
     private float animationLength;
-    private List<float> animationFrames;
-    private bool animationSet;
+    public List<float> animationFrames;
+    public bool animationSet;
     // Coroutines
     private IEnumerator animationPreReq;
     private IEnumerator handleSpriteData;
@@ -47,6 +47,7 @@ public class Pixelation : MonoBehaviour
         animationSet = false;
         currentFrame = 0;
 
+        frameRate = GameObject.FindGameObjectWithTag("CharacterSettings").GetComponent<CharacterSettings>().frameRate;
         UpdatePixelList();
         StartCoroutine(animationPreReq);
     }
@@ -139,12 +140,12 @@ public class Pixelation : MonoBehaviour
                         mannequin.GetComponent<Animator>().SetFloat("motionTime", animationFrames[currentFrame]);
                     }
 
-                    yield return new WaitForSecondsRealtime(0.1f);
+                    yield return null;
                 }
                 else
                 {
                     CreateSprite(currentFrame);
-
+                    
                     yield return new WaitForSecondsRealtime(1000.0f / frameRate / 1000.0f);
 
                     currentFrame++;

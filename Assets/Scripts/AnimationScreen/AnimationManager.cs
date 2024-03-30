@@ -13,7 +13,15 @@ public class AnimationManager : MonoBehaviour
     public GameObject animationGrid;
     private Tilemap animationTilemap;
     private Pixelation pixelation;
+    private CharacterSettings characterSettings;
 
+    [Header("UI Elements")]
+    public Slider rotationX;
+    public Slider rotationY;
+    public Slider rotationZ;
+    public GameObject rotationModel;
+    public GameObject mannequinContainer; // Rotates along with the rotation model
+    public TMP_InputField frameRateInput;
 
     [Header("Animation List")]
     public GameObject animationButton; // Selectable animation in scroll view
@@ -24,6 +32,7 @@ public class AnimationManager : MonoBehaviour
     {
         animationTilemap = animationGrid.GetComponentInChildren<Tilemap>();
         pixelation = animationGrid.GetComponent<Pixelation>();
+        characterSettings = GameObject.FindGameObjectWithTag("CharacterSettings").GetComponent<CharacterSettings>();
     }
 
     public void Init()
@@ -43,5 +52,22 @@ public class AnimationManager : MonoBehaviour
             animationButtonInstance.GetComponent<AnimationButton>().clipIndex = i;
             animationButtonInstance.GetComponent<Button>().onClick.AddListener(delegate { animationButtonInstance.GetComponent<AnimationButton>().SetAnimation(); });
         }
+
+        // Resets all values to their defaults
+        rotationX.value = 0;
+        rotationY.value = 0;
+        rotationZ.value = 0;
+        frameRateInput.text = characterSettings.frameRate.ToString();
+    }
+
+    public void OnRotationChanged()
+    {
+        rotationModel.transform.rotation = Quaternion.Euler(rotationX.value, rotationY.value, rotationZ.value);
+        mannequinContainer.transform.rotation = Quaternion.Euler(rotationX.value, rotationY.value, rotationZ.value);
+    }
+
+    public void OnFrameRateChanged()
+    {
+        characterSettings.frameRate = int.Parse(frameRateInput.text);
     }
 }
