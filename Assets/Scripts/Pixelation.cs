@@ -121,7 +121,7 @@ public class Pixelation : MonoBehaviour
                     for (int i = 0; i < pixelLocations.Length; i++)
                     {
                         Vector3Int cellPosition = pixelGrid.WorldToCell(pixelLocations[i].transform.position);
-                        if (!cellPositions[currentFrame].Contains(cellPosition))
+                        if (!cellPositions[currentFrame].Contains(cellPosition) && pixelLocations[i].GetComponent<PixelData>().GetColor().a != 0)
                         {
                             cellPositions[currentFrame].Add(cellPosition);
                             cellColors[currentFrame].Add(pixelLocations[i].GetComponent<PixelData>().GetColor());

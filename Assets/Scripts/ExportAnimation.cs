@@ -56,6 +56,8 @@ public class ExportAnimation : MonoBehaviour
             }
         }
 
+        Debug.Log(minX + ", " + maxX + ", " + minY + ", " + maxY + ", " + maxSpriteSizeX + ", " + maxSpriteSizeY);
+
         // Once the maximum size is determined, create a new Texture2D that represents the spritesheet.
         Texture2D newImage = new Texture2D(maxSpriteSizeX * pixelation.animationFrames.Count, maxSpriteSizeY);
 
@@ -77,7 +79,7 @@ public class ExportAnimation : MonoBehaviour
                     if (pixelation.cellPositions[i].Contains(new Vector3Int(x, y)))
                     {
                         int index = pixelation.cellPositions[i].IndexOf(new Vector3Int(x, y));
-                        newImage.SetPixel((x - minX) * maxSpriteSizeX * (i + 1), (y - minY) * maxSpriteSizeY * (i + 1), pixelation.cellColors[i][index]);
+                        newImage.SetPixel((x - minX) + maxSpriteSizeX * (i + 1), y - minY, pixelation.cellColors[i][index]);
                     }
                 }
             }
