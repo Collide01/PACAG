@@ -5,6 +5,7 @@ using UnityEditor.Animations;
 using UnityEngine.UI;
 using UnityEngine.Tilemaps;
 using TMPro;
+using JetBrains.Annotations;
 
 public class AnimationManager : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class AnimationManager : MonoBehaviour
     public TMP_InputField frameRateInput;
     public Button resetToDefaultButton;
     public Button updateButton;
+    public Button editButton;
+    public Button exportButton;
 
     [Header("Animation List")]
     public GameObject animationButton; // Selectable animation in scroll view
@@ -77,12 +80,47 @@ public class AnimationManager : MonoBehaviour
         characterSettings.frameRate = int.Parse(frameRateInput.text);
 
         updateButton.interactable = false;
+        editButton.interactable = false;
+        exportButton.interactable = false;
+
+        StartCoroutine(CheckForAnimation());
+    }
+
+    public IEnumerator CheckForAnimation()
+    {
+        while(true)
+        {
+            if (pixelation.animationFrames.Count > 0 && pixelation.animationSet)
+            {
+                editButton.interactable = true;
+                exportButton.interactable = true;
+            }
+            else
+            {
+                editButton.interactable = false;
+                exportButton.interactable = false;
+            }
+
+            yield return null;
+        }
     }
 
     public void OnRotationChanged()
     {
         rotationModel.transform.rotation = Quaternion.Euler(rotationX.value, rotationY.value, rotationZ.value);
         mannequinContainer.transform.rotation = Quaternion.Euler(rotationX.value, rotationY.value, rotationZ.value);
+    }
+
+    public void OnFrameRateChanged()
+    {
+        if (int.Parse(frameRateInput.text) < 1)
+        {
+            frameRateInput.text = "1";
+        }
+        if (int.Parse(frameRateInput.text) > 60)
+        {
+            frameRateInput.text = "60";
+        }
     }
 
     /// <summary>

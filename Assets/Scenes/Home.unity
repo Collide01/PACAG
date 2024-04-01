@@ -14425,6 +14425,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 433065014}
         m_TargetAssemblyTypeName: AnimationManager, Assembly-CSharp
+        m_MethodName: OnFrameRateChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 433065014}
+        m_TargetAssemblyTypeName: AnimationManager, Assembly-CSharp
         m_MethodName: OnValueChanged
         m_Mode: 1
         m_Arguments:
@@ -15121,6 +15133,8 @@ MonoBehaviour:
   frameRateInput: {fileID: 418046379}
   resetToDefaultButton: {fileID: 2026625632}
   updateButton: {fileID: 449349969}
+  editButton: {fileID: 1503317590}
+  exportButton: {fileID: 1024398990}
   animationButton: {fileID: 8959345878549788090, guid: 72b819910ce19854aa09414fff0de802, type: 3}
   listContent: {fileID: 634403875}
 --- !u!1 &433509009

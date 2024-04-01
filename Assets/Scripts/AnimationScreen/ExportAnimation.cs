@@ -56,8 +56,6 @@ public class ExportAnimation : MonoBehaviour
             }
         }
 
-        Debug.Log(minX + ", " + maxX + ", " + minY + ", " + maxY + ", " + maxSpriteSizeX + ", " + maxSpriteSizeY);
-
         // Once the maximum size is determined, create a new Texture2D that represents the spritesheet.
         Texture2D newImage = new Texture2D(maxSpriteSizeX * pixelation.animationFrames.Count, maxSpriteSizeY);
 
@@ -85,14 +83,20 @@ public class ExportAnimation : MonoBehaviour
             }
         }
         newImage.Apply();
+        newImage.name = "[InsertNameHere]";
 
-        byte[] bytes = newImage.EncodeToPNG();
-        var dirPath = Application.dataPath + "/ExportedTilemaps/";
-        if (!Directory.Exists(dirPath))
+        // Allow the user to save the spritesheet anywhere
+        var path = EditorUtility.SaveFilePanel(
+            "Save spritesheet as PNG",
+            "",
+            newImage.name + ".png",
+            "png"
+            );
+
+        if (path.Length != 0)
         {
-            Directory.CreateDirectory(dirPath);
+            var pngData = newImage.EncodeToPNG();
+            File.WriteAllBytes(path, pngData);
         }
-        File.WriteAllBytes(dirPath + "test.png", bytes);
-        AssetDatabase.Refresh();
     }
 }
