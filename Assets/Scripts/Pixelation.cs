@@ -19,8 +19,8 @@ public class Pixelation : MonoBehaviour
     // These variables help to create the animation
     private int currentFrame;
     private float animationLength;
-    public List<float> animationFrames;
-    public bool animationSet;
+    [HideInInspector] public List<float> animationFrames;
+    [HideInInspector] public bool animationSet;
     // Coroutines
     private IEnumerator animationPreReq;
     private IEnumerator handleSpriteData;
