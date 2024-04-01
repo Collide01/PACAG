@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject transparencyBackground;
     public GameObject drawBorders;
     public GameObject mannequin;
+    public GameObject rotationModel;
 
     private DrawingManager drawingManager;
 
@@ -44,7 +45,8 @@ public class GameManager : MonoBehaviour
         drawGrids.SetActive(false);
         transparencyBackground.SetActive(false);
         drawBorders.SetActive(false);
-        //mannequin.SetActive(false);
+        mannequin.SetActive(false);
+        rotationModel.SetActive(false);
     }
 
     public void ChangeToDraw()
@@ -61,6 +63,7 @@ public class GameManager : MonoBehaviour
         transparencyBackground.SetActive(true);
         drawBorders.SetActive(true);
         mannequin.SetActive(false);
+        rotationModel.SetActive(false);
 
         drawingManager.Init();
     }
@@ -75,6 +78,7 @@ public class GameManager : MonoBehaviour
 
         mainCamera.orthographicSize = 10;
         mainCamera.transform.position = Vector3.zero;
+        rotationModel.SetActive(true);
         uiAnimate.GetComponent<AnimationManager>().Init();
         mannequin.SetActive(true);
         mannequin.GetComponent<Mannequin>().CallRemove();
@@ -96,6 +100,7 @@ public class GameManager : MonoBehaviour
         transparencyBackground.SetActive(false);
         drawBorders.SetActive(false);
         mannequin.SetActive(false);
+        rotationModel.SetActive(false);
     }
 
     public void ChangeToSave()
@@ -110,5 +115,6 @@ public class GameManager : MonoBehaviour
         transparencyBackground.SetActive(false);
         drawBorders.SetActive(false);
         mannequin.SetActive(false);
+        rotationModel.SetActive(false);
     }
 }
