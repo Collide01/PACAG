@@ -1371,8 +1371,10 @@ public class PixelData : MonoBehaviour
     public Color GetColor()
     {
         JointData parentJoint = transform.parent.GetComponent<JointData>();
-        GridViews currentDirection = parentJoint.GetFaceToward();
-        switch (currentDirection)
+        GridViews firstDirection = parentJoint.GetFaceToward()[0];
+        GridViews secondDirection = parentJoint.GetFaceToward()[1];
+        GridViews thirdDirection = parentJoint.GetFaceToward()[2];
+        switch (firstDirection)
         {
             case GridViews.Front:
                 currentColor = pixelColorFront;

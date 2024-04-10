@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.Tilemaps;
@@ -51,9 +51,9 @@ public class JointData : MonoBehaviour
     }
 
     /// <summary>
-    /// Get the face of the pixel cube that's facing towards the camera
+    /// Get a list of the 3 closest faces towards the camera
     /// </summary>
-    public GridViews GetFaceToward()
+    public List<GridViews> GetFaceToward()
     {
         var toObserver = transform.InverseTransformPoint(Vector3.zero);
 
@@ -62,6 +62,8 @@ public class JointData : MonoBehaviour
                           Mathf.Abs(toObserver.y),
                           Mathf.Abs(toObserver.z)
                        );
+
+        List<GridViews> closestViews = new List<GridViews>();
 
         switch (modelJoint)
         {
@@ -83,25 +85,49 @@ public class JointData : MonoBehaviour
             case BodyPart.LeftPinky1:
             case BodyPart.LeftPinky2:
             case BodyPart.LeftPinky3:
-                if (absolute.x >= absolute.y)
+                if (absolute.x >= absolute.y && absolute.x >= absolute.z)
                 {
-                    if (absolute.x >= absolute.z)
+                    closestViews.Add(toObserver.x > 0 ? GridViews.Front : GridViews.Back);
+                    if (absolute.y >= absolute.z)
                     {
-                        return toObserver.x > 0 ? GridViews.Front : GridViews.Back;
+                        closestViews.Add(toObserver.y > 0 ? GridViews.Left : GridViews.Right);
+                        closestViews.Add(toObserver.z > 0 ? GridViews.Bottom : GridViews.Top);
                     }
                     else
                     {
-                        return toObserver.z > 0 ? GridViews.Bottom : GridViews.Top;
+                        closestViews.Add(toObserver.z > 0 ? GridViews.Bottom : GridViews.Top);
+                        closestViews.Add(toObserver.y > 0 ? GridViews.Left : GridViews.Right);
                     }
                 }
-                else if (absolute.y >= absolute.z)
+                else if (absolute.y > absolute.x && absolute.y >= absolute.z)
                 {
-                    return toObserver.y > 0 ? GridViews.Left: GridViews.Right;
+                    closestViews.Add(toObserver.y > 0 ? GridViews.Left : GridViews.Right);
+                    if (absolute.x >= absolute.z)
+                    {
+                        closestViews.Add(toObserver.x > 0 ? GridViews.Front : GridViews.Back);
+                        closestViews.Add(toObserver.z > 0 ? GridViews.Bottom : GridViews.Top);
+                    }
+                    else
+                    {
+                        closestViews.Add(toObserver.z > 0 ? GridViews.Bottom : GridViews.Top);
+                        closestViews.Add(toObserver.x > 0 ? GridViews.Front : GridViews.Back);
+                    }
                 }
                 else
                 {
-                    return toObserver.z > 0 ? GridViews.Bottom : GridViews.Top;
+                    closestViews.Add(toObserver.z > 0 ? GridViews.Bottom : GridViews.Top);
+                    if (absolute.x >= absolute.y)
+                    {
+                        closestViews.Add(toObserver.x > 0 ? GridViews.Front : GridViews.Back);
+                        closestViews.Add(toObserver.y > 0 ? GridViews.Left : GridViews.Right);
+                    }
+                    else
+                    {
+                        closestViews.Add(toObserver.y > 0 ? GridViews.Left : GridViews.Right);
+                        closestViews.Add(toObserver.x > 0 ? GridViews.Front : GridViews.Back);
+                    }
                 }
+                break;
             case BodyPart.RightArm:
             case BodyPart.RightForearm:
             case BodyPart.RightHand:
@@ -120,29 +146,95 @@ public class JointData : MonoBehaviour
             case BodyPart.RightPinky1:
             case BodyPart.RightPinky2:
             case BodyPart.RightPinky3:
-                if (absolute.x >= absolute.y)
+                if (absolute.x >= absolute.y && absolute.x >= absolute.z)
                 {
-                    if (absolute.x >= absolute.z)
+                    closestViews.Add(toObserver.x > 0 ? GridViews.Back : GridViews.Front);
+                    if (absolute.y >= absolute.z)
                     {
-                        return toObserver.x > 0 ? GridViews.Back : GridViews.Front;
+                        closestViews.Add(toObserver.y > 0 ? GridViews.Right : GridViews.Left);
+                        closestViews.Add(toObserver.z > 0 ? GridViews.Bottom : GridViews.Top);
                     }
                     else
                     {
-                        return toObserver.z > 0 ? GridViews.Bottom : GridViews.Top;
+                        closestViews.Add(toObserver.z > 0 ? GridViews.Bottom : GridViews.Top);
+                        closestViews.Add(toObserver.y > 0 ? GridViews.Right : GridViews.Left);
                     }
                 }
-                else if (absolute.y >= absolute.z)
+                else if (absolute.y > absolute.x && absolute.y >= absolute.z)
                 {
-                    return toObserver.y > 0 ? GridViews.Right : GridViews.Left;
+                    closestViews.Add(toObserver.y > 0 ? GridViews.Right : GridViews.Left);
+                    if (absolute.x >= absolute.z)
+                    {
+                        closestViews.Add(toObserver.x > 0 ? GridViews.Back : GridViews.Front);
+                        closestViews.Add(toObserver.z > 0 ? GridViews.Bottom : GridViews.Top);
+                    }
+                    else
+                    {
+                        closestViews.Add(toObserver.z > 0 ? GridViews.Bottom : GridViews.Top);
+                        closestViews.Add(toObserver.x > 0 ? GridViews.Back : GridViews.Front);
+                    }
                 }
                 else
                 {
-                    return toObserver.z > 0 ? GridViews.Bottom : GridViews.Top;
+                    closestViews.Add(toObserver.z > 0 ? GridViews.Bottom : GridViews.Top);
+                    if (absolute.x >= absolute.y)
+                    {
+                        closestViews.Add(toObserver.x > 0 ? GridViews.Back : GridViews.Front);
+                        closestViews.Add(toObserver.y > 0 ? GridViews.Right : GridViews.Left);
+                    }
+                    else
+                    {
+                        closestViews.Add(toObserver.y > 0 ? GridViews.Right : GridViews.Left);
+                        closestViews.Add(toObserver.x > 0 ? GridViews.Back : GridViews.Front);
+                    }
                 }
+                break;
             case BodyPart.LeftUpLeg:
             case BodyPart.LeftLeg:
             case BodyPart.RightUpLeg:
             case BodyPart.RightLeg:
+                if (absolute.x >= absolute.y && absolute.x >= absolute.z)
+                {
+                    closestViews.Add(toObserver.x > 0 ? GridViews.Left : GridViews.Right);
+                    if (absolute.y >= absolute.z)
+                    {
+                        closestViews.Add(toObserver.y > 0 ? GridViews.Bottom : GridViews.Top);
+                        closestViews.Add(toObserver.z > 0 ? GridViews.Front : GridViews.Back);
+                    }
+                    else
+                    {
+                        closestViews.Add(toObserver.z > 0 ? GridViews.Front : GridViews.Back);
+                        closestViews.Add(toObserver.y > 0 ? GridViews.Bottom : GridViews.Top);
+                    }
+                }
+                else if (absolute.y > absolute.x && absolute.y >= absolute.z)
+                {
+                    closestViews.Add(toObserver.y > 0 ? GridViews.Bottom : GridViews.Top);
+                    if (absolute.x >= absolute.z)
+                    {
+                        closestViews.Add(toObserver.x > 0 ? GridViews.Left : GridViews.Right);
+                        closestViews.Add(toObserver.z > 0 ? GridViews.Front : GridViews.Back);
+                    }
+                    else
+                    {
+                        closestViews.Add(toObserver.z > 0 ? GridViews.Front : GridViews.Back);
+                        closestViews.Add(toObserver.x > 0 ? GridViews.Left : GridViews.Right);
+                    }
+                }
+                else
+                {
+                    closestViews.Add(toObserver.z > 0 ? GridViews.Front : GridViews.Back);
+                    if (absolute.x >= absolute.y)
+                    {
+                        closestViews.Add(toObserver.x > 0 ? GridViews.Left : GridViews.Right);
+                        closestViews.Add(toObserver.y > 0 ? GridViews.Bottom : GridViews.Top);
+                    }
+                    else
+                    {
+                        closestViews.Add(toObserver.y > 0 ? GridViews.Bottom : GridViews.Top);
+                        closestViews.Add(toObserver.x > 0 ? GridViews.Left : GridViews.Right);
+                    }
+                }/*
                 if (absolute.x >= absolute.y)
                 {
                     if (absolute.x >= absolute.z)
@@ -161,12 +253,55 @@ public class JointData : MonoBehaviour
                 else
                 {
                     return toObserver.z > 0 ? GridViews.Front : GridViews.Back;
-                }
+                }*/
+                break;
             case BodyPart.LeftFoot:
             case BodyPart.LeftToeBase:
             case BodyPart.RightFoot:
             case BodyPart.RightToeBase:
-                if (absolute.x >= absolute.y)
+                if (absolute.x >= absolute.y && absolute.x >= absolute.z)
+                {
+                    closestViews.Add(toObserver.x > 0 ? GridViews.Left : GridViews.Right);
+                    if (absolute.y >= absolute.z)
+                    {
+                        closestViews.Add(toObserver.y > 0 ? GridViews.Front : GridViews.Back);
+                        closestViews.Add(toObserver.z > 0 ? GridViews.Top : GridViews.Bottom);
+                    }
+                    else
+                    {
+                        closestViews.Add(toObserver.z > 0 ? GridViews.Top : GridViews.Bottom);
+                        closestViews.Add(toObserver.y > 0 ? GridViews.Front : GridViews.Back);
+                    }
+                }
+                else if (absolute.y > absolute.x && absolute.y >= absolute.z)
+                {
+                    closestViews.Add(toObserver.y > 0 ? GridViews.Front : GridViews.Back);
+                    if (absolute.x >= absolute.z)
+                    {
+                        closestViews.Add(toObserver.x > 0 ? GridViews.Left : GridViews.Right);
+                        closestViews.Add(toObserver.z > 0 ? GridViews.Top : GridViews.Bottom);
+                    }
+                    else
+                    {
+                        closestViews.Add(toObserver.z > 0 ? GridViews.Top : GridViews.Bottom);
+                        closestViews.Add(toObserver.x > 0 ? GridViews.Left : GridViews.Right);
+                    }
+                }
+                else
+                {
+                    closestViews.Add(toObserver.z > 0 ? GridViews.Top : GridViews.Bottom);
+                    if (absolute.x >= absolute.y)
+                    {
+                        closestViews.Add(toObserver.x > 0 ? GridViews.Left : GridViews.Right);
+                        closestViews.Add(toObserver.y > 0 ? GridViews.Front : GridViews.Back);
+                    }
+                    else
+                    {
+                        closestViews.Add(toObserver.y > 0 ? GridViews.Front : GridViews.Back);
+                        closestViews.Add(toObserver.x > 0 ? GridViews.Left : GridViews.Right);
+                    }
+                }
+                /*if (absolute.x >= absolute.y)
                 {
                     if (absolute.x >= absolute.z)
                     {
@@ -184,9 +319,52 @@ public class JointData : MonoBehaviour
                 else
                 {
                     return toObserver.z > 0 ? GridViews.Top : GridViews.Bottom;
-                }
+                }*/
+                break;
             default:
-                if (absolute.x >= absolute.y)
+                if (absolute.x >= absolute.y && absolute.x >= absolute.z)
+                {
+                    closestViews.Add(toObserver.x > 0 ? GridViews.Right : GridViews.Left);
+                    if (absolute.y >= absolute.z)
+                    {
+                        closestViews.Add(toObserver.y > 0 ? GridViews.Top : GridViews.Bottom);
+                        closestViews.Add(toObserver.z > 0 ? GridViews.Front : GridViews.Back);
+                    }
+                    else
+                    {
+                        closestViews.Add(toObserver.z > 0 ? GridViews.Front : GridViews.Back);
+                        closestViews.Add(toObserver.y > 0 ? GridViews.Top : GridViews.Bottom);
+                    }
+                }
+                else if (absolute.y > absolute.x && absolute.y >= absolute.z)
+                {
+                    closestViews.Add(toObserver.y > 0 ? GridViews.Top : GridViews.Bottom);
+                    if (absolute.x >= absolute.z)
+                    {
+                        closestViews.Add(toObserver.x > 0 ? GridViews.Right : GridViews.Left);
+                        closestViews.Add(toObserver.z > 0 ? GridViews.Front : GridViews.Back);
+                    }
+                    else
+                    {
+                        closestViews.Add(toObserver.z > 0 ? GridViews.Front : GridViews.Back);
+                        closestViews.Add(toObserver.x > 0 ? GridViews.Right : GridViews.Left);
+                    }
+                }
+                else
+                {
+                    closestViews.Add(toObserver.z > 0 ? GridViews.Front : GridViews.Back);
+                    if (absolute.x >= absolute.y)
+                    {
+                        closestViews.Add(toObserver.x > 0 ? GridViews.Right : GridViews.Left);
+                        closestViews.Add(toObserver.y > 0 ? GridViews.Top : GridViews.Bottom);
+                    }
+                    else
+                    {
+                        closestViews.Add(toObserver.y > 0 ? GridViews.Top : GridViews.Bottom);
+                        closestViews.Add(toObserver.x > 0 ? GridViews.Right : GridViews.Left);
+                    }
+                }
+                /*if (absolute.x >= absolute.y)
                 {
                     if (absolute.x >= absolute.z)
                     {
@@ -204,7 +382,9 @@ public class JointData : MonoBehaviour
                 else
                 {
                     return toObserver.z > 0 ? GridViews.Front : GridViews.Back;
-                }
+                }*/
+                break;
         }
+        return closestViews;
     }
 }
