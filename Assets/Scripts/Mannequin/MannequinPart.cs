@@ -617,6 +617,8 @@ public class MannequinPart : MonoBehaviour
                     pixelInstance.transform.localPosition = new Vector3(currentXPosition, y * pixelSize, currentZPosition);
                     pixelInstance.GetComponent<PixelData>().pixelPosition = new Vector3Int(xCoordinate, y, zCoordinate);
 
+                    gameObject.GetComponent<JointData>().pixels.Add(pixelInstance.GetComponent<PixelData>());
+
                     if (zCoordinate == 0)
                     {
                         zCoordinate = 1;
@@ -646,6 +648,7 @@ public class MannequinPart : MonoBehaviour
                 }
             }
         }
+        gameObject.GetComponent<JointData>().SetAdjacentBoxes();
     }
 
     // Creates a joint for the pixel body

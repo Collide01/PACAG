@@ -13,6 +13,14 @@ public class PixelData : MonoBehaviour
     private Color currentColor;
     public Vector3Int pixelPosition;
 
+    // Gets the adjacent pixels on ewach side of this pixel
+    public PixelData frontPixelData;
+    public PixelData backPixelData;
+    public PixelData leftPixelData;
+    public PixelData rightPixelData;
+    public PixelData topPixelData;
+    public PixelData bottomPixelData;
+
     private void Start()
     {
         CharacterSettings characterSettings = GameObject.FindGameObjectWithTag("CharacterSettings").GetComponent<CharacterSettings>();
