@@ -1382,27 +1382,166 @@ public class PixelData : MonoBehaviour
         GridViews firstDirection = parentJoint.GetFaceToward()[0];
         GridViews secondDirection = parentJoint.GetFaceToward()[1];
         GridViews thirdDirection = parentJoint.GetFaceToward()[2];
+
+        // This variable tracks whether the pixel's color will be the first, second, or third one
+        int directionLevel = 1;
+
         switch (firstDirection)
         {
             case GridViews.Front:
-                currentColor = pixelColorFront;
+                if (frontPixelData != null && frontPixelData.pixelColorFront.a != 0)
+                {
+                    directionLevel = 2;
+                }
+                else
+                {
+                    currentColor = pixelColorFront;
+                }
                 break;
             case GridViews.Back:
-                currentColor = pixelColorBack;
+                if (backPixelData != null && backPixelData.pixelColorBack.a != 0)
+                {
+                    directionLevel = 2;
+                }
+                else
+                {
+                    currentColor = pixelColorBack;
+                }
                 break;
             case GridViews.Left:
-                currentColor = pixelColorLeft;
+                if (leftPixelData != null && leftPixelData.pixelColorLeft.a != 0)
+                {
+                    directionLevel = 2;
+                }
+                else
+                {
+                    currentColor = pixelColorLeft;
+                }
                 break;
             case GridViews.Right:
-                currentColor = pixelColorRight;
+                if (rightPixelData != null && rightPixelData.pixelColorRight.a != 0)
+                {
+                    directionLevel = 2;
+                }
+                else
+                {
+                    currentColor = pixelColorRight;
+                }
                 break;
             case GridViews.Top:
-                currentColor = pixelColorTop;
+                if (topPixelData != null && topPixelData.pixelColorTop.a != 0)
+                {
+                    directionLevel = 2;
+                }
+                else
+                {
+                    currentColor = pixelColorTop;
+                }
                 break;
             case GridViews.Bottom:
-                currentColor = pixelColorBottom;
+                if (bottomPixelData != null && bottomPixelData.pixelColorBottom.a != 0)
+                {
+                    directionLevel = 2;
+                }
+                else
+                {
+                    currentColor = pixelColorBottom;
+                }
                 break;
         }
+
+        if (directionLevel == 2)
+        {
+            switch (secondDirection)
+            {
+                case GridViews.Front:
+                    if (frontPixelData != null && frontPixelData.pixelColorFront.a != 0)
+                    {
+                        directionLevel = 3;
+                    }
+                    else
+                    {
+                        currentColor = pixelColorFront;
+                    }
+                    break;
+                case GridViews.Back:
+                    if (backPixelData != null && backPixelData.pixelColorBack.a != 0)
+                    {
+                        directionLevel = 3;
+                    }
+                    else
+                    {
+                        currentColor = pixelColorBack;
+                    }
+                    break;
+                case GridViews.Left:
+                    if (leftPixelData != null && leftPixelData.pixelColorLeft.a != 0)
+                    {
+                        directionLevel = 3;
+                    }
+                    else
+                    {
+                        currentColor = pixelColorLeft;
+                    }
+                    break;
+                case GridViews.Right:
+                    if (rightPixelData != null && rightPixelData.pixelColorRight.a != 0)
+                    {
+                        directionLevel = 3;
+                    }
+                    else
+                    {
+                        currentColor = pixelColorRight;
+                    }
+                    break;
+                case GridViews.Top:
+                    if (topPixelData != null && topPixelData.pixelColorTop.a != 0)
+                    {
+                        directionLevel = 3;
+                    }
+                    else
+                    {
+                        currentColor = pixelColorTop;
+                    }
+                    break;
+                case GridViews.Bottom:
+                    if (bottomPixelData != null && bottomPixelData.pixelColorBottom.a != 0)
+                    {
+                        directionLevel = 3;
+                    }
+                    else
+                    {
+                        currentColor = pixelColorBottom;
+                    }
+                    break;
+            }
+        }
+
+        if (directionLevel == 3)
+        {
+            switch (thirdDirection)
+            {
+                case GridViews.Front:
+                    currentColor = pixelColorFront;
+                    break;
+                case GridViews.Back:
+                    currentColor = pixelColorBack;
+                    break;
+                case GridViews.Left:
+                    currentColor = pixelColorLeft;
+                    break;
+                case GridViews.Right:
+                    currentColor = pixelColorRight;
+                    break;
+                case GridViews.Top:
+                    currentColor = pixelColorTop;
+                    break;
+                case GridViews.Bottom:
+                    currentColor = pixelColorBottom;
+                    break;
+            }
+        }
+
         return currentColor;
     }
 }
