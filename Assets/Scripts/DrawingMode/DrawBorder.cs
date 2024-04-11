@@ -18,6 +18,42 @@ public class DrawBorder : MonoBehaviour
     public void ChangeColliderSize()
     {
         GetComponent<BoxCollider2D>().size = GetComponent<SpriteRenderer>().size;
+        gameObject.transform.GetChild(0).gameObject.transform.localScale = GetComponent<SpriteRenderer>().size;
+
+        // Also change the sorting order for the sprite renderer and sprite mask
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        SpriteMask spriteMask = gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteMask>();
+        switch (gameObject.transform.position.z)
+        {
+            case 102.7f:
+                spriteRenderer.sortingOrder = 0;
+                spriteMask.backSortingOrder = 0;
+                break;
+            case 102.8f:
+                spriteRenderer.sortingOrder = 1;
+                spriteMask.backSortingOrder = 1;
+                break;
+            case 102.9f:
+                spriteRenderer.sortingOrder = 2;
+                spriteMask.backSortingOrder = 2;
+                break;
+            case 103f:
+                spriteRenderer.sortingOrder = 3;
+                spriteMask.backSortingOrder = 3;
+                break;
+            case 103.1f:
+                spriteRenderer.sortingOrder = 4;
+                spriteMask.backSortingOrder = 4;
+                break;
+            case 103.2f:
+                spriteRenderer.sortingOrder = 5;
+                spriteMask.backSortingOrder = 5;
+                break;
+            case 103.3f:
+                spriteRenderer.sortingOrder = 6;
+                spriteMask.backSortingOrder = 6;
+                break;
+        }
     }
 
     private void OnMouseOver()

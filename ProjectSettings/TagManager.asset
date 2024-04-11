@@ -47,6 +47,9 @@ TagManager:
   - name: TransparencyBackground
     uniqueID: 3196056499
     locked: 0
+  - name: DrawBorders
+    uniqueID: 1725635551
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
