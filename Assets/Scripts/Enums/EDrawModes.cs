@@ -5,5 +5,6 @@ using UnityEngine;
 public enum DrawModes
 {
     Draw,
-    Erase
+    Erase,
+    Fill
 }

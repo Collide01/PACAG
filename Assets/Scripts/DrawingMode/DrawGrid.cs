@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class DrawGrid : MonoBehaviour
 {
+    private CharacterSettings characterSettings;
     [SerializeField] private DrawingManager drawingManager;
     public Tilemap headTilemap;
     public Tilemap torsoTilemap;
@@ -31,7 +32,7 @@ public class DrawGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        characterSettings = GameObject.FindGameObjectWithTag("CharacterSettings").GetComponent<CharacterSettings>();
     }
 
     // Update is called once per frame
@@ -71,7 +72,42 @@ public class DrawGrid : MonoBehaviour
             {
                 // Erase the tile
                 drawingManager.currentTilemap.SetTile(position, null);
+                drawingManager.currentTilemap.CompressBounds();
+            }
+            else if (drawingManager.currentMode == DrawModes.Fill)
+            {
+                // Fill the highlighted part of the body
+                Fill(drawingManager.currentTilemap);
             }
         }
+    }
+
+    private void Fill(Tilemap currentTilemap)
+    {
+        //int minX = characterSettings
+    }
+
+    public void CleanAllTilemaps()
+    {
+        drawingManager.CleanTilemap(ref headTilemap, characterSettings.headSize);
+        drawingManager.CleanTilemap(ref torsoTilemap, characterSettings.torsoSize);
+        drawingManager.CleanTilemap(ref leftArmTilemap, characterSettings.leftArmSize);
+        drawingManager.CleanTilemap(ref leftHandTilemap, characterSettings.leftHandSize);
+        drawingManager.CleanTilemap(ref leftThumbTilemap, characterSettings.leftThumbSize);
+        drawingManager.CleanTilemap(ref leftIndexTilemap, characterSettings.leftIndexSize);
+        drawingManager.CleanTilemap(ref leftMiddleTilemap, characterSettings.leftMiddleSize);
+        drawingManager.CleanTilemap(ref leftRingTilemap, characterSettings.leftRingSize);
+        drawingManager.CleanTilemap(ref leftPinkyTilemap, characterSettings.leftPinkySize);
+        drawingManager.CleanTilemap(ref rightArmTilemap, characterSettings.rightArmSize);
+        drawingManager.CleanTilemap(ref rightHandTilemap, characterSettings.rightHandSize);
+        drawingManager.CleanTilemap(ref rightThumbTilemap, characterSettings.rightThumbSize);
+        drawingManager.CleanTilemap(ref rightIndexTilemap, characterSettings.rightIndexSize);
+        drawingManager.CleanTilemap(ref rightMiddleTilemap, characterSettings.rightMiddleSize);
+        drawingManager.CleanTilemap(ref rightRingTilemap, characterSettings.rightRingSize);
+        drawingManager.CleanTilemap(ref rightPinkyTilemap, characterSettings.rightPinkySize);
+        drawingManager.CleanTilemap(ref leftLegTilemap, characterSettings.leftLegSize);
+        drawingManager.CleanTilemap(ref leftFootTilemap, characterSettings.leftFootSize);
+        drawingManager.CleanTilemap(ref rightLegTilemap, characterSettings.rightLegSize);
+        drawingManager.CleanTilemap(ref rightFootTilemap, characterSettings.rightFootSize);
     }
 }
