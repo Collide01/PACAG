@@ -84,7 +84,7 @@ public class DrawGrid : MonoBehaviour
 
     private void Fill(Tilemap currentTilemap)
     {
-        //int minX = characterSettings
+        
     }
 
     public void CleanAllTilemaps()

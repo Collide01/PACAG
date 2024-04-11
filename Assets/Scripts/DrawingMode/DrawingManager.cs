@@ -642,7 +642,7 @@ public class DrawingManager : MonoBehaviour
                 if (characterSettings.rightFootSize.z % 2 != 0) frontGrid.GetComponent<DrawGrid>().rightFootTilemap.gameObject.transform.position = new Vector3(rightFootBorder.transform.position.x + rightFootOffset - 1, rightFootBorder.transform.position.y - 0.5f, transform.position.z);
                 else frontGrid.GetComponent<DrawGrid>().rightFootTilemap.gameObject.transform.position = new Vector3(rightFootBorder.transform.position.x + rightFootOffset - 1, rightFootBorder.transform.position.y - 1, transform.position.z);
 
-                frontGrid.GetComponent<DrawGrid>().CleanAllTilemaps();
+                //frontGrid.GetComponent<DrawGrid>().CleanAllTilemaps();
                 break;
             case GridViews.Back:
                 if (characterSettings.torsoSize.x % 2 == 1) // Odd
@@ -821,7 +821,7 @@ public class DrawingManager : MonoBehaviour
                 if (characterSettings.rightFootSize.z % 2 != 0) backGrid.GetComponent<DrawGrid>().rightFootTilemap.gameObject.transform.position = new Vector3(rightFootBorder.transform.position.x - rightFootOffset + 1, rightFootBorder.transform.position.y - 0.5f, transform.position.z);
                 else backGrid.GetComponent<DrawGrid>().rightFootTilemap.gameObject.transform.position = new Vector3(rightFootBorder.transform.position.x - rightFootOffset + 1, rightFootBorder.transform.position.y - 1, transform.position.z);
 
-                backGrid.GetComponent<DrawGrid>().CleanAllTilemaps();
+                //backGrid.GetComponent<DrawGrid>().CleanAllTilemaps();
                 break;
             case GridViews.Left:
                 if (characterSettings.torsoSize.z % 2 == 1) // Odd
@@ -1087,7 +1087,7 @@ public class DrawingManager : MonoBehaviour
                 if (characterSettings.rightFootSize.z % 2 != 0) leftGrid.GetComponent<DrawGrid>().rightFootTilemap.gameObject.transform.position = new Vector3(rightFootBorder.transform.position.x + rightFootBorder.size.x / 2.0f, rightFootBorder.transform.position.y - 0.5f, transform.position.z);
                 else leftGrid.GetComponent<DrawGrid>().rightFootTilemap.gameObject.transform.position = new Vector3(rightFootBorder.transform.position.x + rightFootBorder.size.x / 2.0f, rightFootBorder.transform.position.y - 1, transform.position.z);
 
-                leftGrid.GetComponent<DrawGrid>().CleanAllTilemaps();
+                //leftGrid.GetComponent<DrawGrid>().CleanAllTilemaps();
                 break;
             case GridViews.Right:
                 if (characterSettings.torsoSize.z % 2 == 1) // Odd
@@ -1353,7 +1353,7 @@ public class DrawingManager : MonoBehaviour
                 if (characterSettings.rightFootSize.z % 2 != 0) rightGrid.GetComponent<DrawGrid>().rightFootTilemap.gameObject.transform.position = new Vector3(rightFootBorder.transform.position.x - rightFootBorder.size.x / 2.0f, rightFootBorder.transform.position.y - 0.5f, transform.position.z);
                 else rightGrid.GetComponent<DrawGrid>().rightFootTilemap.gameObject.transform.position = new Vector3(rightFootBorder.transform.position.x - rightFootBorder.size.x / 2.0f, rightFootBorder.transform.position.y - 1, transform.position.z);
 
-                rightGrid.GetComponent<DrawGrid>().CleanAllTilemaps();
+                //rightGrid.GetComponent<DrawGrid>().CleanAllTilemaps();
                 break;
             case GridViews.Top:
                 if (characterSettings.torsoSize.x % 2 == 1) // Odd
@@ -1520,7 +1520,7 @@ public class DrawingManager : MonoBehaviour
                 if (characterSettings.rightFootSize.x % 2 != 0) topGrid.GetComponent<DrawGrid>().rightFootTilemap.gameObject.transform.position = new Vector3(rightFootBorder.transform.position.x - 0.5f, rightFootBorder.transform.position.y + rightFootBorder.size.y / 2.0f, transform.position.z);
                 else topGrid.GetComponent<DrawGrid>().rightFootTilemap.gameObject.transform.position = new Vector3(rightFootBorder.transform.position.x - 1, rightFootBorder.transform.position.y + rightFootBorder.size.y / 2.0f, transform.position.z);
 
-                topGrid.GetComponent<DrawGrid>().CleanAllTilemaps();
+                //topGrid.GetComponent<DrawGrid>().CleanAllTilemaps();
                 break;
             case GridViews.Bottom:
                 if (characterSettings.torsoSize.x % 2 == 1) // Odd
@@ -1687,7 +1687,7 @@ public class DrawingManager : MonoBehaviour
                 if (characterSettings.rightFootSize.x % 2 != 0) bottomGrid.GetComponent<DrawGrid>().rightFootTilemap.gameObject.transform.position = new Vector3(rightFootBorder.transform.position.x - 0.5f, rightFootBorder.transform.position.y - rightFootBorder.size.y / 2.0f, transform.position.z);
                 else bottomGrid.GetComponent<DrawGrid>().rightFootTilemap.gameObject.transform.position = new Vector3(rightFootBorder.transform.position.x - 1, rightFootBorder.transform.position.y - rightFootBorder.size.y / 2.0f, transform.position.z);
 
-                bottomGrid.GetComponent<DrawGrid>().CleanAllTilemaps();
+                //bottomGrid.GetComponent<DrawGrid>().CleanAllTilemaps();
                 break;
         }
         headBorder.gameObject.GetComponent<DrawBorder>().ChangeColliderSize();
@@ -1730,7 +1730,6 @@ public class DrawingManager : MonoBehaviour
                     TileBase tile = tilemap.GetTile(new Vector3Int(x, y, z));
                     if (tile != null)
                     {
-                        Debug.Log(new Vector3Int(x, y, z) + ", " + bodyPartSize + ", " + -Mathf.Ceil(bodyPartSize.z / 2.0f - 1.0f));
                         if (x > Mathf.Floor(bodyPartSize.x / 2.0f) || x < -Mathf.Ceil(bodyPartSize.x / 2.0f - 1.0f) ||
                             y > bodyPartSize.y - 1 || y < 0 ||
                             z > Mathf.Floor(bodyPartSize.z / 2.0f) || z < -Mathf.Ceil(bodyPartSize.z / 2.0f - 1.0f))
