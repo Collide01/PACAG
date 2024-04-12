@@ -28,6 +28,7 @@ public class AnimationManager : MonoBehaviour
     public Slider rotationZ;
     public GameObject rotationModel;
     public GameObject mannequinContainer; // Rotates along with the rotation model
+    public GameObject loadingSymbol;
     public TMP_InputField frameRateInput;
     public Button resetToDefaultButton;
     public Button updateButton;
@@ -48,6 +49,8 @@ public class AnimationManager : MonoBehaviour
 
     public void Init()
     {
+        loadingSymbol.SetActive(false);
+
         int numberOfAnimations = mannequinAnimator.runtimeAnimatorController.animationClips.Length;
         
         // Fills the scroll list of all available animations
@@ -92,11 +95,13 @@ public class AnimationManager : MonoBehaviour
         {
             if (pixelation.animationFrames.Count > 0 && pixelation.animationSet)
             {
+                loadingSymbol.SetActive(false);
                 editButton.interactable = true;
                 exportButton.interactable = true;
             }
             else
             {
+                if (pixelation.animationFrames.Count > 0) loadingSymbol.SetActive(true);
                 editButton.interactable = false;
                 exportButton.interactable = false;
             }
@@ -108,7 +113,6 @@ public class AnimationManager : MonoBehaviour
     public void OnRotationChanged()
     {
         rotationModel.transform.rotation = Quaternion.Euler(rotationX.value, rotationY.value, rotationZ.value);
-        mannequinContainer.transform.rotation = Quaternion.Euler(rotationX.value, rotationY.value, rotationZ.value);
     }
 
     public void OnFrameRateChanged()
