@@ -22,6 +22,10 @@ public class AnimationManager : MonoBehaviour
     private float prevRotationZ;
     private int prevFrameRate;
 
+    // These are used to find the max size of the sprite and the coordinates of the pixels on the tilemap
+    private int maxSpriteSizeX;
+    private int maxSpriteSizeY;
+
     [Header("UI Elements")]
     public Slider rotationX;
     public Slider rotationY;
@@ -34,6 +38,7 @@ public class AnimationManager : MonoBehaviour
     public Button updateButton;
     public Button editButton;
     public Button exportButton;
+    public TMP_Text infoText;
 
     [Header("Animation List")]
     public GameObject animationButton; // Selectable animation in scroll view
@@ -67,6 +72,8 @@ public class AnimationManager : MonoBehaviour
             animationButtonInstance.GetComponent<Button>().onClick.AddListener(delegate { animationButtonInstance.GetComponent<AnimationButton>().SetAnimation(); });
         }
 
+        infoText.text = "Select an animation.";
+
         // Resets all values to their defaults
         rotationX.value = 0;
         rotationY.value = 0;
@@ -98,12 +105,56 @@ public class AnimationManager : MonoBehaviour
                 loadingSymbol.SetActive(false);
                 editButton.interactable = true;
                 exportButton.interactable = true;
+
+                if (maxSpriteSizeX == 0 && maxSpriteSizeY == 0)
+                {
+                    int minX = 0, minY = 0, maxX = 0, maxY = 0;
+                    // Loops through all of the tile positions for every sprite to find the maximum possible size for each sprite.
+                    for (int i = 0; i < pixelation.cellPositions.Count; i++) // pixelation.cellPositions.Count represents the number of frames
+                    {
+                        // Loop through each cell to determine the max and min of the width and height of sprite
+                        for (int j = 0; j < pixelation.cellPositions[i].Count; j++)
+                        {
+                            if (pixelation.cellPositions[i][j].x < minX)
+                            {
+                                minX = pixelation.cellPositions[i][j].x;
+                            }
+                            if (pixelation.cellPositions[i][j].x > maxX)
+                            {
+                                maxX = pixelation.cellPositions[i][j].x;
+                            }
+                            if (pixelation.cellPositions[i][j].y < minY)
+                            {
+                                minY = pixelation.cellPositions[i][j].y;
+                            }
+                            if (pixelation.cellPositions[i][j].y > maxY)
+                            {
+                                maxY = pixelation.cellPositions[i][j].y;
+                            }
+                        }
+
+                        // Checks to see if this is the biggest sprite so far
+                        if (maxX - minX > maxSpriteSizeX)
+                        {
+                            maxSpriteSizeX = maxX - minX;
+                        }
+                        if (maxY - minY > maxSpriteSizeY)
+                        {
+                            maxSpriteSizeY = maxY - minY;
+                        }
+                    }
+
+                    infoText.text = "Sprite Sheet Cell Size: " + maxSpriteSizeX + " x " + maxSpriteSizeY;
+                }
             }
             else
             {
                 if (pixelation.animationFrames.Count > 0) loadingSymbol.SetActive(true);
                 editButton.interactable = false;
                 exportButton.interactable = false;
+
+                maxSpriteSizeX = 0;
+                maxSpriteSizeY = 0;
             }
 
             yield return null;
