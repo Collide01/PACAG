@@ -11,12 +11,6 @@ public class AnimationButton : MonoBehaviour
     public Pixelation pixelation;
     public int clipIndex;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void SetAnimation()
     {
         AnimatorStateMachine asm = animatorController.layers[0].stateMachine;

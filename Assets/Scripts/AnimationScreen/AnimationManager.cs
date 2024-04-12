@@ -62,7 +62,7 @@ public class AnimationManager : MonoBehaviour
         for (int i = 0; i < numberOfAnimations; i++)
         {
             GameObject animationButtonInstance = Instantiate(animationButton, listContent.transform);
-            animationButtonInstance.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 185 - (i * 30));
+            animationButtonInstance.GetComponent<RectTransform>().anchoredPosition = new Vector2(-135, -10 - (i * 20));
             animationButtonInstance.GetComponentInChildren<TMP_Text>().text = mannequinAnimator.runtimeAnimatorController.animationClips[i].name;
             animationButtonInstance.GetComponent<AnimationButton>().animator = mannequinAnimator;
             animationButtonInstance.GetComponent<AnimationButton>().animatorController = animatorController;
