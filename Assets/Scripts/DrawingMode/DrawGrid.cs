@@ -311,7 +311,7 @@ public class DrawGrid : MonoBehaviour
 
     private void Fill(Tilemap currentTilemap, int minX, int maxX, int minY, int maxY, int minZ, int maxZ, Vector3Int position, TileBase selectedTile, Color oldColor)
     {
-        if (selectedTile != null)
+        if (selectedTile != null && oldColor != drawingManager.currentColor)
         {
             // Set the tile for color creation.
             drawingManager.currentTilemap.SetTile(position, tile);

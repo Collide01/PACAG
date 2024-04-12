@@ -37,6 +37,17 @@ public class Pixelation : MonoBehaviour
         StartCoroutine(handleSpriteData);
     }
 
+    public void StopAnimationProcess()
+    {
+        // Reset animation values
+        cellPositions.Clear();
+        cellColors.Clear();
+        pixelGrid.ClearAllTiles();
+        animationFrames.Clear();
+        animationSet = false;
+        currentFrame = 0;
+    }
+
     public void StartAnimationProcess()
     {
         // Reset animation values

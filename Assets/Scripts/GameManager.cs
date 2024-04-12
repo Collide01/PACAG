@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
         drawGrids.SetActive(true);
         transparencyBackground.SetActive(true);
         drawBorders.SetActive(true);
+        if (mannequin.activeSelf) mannequin.GetComponent<Mannequin>().CallRemove();
         mannequin.SetActive(false);
         rotationModel.SetActive(false);
 

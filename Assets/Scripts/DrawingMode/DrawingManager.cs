@@ -143,12 +143,8 @@ public class DrawingManager : MonoBehaviour
     // This sets the settings to their default state
     public void Init()
     {
-        frontGrid.SetActive(true);
-        backGrid.SetActive(false);
-        leftGrid.SetActive(false);
-        rightGrid.SetActive(false);
-        topGrid.SetActive(false);
-        bottomGrid.SetActive(false);
+        gridView.value = 0;
+        ChangeView();
 
         drawButton.interactable = false;
         eraseButton.interactable = true;
