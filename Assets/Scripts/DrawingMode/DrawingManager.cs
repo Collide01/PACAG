@@ -21,6 +21,7 @@ public class DrawingManager : MonoBehaviour
     [Header("Buttons")]
     public Button drawButton;
     public Button eraseButton;
+    public Button fillButton;
     public Button colorButton;
 
     [Header("Dimension Inputs")]
@@ -151,6 +152,7 @@ public class DrawingManager : MonoBehaviour
 
         drawButton.interactable = false;
         eraseButton.interactable = true;
+        fillButton.interactable = true;
         colorButton.interactable = true;
 
         headX.text = characterSettings.headSize.x.ToString();
@@ -245,12 +247,20 @@ public class DrawingManager : MonoBehaviour
             case 0:
                 drawButton.interactable = false;
                 eraseButton.interactable = true;
+                fillButton.interactable = true;
                 currentMode = DrawModes.Draw;
                 break;
             case 1:
                 drawButton.interactable = true;
                 eraseButton.interactable = false;
+                fillButton.interactable = true;
                 currentMode = DrawModes.Erase;
+                break;
+            case 2:
+                drawButton.interactable = true;
+                eraseButton.interactable = true;
+                fillButton.interactable = false;
+                currentMode = DrawModes.Fill;
                 break;
         }
     }
