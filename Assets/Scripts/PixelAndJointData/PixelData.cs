@@ -1374,6 +1374,11 @@ public class PixelData : MonoBehaviour
                 }
                 break;
         }
+
+        if (pixelColorFront.a == 0 || pixelColorBack.a == 0 || pixelColorLeft.a == 0 || pixelColorRight.a == 0 || pixelColorTop.a == 0 || pixelColorBottom.a == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public Color GetColor()
