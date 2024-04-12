@@ -22,7 +22,6 @@ public class DrawingManager : MonoBehaviour
     public Button drawButton;
     public Button eraseButton;
     public Button fillButton;
-    public Button colorButton;
 
     [Header("Dimension Inputs")]
     public TMP_InputField headX;
@@ -124,7 +123,6 @@ public class DrawingManager : MonoBehaviour
     public Camera mainCamera;
     public TMP_Dropdown gridView;
     public GameObject colorPicker;
-    public GameObject colorPickerBackground;
     [HideInInspector] public Color currentColor;
 
     [HideInInspector] public DrawModes currentMode;
@@ -149,7 +147,6 @@ public class DrawingManager : MonoBehaviour
         drawButton.interactable = false;
         eraseButton.interactable = true;
         fillButton.interactable = true;
-        colorButton.interactable = true;
 
         headX.text = characterSettings.headSize.x.ToString();
         headY.text = characterSettings.headSize.y.ToString();
@@ -225,11 +222,8 @@ public class DrawingManager : MonoBehaviour
 
         mainCamera.orthographicSize = 16;
         mainCamera.transform.position = Vector3.zero;
-        colorPicker.SetActive(false);
-        colorPickerBackground.SetActive(false);
         currentColor = Color.red;
         colorPicker.GetComponent<FlexibleColorPicker>().color = currentColor;
-        colorButton.GetComponent<Image>().color = currentColor;
         mouseInDrawField = true;
 
         currentMode = DrawModes.Draw;
@@ -261,25 +255,9 @@ public class DrawingManager : MonoBehaviour
         }
     }
 
-    public void OpenColorPicker()
-    {
-        colorPicker.SetActive(true);
-        colorPickerBackground.SetActive(true);
-        changingColors = true;
-    }
-
-    public void CloseColorPicker()
-    {
-        colorPicker.SetActive(false);
-        colorPickerBackground.SetActive(false);
-        changingColors = false;
-        ChangeColor();
-    }
-
     public void ChangeColor()
     {
         currentColor = colorPicker.GetComponent<FlexibleColorPicker>().color;
-        colorButton.GetComponent<Image>().color = currentColor;
     }
 
     public void ChangeView()
