@@ -6,5 +6,7 @@ public enum DrawModes
 {
     Draw,
     Erase,
-    Fill
+    Fill,
+    Picker,
+    Select
 }
