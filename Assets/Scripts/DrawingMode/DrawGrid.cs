@@ -41,7 +41,7 @@ public class DrawGrid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0) && !drawingManager.changingColors && drawingManager.mouseInDrawField && drawingManager.mouseInBorder)
+        if (Input.GetMouseButton(0) && drawingManager.mouseInDrawField && drawingManager.mouseInBorder)
         {
             Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int position = drawingManager.currentTilemap.WorldToCell(worldPoint);
@@ -82,7 +82,7 @@ public class DrawGrid : MonoBehaviour
                     drawingManager.currentTilemap.SetTile(position, null);
                     drawingManager.currentTilemap.CompressBounds();
                 }
-                else if (drawingManager.currentMode == DrawModes.Fill)
+                else if (drawingManager.currentMode == DrawModes.Fill && Input.GetMouseButtonDown(0))
                 {
                     // Fill the highlighted part of the body
                     int minX = 0;
@@ -300,6 +300,37 @@ public class DrawGrid : MonoBehaviour
                     }
 
                     Fill(drawingManager.currentTilemap, minX, maxX, minY, maxY, minZ, maxZ, position, selectedTile, oldColor);
+                }
+                else if (drawingManager.currentMode == DrawModes.Picker && Input.GetMouseButtonDown(0))
+                {
+                    if (drawingManager.currentTilemap.HasTile(position))
+                    {
+                        drawingManager.currentColor = drawingManager.currentTilemap.GetColor(position);
+                        drawingManager.colorPicker.GetComponent<FlexibleColorPicker>().color = drawingManager.currentColor;
+                    }
+                }
+                else if (drawingManager.currentMode == DrawModes.Select && Input.GetMouseButtonDown(0))
+                {
+                    if (drawingManager.currentTilemap == headTilemap) drawingManager.partScrollbar.value = 20.0f / 20.0f;
+                    else if (drawingManager.currentTilemap == torsoTilemap) drawingManager.partScrollbar.value = 18.8f / 20.0f;
+                    else if (drawingManager.currentTilemap == leftArmTilemap) drawingManager.partScrollbar.value = 17.7f / 20.0f;
+                    else if (drawingManager.currentTilemap == leftHandTilemap) drawingManager.partScrollbar.value = 16.6f / 20.0f;
+                    else if (drawingManager.currentTilemap == leftThumbTilemap) drawingManager.partScrollbar.value = 15.5f / 20.0f;
+                    else if (drawingManager.currentTilemap == leftIndexTilemap) drawingManager.partScrollbar.value = 14.4f / 20.0f;
+                    else if (drawingManager.currentTilemap == leftMiddleTilemap) drawingManager.partScrollbar.value = 13.3f / 20.0f;
+                    else if (drawingManager.currentTilemap == leftRingTilemap) drawingManager.partScrollbar.value = 12.2f / 20.0f;
+                    else if (drawingManager.currentTilemap == leftPinkyTilemap) drawingManager.partScrollbar.value = 11.1f / 20.0f;
+                    else if (drawingManager.currentTilemap == rightArmTilemap) drawingManager.partScrollbar.value = 10.0f / 20.0f;
+                    else if (drawingManager.currentTilemap == rightHandTilemap) drawingManager.partScrollbar.value = 9.9f / 20.0f;
+                    else if (drawingManager.currentTilemap == rightThumbTilemap) drawingManager.partScrollbar.value = 8.8f / 20.0f;
+                    else if (drawingManager.currentTilemap == rightIndexTilemap) drawingManager.partScrollbar.value = 7.7f / 20.0f;
+                    else if (drawingManager.currentTilemap == rightMiddleTilemap) drawingManager.partScrollbar.value = 6.6f / 20.0f;
+                    else if (drawingManager.currentTilemap == rightRingTilemap) drawingManager.partScrollbar.value = 5.5f / 20.0f;
+                    else if (drawingManager.currentTilemap == rightPinkyTilemap) drawingManager.partScrollbar.value = 4.4f / 20.0f;
+                    else if (drawingManager.currentTilemap == leftLegTilemap) drawingManager.partScrollbar.value = 3.3f / 20.0f;
+                    else if (drawingManager.currentTilemap == leftFootTilemap) drawingManager.partScrollbar.value = 2.2f / 20.0f;
+                    else if (drawingManager.currentTilemap == rightLegTilemap) drawingManager.partScrollbar.value = 1.1f / 20.0f;
+                    else if (drawingManager.currentTilemap == rightFootTilemap) drawingManager.partScrollbar.value = 0.0f / 20.0f;
                 }
             }
         }

@@ -22,6 +22,8 @@ public class DrawingManager : MonoBehaviour
     public Button drawButton;
     public Button eraseButton;
     public Button fillButton;
+    public Button pickerButton;
+    public Button selectButton;
 
     [Header("Dimension Inputs")]
     public TMP_InputField headX;
@@ -123,11 +125,12 @@ public class DrawingManager : MonoBehaviour
     public Camera mainCamera;
     public TMP_Dropdown gridView;
     public GameObject colorPicker;
+    public Scrollbar partScrollbar;
+    public Scrollbar jointScrollbar;
     [HideInInspector] public Color currentColor;
 
     [HideInInspector] public DrawModes currentMode;
     [HideInInspector] public GridViews currentView;
-    [HideInInspector] public bool changingColors;
     [HideInInspector] public bool mouseInDrawField;
     [HideInInspector] public bool mouseInBorder;
     [HideInInspector] public Tilemap currentTilemap;
@@ -238,19 +241,41 @@ public class DrawingManager : MonoBehaviour
                 drawButton.interactable = false;
                 eraseButton.interactable = true;
                 fillButton.interactable = true;
+                pickerButton.interactable = true;
+                selectButton.interactable = true;
                 currentMode = DrawModes.Draw;
                 break;
             case 1:
                 drawButton.interactable = true;
                 eraseButton.interactable = false;
                 fillButton.interactable = true;
+                pickerButton.interactable = true;
+                selectButton.interactable = true;
                 currentMode = DrawModes.Erase;
                 break;
             case 2:
                 drawButton.interactable = true;
                 eraseButton.interactable = true;
                 fillButton.interactable = false;
+                pickerButton.interactable = true;
+                selectButton.interactable = true;
                 currentMode = DrawModes.Fill;
+                break;
+            case 3:
+                drawButton.interactable = true;
+                eraseButton.interactable = true;
+                fillButton.interactable = true;
+                pickerButton.interactable = false;
+                selectButton.interactable = true;
+                currentMode = DrawModes.Picker;
+                break;
+            case 4:
+                drawButton.interactable = true;
+                eraseButton.interactable = true;
+                fillButton.interactable = true;
+                pickerButton.interactable = true;
+                selectButton.interactable = false;
+                currentMode = DrawModes.Select;
                 break;
         }
     }

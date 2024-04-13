@@ -20503,7 +20503,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -25722,6 +25722,8 @@ MonoBehaviour:
   drawButton: {fileID: 1944090538}
   eraseButton: {fileID: 1764766680}
   fillButton: {fileID: 1075660535}
+  pickerButton: {fileID: 1459662472}
+  selectButton: {fileID: 564393588}
   headX: {fileID: 342331200}
   headY: {fileID: 1698784126}
   headZ: {fileID: 2028790381}
@@ -25815,10 +25817,11 @@ MonoBehaviour:
   mainCamera: {fileID: 963194227}
   gridView: {fileID: 881480689}
   colorPicker: {fileID: 563539458}
+  partScrollbar: {fileID: 122388995}
+  jointScrollbar: {fileID: 683495058}
   currentColor: {r: 0, g: 0, b: 0, a: 0}
   currentMode: 0
   currentView: 0
-  changingColors: 0
   mouseInDrawField: 0
   mouseInBorder: 0
   currentTilemap: {fileID: 0}
@@ -27280,10 +27283,10 @@ RectTransform:
   - {fileID: 1937089302}
   - {fileID: 1470927597}
   - {fileID: 1944090537}
+  - {fileID: 1764766679}
   - {fileID: 1075660534}
   - {fileID: 1459662471}
   - {fileID: 564393587}
-  - {fileID: 1764766679}
   - {fileID: 881480688}
   - {fileID: 1685415875}
   - {fileID: 184566711}
@@ -50049,7 +50052,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

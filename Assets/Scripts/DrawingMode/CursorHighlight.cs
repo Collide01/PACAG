@@ -20,7 +20,7 @@ public class CursorHighlight : MonoBehaviour
     {
         tilemap.ClearAllTiles();
 
-        if (drawingManager.mouseInDrawField && drawingManager.mouseInBorder)
+        if (drawingManager.mouseInDrawField && drawingManager.mouseInBorder && (drawingManager.currentMode == DrawModes.Draw || drawingManager.currentMode == DrawModes.Erase))
         {
             Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int position = tilemap.WorldToCell(worldPoint);
