@@ -19053,6 +19053,7 @@ MonoBehaviour:
   pixelTile: {fileID: 11400000, guid: ba88f54ff42af654195452dce4c61a52, type: 2}
   frameRate: 60
   pixelLocations: []
+  clipName: 
   animationFrames: []
   animationSet: 0
 --- !u!1 &525866578

@@ -1,10 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class Pixelation : MonoBehaviour
 {

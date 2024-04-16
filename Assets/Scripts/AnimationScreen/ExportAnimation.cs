@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.UI;
 using System.IO;
-using UnityEditor;
+using SFB;
 
 public class ExportAnimation : MonoBehaviour
 {
@@ -86,7 +85,7 @@ public class ExportAnimation : MonoBehaviour
         newImage.name = "[InsertNameHere]";
 
         // Allow the user to save the spritesheet anywhere
-        var path = EditorUtility.SaveFilePanel(
+        var path = StandaloneFileBrowser.SaveFilePanel(
             "Save spritesheet as PNG",
             "",
             newImage.name + ".png",
