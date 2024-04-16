@@ -17,6 +17,7 @@ public class Pixelation : MonoBehaviour
     [HideInInspector] public List<List<Color>> cellColors;
     [HideInInspector] public GameObject[] pixelLocations;
     // These variables help to create the animation
+    [HideInInspector] public string clipName;
     private int currentFrame;
     private float animationLength;
     [HideInInspector] public List<float> animationFrames;
@@ -57,6 +58,7 @@ public class Pixelation : MonoBehaviour
         animationFrames.Clear();
         animationSet = false;
         currentFrame = 0;
+        mannequin.GetComponent<Animator>().SetFloat("motionTime", 0);
 
         frameRate = GameObject.FindGameObjectWithTag("CharacterSettings").GetComponent<CharacterSettings>().frameRate;
         UpdatePixelList();
@@ -73,7 +75,7 @@ public class Pixelation : MonoBehaviour
         {
             yield return new WaitForSecondsRealtime(0.25f);
 
-            if (mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length > 0)
+            if (mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length > 0 && mannequin.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name == clipName)
             {
                 SetAnimationEvents();
             }

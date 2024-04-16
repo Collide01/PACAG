@@ -276,7 +276,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
+      m_Icon: {fileID: 2800000, guid: bff3b2a6a6cc52f40bd5d500d6205a6c, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -774,11 +774,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 
+  cloudProjectId: 2c3e3d57-c775-4fd1-956b-b1c0294a4996
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: PACAG
+  organizationId: cms2001
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
