@@ -20,6 +20,13 @@ public class ExportAnimation : MonoBehaviour
 
     public void BeginExport()
     {
+        minX = 0;
+        minY = 0;
+        maxX = 0; 
+        maxY = 0;
+        maxSpriteSizeX = 0;
+        maxSpriteSizeY = 0;
+
         // Loops through all of the tile positions for every sprite to find the maximum possible size for each sprite.
         for (int i = 0; i < pixelation.cellPositions.Count; i++) // pixelation.cellPositions.Count represents the number of frames
         {
@@ -76,7 +83,7 @@ public class ExportAnimation : MonoBehaviour
                     if (pixelation.cellPositions[i].Contains(new Vector3Int(x, y)))
                     {
                         int index = pixelation.cellPositions[i].IndexOf(new Vector3Int(x, y));
-                        newImage.SetPixel((x - minX) + maxSpriteSizeX * (i + 1), y - minY, pixelation.cellColors[i][index]);
+                        newImage.SetPixel((x - minX) + maxSpriteSizeX * (i + 1) - 1, y - minY - 1, pixelation.cellColors[i][index]);
                     }
                 }
             }
