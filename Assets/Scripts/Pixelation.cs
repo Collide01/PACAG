@@ -121,6 +121,10 @@ public class Pixelation : MonoBehaviour
             {
                 if (!animationSet)
                 {
+                    // Organizes the sprite data based on their z-positions.
+                    // This makes it so pixels that already have a color can't be drawn over.
+                    Array.Sort(pixelLocations, ZPositionComparison);
+
                     // Creates a frame for the first loop of the animation
                     while (cellPositions.Count <= currentFrame)
                     {
