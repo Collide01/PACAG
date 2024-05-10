@@ -22568,8 +22568,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 178.89001, y: -47.499992}
-  m_SizeDelta: {x: 163.22, y: 305}
+  m_AnchoredPosition: {x: 162.82014, y: -47.499992}
+  m_SizeDelta: {x: 131.08, y: 305}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &645121642
 MonoBehaviour:
@@ -68755,16 +68755,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Some body parts are empty!
+  m_text: 'Some body parts in this view are empty!
 
     - Head
 
     - Torso
 
-    - Left Arm
-
     -
-    Left Hand
+    Left Arm
+
+    - Left Hand
 
     - Left Thumb
 
@@ -68772,8 +68772,8 @@ MonoBehaviour:
 
     - Left Middle
 
-    - Left
-    Ring
+    -
+    Left Ring
 
     - Left Pinky
 
@@ -68826,8 +68826,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12.5
-  m_fontSizeBase: 12.5
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

@@ -1734,7 +1734,7 @@ public class DrawingManager : MonoBehaviour
         {
             warningText.SetActive(true);
             TMP_Text text = warningText.transform.GetChild(0).GetComponent<TMP_Text>();
-            text.text = "Some body parts are empty!";
+            text.text = "Some body parts in this view are empty!";
 
             // Add each empty tilemap to the text list
             switch (currentView)
