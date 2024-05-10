@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class DrawingManager : MonoBehaviour
 {
@@ -127,6 +128,8 @@ public class DrawingManager : MonoBehaviour
     public GameObject colorPicker;
     public Scrollbar partScrollbar;
     public Scrollbar jointScrollbar;
+    public GameObject warningSign;
+    public GameObject warningText;
     [HideInInspector] public Color currentColor;
 
     [HideInInspector] public DrawModes currentMode;
@@ -228,6 +231,7 @@ public class DrawingManager : MonoBehaviour
         currentColor = Color.red;
         colorPicker.GetComponent<FlexibleColorPicker>().color = currentColor;
         mouseInDrawField = true;
+        warningText.SetActive(false);
 
         currentMode = DrawModes.Draw;
         currentView = GridViews.Front;
@@ -1719,6 +1723,167 @@ public class DrawingManager : MonoBehaviour
         leftFootBorder.gameObject.GetComponent<DrawBorder>().ChangeColliderSize();
         rightLegBorder.gameObject.GetComponent<DrawBorder>().ChangeColliderSize();
         rightFootBorder.gameObject.GetComponent<DrawBorder>().ChangeColliderSize();
+    }
+
+    /// <summary>
+    /// Displays a list of the empty tilemaps
+    /// </summary>
+    public void DisplayWarningText(bool mouseOver)
+    {
+        if (mouseOver)
+        {
+            warningText.SetActive(true);
+            TMP_Text text = warningText.transform.GetChild(0).GetComponent<TMP_Text>();
+            text.text = "Some body parts are empty!";
+
+            // Add each empty tilemap to the text list
+            switch (currentView)
+            {
+                case GridViews.Front:
+                    if (GetNumberOfTiles(frontGrid.GetComponent<DrawGrid>().headTilemap) == 0) text.text += "\n- Head";
+                    if (GetNumberOfTiles(frontGrid.GetComponent<DrawGrid>().torsoTilemap) == 0) text.text += "\n- Torso";
+                    if (GetNumberOfTiles(frontGrid.GetComponent<DrawGrid>().leftArmTilemap) == 0) text.text += "\n- Left Arm";
+                    if (GetNumberOfTiles(frontGrid.GetComponent<DrawGrid>().leftHandTilemap) == 0) text.text += "\n- Left Hand";
+                    if (GetNumberOfTiles(frontGrid.GetComponent<DrawGrid>().leftThumbTilemap) == 0) text.text += "\n- Left Thumb";
+                    if (GetNumberOfTiles(frontGrid.GetComponent<DrawGrid>().leftIndexTilemap) == 0) text.text += "\n- Left Index Finger";
+                    if (GetNumberOfTiles(frontGrid.GetComponent<DrawGrid>().leftMiddleTilemap) == 0) text.text += "\n- Left Middle Finger";
+                    if (GetNumberOfTiles(frontGrid.GetComponent<DrawGrid>().leftRingTilemap) == 0) text.text += "\n- Left Ring Finger";
+                    if (GetNumberOfTiles(frontGrid.GetComponent<DrawGrid>().leftPinkyTilemap) == 0) text.text += "\n- Left Pinky";
+                    if (GetNumberOfTiles(frontGrid.GetComponent<DrawGrid>().rightArmTilemap) == 0) text.text += "\n- Right Arm";
+                    if (GetNumberOfTiles(frontGrid.GetComponent<DrawGrid>().rightHandTilemap) == 0) text.text += "\n- Right Hand";
+                    if (GetNumberOfTiles(frontGrid.GetComponent<DrawGrid>().rightThumbTilemap) == 0) text.text += "\n- Right Thumb";
+                    if (GetNumberOfTiles(frontGrid.GetComponent<DrawGrid>().rightIndexTilemap) == 0) text.text += "\n- Right Index Finger";
+                    if (GetNumberOfTiles(frontGrid.GetComponent<DrawGrid>().rightMiddleTilemap) == 0) text.text += "\n- Right Middle Finger";
+                    if (GetNumberOfTiles(frontGrid.GetComponent<DrawGrid>().rightRingTilemap) == 0) text.text += "\n- Right Ring Finger";
+                    if (GetNumberOfTiles(frontGrid.GetComponent<DrawGrid>().rightPinkyTilemap) == 0) text.text += "\n- Right Pinky";
+                    if (GetNumberOfTiles(frontGrid.GetComponent<DrawGrid>().leftLegTilemap) == 0) text.text += "\n- Left Leg";
+                    if (GetNumberOfTiles(frontGrid.GetComponent<DrawGrid>().leftFootTilemap) == 0) text.text += "\n- Left Foot";
+                    if (GetNumberOfTiles(frontGrid.GetComponent<DrawGrid>().rightLegTilemap) == 0) text.text += "\n- Right Leg";
+                    if (GetNumberOfTiles(frontGrid.GetComponent<DrawGrid>().rightFootTilemap) == 0) text.text += "\n- Right Foot";
+                    break;
+                case GridViews.Back:
+                    if (GetNumberOfTiles(backGrid.GetComponent<DrawGrid>().headTilemap) == 0) text.text += "\n- Head";
+                    if (GetNumberOfTiles(backGrid.GetComponent<DrawGrid>().torsoTilemap) == 0) text.text += "\n- Torso";
+                    if (GetNumberOfTiles(backGrid.GetComponent<DrawGrid>().leftArmTilemap) == 0) text.text += "\n- Left Arm";
+                    if (GetNumberOfTiles(backGrid.GetComponent<DrawGrid>().leftHandTilemap) == 0) text.text += "\n- Left Hand";
+                    if (GetNumberOfTiles(backGrid.GetComponent<DrawGrid>().leftThumbTilemap) == 0) text.text += "\n- Left Thumb";
+                    if (GetNumberOfTiles(backGrid.GetComponent<DrawGrid>().leftIndexTilemap) == 0) text.text += "\n- Left Index Finger";
+                    if (GetNumberOfTiles(backGrid.GetComponent<DrawGrid>().leftMiddleTilemap) == 0) text.text += "\n- Left Middle Finger";
+                    if (GetNumberOfTiles(backGrid.GetComponent<DrawGrid>().leftRingTilemap) == 0) text.text += "\n- Left Ring Finger";
+                    if (GetNumberOfTiles(backGrid.GetComponent<DrawGrid>().leftPinkyTilemap) == 0) text.text += "\n- Left Pinky";
+                    if (GetNumberOfTiles(backGrid.GetComponent<DrawGrid>().rightArmTilemap) == 0) text.text += "\n- Right Arm";
+                    if (GetNumberOfTiles(backGrid.GetComponent<DrawGrid>().rightHandTilemap) == 0) text.text += "\n- Right Hand";
+                    if (GetNumberOfTiles(backGrid.GetComponent<DrawGrid>().rightThumbTilemap) == 0) text.text += "\n- Right Thumb";
+                    if (GetNumberOfTiles(backGrid.GetComponent<DrawGrid>().rightIndexTilemap) == 0) text.text += "\n- Right Index Finger";
+                    if (GetNumberOfTiles(backGrid.GetComponent<DrawGrid>().rightMiddleTilemap) == 0) text.text += "\n- Right Middle Finger";
+                    if (GetNumberOfTiles(backGrid.GetComponent<DrawGrid>().rightRingTilemap) == 0) text.text += "\n- Right Ring Finger";
+                    if (GetNumberOfTiles(backGrid.GetComponent<DrawGrid>().rightPinkyTilemap) == 0) text.text += "\n- Right Pinky";
+                    if (GetNumberOfTiles(backGrid.GetComponent<DrawGrid>().leftLegTilemap) == 0) text.text += "\n- Left Leg";
+                    if (GetNumberOfTiles(backGrid.GetComponent<DrawGrid>().leftFootTilemap) == 0) text.text += "\n- Left Foot";
+                    if (GetNumberOfTiles(backGrid.GetComponent<DrawGrid>().rightLegTilemap) == 0) text.text += "\n- Right Leg";
+                    if (GetNumberOfTiles(backGrid.GetComponent<DrawGrid>().rightFootTilemap) == 0) text.text += "\n- Right Foot";
+                    break;
+                case GridViews.Left:
+                    if (GetNumberOfTiles(leftGrid.GetComponent<DrawGrid>().headTilemap) == 0) text.text += "\n- Head";
+                    if (GetNumberOfTiles(leftGrid.GetComponent<DrawGrid>().torsoTilemap) == 0) text.text += "\n- Torso";
+                    if (GetNumberOfTiles(leftGrid.GetComponent<DrawGrid>().leftArmTilemap) == 0) text.text += "\n- Left Arm";
+                    if (GetNumberOfTiles(leftGrid.GetComponent<DrawGrid>().leftHandTilemap) == 0) text.text += "\n- Left Hand";
+                    if (GetNumberOfTiles(leftGrid.GetComponent<DrawGrid>().leftThumbTilemap) == 0) text.text += "\n- Left Thumb";
+                    if (GetNumberOfTiles(leftGrid.GetComponent<DrawGrid>().leftIndexTilemap) == 0) text.text += "\n- Left Index Finger";
+                    if (GetNumberOfTiles(leftGrid.GetComponent<DrawGrid>().leftMiddleTilemap) == 0) text.text += "\n- Left Middle Finger";
+                    if (GetNumberOfTiles(leftGrid.GetComponent<DrawGrid>().leftRingTilemap) == 0) text.text += "\n- Left Ring Finger";
+                    if (GetNumberOfTiles(leftGrid.GetComponent<DrawGrid>().leftPinkyTilemap) == 0) text.text += "\n- Left Pinky";
+                    if (GetNumberOfTiles(leftGrid.GetComponent<DrawGrid>().rightArmTilemap) == 0) text.text += "\n- Right Arm";
+                    if (GetNumberOfTiles(leftGrid.GetComponent<DrawGrid>().rightHandTilemap) == 0) text.text += "\n- Right Hand";
+                    if (GetNumberOfTiles(leftGrid.GetComponent<DrawGrid>().rightThumbTilemap) == 0) text.text += "\n- Right Thumb";
+                    if (GetNumberOfTiles(leftGrid.GetComponent<DrawGrid>().rightIndexTilemap) == 0) text.text += "\n- Right Index Finger";
+                    if (GetNumberOfTiles(leftGrid.GetComponent<DrawGrid>().rightMiddleTilemap) == 0) text.text += "\n- Right Middle Finger";
+                    if (GetNumberOfTiles(leftGrid.GetComponent<DrawGrid>().rightRingTilemap) == 0) text.text += "\n- Right Ring Finger";
+                    if (GetNumberOfTiles(leftGrid.GetComponent<DrawGrid>().rightPinkyTilemap) == 0) text.text += "\n- Right Pinky";
+                    if (GetNumberOfTiles(leftGrid.GetComponent<DrawGrid>().leftLegTilemap) == 0) text.text += "\n- Left Leg";
+                    if (GetNumberOfTiles(leftGrid.GetComponent<DrawGrid>().leftFootTilemap) == 0) text.text += "\n- Left Foot";
+                    if (GetNumberOfTiles(leftGrid.GetComponent<DrawGrid>().rightLegTilemap) == 0) text.text += "\n- Right Leg";
+                    if (GetNumberOfTiles(leftGrid.GetComponent<DrawGrid>().rightFootTilemap) == 0) text.text += "\n- Right Foot";
+                    break;
+                case GridViews.Right:
+                    if (GetNumberOfTiles(rightGrid.GetComponent<DrawGrid>().headTilemap) == 0) text.text += "\n- Head";
+                    if (GetNumberOfTiles(rightGrid.GetComponent<DrawGrid>().torsoTilemap) == 0) text.text += "\n- Torso";
+                    if (GetNumberOfTiles(rightGrid.GetComponent<DrawGrid>().leftArmTilemap) == 0) text.text += "\n- Left Arm";
+                    if (GetNumberOfTiles(rightGrid.GetComponent<DrawGrid>().leftHandTilemap) == 0) text.text += "\n- Left Hand";
+                    if (GetNumberOfTiles(rightGrid.GetComponent<DrawGrid>().leftThumbTilemap) == 0) text.text += "\n- Left Thumb";
+                    if (GetNumberOfTiles(rightGrid.GetComponent<DrawGrid>().leftIndexTilemap) == 0) text.text += "\n- Left Index Finger";
+                    if (GetNumberOfTiles(rightGrid.GetComponent<DrawGrid>().leftMiddleTilemap) == 0) text.text += "\n- Left Middle Finger";
+                    if (GetNumberOfTiles(rightGrid.GetComponent<DrawGrid>().leftRingTilemap) == 0) text.text += "\n- Left Ring Finger";
+                    if (GetNumberOfTiles(rightGrid.GetComponent<DrawGrid>().leftPinkyTilemap) == 0) text.text += "\n- Left Pinky";
+                    if (GetNumberOfTiles(rightGrid.GetComponent<DrawGrid>().rightArmTilemap) == 0) text.text += "\n- Right Arm";
+                    if (GetNumberOfTiles(rightGrid.GetComponent<DrawGrid>().rightHandTilemap) == 0) text.text += "\n- Right Hand";
+                    if (GetNumberOfTiles(rightGrid.GetComponent<DrawGrid>().rightThumbTilemap) == 0) text.text += "\n- Right Thumb";
+                    if (GetNumberOfTiles(rightGrid.GetComponent<DrawGrid>().rightIndexTilemap) == 0) text.text += "\n- Right Index Finger";
+                    if (GetNumberOfTiles(rightGrid.GetComponent<DrawGrid>().rightMiddleTilemap) == 0) text.text += "\n- Right Middle Finger";
+                    if (GetNumberOfTiles(rightGrid.GetComponent<DrawGrid>().rightRingTilemap) == 0) text.text += "\n- Right Ring Finger";
+                    if (GetNumberOfTiles(rightGrid.GetComponent<DrawGrid>().rightPinkyTilemap) == 0) text.text += "\n- Right Pinky";
+                    if (GetNumberOfTiles(rightGrid.GetComponent<DrawGrid>().leftLegTilemap) == 0) text.text += "\n- Left Leg";
+                    if (GetNumberOfTiles(rightGrid.GetComponent<DrawGrid>().leftFootTilemap) == 0) text.text += "\n- Left Foot";
+                    if (GetNumberOfTiles(rightGrid.GetComponent<DrawGrid>().rightLegTilemap) == 0) text.text += "\n- Right Leg";
+                    if (GetNumberOfTiles(rightGrid.GetComponent<DrawGrid>().rightFootTilemap) == 0) text.text += "\n- Right Foot";
+                    break;
+                case GridViews.Top:
+                    if (GetNumberOfTiles(topGrid.GetComponent<DrawGrid>().headTilemap) == 0) text.text += "\n- Head";
+                    if (GetNumberOfTiles(topGrid.GetComponent<DrawGrid>().torsoTilemap) == 0) text.text += "\n- Torso";
+                    if (GetNumberOfTiles(topGrid.GetComponent<DrawGrid>().leftArmTilemap) == 0) text.text += "\n- Left Arm";
+                    if (GetNumberOfTiles(topGrid.GetComponent<DrawGrid>().leftHandTilemap) == 0) text.text += "\n- Left Hand";
+                    if (GetNumberOfTiles(topGrid.GetComponent<DrawGrid>().leftThumbTilemap) == 0) text.text += "\n- Left Thumb";
+                    if (GetNumberOfTiles(topGrid.GetComponent<DrawGrid>().leftIndexTilemap) == 0) text.text += "\n- Left Index Finger";
+                    if (GetNumberOfTiles(topGrid.GetComponent<DrawGrid>().leftMiddleTilemap) == 0) text.text += "\n- Left Middle Finger";
+                    if (GetNumberOfTiles(topGrid.GetComponent<DrawGrid>().leftRingTilemap) == 0) text.text += "\n- Left Ring Finger";
+                    if (GetNumberOfTiles(topGrid.GetComponent<DrawGrid>().leftPinkyTilemap) == 0) text.text += "\n- Left Pinky";
+                    if (GetNumberOfTiles(topGrid.GetComponent<DrawGrid>().rightArmTilemap) == 0) text.text += "\n- Right Arm";
+                    if (GetNumberOfTiles(topGrid.GetComponent<DrawGrid>().rightHandTilemap) == 0) text.text += "\n- Right Hand";
+                    if (GetNumberOfTiles(topGrid.GetComponent<DrawGrid>().rightThumbTilemap) == 0) text.text += "\n- Right Thumb";
+                    if (GetNumberOfTiles(topGrid.GetComponent<DrawGrid>().rightIndexTilemap) == 0) text.text += "\n- Right Index Finger";
+                    if (GetNumberOfTiles(topGrid.GetComponent<DrawGrid>().rightMiddleTilemap) == 0) text.text += "\n- Right Middle Finger";
+                    if (GetNumberOfTiles(topGrid.GetComponent<DrawGrid>().rightRingTilemap) == 0) text.text += "\n- Right Ring Finger";
+                    if (GetNumberOfTiles(topGrid.GetComponent<DrawGrid>().rightPinkyTilemap) == 0) text.text += "\n- Right Pinky";
+                    if (GetNumberOfTiles(topGrid.GetComponent<DrawGrid>().leftLegTilemap) == 0) text.text += "\n- Left Leg";
+                    if (GetNumberOfTiles(topGrid.GetComponent<DrawGrid>().leftFootTilemap) == 0) text.text += "\n- Left Foot";
+                    if (GetNumberOfTiles(topGrid.GetComponent<DrawGrid>().rightLegTilemap) == 0) text.text += "\n- Right Leg";
+                    if (GetNumberOfTiles(topGrid.GetComponent<DrawGrid>().rightFootTilemap) == 0) text.text += "\n- Right Foot";
+                    break;
+                case GridViews.Bottom:
+                    if (GetNumberOfTiles(bottomGrid.GetComponent<DrawGrid>().headTilemap) == 0) text.text += "\n- Head";
+                    if (GetNumberOfTiles(bottomGrid.GetComponent<DrawGrid>().torsoTilemap) == 0) text.text += "\n- Torso";
+                    if (GetNumberOfTiles(bottomGrid.GetComponent<DrawGrid>().leftArmTilemap) == 0) text.text += "\n- Left Arm";
+                    if (GetNumberOfTiles(bottomGrid.GetComponent<DrawGrid>().leftHandTilemap) == 0) text.text += "\n- Left Hand";
+                    if (GetNumberOfTiles(bottomGrid.GetComponent<DrawGrid>().leftThumbTilemap) == 0) text.text += "\n- Left Thumb";
+                    if (GetNumberOfTiles(bottomGrid.GetComponent<DrawGrid>().leftIndexTilemap) == 0) text.text += "\n- Left Index Finger";
+                    if (GetNumberOfTiles(bottomGrid.GetComponent<DrawGrid>().leftMiddleTilemap) == 0) text.text += "\n- Left Middle Finger";
+                    if (GetNumberOfTiles(bottomGrid.GetComponent<DrawGrid>().leftRingTilemap) == 0) text.text += "\n- Left Ring Finger";
+                    if (GetNumberOfTiles(bottomGrid.GetComponent<DrawGrid>().leftPinkyTilemap) == 0) text.text += "\n- Left Pinky";
+                    if (GetNumberOfTiles(bottomGrid.GetComponent<DrawGrid>().rightArmTilemap) == 0) text.text += "\n- Right Arm";
+                    if (GetNumberOfTiles(bottomGrid.GetComponent<DrawGrid>().rightHandTilemap) == 0) text.text += "\n- Right Hand";
+                    if (GetNumberOfTiles(bottomGrid.GetComponent<DrawGrid>().rightThumbTilemap) == 0) text.text += "\n- Right Thumb";
+                    if (GetNumberOfTiles(bottomGrid.GetComponent<DrawGrid>().rightIndexTilemap) == 0) text.text += "\n- Right Index Finger";
+                    if (GetNumberOfTiles(bottomGrid.GetComponent<DrawGrid>().rightMiddleTilemap) == 0) text.text += "\n- Right Middle Finger";
+                    if (GetNumberOfTiles(bottomGrid.GetComponent<DrawGrid>().rightRingTilemap) == 0) text.text += "\n- Right Ring Finger";
+                    if (GetNumberOfTiles(bottomGrid.GetComponent<DrawGrid>().rightPinkyTilemap) == 0) text.text += "\n- Right Pinky";
+                    if (GetNumberOfTiles(bottomGrid.GetComponent<DrawGrid>().leftLegTilemap) == 0) text.text += "\n- Left Leg";
+                    if (GetNumberOfTiles(bottomGrid.GetComponent<DrawGrid>().leftFootTilemap) == 0) text.text += "\n- Left Foot";
+                    if (GetNumberOfTiles(bottomGrid.GetComponent<DrawGrid>().rightLegTilemap) == 0) text.text += "\n- Right Leg";
+                    if (GetNumberOfTiles(bottomGrid.GetComponent<DrawGrid>().rightFootTilemap) == 0) text.text += "\n- Right Foot";
+                    break;
+            }
+        }
+        else
+        {
+            warningText.SetActive(false);
+        }
+    }
+
+    public static int GetNumberOfTiles(Tilemap tilemap)
+    {
+        tilemap.CompressBounds();
+        TileBase[] tiles = tilemap.GetTilesBlock(tilemap.cellBounds);
+        return tiles.Where(x => x != null).ToArray().Length;
     }
 
     /// <summary>

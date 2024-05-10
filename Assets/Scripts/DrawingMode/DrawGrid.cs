@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
@@ -75,12 +76,16 @@ public class DrawGrid : MonoBehaviour
 
                     // Set the color.
                     drawingManager.currentTilemap.SetColor(position, drawingManager.currentColor);
+
+                    CheckForEmptyTilemaps();
                 }
                 else if (drawingManager.currentMode == DrawModes.Erase)
                 {
                     // Erase the tile
                     drawingManager.currentTilemap.SetTile(position, null);
                     drawingManager.currentTilemap.CompressBounds();
+
+                    CheckForEmptyTilemaps();
                 }
                 else if (drawingManager.currentMode == DrawModes.Fill && Input.GetMouseButtonDown(0))
                 {
@@ -300,6 +305,8 @@ public class DrawGrid : MonoBehaviour
                     }
 
                     Fill(drawingManager.currentTilemap, minX, maxX, minY, maxY, minZ, maxZ, position, selectedTile, oldColor);
+
+                    CheckForEmptyTilemaps();
                 }
                 else if (drawingManager.currentMode == DrawModes.Picker && Input.GetMouseButtonDown(0))
                 {
@@ -436,6 +443,44 @@ public class DrawGrid : MonoBehaviour
                 Fill(currentTilemap, minX, maxX, minY, maxY, minZ, maxZ, new Vector3Int(position.x, position.y, position.z - 1), selectedTile, oldColor);
             }
         }
+    }
+
+    public void CheckForEmptyTilemaps()
+    {
+        if (GetNumberOfTiles(headTilemap) == 0 ||
+        GetNumberOfTiles(torsoTilemap) == 0 ||
+        GetNumberOfTiles(leftArmTilemap) == 0 ||
+        GetNumberOfTiles(leftHandTilemap) == 0 ||
+        GetNumberOfTiles(leftThumbTilemap) == 0 ||
+        GetNumberOfTiles(leftIndexTilemap) == 0 ||
+        GetNumberOfTiles(leftMiddleTilemap) == 0 ||
+        GetNumberOfTiles(leftRingTilemap) == 0 ||
+        GetNumberOfTiles(leftPinkyTilemap) == 0 ||
+        GetNumberOfTiles(rightArmTilemap) == 0 ||
+        GetNumberOfTiles(rightHandTilemap) == 0 ||
+        GetNumberOfTiles(rightThumbTilemap) == 0 ||
+        GetNumberOfTiles(rightIndexTilemap) == 0 ||
+        GetNumberOfTiles(rightMiddleTilemap) == 0 ||
+        GetNumberOfTiles(rightRingTilemap) == 0 ||
+        GetNumberOfTiles(rightPinkyTilemap) == 0 ||
+        GetNumberOfTiles(leftLegTilemap) == 0 ||
+        GetNumberOfTiles(leftFootTilemap) == 0 ||
+        GetNumberOfTiles(rightLegTilemap) == 0 ||
+        GetNumberOfTiles(rightFootTilemap) == 0)
+        {
+            drawingManager.warningSign.SetActive(true);
+        }
+        else
+        {
+            drawingManager.warningSign.SetActive(false);
+        }
+    }
+
+    public static int GetNumberOfTiles(Tilemap tilemap)
+    {
+        tilemap.CompressBounds();
+        TileBase[] tiles = tilemap.GetTilesBlock(tilemap.cellBounds);
+        return tiles.Where(x => x != null).ToArray().Length;
     }
 
     public void CleanAllTilemaps()
